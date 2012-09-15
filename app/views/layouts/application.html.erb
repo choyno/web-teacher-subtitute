@@ -1,22 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>WebBasedTeachersSubstitutionSystem</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
@@ -33,7 +16,6 @@
 	<%= stylesheet_link_tag    "application", "all", :media => "all" %>
   <%= javascript_include_tag "application" %>
 	
-			
 	<!--[if gte IE 9]>
 	<link rel="stylesheet" href="stylesheets/ie9.css" type="text/css" />
 	<![endif]-->
@@ -45,11 +27,10 @@
 </head>
 
 <body>
-
-	<div id="wrapper">
 	
+	<div id="wrapper">
 		<div id="header">
-			<h1><%= image_tag 'logo2.png' %></h1>
+			<%= image_tag 'logo2.png', style: 'height:150px' %>
 		
 				<a href="javascript:;" id="reveal-nav">
 					<span class="reveal-bar"></span>
@@ -57,10 +38,11 @@
 					<span class="reveal-bar"></span>
 				</a>
  		</div> <!-- #header -->
-
-		<%= render 'panel/shared/navigation' %>
-		<%= yield %>
-		<%= render 'panel/shared/headernav' %>
+		<div class="content">
+			<%= render 'panel/shared/navigation' %>
+			<%= yield %>
+			<%= render 'panel/shared/headernav' %>
+		</div>
 	
 	</div> <!-- #wrapper -->
 
