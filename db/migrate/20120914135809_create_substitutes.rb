@@ -6,7 +6,7 @@ class CreateSubstitutes < ActiveRecord::Migration
   		t.integer   :reasons_id
   		t.text      :notes
   		t.integer   :teachers_subject_id
-  		t.boolen    :planned
+  		t.boolean   :planned, default: false
   		t.integer   :status_id
   		t.datetime  :requested_at
   		t.integer   :assigned_by_user_id

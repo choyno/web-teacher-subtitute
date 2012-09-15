@@ -1,6 +1,7 @@
 class DayCode < ActiveRecord::Base
-  # attr_accessible :title, :body
   
-  validates :name, prensence: true
+  attr_accessible :name
+  
+  validates :name, presence: true
   
 end

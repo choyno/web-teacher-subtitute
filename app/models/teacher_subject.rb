@@ -1,5 +1,6 @@
 class TeacherSubject < ActiveRecord::Base
-  # attr_accessible :title, :body
+  
+  attr_accessible
   
   belongs_to :day_code
   belongs_to :teacher

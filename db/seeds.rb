@@ -13,17 +13,17 @@
                 { code: "IT101", name: "IT Fundamentals" }
              ]
 
-  subjects.each { |subject| Subject.create({ name: subject[:name], code: subject[:code] })  }
+  subjects.each { |subject| Subject.create(subject)  }
 
 
 # ===================================
 # START FOR TEACHER
 # ===================================
-  teachers = [ { first_name: 'Arlo Leo', last_name: 'Bolivar' },
-               { first_name: 'Jofel', last_name: 'Lubino' }
+  teachers = [ { firstname: 'Arlo Leo', lastname: 'Bolivar' },
+               { firstname: 'Jofel', lastname: 'Lubino' }
              ]
-  
-  teachers.each { |teacher| Teacher.create({ first_name: teacher[:first_name], last_name: teacher[:last_name]  })  }
+    
+  teachers.each { |teacher| Teacher.create(teacher)  }
 
 
 # ===================================
@@ -39,6 +39,14 @@
 # ===================================
   reasons = [ "Leave", "Absent", "Attending Meeting" ]
   
-  reasons.eachd { |reason| Reason.create({ name: reason })  }
+  reasons.each { |reason| Reason.create({ name: reason })  }
+
+
+# ===================================
+# START FOR STATUS
+# ===================================
+  statuses = [ "Subtitute", "Approved", "Vouch" ]
+
+  statuses.each { |status| Status.create({ name: status })  }
   
   
