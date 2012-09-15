@@ -4,6 +4,8 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   
   namespace :panel do
     root :to => 'dashboard#show'
+
+    resources :accounts
   end
   
   
