@@ -9,5 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require all
+ *= require buttons
  *= require_tree .
  */
+
+
+body {
+ 	background: url("filler.png") repeat-x scroll 0 0 #0F64DC;
+}

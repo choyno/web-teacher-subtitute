@@ -1,7 +1,5 @@
 class Substitute < ActiveRecord::Base
   
-  attr_accessible
-  
   belongs_to :teacher
 
   belongs_to :teacher_subject

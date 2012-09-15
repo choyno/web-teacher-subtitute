@@ -1,7 +1,5 @@
 class Teacher < ActiveRecord::Base
-  
-  attr_accessible :firstname, :lastname
-  
+    
   has_many :subtitutes
   has_many :teacher_subjects
   
