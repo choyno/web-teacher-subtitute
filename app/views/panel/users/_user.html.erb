@@ -1,0 +1,15 @@
+<tr>
+	<td><%= user.full_name %></td>
+	<td><%= user.username %></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>
+		<%= link_to edit_panel_user_path(user) do %>
+			<button class="btn btn-small btn-quaternary">
+				<span class="icon-pen"></span>
+				Edit
+			</button>
+		<% end %>
+	</td>	
+</tr>

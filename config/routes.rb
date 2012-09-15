@@ -1,11 +1,16 @@
 WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  
   resources :sessions
   
   namespace :panel do
     root :to => 'dashboard#show'
 
-    resources :accounts
+    resources :users
+    resources :teacher_schedules
+    resources :substitution_records
   end
   
   

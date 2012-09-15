@@ -1,0 +1,30 @@
+<div id="login_panel">
+	<%= form_tag sessions_path do %>
+	
+		<% if flash[:alert] %>
+			<div class="notify notify-error">
+				<a class="close" href="javascript:;">×</a>
+					<% flash.each do |name, msg| %>
+					  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+					<% end %>
+			</div>
+		<% end %>
+		
+		<div class="login_fields">
+			<div class="field">
+				<%= label_tag :username %>
+				<%= text_field_tag :username, params[:username], placeholder: 'username'  %>		
+			</div>
+		 
+			<div class="field">
+				<%= label_tag :password %>
+				<%= password_field_tag :password, nil , placeholder: 'password'  %>		
+			</div>
+		
+		</div> <!-- .login_fields -->
+	
+		<div class="login_actions">
+			<%= submit_tag 'Login', class: 'btn btn-primary' %>
+		</div>
+	<% end %>
+</div> <!-- #login_panel -->

@@ -1,19 +1,19 @@
 			<div class="field-group inlineField " style="float:left;">	
 				<div class="field">
-					<label for="fullname">Full Name :</label>
-					<input id="fullname" class="" type="text" size="24" name="fullname">
+					<%= f.label :full_name %>
+					<%= f.text_field :full_name, size: 24, placehold: 'Full Name' %>
 				</div>
 				<br/>
 
 				<div class="field">
-					<label for="username">Username :</label>
-					<input id="username" class="" type="text" size="24" name="username">
+					<%= f.label :username %>
+					<%= f.text_field :username, placeholder: 'Username', size: 24 %>
 				</div>
 				<br/>
 
 				<div class="field">
-					<label for="password">Password :</label>
-					<input id="aname" class="" type="password" size="24" name="password">
+					<%= f.label :password %>
+					<%= f.password_field :password, placeholder: 'password', size: 24  %>
 				</div>
 				<br/>
 			</div>
