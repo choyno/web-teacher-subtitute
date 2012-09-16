@@ -1,7 +1,5 @@
 WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   
-  resources :testings
-
   delete "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   
