@@ -8,7 +8,6 @@ gem 'mysql2', '0.3.10'
 
 #gem 'sqlite3'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -24,7 +23,7 @@ end
 gem 'jquery-rails'
 gem 'therubyracer'
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

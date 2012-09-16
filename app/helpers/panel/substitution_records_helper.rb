@@ -1,0 +1,2 @@
+module Panel::SubstitutionRecordsHelper
+end
