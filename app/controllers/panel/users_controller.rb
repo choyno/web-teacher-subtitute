@@ -1,5 +1,5 @@
 class Panel::UsersController < ApplicationController
-  
+    
   def index
     @users = User.all
   end
@@ -10,6 +10,8 @@ class Panel::UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    
+    session[:user_id] = @user.id
     
     if @user.save
       redirect_to panel_users_path, :notice => "User successfully created!"
