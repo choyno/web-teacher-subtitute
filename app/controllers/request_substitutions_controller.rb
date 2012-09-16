@@ -1,0 +1,2 @@
+class RequestSubstitutionsController < ApplicationController
+end

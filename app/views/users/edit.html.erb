@@ -1,11 +1,11 @@
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Create User</h1>
+		<h1>Edit User</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
 			
-			<%= form_for [:panel, @user], method: :post do |f| %>
+			<%= form_for @user do |f| %>
 			
 				<% if @user.errors.present? %>
 					<div class="notify notify-error">
@@ -29,7 +29,7 @@
 						</div> <!-- .widget-content -->
 					</div> <!-- .widget -->
 						<button class="btn btn-primary btn-blue">Save</button>
-						<%= link_to 'Cancel', panel_users_path, class: 'btn btn-primary btn-blue'  %>
+						<%= link_to 'Cancel', users_path, class: 'btn btn-primary btn-blue'  %>
 				</div>
 				
 			<% end %>

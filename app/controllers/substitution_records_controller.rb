@@ -1,0 +1,2 @@
+class SubstitutionRecordsController < ApplicationController
+end
