@@ -4,8 +4,36 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-
 			
+		<%= form_for [:panel, @request_substitution], method: :post do |f| %>
+				
+					<% if @request_substitution.errors.present? %>
+						<div class="notify notify-error">
+							<a class="close" href="javascript:;">×</a>
+							
+							<% for msg in @request_substitution.errors.full_messages %>
+			          <%= content_tag :div, msg %>
+			        <% end %>
+								
+						</div>
+					<% end %>
+					
+					<div class="form uniformForm">					
+						<div class="widget">
+							<div class="widget-header">
+								<span class="icon-user"></span>
+								<h3>User Information</h3>
+							</div>
+							<div class="widget-content">
+								<%= render 'form', f: f %>
+							</div> <!-- .widget-content -->
+						</div> <!-- .widget -->
+
+							<button class="btn btn-primary btn-blue">Save</button>
+							<%= link_to 'Cancel', panel_users_path, class: 'btn btn-primary btn-blue'  %>
+					</div>
+					
+				<% end %>	
 		</div> <!-- .widget -->	
 	</div> <!-- .grid -->			
 </div>
