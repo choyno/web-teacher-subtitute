@@ -1,0 +1,2 @@
+module Panel::RequestSubstitutionsHelper
+end

@@ -14,7 +14,19 @@
 		
 		<li id="navTables" class="nav">
 			<span class="icon-list"></span>
-			<%= link_to "Teacher's Schedule", nil %>
+			<%= link_to "Teacher's Schedule", panel_teacher_schedules_path %>
+		</li>
+
+
+		<li id="navTables" class="nav">
+			<span class="icon-info"></span>
+			<%= link_to 'Request Substitution', panel_request_substitutions_path %>
+		</li>
+
+
+		<li id="navTables" class="nav">
+			<span class="icon-document-alt-stroke"></span>
+			<%= link_to 'Generate Report', nil %>
 		</li>
 
 		<li id="navTables" class="nav">
@@ -22,10 +34,7 @@
 			<%= link_to 'Substitution Record', nil %>
 		</li>
 
-		<li id="navTables" class="nav">
-			<span class="icon-info"></span>
-			<%= link_to 'Reasons', nil %>
-		</li>
+		
 	</ul>
 	
 </div> <!-- #sidebar -->
