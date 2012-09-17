@@ -12,6 +12,7 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
     resources :teacher_schedules
     resources :substitution_records
     resources :request_substitutions
+    resources :generate_reports
   end
   
   
