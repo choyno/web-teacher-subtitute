@@ -166,7 +166,7 @@ body {
 }
 
 	#header h1 {
-		/*background: url(../images/logo.png) no-repeat 0 0;*/
+		/*background: url(logo.png) no-repeat 0 0;*/
 		width: 191px;
 		height: 107px;
    		top: 5px;
@@ -255,7 +255,7 @@ body {
 	}
 	
 		#search input {
-			background: #626262 url(../images/search/search.png) no-repeat 12px 50%;
+			background: #626262 url(search/search.png) no-repeat 12px 50%;
 			width: 150px;
 			padding: 6px 30px 6px 30px;
 			border: 1px solid #363636;
@@ -281,6 +281,7 @@ body {
 	float: left;
 	position: relative;
 	z-index: 16;
+	margin-top: -28px;
 }
 
 	.sidebarBox {
@@ -441,7 +442,7 @@ body {
 		}
 		
 		#mainNav li.nav [class^="icon-"], #mainNav li.nav [class*=" icon-"] {
-			background-image: url(../images/sprite/sprite-16-black.png);
+			background-image: url(sprite/sprite-16-black.png);
 			background-repeat: no-repeat;
 			
 			width: 16px;
@@ -639,7 +640,7 @@ body {
 		}
 		
 		#quickNav li [class^="icon-"] {
-			background-image: url(../images/sprite/sprite-12-white.png);
+			background-image: url(sprite/sprite-12-white.png);
 			background-repeat: no-repeat;
 			
 			width: 12px;
@@ -784,7 +785,7 @@ body {
 				.menu-dropdown .menu-content li:last-child { border-bottom: none; }
 	
 				.menu-dropdown .menu-content a {
-					background: url(../images/bullets/bullet_black.png) no-repeat 2px 50%;
+					background: url(bullets/bullet_black.png) no-repeat 2px 50%;
 					color: #FFF;
 					display: block;
 					padding: 7px 3px 7px 22px;
@@ -793,7 +794,7 @@ body {
 	.menu-dropdown .menuClose { display: none; }
 
 [class^="icon-"] {
-	background: url(../images/sprite/sprite-16-black.png);
+	background: url(sprite/sprite-16-black.png);
 	width: 16px;
 	height: 16px;
 	display: inline-block;	
@@ -1102,7 +1103,7 @@ body {
 /* @Icon Layout */
 
 .btn [class^="icon-"] {
-	background-image: url(../images/sprite/sprite-16-white.png);
+	background-image: url(sprite/sprite-16-white.png);
 	background-repeat: no-repeat;
 	padding-left: 20px;
 	padding-bottom: 2px;
@@ -1114,7 +1115,7 @@ body {
 }
 
 .btn-small [class^="icon-"] {
-	background-image: url(../images/sprite/sprite-12-white.png);
+	background-image: url(sprite/sprite-12-white.png);
 	background-repeat: no-repeat;
 	padding-left: 16px;
 	padding-bottom: 2px;
@@ -1124,7 +1125,7 @@ body {
 }
 
 .btn-large [class^="icon-"] {
-	background-image: url(../images/sprite/sprite-24-white.png);
+	background-image: url(sprite/sprite-24-white.png);
 	padding-left: 24px;
 	padding-bottom: 8px;
 	top: -4px;
@@ -1133,7 +1134,7 @@ body {
 
 
 .btn-xlarge [class^="icon-"] {
-	background-image: url(../images/sprite/sprite-32-white.png);
+	background-image: url(sprite/sprite-32-white.png);
 	padding-left: 36px;
 	padding-bottom: 6px;
 	top: -2px;
@@ -1141,26 +1142,26 @@ body {
 }
 
 .btn.btn-quaternary [class^="icon-"] {
-	background-image: url(../images/sprite/sprite-16-black.png);
+	background-image: url(sprite/sprite-16-black.png);
 	opacity: .7;
 	filter: alpha(opacity=70);
 
 }
 
 .btn-small.btn-quaternary [class^="icon-"] {
-	background-image: url(../images/sprite/sprite-12-black.png);
+	background-image: url(sprite/sprite-12-black.png);
 	opacity: .7;
 	filter: alpha(opacity=70);
 }
 
 .btn-large.btn-quaternary [class^="icon-"] {
-	background-image: url(../images/sprite/sprite-24-black.png);
+	background-image: url(sprite/sprite-24-black.png);
 	opacity: .7;
 	filter: alpha(opacity=70);
 }
 
 .btn-xlarge.btn-quaternary [class^="icon-"] {
-	background-image: url(../images/sprite/sprite-32-black.png);
+	background-image: url(sprite/sprite-32-black.png);
 	opacity: .7;
 	filter: alpha(opacity=70);
 }
@@ -1900,7 +1901,7 @@ div.uploader,
 div.uploader span.action,
 div.button,
 div.button span {
-  background-image: url(../images/uniform/sprite.png);
+  background-image: url(sprite.png);
   background-repeat: no-repeat;
   -webkit-font-smoothing: antialiased;
 }
@@ -1930,8 +1931,8 @@ textarea.uniform {
   font-weight: normal;
   padding: 3px;
   color: #777;
-  background: url('../images/bg-input-focus.html') repeat-x 0px 0px;
-  background: url('../images/bg-input.html') repeat-x 0px 0px;
+  background: url('bg-input-focus.html') repeat-x 0px 0px;
+  background: url('bg-input.html') repeat-x 0px 0px;
   border-top: solid 1px #aaa;
   border-left: solid 1px #aaa;
   border-bottom: solid 1px #ccc;
@@ -1950,7 +1951,7 @@ textarea.uniform:focus {
   -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
   box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
   border-color: #999;
-  background: url('../images/bg-input-focus.html') repeat-x 0px 0px;
+  background: url('bg-input-focus.html') repeat-x 0px 0px;
 }
 
 /* SPRITES */
@@ -3513,7 +3514,7 @@ table.fc-border-separate {
 	height: 176px;
 	overflow: hidden;
 	position: absolute;
-	background: url(../images/colorpicker/colorpicker_background.png);
+	background: url(colorpicker/colorpicker_background.png);
 	font-family: Arial, Helvetica, sans-serif;
 	display: none;
 }
@@ -3533,7 +3534,7 @@ table.fc-border-separate {
 	left: 0;
 	width: 150px;
 	height: 150px;
-	background: url(../images/colorpicker/colorpicker_overlay.png);
+	background: url(colorpicker/colorpicker_overlay.png);
 }
 .colorpicker_color div div {
 	position: absolute;
@@ -3542,7 +3543,7 @@ table.fc-border-separate {
 	width: 11px;
 	height: 11px;
 	overflow: hidden;
-	background: url(../images/colorpicker/colorpicker_select.gif);
+	background: url(colorpicker/colorpicker_select.gif);
 	margin: -5px 0 0 -5px;
 }
 .colorpicker_hue {
@@ -3558,7 +3559,7 @@ table.fc-border-separate {
 	width: 35px;
 	height: 9px;
 	overflow: hidden;
-	background: url(../images/colorpicker/colorpicker_indic.gif) left top;
+	background: url(colorpicker/colorpicker_indic.gif) left top;
 	margin: -4px 0 0 0;
 	left: 0px;
 }
@@ -3596,7 +3597,7 @@ table.fc-border-separate {
 	position: absolute;
 	width: 72px;
 	height: 22px;
-	background: url(../images/colorpicker/colorpicker_hex.png) top;
+	background: url(colorpicker/colorpicker_hex.png) top;
 	left: 212px;
 	top: 142px;
 }
@@ -3619,32 +3620,32 @@ table.fc-border-separate {
 	cursor: n-resize;
 }
 .colorpicker_rgb_r {
-	background-image: url(../images/colorpicker/colorpicker_rgb_r.png);
+	background-image: url(colorpicker/colorpicker_rgb_r.png);
 	top: 52px;
 	left: 212px;
 }
 .colorpicker_rgb_g {
-	background-image: url(../images/colorpicker/colorpicker_rgb_g.png);
+	background-image: url(colorpicker/colorpicker_rgb_g.png);
 	top: 82px;
 	left: 212px;
 }
 .colorpicker_rgb_b {
-	background-image: url(../images/colorpicker/colorpicker_rgb_b.png);
+	background-image: url(colorpicker/colorpicker_rgb_b.png);
 	top: 112px;
 	left: 212px;
 }
 .colorpicker_hsb_h {
-	background-image: url(../images/colorpicker/colorpicker_hsb_h.png);
+	background-image: url(colorpicker/colorpicker_hsb_h.png);
 	top: 52px;
 	left: 282px;
 }
 .colorpicker_hsb_s {
-	background-image: url(../images/colorpicker/colorpicker_hsb_s.png);
+	background-image: url(colorpicker/colorpicker_hsb_s.png);
 	top: 82px;
 	left: 282px;
 }
 .colorpicker_hsb_b {
-	background-image: url(../images/colorpicker/colorpicker_hsb_b.png);
+	background-image: url(colorpicker/colorpicker_hsb_b.png);
 	top: 112px;
 	left: 282px;
 }
@@ -3652,7 +3653,7 @@ table.fc-border-separate {
 	position: absolute;
 	width: 22px;
 	height: 22px;
-	background: url(../images/colorpicker/colorpicker_submit.png) top;
+	background: url(colorpicker/colorpicker_submit.png) top;
 	left: 322px;
 	top: 142px;
 	overflow: hidden;
@@ -3695,7 +3696,7 @@ table.fc-border-separate {
  *     ensure that you either have "example_alt_pagination" as a body class name, or better yet,
  *     modify that selector.
  *   Note that the path used for Images is relative. All images are by default located in
- *     ../images/ - relative to this CSS file.
+ *      - relative to this CSS file.
  */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -3757,19 +3758,19 @@ table.fc-border-separate {
 }
 
 .paginate_disabled_previous {
-	background-image: url('../images/back_disabled.html');
+	background-image: url('back_disabled.html');
 }
 
 .paginate_enabled_previous {
-	background-image: url('../images/back_enabled.html');
+	background-image: url('back_enabled.html');
 }
 
 .paginate_disabled_next {
-	background-image: url('../images/forward_disabled.html');
+	background-image: url('forward_disabled.html');
 }
 
 .paginate_enabled_next {
-	background-image: url('../images/forward_enabled.html');
+	background-image: url('forward_enabled.html');
 }
 
 
@@ -3782,23 +3783,23 @@ table.fc-border-separate {
  */
 
 .sorting_asc {
-	background: url('../images/sort_asc.html') no-repeat center right;
+	background: url('sort_asc.html') no-repeat center right;
 }
 
 .sorting_desc {
-	background: url('../images/sort_desc.html') no-repeat center right;
+	background: url('sort_desc.html') no-repeat center right;
 }
 
 .sorting {
-	background: url('../images/sort_both.html') no-repeat center right;
+	background: url('sort_both.html') no-repeat center right;
 }
 
 .sorting_asc_disabled {
-	background: url('../images/sort_asc_disabled.html') no-repeat center right;
+	background: url('sort_asc_disabled.html') no-repeat center right;
 }
 
 .sorting_desc_disabled {
-	background: url('../images/sort_desc_disabled.html') no-repeat center right;
+	background: url('sort_desc_disabled.html') no-repeat center right;
 }
 
 
@@ -4533,31 +4534,31 @@ h2.dashboard_title span { font-size: 12px; font-style: italic; font-weight: norm
 /* @Default Styles */
 
 ul.bullet				{ margin-left: 0; }
-ul.bullet li			{ background: url(../images/bullets/bullet_blue.png) no-repeat 0 2px; list-style-type: none; padding-left: 22px; }
+ul.bullet li			{ background: url(bullets/bullet_blue.png) no-repeat 0 2px; list-style-type: none; padding-left: 22px; }
 
 
 /* ---------------------------------- */
 /* @Semantic Classes */
 
-ul.bullet.primary li	{ background-image: url(../images/bullets/bullet_blue.png); }
-ul.bullet.secondary li	{ background-image: url(../images/bullets/bullet_black.png); }
-ul.bullet.tertiary li	{ background-image: url(../images/bullets/bullet_gray.png); }
-ul.bullet.quaternary li	{ background-image: url(../images/bullets/bullet_white.png); }
+ul.bullet.primary li	{ background-image: url(bullets/bullet_blue.png); }
+ul.bullet.secondary li	{ background-image: url(bullets/bullet_black.png); }
+ul.bullet.tertiary li	{ background-image: url(bullets/bullet_gray.png); }
+ul.bullet.quaternary li	{ background-image: url(bullets/bullet_white.png); }
 
 
 /* ---------------------------------- */
 /* @Color Classes */
 
-ul.bullet.bullet-green li		{ background-image: url(../images/bullets/bullet_green.png); }
-ul.bullet.bullet-red li		{ background-image: url(../images/bullets/bullet_red.png); }
-ul.bullet.bullet-orange li		{ background-image: url(../images/bullets/bullet_orange.png); }
-ul.bullet.bullet-yellow li		{ background-image: url(../images/bullets/bullet_yellow.png); }
-ul.bullet.bullet-blue li		{ background-image: url(../images/bullets/bullet_blue.png); }
-ul.bullet.bullet-pink li		{ background-image: url(../images/bullets/bullet_pink.png); }
-ul.bullet.bullet-black li		{ background-image: url(../images/bullets/bullet_black.png); }
-ul.bullet.bullet-purple li		{ background-image: url(../images/bullets/bullet_purple.png); }
-ul.bullet.bullet-white li		{ background-image: url(../images/bullets/bullet_white.png); }
-ul.bullet.bullet-gray li		{ background-image: url(../images/bullets/bullet_gray.png); }
+ul.bullet.bullet-green li		{ background-image: url(bullets/bullet_green.png); }
+ul.bullet.bullet-red li		{ background-image: url(bullets/bullet_red.png); }
+ul.bullet.bullet-orange li		{ background-image: url(bullets/bullet_orange.png); }
+ul.bullet.bullet-yellow li		{ background-image: url(bullets/bullet_yellow.png); }
+ul.bullet.bullet-blue li		{ background-image: url(bullets/bullet_blue.png); }
+ul.bullet.bullet-pink li		{ background-image: url(bullets/bullet_pink.png); }
+ul.bullet.bullet-black li		{ background-image: url(bullets/bullet_black.png); }
+ul.bullet.bullet-purple li		{ background-image: url(bullets/bullet_purple.png); }
+ul.bullet.bullet-white li		{ background-image: url(bullets/bullet_white.png); }
+ul.bullet.bullet-gray li		{ background-image: url(bullets/bullet_gray.png); }
 
 .qnc {
 	width: 300px;
@@ -4707,7 +4708,7 @@ body.error-page {
 }
 
 #error-header a {
-	background: url(../images/logo_small.png) no-repeat 0 0;
+	background: url(logo_small.png) no-repeat 0 0;
 	width: 146px;
 	height: 31px;
 	line-height: 600px;
@@ -4780,7 +4781,7 @@ body.error-page {
 	}
 	
 		.widget-header [class^="icon-"], .widget-header [class*=" icon-"] {
-			background-image: url(../images/sprite/sprite-16-black.png);
+			background-image: url(sprite/sprite-16-black.png);
 			background-repeat: no-repeat;
 			
 			width: 16px;
@@ -5128,7 +5129,7 @@ body {
 	}
 	
 	#mainNav li.nav .subNav li a {
-		background: url(../images/bullets/bullet_black.png) no-repeat 6px 49% !important;
+		background: url(bullets/bullet_black.png) no-repeat 6px 49% !important;
 		filter: none;
 	}
 	
@@ -5166,7 +5167,7 @@ body {
 	}
 	
 	#search input {
-		background: #626262 url(../images/search/search.png) no-repeat 12px 50%;
+		background: #626262 url(search/search.png) no-repeat 12px 50%;
 		border-color: #363636;
 	}
 	
@@ -5292,7 +5293,7 @@ body {
 		}
 		
 			.menuDropdown .menuContent a {
-				background: url(../images/bulletBlack.html) no-repeat 8px 50%;
+				background: url(bulletBlack.html) no-repeat 8px 50%;
 			}
 			
 			
@@ -5593,23 +5594,23 @@ body {
 .dataTaebles_paginate { width: 67%; }
 
 .sorting_asc {
-	background: url('../images/dataTables/sort_asc.png') no-repeat center right;
+	background: url('dataTables/sort_asc.png') no-repeat center right;
 }
 
 .sorting_desc {
-	background: url('../images/dataTables/sort_desc.png') no-repeat center right;
+	background: url('dataTables/sort_desc.png') no-repeat center right;
 }
 
 .sorting {
-	background: url('../images/dataTables/sort_both.png') no-repeat center right;
+	background: url('dataTables/sort_both.png') no-repeat center right;
 }
 
 .sorting_asc_disabled {
-	background: url('../images/dataTables/sort_asc_disabled.html') no-repeat center right;
+	background: url('dataTables/sort_asc_disabled.html') no-repeat center right;
 }
 
 .sorting_desc_disabled {
-	background: url('../images/dataTables/sort_desc_disabled.png') no-repeat center right;
+	background: url('dataTables/sort_desc_disabled.png') no-repeat center right;
 }
 
 
@@ -5642,7 +5643,7 @@ body {
 	position: relative;
 	width: 26px;
 	height: 26px;
-	background: url(../images/colorpicker/select.png);
+	background: url(colorpicker/select.png);
 	display: inline-block;
 	vertical-align: top;
 	cursor: pointer;
@@ -5656,7 +5657,7 @@ body {
 	left: 3px;
 	width: 20px;
 	height: 20px;
-	background: url(../images/colorpicker/select.png) center;
+	background: url(colorpicker/select.png) center;
 }
 
 
@@ -6351,7 +6352,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 		height: 45px;
 	}
 
-		#header h1 { background-image: url(../images/logo_small.png); width: 130px; height: 21px; top: 13px; }
+		#header h1 { background-image: url(logo_small.png); width: 130px; height: 21px; top: 13px; }
 		
 		#header #reveal-nav { display: block; }
 		#sidebar.revealShow { display: block; }
@@ -6368,7 +6369,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 		#topNav li { float: none; margin: 0 0 0 5px; }
 		
 		#topNav li a {
-			background: url(../images/bulletBlack.html) no-repeat 8px 50%;
+			background: url(bulletBlack.html) no-repeat 8px 50%;
 			display: block;
 			padding-left: 22px;
 			padding-top: 1em;
@@ -6446,7 +6447,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 	
 	
 	#mainNav li.nav [class^="icon-"], #mainNav li.nav [class*=" icon-"] {
-	background-image: url(../images/sprite/sprite-12-black.png);
+	background-image: url(sprite/sprite-12-black.png);
 		width: 12px;
 		height: 12px;
 		top: 12px;
@@ -6569,7 +6570,3 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 		text-align:center;
 
 	}
-
-
-
-

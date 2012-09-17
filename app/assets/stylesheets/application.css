@@ -15,6 +15,14 @@
  */
 
 
-body {
+body 
+{
  	background: url("filler.png") repeat-x scroll 0 0 #0F64DC;
+}
+
+#header .logo
+{
+	height: 150px;
+    margin-left: 23px;
+    margin-top: 10px;
 }

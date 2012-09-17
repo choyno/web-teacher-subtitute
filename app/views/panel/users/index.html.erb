@@ -6,8 +6,6 @@
 		<div class="grid-24">
 
 			<div class="adduser">
-				
-				<span class="icon-user"></span>
 				<%= link_to new_panel_user_path do %>
 					<button class="btn btn-primary btn-blue">
 						<span class="icon-user"></span>Add New User
@@ -34,10 +32,10 @@
 								<th>Action</th> 
 							</tr>
 						</thead>
-				    <tbody>
+				   		 <tbody>
 							<%= render partial: 'user', collection: @users, as: :user %>
-				    </tbody>
-         	</table>
+				    	</tbody>
+         			</table>
 				</div> <!-- .widget-content -->
 				<?php endif;?>
 			   </div> <!-- .widget -->
