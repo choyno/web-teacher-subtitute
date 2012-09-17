@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true, presence: true
   validates :password, presence: true, confirmation: true, on: :create
 
+  UserType = [ "Admin", "Head", "Checker" ]
+
   def self.authenticate(username, password)
     user = find_by_username(username)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
