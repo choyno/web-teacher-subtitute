@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914140011) do
+ActiveRecord::Schema.define(:version => 20120915171115) do
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(:version => 20120914140011) do
     t.string   "phone_number", :limit => 20
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "full_name",     :limit => 120
+    t.string   "username",      :limit => 120
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.integer  "department_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
 end
