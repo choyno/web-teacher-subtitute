@@ -5,14 +5,18 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   
   resources :sessions
 
-  
- 
-  resources :users
+
   resources :teacher_schedules
   resources :substitution_records
   resources :request_substitutions
   resources :generate_reports
   
+  scope '/maintenance' do
+    resources :import_schedules, only: [ :index, :post ]
+    resources :users
+  end
+  
+
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

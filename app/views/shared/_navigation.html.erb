@@ -6,11 +6,6 @@
 			<span class="icon-home"></span>
 			<%= link_to 'Dashboard', root_path %>
 		</li>
-
-		<li id="navTables" class="nav">
-			<span class="icon-list"></span>
-			<%= link_to 'User Accounts', users_path %>
-		</li>
 		
 		<li id="navTables" class="nav">
 			<span class="icon-list"></span>
@@ -66,7 +61,41 @@
 			<%= link_to 'Substitution Record', substitution_records_path %>
 		</li>
 
+
+
+		<li id="navForms" class="nav">
+			<span class="icon-document-alt-stroke"></span>
+			<a href="javascript:;">Maintenance</a>
+			
+			<ul class="subNav">
+				
+				<li id="navTables" class="nav">
+					<%= link_to 'User Accounts', users_path %>
+				</li>		
+				
+				<li id="navTables" class="nav">
+					<%= link_to ' User Department', nil %>
+				</li>		
+				
+				<li id="navTables" class="nav">
+					<%= link_to 'Teachers', nil %>
+				</li>		
+				
+				
+				<li id="navTables" class="nav">
+					<%= link_to 'Import Teacher Schedule', import_schedules_path %>
+				</li>		
+				
+				
+
+			</ul>		
+		</li>
+
 	</ul>
+	
+	
+	
+	
 	
 </div> <!-- #sidebar -->
 

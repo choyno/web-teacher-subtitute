@@ -1,9 +1,9 @@
 <tr>
 	<td><%= user.full_name %></td>
 	<td><%= user.username %></td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td><%= user.department.name if user.department %></td>
+	<td><%= user.user_type %></td>
+	<td><%= user.status %></td>
 	<td>
 		<%= link_to edit_user_path(user) do %>
 			<button class="btn btn-small btn-quaternary">

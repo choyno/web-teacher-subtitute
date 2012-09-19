@@ -20,28 +20,17 @@
 			<div class="field-group inlineField secondcolumn" style="">	
 				<div class="field">
 					<label for="department">Department :</label>
-					<select name="department " id="department">
-								<option>--</option>
-								<option>CCS </option>
-							</select>
+					<%= f.collection_select :department_id, Department.all, :id, :name, prompt: true %>					
 				</div>
 
 				<div class="field">
 					<label for="usertype">User Type :</label>
-					<select name="usertype " id="usertype">
-							<option>--</option>
-								<option>Department Head</option>
-								<option>Checker</option>
-							</select>
+					<%= f.select :user_type, User::UserType, prompt: true %>
 				</div>
 
 				<div class="field">
 					<label for="status">Status :</label>
-					<select name="status " id="status">
-							<option>--</option>
-								<option>Active</option>
-								<option>Inactive</option>
-							</select>
+					<%= f.select :status, [['Active', true], ['InActive', false]] %>
 				</div>
 
 			</div>
