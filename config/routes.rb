@@ -4,11 +4,14 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   
   resources :sessions
-    
+
+  
+ 
   resources :users
   resources :teacher_schedules
   resources :substitution_records
   resources :request_substitutions
+  resources :generate_reports
   
   
   # The priority is based upon order of creation:
