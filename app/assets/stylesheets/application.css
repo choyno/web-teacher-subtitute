@@ -20,8 +20,14 @@ body
  	background: url("filler.png") repeat-x scroll 0 0 #0F64DC;
 }
 
-#header .logo{
+#header .logo
+{
 	height: 150px;
     margin-left: 23px;
     margin-top: 10px;
+}
+
+.widget-table .table tr td:last-child, .widget-table .table tr th:last-child
+{
+	width: 240px ;
 }

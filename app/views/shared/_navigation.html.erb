@@ -18,17 +18,49 @@
 		</li>
 
 
-		<li id="navTables" class="nav">
-			<span class="icon-info"></span>
-			<%= link_to 'Request Substitution', request_substitutions_path %>
-		</li>
 
-
-		<li id="navTables" class="nav">
+		<li id="navForms" class="nav">
 			<span class="icon-document-alt-stroke"></span>
-			<%= link_to 'Generate Report', generate_reports_path %>
+			<a href="javascript:;">Department Head</a>
+			
+			<ul class="subNav">
+				<li id="navTables" class="nav">
+					<%= link_to 'Request Substitution', request_substitutions_path %>
+				</li>		
+
+				
+				<li id="navTables" class="nav">
+					<%= link_to 'Vouch Request',  request_substitutions_path %>
+				</li>	
+
+				<li id="navTables" class="nav">
+					<%= link_to 'Remind Request',  request_substitutions_path %>
+				</li>		
+
+			</ul>		
 		</li>
 
+
+		<li id="navForms" class="nav">
+			<span class="icon-document-alt-stroke"></span>
+			<a href="javascript:;">Checker</a>
+			
+			<ul class="subNav">
+				<li id="navTables" class="nav">
+					<%= link_to 'Verify Request', generate_reports_path %>
+				</li>	
+
+				<li id="navTables" class="nav">
+					<%= link_to 'Vouch Request', generate_reports_path %>
+				</li>	
+
+				<li id="navTables" class="nav">
+					<%= link_to 'Genereate Reports', generate_reports_path %>
+				</li>		
+			</ul>	
+		</li>
+
+		
 		<li id="navTables" class="nav">
 			<span class="icon-info"></span>
 			<%= link_to 'Substitution Record', substitution_records_path %>
@@ -37,3 +69,15 @@
 	</ul>
 	
 </div> <!-- #sidebar -->
+
+
+
+
+
+
+
+
+
+
+
+
