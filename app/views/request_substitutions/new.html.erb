@@ -1,0 +1,23 @@
+<div id="content">			
+	<div id="contentHeader">
+		<h1>Request Substitution</h1>
+	</div> <!-- #contentHeader -->	
+	<div class="container">
+		<div class="grid-24">
+			
+			<%= form_for @request_substitution, method: :post do |f| %>
+				
+					<div class="form uniformForm">					
+						<div class="widget">
+							
+							<div class="widget-content">
+								<%= render 'form', f: f %>
+							</div> 
+						</div>
+							<button class="btn btn-primary btn-blue">Save</button>
+							<%= link_to 'Cancel', request_substitutions_path , class: 'btn btn-primary btn-blue'  %>
+					</div>
+			<% end %>	
+		</div> 
+	</div>		
+</div>

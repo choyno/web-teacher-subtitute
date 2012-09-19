@@ -15119,7 +15119,7 @@ if (!document.createElement("canvas").getContext)
  * http://www.filamentgroup.com
  * Copyright (c) 2009 Filament Group 
  * Dual licensed under the MIT (filamentgroup.com/examples/mit-license.txt) and GPL (filamentgroup.com/examples/gpl-license.txt) licenses.
- * 	
+ *  
  * --------------------------------------------------------------------
  */ (function ($)
 {
@@ -15714,9 +15714,9 @@ if (!document.createElement("canvas").getContext)
                         canvasContain.addClass('visualize-bar');
 
                         /**
-                         * Write labels along the bottom of the chart.	If we're drawing
+                         * Write labels along the bottom of the chart.  If we're drawing
                          * horizontal bars, these will be the yLabels, otherwise they
-                         * will be the xLabels.	The positioning also varies slightly:
+                         * will be the xLabels. The positioning also varies slightly:
                          * yLabels are values, hence they will span the whole width of
                          * the canvas, whereas xLabels are supposed to line up with the
                          * bars.
@@ -15739,7 +15739,7 @@ if (!document.createElement("canvas").getContext)
                         });
 
                         /**
-                         * Write labels along the left of the chart.	Follows the same idea
+                         * Write labels along the left of the chart.    Follows the same idea
                          * as the bottom labels.
                          */
                         var leftLabels = horizontal ? xLabels : yLabels;
@@ -16066,7 +16066,7 @@ if (!document.createElement("canvas").getContext)
  * Tolltip by Iraê Carvalho, irae@irae.pro.br, http://irae.pro.br/en/
  * Copyright (c) 2010 Iraê Carvalho
  * Dual licensed under the MIT (filamentgroup.com/examples/mit-license.txt) and GPL (filamentgroup.com/examples/gpl-license.txt) licenses.
- * 	
+ *  
  * Visualize plugin by Scott Jehl, scott@filamentgroup.com
  * Copyright (c) 2009 Filament Group, http://www.filamentgroup.com
  *
@@ -20202,7 +20202,7 @@ if (!document.createElement("canvas").getContext)
  * http://fgelinas.com/code/timepicker
  *
  * Depends:
- *	jquery.ui.core.js
+ *  jquery.ui.core.js
  *  jquery.ui.position.js (only if position settngs are used)
  *
  * Change version 0.1.0 - moved the t-rex up here
@@ -21427,8 +21427,8 @@ if (!document.createElement("canvas").getContext)
 
 
         /* Set the time for a jQuery selection.
-	    @param  target  element - the target input field or division or span
-	    @param  time    String - the new time */
+        @param  target  element - the target input field or division or span
+        @param  time    String - the new time */
         _setTimeTimepicker: function (target, time)
         {
             var inst = this._getInst(target);
