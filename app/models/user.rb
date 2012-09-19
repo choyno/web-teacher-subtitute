@@ -1,13 +1,18 @@
 class User < ActiveRecord::Base  
   
-  attr_accessible :username, :password, :password_confirmation, :full_name
+  attr_accessible :username, :password, :password_confirmation, :full_name,
+                  :department_id, :user_type, :status
 
   attr_accessor :password
   before_save :encrypt_password
   
+  belongs_to :department
+  
   validates :full_name, presence: true
   validates :username, uniqueness: true, presence: true
   validates :password, presence: true, confirmation: true, on: :create
+  
+  validates :department_id, :user_type, presence: true
 
   UserType = [ "Admin", "Head", "Checker" ]
 
@@ -26,6 +31,7 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+  
   
   
   
