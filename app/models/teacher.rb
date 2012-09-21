@@ -8,6 +8,7 @@ class Teacher < ActiveRecord::Base
   validates :lastname, :firstname, presence: true
   validates :phone_number, :length => {:minimum => 6, :maximum => 25},
   						   :format => { :with => /\A\S[0-9\+\/\(\)\s\-]*\z/i },
-  						   :allow_blank => true
+  						   :allow_blank => true,
+  						    uniqueness: { case_sensitivity: true }
   
 end

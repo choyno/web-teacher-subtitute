@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   belongs_to :department
   
   validates :full_name, presence: true
-  validates :username, uniqueness: true, presence: true
+  validates :username, uniqueness: true, presence: true,  uniqueness: { case_sensitivity: true }
   validates :password, presence: true, confirmation: true, on: :create
   
   validates :department_id, :user_type, presence: true
