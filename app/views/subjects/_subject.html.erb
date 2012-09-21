@@ -1,14 +1,13 @@
 <tr>
-	<td><%= teacher.firstname %></td>
-	<td><%= teacher.lastname %></td>
-	<td><%= teacher.phone_number %></td>
+	<td><%= subject.code %></td>
+	<td><%= subject.name %></td>
 	<td>
-		<%= link_to edit_teacher_path(teacher) do %>
+		<%= link_to edit_subject_path(subject) do %>
 			<button class="btn btn-small btn-quaternary">
 				<span class="icon-pen"></span>
 				Edit
 			</button>
 		<% end %>
-	<%= button_to "delete", teacher_path(teacher), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
+	<%= button_to "delete", subject_path(subject), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
 	</td>	
 </tr>

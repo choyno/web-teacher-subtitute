@@ -27,7 +27,7 @@ class SubjectsController < ApplicationController
   end
 
   def update
-  	@subject = subject.find(params[:id])
+  	@subject = Subject.find(params[:id])
 
   	if @subject.update_attributes(params[:subject])
   		redirect_to subjects_path, notice: "Subject Successfully Updated"
