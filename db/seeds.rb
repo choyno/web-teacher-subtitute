@@ -49,4 +49,9 @@
 
   statuses.each { |status| Status.create({ name: status })  }
   
-  
+# ===================================
+# START FOR USERS
+# ===================================
+  user = User.new({ full_name: 'Admin', username: 'admin', 
+                  user_type: 'Admin', password: 'admin', password_confirmation: 'admin'})
+  user.save(validate: false)
