@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'mysql2', '0.3.10'
 
+gem 'carrierwave'
+gem 'spreadsheet'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
