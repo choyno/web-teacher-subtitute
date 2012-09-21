@@ -1,5 +1,10 @@
 WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   
+
+
+
+  get "subjects/index"
+
   delete "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   
@@ -10,10 +15,14 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   resources :substitution_records
   resources :request_substitutions
   resources :generate_reports
+
   
   scope '/maintenance' do
     resources :import_schedules, only: [ :index, :post ]
     resources :users
+    resources :departments
+    resources :teachers
+    resources :subjects
   end
   
 
