@@ -994,8 +994,22 @@ body {
 
 /* ---------------------------------- */
 /* @Field */
+.field_with_errors
+{
+	float:left;
+	margin: 0;
+	font-size: 14px; display: inline-block;
+	background: 
 
-.form .field-group .field { font-size: 14px; display: inline-block; margin: 0 .65em 1.5em 0; }
+
+}
+.widget .field-group .field .field_with_errors label
+{
+		color:red;
+}
+
+
+.form .field-group .field{  font-size: 14px; display: inline-block; margin: 0 .65em 1.5em 0; }
 	.form .field-group .field label
 	 { 
 		color: #000000;

@@ -15,8 +15,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     
-    session[:user_id] = @user.id
-    
     if @user.save
       redirect_to users_path, :notice => "User successfully created!"
     else
