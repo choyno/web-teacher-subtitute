@@ -4,21 +4,21 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-			<form class="form uniformForm">					
+			<%= form_for @schedule_file, url: import_schedules_path, 
+							method: :post, :html => {:multipart => true} do |f| %>
 				<div class="widget">
 					<div class="widget-content">
 							<div class="field-group inlineField">	
 								<label for="myfile">File Input:</label>
-
 								<div class="field">
-									<input type="file" name="myfile" id="myfile" />
+									<%= f.file_field :excel_file %>
 								</div>	
 							</div>
 					</div> <!-- .widget-content -->
 
 				</div> <!-- .widget -->
-			</form>
-			<button class="btn btn-primary btn-blue">Import</button>
+				<%= submit_tag 'Import', class: 'btn btn-primary btn-blue' %>
+			<% end %>
 			</div> <!-- .widget -->	
 	</div> <!-- .grid -->			
 </div>

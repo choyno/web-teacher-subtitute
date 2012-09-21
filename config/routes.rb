@@ -1,7 +1,4 @@
 WebBasedTeachersSubstitutionSystem::Application.routes.draw do
-  
-
-
 
   get "subjects/index"
 
@@ -18,7 +15,7 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
 
   
   scope '/maintenance' do
-    resources :import_schedules, only: [ :index, :post ]
+    resources :import_schedules, only: [ :index, :create ]
     resources :users
     resources :departments
     resources :teachers
