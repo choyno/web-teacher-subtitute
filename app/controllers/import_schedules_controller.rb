@@ -4,7 +4,6 @@ class ImportSchedulesController < ApplicationController
     
     @schedule_file = ScheduleFile.new()
     
-    
   end
   
   def create
@@ -21,8 +20,6 @@ class ImportSchedulesController < ApplicationController
       
       # import subject
       subject = Subject.find_or_create_by_name_and_code(row[1], row[0])
-      
-      
       
       # need to parse teacher name to separate lastname and firstname
       teacher_name = row[5].to_s.split(',')

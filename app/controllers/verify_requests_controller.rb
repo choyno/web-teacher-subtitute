@@ -1,0 +1,2 @@
+class VerifyRequestsController < ApplicationController
+end

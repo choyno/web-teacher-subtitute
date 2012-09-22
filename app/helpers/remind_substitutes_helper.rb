@@ -1,0 +1,2 @@
+module RemindSubstitutesHelper
+end

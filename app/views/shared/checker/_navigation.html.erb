@@ -1,0 +1,69 @@
+
+<div id="sidebar">		
+	<ul id="mainNav">			
+		<li id="navDashboard" class="nav active">
+			<span class="icon-home"></span>
+			<%= link_to 'Dashboard', root_path %>
+		</li>
+		<li id="navpages" class="nav">
+			<span class="icon-check"></span>
+			<%= link_to 'Verify Request', verify_requests_path %>				
+		</li>
+		<li id="navpages" class="nav">
+			<span class="icon-loop-alt3"></span>
+			<%= link_to 'Vouch Request', vouch_requests_path %>				
+		</li>
+		<li id="navpages" class="nav">
+			<span class="icon-document-alt-stroke"></span>
+				<%= link_to 'Genereate Reports', generate_reports_path %>				
+		</li>
+		
+		<li id="navTables" class="nav">
+			<span class="icon-info"></span>
+			<%= link_to 'Substitution Record', substitution_records_path %>
+		</li>
+	</ul>
+</div> <!-- #sidebar -->
+
+<div id="quickNav">
+	<ul>
+		<li class="quickNavMail">
+			<a href="#menuAmpersand" class="menu"><span class="icon-book"></span></a>		
+			
+			<span class="alert">3</span>		
+
+			<div id="menuAmpersand" class="menu-container quickNavConfirm">
+				<div class="menu-content cf">							
+					<div class="qnc qnc_confirm">
+						<h3>Confirm</h3>
+						<div class="qnc_item">
+							<div class="qnc_content">
+								<span class="qnc_title">Confirm #1</span>
+								<span class="qnc_preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</span>
+								<span class="qnc_time">3 hours ago</span>
+							</div> <!-- .qnc_content -->
+							
+							<div class="qnc_actions">						
+								<button class="btn btn-primary btn-small">Accept</button>
+								<button class="btn btn-quaternary btn-small">Not Now</button>
+							</div>
+						</div>
+						<a href="javascript:;" class="qnc_more">View all Confirmations</a>						
+					</div> <!-- .qnc -->	
+				</div>
+			</div>
+		</li>
+	</ul>		
+</div> <!-- .quickNav -->
+
+
+
+
+
+
+
+
+
+
+
+
