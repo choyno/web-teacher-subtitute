@@ -28,12 +28,7 @@ class ImportSchedulesController < ApplicationController
       first_name = temp[0, temp.length - 2].to_s.strip
       
       teacher = Teacher.find_or_create_by_firstname_and_lastname(first_name, last_name)
-      
     end
-      
-    redirect_to import_schedules_path, notice: 'Schedules sucessfully uploaded!'  
-        
+    redirect_to import_schedules_path, notice: 'Schedules sucessfully uploaded!'     
   end
-  
-  
 end

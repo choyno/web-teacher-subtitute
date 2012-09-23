@@ -39,18 +39,32 @@
  		</div> <!-- #header -->
 		<div class="content">
 
-			<% if current_user.user_type == 'Admin' %>
-				<%= render 'shared/admin/navigation' %>
-				<%= yield %>
-				<%= render 'shared/admin/headernav' %>
+			<% if current_user.user_type == 'Admin'  %>
+				<% if current_user.status == true %>
+					<%= render 'shared/admin/navigation' %>
+					<%= yield %>
+					<%= render 'shared/admin/headernav' %>
+				<% end %>
 			<% elsif current_user.user_type == 'Head' %>
-				<%= render 'shared/head/navigation' %>
-				<%= yield %>
-				<%= render 'shared/head/headernav' %>
+				<% if current_user.status == true %>
+					<%= render 'shared/head/navigation' %>
+					<%= yield %>
+					<%= render 'shared/head/headernav' %>
+				<% else %>
+					  <script type="text/javascript">
+					    window.location.href="login"  // put your correct path in a string here
+					  </script>
+				<% end %>
 			<% elsif  current_user.user_type == 'Checker' %>
-				<%= render 'shared/checker/navigation' %>
-				<%= yield %>
-				<%= render 'shared/checker/headernav' %>
+				<% if current_user.status == true %>
+					<%= render 'shared/checker/navigation' %>
+					<%= yield %>
+					<%= render 'shared/checker/headernav' %>	
+				<% else %>
+					  <script type="text/javascript">
+					    window.location.href="login"  // put your correct path in a string here
+					  </script>
+				<% end %>			
 			<% end %>
 
 		</div>

@@ -3,7 +3,13 @@
 	<td><%= user.username %></td>
 	<td><%= user.department.name if user.department %></td>
 	<td><%= user.user_type %></td>
-	<td><%= user.status %></td>
+	<td>
+		<% if  user.status == true %>
+			Active
+		<% else %>
+			Inactive
+		<% end %>
+	</td>
 	<td>
 		<%= link_to edit_user_path(user) do %>
 			<button class="btn btn-small btn-quaternary">
