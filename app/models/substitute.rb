@@ -1,6 +1,6 @@
 class Substitute < ActiveRecord::Base
   
-  belongs_to :teacher
+  belongs_to :substitute_teacher, class_name: :Teacher, foreign_key: :substitute_teacher_id
 
   belongs_to :teacher_subject
   
