@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915171115) do
+ActiveRecord::Schema.define(:version => 20120923234346) do
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(:version => 20120915171115) do
 
   create_table "reasons", :force => true do |t|
     t.string "name", :limit => 20
+  end
+
+  create_table "schedule_files", :force => true do |t|
+    t.string   "excel_file", :limit => 150
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "statuses", :force => true do |t|
@@ -40,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120915171115) do
     t.integer  "substitute_teacher_id"
     t.integer  "reasons_id"
     t.text     "notes"
-    t.integer  "teachers_subject_id"
+    t.integer  "teacher_subject_id"
     t.boolean  "planned",               :default => false
     t.integer  "status_id"
     t.datetime "requested_at"
@@ -55,12 +61,13 @@ ActiveRecord::Schema.define(:version => 20120915171115) do
     t.integer  "teacher_id"
     t.integer  "subject_id"
     t.time     "time_end"
-    t.integer  "room_num"
+    t.string   "room_num"
     t.integer  "day_code_id"
-    t.string   "section",     :limit => 20
-    t.string   "type",        :limit => 120
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.string   "section",      :limit => 20
+    t.string   "subject_type", :limit => 120
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.time     "time_start"
   end
 
   create_table "teachers", :force => true do |t|
@@ -74,11 +81,14 @@ ActiveRecord::Schema.define(:version => 20120915171115) do
   create_table "users", :force => true do |t|
     t.string   "full_name",     :limit => 120
     t.string   "username",      :limit => 120
+    t.string   "user_types",    :limit => 120
     t.string   "password_hash"
     t.string   "password_salt"
     t.integer  "department_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.string   "user_type",     :limit => 50
+    t.boolean  "status",                       :default => true
   end
 
 end
