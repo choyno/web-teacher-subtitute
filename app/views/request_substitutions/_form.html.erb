@@ -9,12 +9,7 @@
 	<div class="widget">
 
 	<div id="tab-1" class="widget-content">
-		<div class="field-group inlineField " style="float:left;">	
-			<div class="field">
-				<label for="planned">Request Type :</label>
-				<%= select_tag :planned, [['Unplanned', true], ['Planned', false]] %>
-			</div>
-		</div>
+
 		<div class="widget widget-table">
 			<div class="widget-header">
 				<span class="icon-list"></span>
@@ -49,8 +44,12 @@
 	<div id="tab-2" class="widget-content">
 
 		<div class="field">
+			<label for="planned">Request Type :</label>
+			<%= select_tag :planned, [['Unplanned', true], ['Planned', false]] %>
+		</div>
+
+		<div class="field">
 			<label for="requested_at">Date :</label>
-			<% label_tag :requested_at %>
 			<%= text_field :requested_at, size: 24, placehold: 'mm/dd/yr' %>
 		</div>
 		<div class="field">
@@ -62,24 +61,7 @@
 				<label for="notes">Note :</label>
 			<%= text_area :notes, size: 24, placehold: 'notes' %>	
 		</div>
-		<div>
-			<ul class="tabs right">	
-				<li class="">
-					<a href="#tab-1">
-						<button class="btn btn-primary btn-blue">Back</button>
-					</a>
-				</li>	
-				<li class="">
-					<a href="#tab-3">
-						<button class="btn btn-primary btn-blue">Next</button>
-					</a>
-				</li>	
-			</ul>	
-		</div>
-	</div> <!-- .widget-content -->
 
-
-	<div id="tab-3" class="widget-content">
 		<div >
 			<div class="widget widget-table">
 				<div class="widget-header">
@@ -101,6 +83,26 @@
 			</div>
 		</div>
 		<br/>
+
+		<div>
+			<ul class="tabs right">	
+				<li class="">
+					<a href="#tab-1">
+						<button class="btn btn-primary btn-blue">Back</button>
+					</a>
+				</li>	
+				<li class="">
+					<a href="#tab-3">
+						<button class="btn btn-primary btn-blue">Next</button>
+					</a>
+				</li>	
+			</ul>	
+		</div>
+	</div> <!-- .widget-content -->
+
+
+	<div id="tab-3" class="widget-content">
+		
 
 		<div >
 			<div class="widget widget-table">
