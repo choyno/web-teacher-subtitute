@@ -13,7 +13,7 @@
   end
 
   def create
-    @department  = Department.new(params[:department])
+    @department  = Department.create(params[:department])
     
     if @department.save
       redirect_to departments_path, :notice => "Department successfully created!"

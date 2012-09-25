@@ -4,17 +4,11 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-			<%= form_tag do %>
-					<div class="form uniformForm">					
-						<div class="widget">
-							<div class="widget-content">
-								<%= render 'form' %>
-							</div> 
-						</div>
-							<button class="btn btn-primary btn-blue">Save</button>
-							<%= link_to 'Cancel', request_substitutions_path , class: 'btn btn-primary btn-blue'  %>
-					</div>
-			<% end %>	
-		</div> 
-	</div>		
+
+			<%= form_tag @substitute, url: request_substitutions_path,  method: :post do |f| %>
+			
+				<%= render 'form' %>
+			<% end %>
+		</div>
+	</div>	
 </div>

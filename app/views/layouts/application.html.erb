@@ -40,31 +40,17 @@
 		<div class="content">
 
 			<% if current_user.user_type == 'Admin'  %>
-				<% if current_user.status == true %>
 					<%= render 'shared/admin/navigation' %>
-					<%= yield %>
+						<%= yield %>
 					<%= render 'shared/admin/headernav' %>
-				<% end %>
 			<% elsif current_user.user_type == 'Head' %>
-				<% if current_user.status == true %>
 					<%= render 'shared/head/navigation' %>
-					<%= yield %>
+						<%= yield %>
 					<%= render 'shared/head/headernav' %>
-				<% else %>
-					  <script type="text/javascript">
-					    window.location.href="login"  // put your correct path in a string here
-					  </script>
-				<% end %>
 			<% elsif  current_user.user_type == 'Checker' %>
-				<% if current_user.status == true %>
 					<%= render 'shared/checker/navigation' %>
-					<%= yield %>
+						<%= yield %>
 					<%= render 'shared/checker/headernav' %>	
-				<% else %>
-					  <script type="text/javascript">
-					    window.location.href="login"  // put your correct path in a string here
-					  </script>
-				<% end %>			
 			<% end %>
 
 		</div>

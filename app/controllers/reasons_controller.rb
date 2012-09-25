@@ -12,7 +12,7 @@ class ReasonsController < ApplicationController
   end
 
   def create
-  	@reasons = Reason.create(:params[:reason])
+  	@reason = Reason.create(params[:reason])
 
   	if @reason.save
   		redirect_to reasons_path, notice: "Absent Reasons is Successfully Added!"

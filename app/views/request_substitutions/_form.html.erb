@@ -1,101 +1,147 @@
-<div class="form uniformForm">					
-	<div class="widget">
+
+<div class="widget widget-tabs">
+	<div class="widget widget-table">
 		<div class="widget-header">
-			<span class="icon-user"></span>
-			<h3>Request Informations</h3>
+			<span class="icon-list"></span>
+			<h3 class="icon chart">Request Information</h3>		
 		</div>
-		<div class="widget-content">
-			<div class="field-group inlineField " style="float:left;">	
-				<div class="field">
-					<label>Request Type :</label>
-					
-						<label for="requestype" style="float:right;text-align:left">Unplanned </label>
-						<input type="radio" name="unplanned" id="Requesttype" value="Unplanned" />
-						<div></div>
-						<label for="requestype" style="float:right;text-align:left">Planned </label>
-						<input type="radio" name="planned" id="Requesttype" value="Planned" />
-					<br/>
-						
-					
-				</div>
-				<br/>
+	</div>
+	<div class="widget">
 
-				<div class="field">
-					<label for="dateabsent">Date Absent  :</label>
-					<input id="dateabsent" class="" type="text" size="24" name="dateabsent" value="8/13/12">
-				</div>
-				<br/>
+	<div id="tab-1" class="widget-content">
+		<div class="field-group inlineField " style="float:left;">	
+			<div class="field">
+				<label for="planned">Request Type :</label>
+				<%= select_tag :planned, [['Unplanned', true], ['Planned', false]] %>
+			</div>
+		</div>
+		<div class="widget widget-table">
+			<div class="widget-header">
+				<span class="icon-list"></span>
+				<h3 class="icon chart">Absent Teacher</h3>		
+		</div>
+			<table class="table table-bordered table-striped data-table">
+				<thead>
+					<tr>
+						<th>Last Name</th>
+						<th>First Name</th>
+						<th>Options</th>
+					</tr>
+				</thead>
+		        <tbody>
+		       		<%= render partial: 'absentteacher', collection: Teacher.all, as: :teacher %>
+		        </tbody>
+	         </table>
+		</div>
 
-				<div class="field">
-					<label for="fullname">Absent Name :</label>
-					<input id="fullname" class="" type="text" size="24" name="fullname">
-				</div>
-				<br/>
+		<div>
+			<ul class="tabs right">	
+				<li class="">
+					<a href="#tab-2">
+						<button class="btn btn-primary btn-blue">Next</button>
+					</a>
+				</li>	
+			</ul>	
+		</div>
 
-				<div class="field">
-					<label for="password">Absent Subject :</label>
-					<select id="cardtype" name="cardtype" style="opacity: 0;">
-							<option>ICN23 Room 305	IT703 1:00 2:00 TTH</option>
-							<option>ICN22 Room 305	IT703 3:00 4:00 TTH</option>
-					</select>
-				</div>
-				<br/>
-			
-				</div>
-				<div class="field-group inlineField inlineField2">
-					<div class="field">
-						<label for="username">Reason :</label>
-						<select id="cardtype" name="cardtype" style="opacity: 0;">
-							<option>A Sick Day </option>
-							<option>Personal Day</option>
-							<option>Attending School Activity</option>
+	</div> <!-- .widget-content -->
 
-						</select>
-					</div>
+	<div id="tab-2" class="widget-content">
 
-					<br/>
-					<div class="field">
-						<label for="fullname">Notes :</label>
-						<textarea id="message" name="message" rows="4" cols="22"></textarea>
-						</div>
-					<br/>
-				</div>
-			</div> <!-- .widget-content -->
+		<div class="field">
+			<label for="requested_at">Date :</label>
+			<% label_tag :requested_at %>
+			<%= text_field :requested_at, size: 24, placehold: 'mm/dd/yr' %>
+		</div>
+		<div class="field">
+				<label for="reason">Reasons :</label>
+			<%= text_field :reason, size: 24, placehold: 'Reasons' %>	
+		</div>
+
+		<div class="field">
+				<label for="notes">Note :</label>
+			<%= text_area :notes, size: 24, placehold: 'notes' %>	
+		</div>
+		<div>
+			<ul class="tabs right">	
+				<li class="">
+					<a href="#tab-1">
+						<button class="btn btn-primary btn-blue">Back</button>
+					</a>
+				</li>	
+				<li class="">
+					<a href="#tab-3">
+						<button class="btn btn-primary btn-blue">Next</button>
+					</a>
+				</li>	
+			</ul>	
+		</div>
+	</div> <!-- .widget-content -->
+
+
+	<div id="tab-3" class="widget-content">
+		<div >
 			<div class="widget widget-table">
 				<div class="widget-header">
 					<span class="icon-list"></span>
-					<h3 class="icon chart">Available Teacher</h3>		
-				</div>
-				<div class="widget-content">
-					<table class="table table-bordered table-striped data-table">
-						<thead>
-							<tr>
-								<th>Last Name</th>
-								<th>First Name</th>
-								<th>Start Time</th>
-								<th>End Time</th>
-								<th>Schedule</th>
-								<th>Options</th>
-							</tr>
-						</thead>
-				        <tbody>
-						<tr>
-							<th>Barsalote </th>
-							<th>john</th>
-							<th>1:00</th>
-							<th>5:00</th>
-							<th>MWF</th>
-							<th>
-								<button class="btn btn-small btn-quaternary">
-									<span class="icon-user"></span>
-									Assign
-								</button>
-							</th>
-						</tr>
-						
-				        </tbody>
-			         </table>
-				</div> <!-- .widget-content -->
+					<h3 class="icon chart">Absent Subject</h3>		
 			</div>
-  </div> <!-- .widget -->
+				<table class="table table-bordered table-striped data-table">
+					<thead>
+						<tr>
+							<th>Subject Code</th>
+							<th>Subject Name</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+			        <tbody>
+			       		<%= render partial: 'subject', collection: Subject.all, as: :subject %>
+			        </tbody>
+		         </table>
+			</div>
+		</div>
+		<br/>
+
+		<div >
+			<div class="widget widget-table">
+				<div class="widget-header">
+					<span class="icon-list"></span>
+					<h3 class="icon chart">Avialable Teacher</h3>		
+			</div>
+				<table class="table table-bordered table-striped data-table">
+					<thead>
+						<tr>
+							<th>last Name</th>
+							<th>First Name</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+			        <tbody>
+			       		<%= render partial: 'substitute', collection: Teacher.all, as: :teacher %>
+			        </tbody>
+		         </table>
+			</div>
+		</div>
+
+		<div>
+			<ul class="tabs right">	
+				<li class="">
+					<a href="#tab-2">
+						<button class="btn btn-primary btn-blue">Back</button>
+					</a>
+				</li>	
+				<li class="">
+					<a href="#tab-1">
+						<button class="btn btn-primary btn-blue">Cancel</button>
+					</a>
+				</li>	
+				<li class="">
+					<a href="#">
+						<button class="btn btn-primary btn-blue">Save</button>
+					</a>
+				</li>	
+			</ul>	
+		</div>
+	</div> <!-- .widget-content -->
+	</div>
 </div>
