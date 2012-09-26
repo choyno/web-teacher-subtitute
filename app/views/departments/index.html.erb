@@ -4,7 +4,12 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-
+			<% if notice %>
+				<div class="notify notify-error">
+							<a class="close" href="javascript:;">×</a>
+							<%= notice %>
+				</div>
+			<% end %>
 			<div class="adduser">
 				<%= link_to new_department_path do %>
 					<button class="btn btn-primary btn-blue">

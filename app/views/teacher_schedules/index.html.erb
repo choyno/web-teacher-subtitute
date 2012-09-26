@@ -4,6 +4,12 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
+			<% if notice %>
+				<div class="notify notify-error">
+							<a class="close" href="javascript:;">×</a>
+							<%= notice %>
+				</div>
+			<% end %>
 			<form class="form uniformForm">					
 				<div class="widget">
 					<div class="widget-content">
