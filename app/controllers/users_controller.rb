@@ -44,6 +44,4 @@
     redirect_to users_path, notice: "User successfully Deleted"
   end
   
-	
-
 end
