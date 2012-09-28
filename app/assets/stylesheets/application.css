@@ -13,8 +13,10 @@
  *= require buttons
  *= require_tree .
  */
-
-
+tr:hover
+{
+	background:#C9C2F3;
+}
 body 
 {
  	background: url("filler.png") repeat-x scroll 0 0 #0F64DC;
@@ -30,4 +32,18 @@ body
 .widget-table .table tr td:last-child, .widget-table .table tr th:last-child
 {
 	width: 240px ;
+}
+
+
+  .widget-content .field label 
+{ 
+   color: #000000;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0 0 0 2px;
+    padding-right: 10px;
+    text-align: right;
+    width: 150px;
 }

@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20120923080312) do
     t.integer  "teacher_id"
     t.integer  "subject_id"
     t.time     "time_end"
-    t.integer  "room_num"
+    t.string   "room_num"
     t.integer  "day_code_id"
     t.string   "section",      :limit => 20
     t.string   "subject_type", :limit => 120
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20120923080312) do
   create_table "users", :force => true do |t|
     t.string   "full_name",     :limit => 120
     t.string   "username",      :limit => 120
+    t.string   "user_types",    :limit => 120
     t.string   "password_hash"
     t.string   "password_salt"
     t.integer  "department_id"

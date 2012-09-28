@@ -1,29 +1,45 @@
 class RequestSubstitutionsController < ApplicationController
   
   def index
-  	@request_substitutions =Substitute.all
+  	@substitutes = Substitute.all
   end
-
+  
   def show
-    @request_substitution= Substitute.find(params[:id])
+    @substitute = Substitute.find(params[:id])
   end
   
   def new
-    @request_substitution = Substitute.new
+    @rsubstitute = Substitute.new
   end
 
 
   def create
-    @request_substitution = Substitute.new(params[:request_substitution])
+    @substitute = Substitute.create(params[:substitute])
     
-    session[:request_substitution_id] = @request_substitution.id
-    
-    if @request_substitution.save
-      redirect_to users_path, :notice => "Request successfully created!"
+    if @substitute.save
+      redirect_to request_substitutions_path, :notice => "Request successfully created!"
     else
       render :new
     end
-    
+  end
+
+  def edit
+    @substitute = Substitute.find(params[:id]) 
+  end
+
+  def update
+    @substitute = Substitute.find(params[:id])
+    if @substitute.update_attributes(params[:substitute])
+      redirect_to request_substitutions_path, :notice => "Request Successfully Updated"
+    else
+      render :edit      
+    end
+  end
+
+  def destroy
+    @substitute = Substitute.find(params[:id])
+    @substitute.destroy
+    redirect_to request_substitutions_path, :notice => "Request Successfully Deleted" 
   end
 
 end

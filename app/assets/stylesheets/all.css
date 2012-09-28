@@ -1,4 +1,4 @@
-x/* ---------------------------------- */
+/* ---------------------------------- */
 /* @Reset*/
 	
 html, body, div, span, object, iframe,
@@ -78,7 +78,11 @@ hr { border: none; border-bottom: 1px dotted #999; margin-bottom: 2.5em; margin-
 
 /* ---------------------------------- */
 /* @Input Styles */
-	
+  .widget-content .field textarea 
+{ 
+   
+    height: 100px;
+}	
 input
 , textarea
 , select
@@ -1106,7 +1110,7 @@ body {
 /* ---------------------------------- */
 /* @Sizes */
 
-.btn { font-size: 13px; padding: 8px 12px; }
+.btn { font-size: 13px; padding: 8px 12px; margin-top: 10px;}
 .btn-large { font-size: 16px; padding: 12px 18px; }
 .btn-small { font-size: 11px; padding: 5px 8px; }
 .btn-xlarge { font-size: 24px; padding: 12px 18px; }
@@ -4737,17 +4741,13 @@ body.error-page {
 
 /* =Widget
 ----------------------------------------------- */
-.widget {
+.widget 
+{
 	width: auto;
-	
-	margin-bottom: 2em;
 	border: 1px solid #D5D5D5;
-	
 	border-radius: 4px;
 	position: relative;
-	
 	clear: both;
-	
 	overflow: hidden;
 }
 	
@@ -4949,20 +4949,20 @@ body.error-page {
 	height: 41px;
 	line-height: 41px;	
 	list-style-type: none;
-	display: inline-block;	
-	border-left: 1px solid #DDD;	
+	display: inline-block;		
 	margin-right: -4px;
 }
 
-	.widget-tabs .tabs li:last-child { border-right: 1px solid #DDD; }
+.widget-tabs .tabs li:last-child { }
 
 .widget-tabs .tabs a {
 	font-size: 11px;
 	text-decoration: none;
 	color: #444;
 	display: block;
-	padding: 0 12px;
-	border-left: 1px solid #FFF;
+	padding: 0 3px;
+	border-left:none;
+	float: right;
 }
 
 .widget-tabs .tabs li.active { background-color: #FFF; font-weight: bold; }
@@ -4976,8 +4976,8 @@ body.error-page {
 
 
 .widget .tabs.right {
-	float: none;
-	position: absolute;
+	bottom: 0;
+	float: right;
 	right: 15px;
 }
 

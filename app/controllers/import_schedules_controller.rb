@@ -28,6 +28,7 @@ class ImportSchedulesController < ApplicationController
       first_name = temp[0, temp.length - 2].to_s.strip
       
       teacher = Teacher.find_or_create_by_firstname_and_lastname(first_name, last_name)
+
       
       # day code
       day_code = DayCode.find_or_create_by_name(row[2])
@@ -59,8 +60,6 @@ class ImportSchedulesController < ApplicationController
     end
       
     redirect_to import_schedules_path, notice: 'Schedules was sucessfully uploaded!'  
-        
+
   end
-  
-  
 end

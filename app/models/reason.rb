@@ -1,4 +1,4 @@
 class Reason < ActiveRecord::Base
 
-	validates :name, presence: true, uniqueness: { case_sensitivity: true }
+	validates :name, presence: true
 end
