@@ -85,17 +85,22 @@
 			<%= select_tag :planned, [['Unplanned', true], ['Planned', false]] %>
 		</div>
 
+		
+		<div class="field">								
+			<label for="requested_at">Date:</label>
+			<div class="field">
+				<input type="text" name="datepicker" id="datepicker" />				
+			</div> <!-- .field -->								
+		</div> <!-- .field-group -->
+
+
 		<div class="field">
-			<label for="requested_at">Date :</label>
-			<%= text_field :requested_at, size: 24, placehold: 'mm/dd/yr' %>
-		</div>
-		<div class="field">
-				<label for="reason">Reasons :</label>
+			<label for="reason">Reasons :</label>
 			<%= text_field :reason, size: 24, placehold: 'Reasons' %>	
 		</div>
 
 		<div class="field">
-				<label for="notes">Note :</label>
+			<label for="notes">Note :</label>
 			<%= text_area :notes, size: 24, placehold: 'notes' %>	
 		</div>
 
@@ -162,3 +167,49 @@
 	</div> <!-- .widget-content -->
 	</div>
 </div>
+
+			
+<script>
+$(function () { 
+	$( "#datepicker" ).datepicker();
+	$( "#datepicker_inline" ).datepicker();
+	$('#colorpickerHolder').ColorPicker({flat: true});
+	$('#timepicker').timepicker ({ 
+		showPeriod: true 
+		, showNowButton: true
+		, showCloseButton: true
+	});
+	
+	$('#timepicker_inline_div').timepicker({
+	   defaultTime: '9:20'
+	});		
+		
+	$('#colorSelector').ColorPicker({
+		color: '#FF9900',
+		onShow: function (colpkr) {
+			$(colpkr).fadeIn(500);
+			return false;
+		},
+		onHide: function (colpkr) {
+			$(colpkr).fadeOut(500);
+			return false;
+		},
+		onSubmit: function (hsb, hex, rgb, el) {
+			$(el).ColorPickerHide ();	
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#colorSelector div').css({ 'background-color': '#' + hex });
+			$('#colorpickerField1').val ('#' + hex);
+		}
+	});
+	
+	$('#colorpickerField1').live ('keyup', function (e) {
+		var val = $(this).val ();
+		val = val.replace ('#', '');
+		$('#colorSelector div').css({ 'background-color': '#' + val });
+		$('#colorSelector').ColorPickerSetColor(val);
+	});
+
+});
+
+</script>
