@@ -10,5 +10,10 @@ class Teacher < ActiveRecord::Base
   						   :format => { :with => /\A\S[0-9\+\/\(\)\s\-]*\z/i },
   						   :allow_blank => true,
   						    uniqueness: { case_sensitivity: true }
+
+
+  def fullname
+    " #{self.lastname} #{self.firstname}"
+  end
   
 end
