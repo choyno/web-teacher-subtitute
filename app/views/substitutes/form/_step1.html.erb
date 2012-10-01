@@ -1,0 +1,31 @@
+<div id="tab-1" class="widget-content">
+	<div class="widget widget-table">
+	<div class="widget-header">
+	<span class="icon-list"></span>
+
+	<h3 class="icon chart">Please select a teacher</h3>
+
+	</div>
+		<table class="table table-bordered table-striped data-table">
+		<thead>
+			<tr>
+				<th>Last Name</th>
+				<th>First Name</th>
+				<th>Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render partial: 'substitutes/teacher', collection: Teacher.all, as: :teacher %>
+		</tbody>
+	</table>
+</div>
+
+<div>
+	<ul class="tabs right">	
+		<li class="">
+			<a href="#tab-2">
+				<button class="btn btn-primary btn-blue">Next</button>
+			</a>
+		</li>	
+	</ul>	
+</div>

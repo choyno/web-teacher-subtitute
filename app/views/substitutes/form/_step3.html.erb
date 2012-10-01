@@ -1,0 +1,36 @@
+<div class="field">
+	<label for="planned">Request Type :</label>
+	<%#= select_tag :planned, [['Unplanned', true], ['Planned', false]] %>
+</div>
+
+<div class="field">
+	<label for="requested_at">Date:</label>
+	<div class="field">
+		<input type="text" name="datepicker" id="datepicker" />				
+	</div> <!-- .field -->								
+</div> <!-- .field-group -->
+
+<div class="field">
+	<label for="reason">Reasons :</label>
+	<%#= f.collection_select :reasons_id, Reason.all, :id, :name, prompt: true %>
+</div>
+
+<div class="field">
+	<label for="notes">Note :</label>
+	<%= text_area :notes, size: 24, placehold: 'notes' %>	
+</div>
+
+<div>
+	<ul class="tabs right">	
+		<li class="">
+			<a href="#tab-2">
+				<button class="btn btn-primary btn-blue">Back</button>
+			</a>
+		</li>	
+		<li class="">
+			<a href="#tab-4">
+				<button class="btn btn-primary btn-blue">Next</button>
+			</a>
+		</li>	
+	</ul>	
+</div>
