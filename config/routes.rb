@@ -2,6 +2,7 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
 
 
 
+  
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   
@@ -23,6 +24,7 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
     resources :teachers
     resources :subjects
     resources :reasons
+    resources :daycodes
   end
   
 

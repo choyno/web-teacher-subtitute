@@ -1,0 +1,14 @@
+<tr>
+	<td><%= daycode.name %></td>
+	<td>
+		<%= link_to edit_daycode_path(daycode) do %>
+			<button class="btn btn-small btn-quaternary">
+				<span class="icon-pen"></span>
+				Edit
+			</button>
+		<% end %>
+		
+		<%= button_to "delete", daycode_path(daycode), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
+
+	</td>	
+</tr>

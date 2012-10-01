@@ -1,76 +1,55 @@
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Teachers Schedule</h1>
+		<h1>Teachers Lists</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-			<form class="form uniformForm">					
-				<div class="widget">
-					<div class="widget-content">
-							<div class="field-group inlineField">	
-								<label for="myfile">File Input:</label>
+			<% if notice %>
+				<div class="notify notify-error">
+							<a class="close" href="javascript:;">×</a>
+							<%= notice %>
+				</div>
+			<% end %>
 
-								<div class="field">
-									<input type="file" name="myfile" id="myfile" />
-								</div>	
-							</div>
-					</div> <!-- .widget-content -->
-
-				</div> <!-- .widget -->
-			</form>
+			<div class="adduser">
+				<%= link_to new_teacher_schedule_path do %>
+					<button class="btn btn-primary btn-blue">
+						<span class="icon-user"></span>Add Teachers Subject
+					</button>
+				<% end %>
+				
+			</div>
 
 			<div class="widget widget-table">
-					<div class="widget-header">
-						<span class="icon-list"></span>
-						<h3 class="icon chart">Preview</h3>		
-					</div>
-					<div class="widget-content">
-						<table class="table table-bordered table-striped data-table">
-							<thead>
-								<tr>
-									<th>Teacher</th>
-									<th>Subject Code</th>
-									<th>Subject Name</th>
-									<th>Room #</th>
-									<th>Section</th>
-									<th>Type</th>
-									<th>Start Time</th>
-									<th>End Time</th>
-									<th>Schedule</th>
-								</tr>
-							</thead>
-					        <tbody>
+				<div class="widget-header">
+					<span class="icon-list"></span>
+					<h3 class="icon chart">Teachers Information</h3>		
+				</div>
+				
+				<div class="widget-content">
+					<table class="table table-bordered table-striped data-table">
+						<thead>
 							<tr>
-								<th>Abayon, Mark Jil C.</th>
-								<th>IT302</th>
-								<th>Software Engineering II: Systems Development & Integration</th>
-								<th>AniLab</th>
-								<th>CI601-C</th>
-								<th>LAB</th>
-								<th>8:00am</th>
-								<th>11:00am</th>
-								<th>TTH</th>
+								<th>Teacher</th> 
+								<th>Subject Code</th> 
+								<th>Subject Name</th> 
+								<th>Room #</th> 
+								<th>Section </th> 
+								<th>Type</th> 
+								<th>Start time</th> 
+								<th>End time </th>
+								<th>Schedule</th> 
+								<th>Action</th> 
 							</tr>
-
-							<tr>
-								<th>Abayon, Mark Jil C.</th>
-								<th>IT302</th>
-								<th>Software Engineering II: Systems Development & Integration</th>
-								<th>C-803</th>
-								<th>CI601-C</th>
-								<th>LEC</th>
-								<th>7:00am</th>
-								<th>8:00am</th>
-								<th>MWF</th>
-							</tr>
-															
-					        </tbody>
-				         </table>
-					</div> <!-- .widget-content -->
-					
+						</thead>
+				   		 <tbody>
+							<%= render partial: 'teacherschedule', collection: @teacherschedules, as: :teacherschedule %>
+				    	</tbody>
+         			</table>
+				</div> <!-- .widget-content -->
+				<?php endif;?>
 			   </div> <!-- .widget -->
-					<button class="btn btn-primary btn-blue">Save</button>
-			</div>
+			</div> <!-- .widget-content -->
 		</div> <!-- .widget -->	
 	</div> <!-- .grid -->			
 </div>

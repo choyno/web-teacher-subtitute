@@ -1,0 +1,33 @@
+<div id="content">			
+	<div id="contentHeader">
+		<h1>Request Substitutions</h1>
+	</div> <!-- #contentHeader -->	
+	<div class="container">
+		<div class="grid-24">
+			
+			<%= form_for @substitute, url: substitutes_path,  method: :post do |f| %>
+			
+				<% if @substitute.errors.present? %>
+					<div class="notify notify-error">
+						<a class="close" href="javascript:;">×</a>
+						<% for msg in @substitute.errors.full_messages %>
+		          <%= content_tag :div, msg %>
+		        <% end %>
+					</div>
+				<% end %>
+				
+				<div class="form uniformForm">					
+					<div class="widget">
+						<div class="widget-header">
+							<span class="icon-user"></span>
+							<h3>Request Information</h3>
+						</div>
+							<%= render 'form', f: f %>
+					</div> <!-- .widget -->
+				</div>
+			<% end %>
+		</div>
+	</div> <!-- .grid -->			
+</div>
+			
+			

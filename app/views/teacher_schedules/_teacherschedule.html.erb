@@ -1,0 +1,21 @@
+<tr>
+	<th><%= teacherschedule.teacher.firstname if teacherschedule.teacher %>
+	<%= teacherschedule.teacher.lastname if teacherschedule.teacher %></th> 
+	<td><%= teacherschedule.subject.code if teacherschedule.subject %></td> 
+	<td><%= teacherschedule.subject.name if teacherschedule.subject %></td> 
+	<td><%= teacherschedule.room_num %></td> 
+	<td><%= teacherschedule.section %></td> 
+	<td><%= teacherschedule.subject_type %></td> 
+	<td><%= teacherschedule.time_start %></td> 
+	<td><%= teacherschedule.time_end %></td> 
+	<td><%= teacherschedule.day_code.name if teacherschedule.day_code %></td>
+	<td>
+		<%= link_to edit_teacher_schedule_path(teacherschedule) do %>
+			<button class="btn btn-small btn-quaternary">
+				<span class="icon-pen"></span>
+				Edit
+			</button>
+		<% end %>
+		<%= button_to "delete", teacher_schedule_path(teacherschedule), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
+	</td>	
+</tr>

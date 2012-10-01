@@ -5,6 +5,12 @@
 
 	<div class="container">
 		<div class="grid-24">
+			<% if notice %>
+				<div class="notify notify-error">
+							<a class="close" href="javascript:;">×</a>
+							<%= notice %>
+				</div>
+			<% end %>
 			<div class="adduser">
 				<a href="<?php echo base_url();?>index.php/substitution/request">
 					<%= link_to new_request_substitution_path do %>
