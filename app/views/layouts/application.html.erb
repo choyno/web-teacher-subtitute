@@ -13,7 +13,7 @@
 	<meta name="author" content="" />		
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<%= stylesheet_link_tag    "application", "all", :media => "all" %>
+	<%= stylesheet_link_tag  "all", "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
 	
 	<!--[if gte IE 9]>
@@ -84,32 +84,32 @@ $(function () {
 	   defaultTime: '9:20'
 	});		
 		
-	$('#colorSelector').ColorPicker({
-		color: '#FF9900',
-		onShow: function (colpkr) {
-			$(colpkr).fadeIn(500);
-			return false;
-		},
-		onHide: function (colpkr) {
-			$(colpkr).fadeOut(500);
-			return false;
-		},
-		onSubmit: function (hsb, hex, rgb, el) {
-			$(el).ColorPickerHide ();	
-		},
-		onChange: function (hsb, hex, rgb) {
-			$('#colorSelector div').css({ 'background-color': '#' + hex });
-			$('#colorpickerField1').val ('#' + hex);
-		}
-	});
+	// $('#colorSelector').ColorPicker({
+	// 	color: '#FF9900',
+	// 	onShow: function (colpkr) {
+	// 		$(colpkr).fadeIn(500);
+	// 		return false;
+	// 	},
+	// 	onHide: function (colpkr) {
+	// 		$(colpkr).fadeOut(500);
+	// 		return false;
+	// 	},
+	// 	onSubmit: function (hsb, hex, rgb, el) {
+	// 		$(el).ColorPickerHide ();	
+	// 	},
+	// 	onChange: function (hsb, hex, rgb) {
+	// 		$('#colorSelector div').css({ 'background-color': '#' + hex });
+	// 		$('#colorpickerField1').val ('#' + hex);
+	// 	}
+	// });
 	
-	$('#colorpickerField1').live ('keyup', function (e) {
-		var val = $(this).val ();
-		val = val.replace ('#', '');
-		$('#colorSelector div').css({ 'background-color': '#' + val });
-		$('#colorSelector').ColorPickerSetColor(val);
-	});
-
+	// $('#colorpickerField1').live ('keyup', function (e) {
+	// 		var val = $(this).val ();
+	// 		val = val.replace ('#', '');
+	// 		$('#colorSelector div').css({ 'background-color': '#' + val });
+	// 		$('#colorSelector').ColorPickerSetColor(val);
+	// 	});
+	
 });
 
 </script>
