@@ -1,167 +1,20 @@
 <div class="widget widget-tabs">
 	
-	<div class="widget">
+	<div class="widget">		
+		<%= render 'substitutes/form/step1' %>
+	</div> <!-- .widget-content -->
 
-		<div id="tab-1" class="widget-content">
+	<div id="tab-2" class="widget-content">
+		<%= render 'substitutes/form/step2' %>
+		<br/>
+	</div> <!-- .widget-content -->
 
-			<div class="widget widget-table">
-				<div class="widget-header">
-					<span class="icon-list"></span>
-					<h3 class="icon chart">Absent Teacher</h3>		
-				</div>
-					<table class="table table-bordered table-striped data-table">
-						<thead>
-							<tr>
-								<th>Last Name</th>
-								<th>First Name</th>
-								<th>Options</th>
-							</tr>
-						</thead>
-				        <tbody>
-				       		<%= render partial: 'absentteacher', collection: Teacher.all, as: :teacher %>
-				        </tbody>
-			         </table>
-			</div>
+  <div id="tab-3" class="widget-content">
+		<%= render 'substitutes/form/step3' %>
+  </div>
 
-			<div>
-				<ul class="tabs right">	
-					<li class="">
-						<a href="#tab-2">
-							<button class="btn btn-primary btn-blue">Next</button>
-						</a>
-					</li>	
-				</ul>	
-			</div>
-
-		</div> <!-- .widget-content -->
-
-		<div id="tab-2" class="widget-content">
-			<div >
-				<div class="widget widget-table">
-					<div class="widget-header">
-						<span class="icon-list"></span>
-						<h3 class="icon chart">Absent Subject</h3>		
-					</div>
-				
-					<table class="table table-bordered table-striped data-table">
-						<thead>
-							<tr>
-								<th>Subject Code</th>
-								<th>Subject Name</th>
-								<th>Options</th>
-							</tr>
-						</thead>
-				        <tbody>
-				       		<%= render partial: 'subject', collection: Subject.all, as: :subject %>
-				        </tbody>
-			         </table>
-				</div>
-			</div>
-			<br/>
-
-			<div>
-				<ul class="tabs right">	
-					<li class="">
-						<a href="#tab-1">
-							<button class="btn btn-primary btn-blue">Back</button>
-						</a>
-					</li>	
-					<li class="">
-						<a href="#tab-3">
-							<button class="btn btn-primary btn-blue">Next</button>
-						</a>
-					</li>	
-				</ul>	
-			</div>
-		</div> <!-- .widget-content -->
-
-	    <div id="tab-3" class="widget-content">
-	    	<div class="field">
-				<label for="planned">Request Type :</label>
-				<%= select_tag :planned, [['Unplanned', true], ['Planned', false]] %>
-			</div>
-
-			<div class="field">
-				<label for="requested_at">Date:</label>
-				<div class="field">
-					<input type="text" name="datepicker" id="datepicker" />				
-				</div> <!-- .field -->								
-			</div> <!-- .field-group -->
-
-			<div class="field">
-				<label for="reason">Reasons :</label>
-				<%= f.collection_select :reasons_id, Reason.all, :id, :name, prompt: true %>
-			</div>
-
-			<div class="field">
-				<label for="notes">Note :</label>
-				<%= text_area :notes, size: 24, placehold: 'notes' %>	
-			</div>
-
-			<div>
-				<ul class="tabs right">	
-					<li class="">
-						<a href="#tab-2">
-							<button class="btn btn-primary btn-blue">Back</button>
-						</a>
-					</li>	
-					<li class="">
-						<a href="#tab-4">
-							<button class="btn btn-primary btn-blue">Next</button>
-						</a>
-					</li>	
-				</ul>	
-			</div>
-	    </div>
-		<div id="tab-4" class="widget-content">
-				
-				<div >
-					<div class="widget widget-table">
-						<div class="widget-header">
-							<span class="icon-list"></span>
-							<h3 class="icon chart">Avialable Teacher</h3>		
-					</div>
-						<table class="table table-bordered table-striped data-table">
-							<thead>
-								<tr>
-									<th>last Name</th>
-									<th>First Name</th>
-									<th>Options</th>
-								</tr>
-							</thead>
-					        <tbody>
-					       		<%= render partial: 'substitute', collection: Teacher.all, as: :teacher %>
-					        </tbody>
-				         </table>
-					</div>
-				</div>
-
-				<div>
-					<ul class="tabs right">	
-						<li class="">
-							<a href="#tab-3">
-								<button class="btn btn-primary btn-blue">Back</button>
-							</a>
-						</li>	
-						<li class="">
-							<a href="#tab-1">
-								<button class="btn btn-primary btn-blue">Cancel</button>
-							</a>
-						</li>	
-						<li class="">
-							<a href="#">
-								<button class="btn btn-primary btn-blue">Save</button>
-							</a>
-						</li>	
-					</ul>	
-				</div>
-		</div> <!-- .widget-content -->
-
-	</div>
-</div>
-
-
-
-
-
+	<div id="tab-4" class="widget-content">
+		<%= render 'substitutes/form/step4' %>
+	</div> <!-- .widget-content -->
 	
+</div>

@@ -1,0 +1,11 @@
+<%= content_tag :tr, id: teacher, data: { id: teacher.id, name: teacher.fullname } do %>
+	<th><%= teacher.lastname %></th>
+	<th><%= teacher.firstname %></th>
+	<th>
+		<button class="btn-select-teacher btn btn-small btn-quaternary">
+			<span class="icon-user"></span>
+			Select
+		</button>
+	</th>
+<% end %>
+
