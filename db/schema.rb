@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002013621) do
+ActiveRecord::Schema.define(:version => 20121002015810) do
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(:version => 20121002013621) do
     t.integer  "teacher_id"
     t.integer  "subject_id"
     t.time     "time_end"
-    t.string   "room_num"
+    t.string   "room_id"
     t.integer  "day_code_id"
-    t.string   "section",      :limit => 20
+    t.integer  "section_id"
     t.string   "subject_type", :limit => 120
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false

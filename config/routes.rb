@@ -29,6 +29,8 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
     resources :subjects
     resources :reasons
     resources :daycodes
+    resources :sections
+    resources :rooms  
   end
   
 
