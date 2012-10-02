@@ -1808,7 +1808,8 @@ body {
 
 tr th .btn
 {
-	margin:2px;
+	margin:7px;
+	float:right;
 
 }
 /* ---------------------------------- */

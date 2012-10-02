@@ -36,7 +36,7 @@ class TeacherSchedulesController < ApplicationController
 	def destroy
 		@teacherschedule =TeacherSubject.find(params[:id])
 		@teacherschedule.destroy
-		redirect_to teacherschedule_schdedules_path, :notice => "Successfully Deleted!!"
+		redirect_to teacher_schedules_path, :notice => "Successfully Deleted!!"
 	end
 
 	def fullname
