@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923234346) do
+ActiveRecord::Schema.define(:version => 20121002013621) do
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
@@ -25,10 +25,22 @@ ActiveRecord::Schema.define(:version => 20120923234346) do
     t.string "name", :limit => 20
   end
 
+  create_table "rooms", :force => true do |t|
+    t.string   "name",       :limit => 20
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
   create_table "schedule_files", :force => true do |t|
     t.string   "excel_file", :limit => 150
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "name",       :limit => 20
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "statuses", :force => true do |t|

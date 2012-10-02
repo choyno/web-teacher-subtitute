@@ -3,6 +3,10 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
 
 
   
+  get "sections/index"
+
+  get "rooms/index"
+
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   
