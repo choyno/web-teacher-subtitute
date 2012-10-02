@@ -13,14 +13,13 @@ class SubjectsController < ApplicationController
   end
 
   def create
- 	@subject = Subject.create(params[:subject])
+   	@subject = Subject.create(params[:subject])
 
- 	if @subject.save
- 		redirect_to subjects_path, notice: "Subject Successfully Added"
- 	else
- 		render :new
- 	end
-
+   	if @subject.save
+   		redirect_to subjects_path, notice: "Subject Successfully Added"
+   	else
+   		render :new
+   	end
   end
 
   def edit

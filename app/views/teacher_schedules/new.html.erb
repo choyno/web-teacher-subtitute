@@ -4,11 +4,11 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-			<%= form_for @teacherschedule, url: teacher_schedules_path,  method: :post do |f| %>
-				<% if @teacherschedule.errors.present? %>
+			<%= form_for @teachersubject, url: teacher_schedules_path,  method: :post do |f| %>
+				<% if @teachersubject.errors.present? %>
 					<div class="notify notify-error">
 						<a class="close" href="javascript:;">×</a>
-						<% for msg in @teacherschedule.errors.full_messages %>
+						<% for msg in @teachersubject.errors.full_messages %>
 		          <%= content_tag :div, msg %>
 		        <% end %>
 					</div>
