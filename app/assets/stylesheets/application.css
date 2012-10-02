@@ -11,9 +11,8 @@
  *= require_self
  *= require token-input-facebook
  *= require chosen
+ *= require bootstrap.min
+ *= require style
  *= require_tree .
 */
 
-.content {
-  margin: 50px;
-}
