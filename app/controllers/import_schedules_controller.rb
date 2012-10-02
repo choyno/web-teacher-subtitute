@@ -34,14 +34,14 @@ class ImportSchedulesController < ApplicationController
       day_code = DayCode.find_or_create_by_name(row[2])
       
       # room_number
-      room_number = row[3].to_s
+      room = Room.find_or_create_by_name( row[3])
       
       # section
-      section = row[4].to_s
+      section = Section.find_or_create_by_name( row[4])
       
       # type
       
-      schedule_type = row[7].to_s
+      schedule_type =SubjectType.find_or_create_by_name(row[7])
       
       # need to breack time to get start and end
       time = row[6].to_s.split('-')
@@ -50,8 +50,8 @@ class ImportSchedulesController < ApplicationController
       
       teacher_subject = TeacherSubject.new({ teacher_id: teacher.id, subject_id: subject.id, 
                                              time_start: time_start, time_end: time_end,
-                                             room_num: room_number, day_code_id: day_code.id,
-                                             section: section, subject_type: schedule_type
+                                             room_id: room.id, day_code_id: day_code.id,
+                                             section_id: section.id, subject_type_id: schedule_type.id
                                           })
                                         
       teacher_subject.save

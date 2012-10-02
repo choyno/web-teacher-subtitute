@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121002015810) do
+=======
+ActiveRecord::Schema.define(:version => 20121002182428) do
+>>>>>>> 2039e71cc19b2ebf44f9786b430ea688f9bb2ecc
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
@@ -47,6 +51,12 @@ ActiveRecord::Schema.define(:version => 20121002015810) do
     t.string "name", :limit => 100
   end
 
+  create_table "subject_types", :force => true do |t|
+    t.string   "name",       :limit => 20
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
   create_table "subjects", :force => true do |t|
     t.string   "code",       :limit => 20
     t.string   "name"
@@ -76,9 +86,9 @@ ActiveRecord::Schema.define(:version => 20121002015810) do
     t.string   "room_id"
     t.integer  "day_code_id"
     t.integer  "section_id"
-    t.string   "subject_type", :limit => 120
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.integer  "subject_type_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.time     "time_start"
   end
 

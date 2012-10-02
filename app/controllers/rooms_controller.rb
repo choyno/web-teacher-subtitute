@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-  	@room = Room.find(params[:room])
+  	@room = Room.find(params[:id])
   	@room.destroy
   	redirect_to rooms_path, notice: "Succcesfully Deleted"
   end

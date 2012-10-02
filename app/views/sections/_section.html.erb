@@ -1,0 +1,14 @@
+<tr>
+	<td><%= section.name %></td>
+	<td>
+		<%= link_to edit_section_path(section) do %>
+			<button class="btn btn-small btn-quaternary">
+				<span class="icon-pen"></span>
+				Edit
+			</button>
+		<% end %>
+		
+		<%= button_to "delete", section_path(section), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
+
+	</td>	
+</tr>

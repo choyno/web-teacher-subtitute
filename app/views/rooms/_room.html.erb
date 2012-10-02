@@ -1,0 +1,14 @@
+<tr>
+	<td><%= room.name %></td>
+	<td>
+		<%= link_to edit_room_path(room) do %>
+			<button class="btn btn-small btn-quaternary">
+				<span class="icon-pen"></span>
+				Edit
+			</button>
+		<% end %>
+		
+		<%= button_to "delete", room_path(room), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
+
+	</td>	
+</tr>

@@ -1,20 +1,20 @@
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Reasons</h1>
+		<h1>Day Types</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
+			
 			<% if notice %>
-				<div class="notify notify-error">
-							<a class="close" href="javascript:;">×</a>
-							<%= notice %>
-				</div>
+			<div class="notify notify-error">
+						<a class="close" href="javascript:;">×</a>
+						<%= notice %>
+			</div>
 			<% end %>
-
 			<div class="adduser">
-				<%= link_to new_room_path do %>
+				<%= link_to new_subject_type_path do %>
 					<button class="btn btn-primary btn-blue">
-						<span class="icon-user"></span>Add Room Number
+						<span class="icon-user"></span>Add Subject Type
 					</button>
 				<% end %>
 				
@@ -23,20 +23,21 @@
 			<div class="widget widget-table">
 				<div class="widget-header">
 					<span class="icon-list"></span>
-					<h3 class="icon chart">Room List</h3>		
+					<h3 class="icon chart">Subject Type Information</h3>		
 				</div>
 				
 				<div class="widget-content">
 					<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
-								<th>Room #</th>
+								<th>Day Type</th>
 								<th>Action</th> 
 							</tr>
 						</thead>
 				   		 <tbody>
-								<%= render partial: 'room', collection: @rooms, as: :room %>				    	
-						</tbody>
+								<%= render partial: 'subject_types', collection: @subject_types, as: :subject_type %>
+								
+				    	</tbody>
          			</table>
 				</div> <!-- .widget-content -->
 				<?php endif;?>
