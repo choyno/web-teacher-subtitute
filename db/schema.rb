@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923080312) do
+ActiveRecord::Schema.define(:version => 20121002015810) do
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(:version => 20120923080312) do
   create_table "users", :force => true do |t|
     t.string   "full_name",     :limit => 120
     t.string   "username",      :limit => 120
-    t.string   "user_types",    :limit => 120
     t.string   "password_hash"
     t.string   "password_salt"
     t.integer  "department_id"
