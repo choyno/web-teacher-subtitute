@@ -1,0 +1,40 @@
+<div id="content">			
+	<div id="contentHeader">
+		<h1>Add Room Number</h1>
+	</div> <!-- #contentHeader -->	
+	<div class="container">
+		<div class="grid-24">
+			
+			<%= form_for @room, url: rooms_path,  method: :post do |f| %>
+			
+				<% if @room.errors.present? %>
+					<div class="notify notify-error">
+						<a class="close" href="javascript:;">×</a>
+						
+						<% for msg in @room.errors.full_messages %>
+		          <%= content_tag :div, msg %>
+		        <% end %>
+							
+					</div>
+				<% end %>
+				
+				<div class="form uniformForm">					
+					<div class="widget">
+						<div class="widget-header">
+							<span class="icon-user"></span>
+							<h3>Room Information</h3>
+						</div>
+						<div class="widget-content">
+							<%= render 'form', f: f %>
+						</div> <!-- .widget-content -->
+					</div> <!-- .widget -->
+						<button class="btn btn-primary btn-blue">Save</button>
+						<%= link_to 'Cancel', rooms_path, class: 'btn btn-primary btn-blue'  %>
+				</div>
+				
+			<% end %>
+		</div>
+	</div> <!-- .grid -->			
+</div>
+			
+			
