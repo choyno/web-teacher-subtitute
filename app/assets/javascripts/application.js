@@ -12,5 +12,6 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require main
+//= require jquery.tokeninput
 //= require_tree .
 

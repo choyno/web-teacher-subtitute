@@ -1,34 +1,15 @@
-<div class="widget widget-tabs">
-		<div class="widget-header">
-						<span class="icon-user"></span>
-						<h3>Request Information</h3>
-						<ul class="tabs right">	
-							<li class="active"><a href="#tab-1">STEPS 1 </a></li>	
-							<li class=""><a href="#tab-2">2</a></li>			
-							<li class=""><a href="#tab-3">3</a></li>
-							<li class=""><a href="#tab-3">4</a></li>
-						</ul>					
-					</div> <!-- .widget-header -->
-	
-	<div class="widget">		
-		<%= render 'substitutes/form/step1' %>
-	</div> <!-- .widget-content -->
-
-	<div id="tab-2" class="widget-content">
-		<%= render 'substitutes/form/step2' %>
-		<br/>
-	</div> <!-- .widget-content -->
-
-  <div id="tab-3" class="widget-content">
-		<%= render 'substitutes/form/step3' %>
+<br />
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Select Teacher and Subject</a></li>
+    <li><a href="#tab2" data-toggle="tab">Teacher to Subtitute</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <%= render 'substitutes/form/step1' %>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>Howdy, I'm in Section 2.</p>
+    </div>
   </div>
-
-	<div id="tab-4" class="widget-content">
-		<%= render 'substitutes/form/step4' %>
-	</div> <!-- .widget-content -->
-	
 </div>
-
-
-
-		
