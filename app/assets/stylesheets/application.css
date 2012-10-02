@@ -37,6 +37,48 @@ body
 }
 
 
+.widget-tabs .tabs {
+    display: inline-block;
+    margin: 0;
+}
+    
+.widget-tabs .tabs li { 
+    height: 41px;
+    line-height: 41px;  
+    list-style-type: none;
+    display: inline-block;      
+    margin-right: -4px;
+}
+
+.widget-tabs .tabs li:last-child { }
+
+.widget-tabs .tabs li a {
+    font-size: 11px;
+    text-decoration: none;
+    color: #444;
+    display: block;
+    padding: 0 15px;
+    border-left:none;
+    float: right;
+}
+
+.widget-tabs .tabs li.active { background-color: #FFF; font-weight: bold; }
+    .widget-tabs .tabs li.active a { color: #FF0000; }
+
+.widget-tabs .tabs li:first-child { border-left: none; }
+
+.widget-tabs h3+.tabs li:first-child { border-left: 1px solid #DDD; }
+
+
+
+
+.widget .tabs.right {
+    bottom: 0;
+    float: right;
+    right: 15px;
+}
+
+
   .widget-content .field label 
 { 
    color: #000000;

@@ -4941,47 +4941,6 @@ body.error-page {
 		.widget-table .dataTables_info { margin-left: 10px; }
 		.widget-table .dataTables_wrapper .dataTables_paginate { margin-right: 10px; }
 
-.widget-tabs .tabs {
-	display: inline-block;
-	margin: 0;
-}
-	
-.widget-tabs .tabs li {	
-	height: 41px;
-	line-height: 41px;	
-	list-style-type: none;
-	display: inline-block;		
-	margin-right: -4px;
-}
-
-.widget-tabs .tabs li:last-child { }
-
-.widget-tabs .tabs a {
-	font-size: 11px;
-	text-decoration: none;
-	color: #444;
-	display: block;
-	padding: 0 3px;
-	border-left:none;
-	float: right;
-}
-
-.widget-tabs .tabs li.active { background-color: #FFF; font-weight: bold; }
-	.widget-tabs .tabs li.active a { color: #06C; }
-
-.widget-tabs .tabs li:first-child { border-left: none; }
-
-.widget-tabs h3+.tabs li:first-child { border-left: 1px solid #DDD; }
-
-
-
-
-.widget .tabs.right {
-	bottom: 0;
-	float: right;
-	right: 15px;
-}
-
 .widget-codeview .widget-content { padding: 0; }
 
 .widget-codeview .SRC_Line:nth-child(odd) {
