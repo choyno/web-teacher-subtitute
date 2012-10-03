@@ -42,7 +42,7 @@
 
 
 
-
+<!-- 
 			<div class='sideBottom'>
 				<button class='btn btn-primary headblue' data-toggle="collapse" data-target="#tasksSideList">TaskList <i class='icon-white icon-circle-arrow-down'></i></button>
 				<ul id='tasksSideList' class='collapse in'>
@@ -53,10 +53,10 @@
 					<li data-taskId='2' data-taskState='0'><a href="#"></a>Custom CSS</li>
 					<li data-taskId='1' data-taskState='1'><a href="#">Love this Theme :)</a></li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
-    
-		<section class='span6 content borBox'>
+
+		<section class='span9 content borBox'>
 		
       <% if current_user.user_type == 'Admin'  %>
             <%= yield %>
@@ -68,7 +68,12 @@
 
 
 	</section>
+  
 </section>
+
+<div id="footer">
+  Copyright &copy; 2012, Thesis Project.
+</div>
 </body>
 </html>
 
