@@ -725,7 +725,7 @@ section .row-fluid [class*="span"]
     width:76.35%;
 
 }
-section .row-fluid .span9
+section .row-fluid .span10
 {
  	margin-left: 0;
     padding: 20px;
@@ -850,6 +850,7 @@ section .row-fluid .span9
     height: 96px;
     margin-bottom: 2em;
     position: relative;
+     padding-right: 34px;
     width: 100%;
 }
 #contentHeader {
@@ -858,11 +859,11 @@ section .row-fluid .span9
     padding-bottom: 0;
     padding-top: 19px;
     margin-left: -17px;
-    padding:10px;
+
     top: -17px;
-    width: 950px;
+    width: 100%;
 }
-#content #contentHeader h1
+#content #contentHeader h1, .dashboard
 {
     color: #333333;
     font-size: 28px;
