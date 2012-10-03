@@ -1,91 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "WebBasedTeachersSubstitutionSystem" %></title>
-    <%= csrf_meta_tags %>
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <![endif]-->
-
-    <%= stylesheet_link_tag "application", :media => "all" %>
-
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <!-- Size should be 144 x 144 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
-
-    <!-- For iPhone with high-resolution Retina display: -->
-    <!-- Size should be 114 x 114 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
-
-    <!-- For first- and second-generation iPad: -->
-    <!-- Size should be 72 x 72 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
-
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- Size should be 57 x 57 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
-
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
-  </head>
-  <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">WebBasedTeachersSubstitutionSystem</a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+<html lang='en'>
+	<meta charset='utf-8'>
+<head>  
+	<title> WEB BASED TEACHER SUBSTITUTIONS</title>
+	<%= stylesheet_link_tag 'application' %>
+	<%= javascript_include_tag 'application' %>
+</head>
+<body>
+<header class='navbar blue blue2 navbar-fixed-top'>
+	<div class='navbar-inner'>
+		<div class='container-fluid'>
+			<div class='title'>
+        WEB BASED TEACHER SUBSTITUTIONS
       </div>
-    </div>
+			
+			<ul class='nav pull-right'>
+				<li><a href="#" rel='tooltip' title='8 Projects Remaining'><span class="badge badge-nav">8</span></a></li>
+				<li><a href="#" rel='tooltip' title='2 Tasks are Urgent'><span class="badge badge-nav">2 Urgent</span></a></li>
+			
+				<li><a href="#" rel='tooltip' title='Logout'><i class="icon-white icon-off"></i></span></i></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+<section class='container-fluid pad40'>
+	
+	<section class='row-fluid'>
+		<div class="span3 sideBar">
+			
+			<br/>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-				<div class="content">
-	        <div class="span3">
-	          <div class="well sidebar-nav">
-	            <ul class="nav nav-list">
-	              <li class="nav-header">Sidebar</li>
-	              <li><%= link_to "Link1", "/path1"  %></li>
-	              <li><%= link_to "Link2", "/path2"  %></li>
-	              <li><%= link_to "Link3", "/path3"  %></li>
-	            </ul>
-	          </div><!--/.well -->
-	        </div><!--/span-->
-	        <div class="span9">
-	          <%= bootstrap_flash %>
-	          <%= yield %>
-	        </div>
-				</div>
-      </div><!--/row-->
 
-   
+		
+      <% if current_user.user_type == 'Admin'  %>
+          <%= render 'shared/admin/navigation' %>
+      <% elsif current_user.user_type == 'Head' %>
+          <%= render 'shared/head/navigation' %>
+      <% elsif  current_user.user_type == 'Checker' %>
+          <%= render 'shared/checker/navigation' %>
+      <% end %>
 
-    </div> <!-- /container -->
-   <footer>
-        <p>&copy; CopyRight Thesis Project</p>
-      </footer>
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
 
-  </body>
+
+
+			<div class='sideBottom'>
+				<button class='btn btn-primary headblue' data-toggle="collapse" data-target="#tasksSideList">TaskList <i class='icon-white icon-circle-arrow-down'></i></button>
+				<ul id='tasksSideList' class='collapse in'>
+					<li data-taskId='6' data-taskState='1'><a href="#">Explore Elements</a></li>
+					<li data-taskId='5' data-taskState='0'><a href="#">Add New Project</a></li>
+					<li data-taskId='4' data-taskState='0'><a href="#">Add New Messages</a></li>
+					<li data-taskId='3' data-taskState='1'><a href="#">Custom Functions</a></li>
+					<li data-taskId='2' data-taskState='0'><a href="#"></a>Custom CSS</li>
+					<li data-taskId='1' data-taskState='1'><a href="#">Love this Theme :)</a></li>
+				</ul>
+			</div>
+		</div>
+		<section class='span6 content borBox'>
+		
+      <% if current_user.user_type == 'Admin'  %>
+            <%= yield %>
+      <% elsif current_user.user_type == 'Head' %>
+          <%= yield %>
+      <% elsif  current_user.user_type == 'Checker' %>
+          <%= yield %>
+      <% end %>
+
+		</section>
+	</section>
+</section>
+</body>
 </html>
+
