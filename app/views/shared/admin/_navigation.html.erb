@@ -1,11 +1,11 @@
 <ul class="nav nav-list">
 
     <li><%= link_to 'Dashboard', root_path %></li>
-    <li><%= link_to "Teacher's Schedule", teacher_schedules_path %></li>
+   	
 
 	<li class='dropper'>
 		<figure>
-			Department Head 
+			Department Head &nbsp ›
 		</figure>
 		<ul class='subSide'>
 			<li> <%= link_to 'Request Substitution', substitutes_path %></li>
@@ -17,12 +17,32 @@
 
 	<li class='dropper'>
 		<figure>
-			Checker
+			Checker &nbsp ›
 		</figure>
 		<ul class='subSide'>
 			<li> <%= link_to 'Verify Records', verify_requests_path %></li>
 			<li><%= link_to 'Vouch Request',  vouch_requests_path %></li>
 			<li><%= link_to 'Remind Request', generate_reports_path %></li>
+		</ul>
+	</li>
+
+	<li><%= link_to 'Substitute Records', substitution_records_path %></li>
+
+	<li class='dropper'>
+		<figure>
+			Maintenance &nbsp ›
+		</figure>
+		<ul class='subSide'>
+			<li><%= link_to 'User Accounts Records', users_path %></li>
+			<li><%= link_to 'User Department',  departments_path %></li>
+			<li><%= link_to 'Teachers List', teachers_path %></li>
+			<li><%= link_to 'Subjects List', subjects_path %></li>
+			<li><%= link_to 'Subject Types', subject_types_path %></li>
+			<li><%= link_to 'Room Number', rooms_path %></li>
+			<li><%= link_to 'Section', sections_path %></li>
+			<li><%= link_to 'Day Schedule', daycodes_path %></li>
+			<li><%= link_to 'Absent Reason', reasons_path %></li>
+			<li><%= link_to 'Import Teachers Schedule', import_schedules_path %></li>
 		</ul>
 	</li>
 
