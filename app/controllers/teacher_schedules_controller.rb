@@ -1,32 +1,32 @@
 class TeacherSchedulesController < ApplicationController
 	def index
-		@teacherschedules = TeacherSubject.all
+		@teachersubjects = TeacherSubject.all
 	end
 
 	def show
-		@teacherschedule = TeacherSubject.find(params[:id])
+		@teachersubject = TeacherSubject.find(params[:id])
 	end
 
 	def new
-		@teacherschedule = TeacherSubject.new
+		@teachersubject = TeacherSubject.new
 	end
 
 	def create
-		@teacherschedule = TeacherSubject.create(params[:teacherschedule])
-		if @teacherschedule.save
-			redirect_to teacher_schedules_path, :notice => "Successfull Created!!"
-		else
+		@teachersubject = TeacherSubject.create(params[:teachersubject])
+		if @teachersubject.save
+			redirect_to teacher_schedules_path, notice: "Successfull Created!!"
+		else	
 			render :new
 		end
 	end
 
 	def edit
-		@teacherschedule = TeacherSubject.find(params[:id])		
+		@teachersubject = TeacherSubject.find(params[:id])		
 	end
 
 	def update 
-		@teacherschedule = TeacherSubject.find(params[:id])
-		if @teacherschedule.update_attributes(params[:teacherschedule])
+		@teachersubject = TeacherSubject.find(params[:id])
+		if @teachersubject.update_attributes(params[:teachersubject])
 			redirect_to teacher_schedules_path, :notice => "Successfully Updated!!"
 		else
 			render :edit
@@ -34,8 +34,8 @@ class TeacherSchedulesController < ApplicationController
 	end
 
 	def destroy
-		@teacherschedule =TeacherSubject.find(params[:id])
-		@teacherschedule.destroy
+		@teachersubject =TeacherSubject.find(params[:id])
+		@teachersubject.destroy
 		redirect_to teacher_schedules_path, :notice => "Successfully Deleted!!"
 	end
 

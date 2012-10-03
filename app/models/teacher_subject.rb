@@ -1,8 +1,4 @@
 class TeacherSubject < ActiveRecord::Base
-  
- attr_accessible :teacher_id, :subject_id,  
-   			  :subject_type, :day_code_id, 
-   			   :room_id, :section_id
 
   belongs_to :day_code
   belongs_to :teacher
@@ -13,8 +9,14 @@ class TeacherSubject < ActiveRecord::Base
 
   has_many :subtitutes, class_name: :Subtitute, foreign_key: :subtitute_teacher_id
 
-  validates :teacher_id, :subject_id, :time_start, 
-   			  :subject_type, :day_code_id, :time_end,
-   			   :room_id, :section_id, presence: true
+  validates :teacher_id,  presence: true
+  validates :subject_id,  presence: true 
+  validates :time_start,  presence: true 
+  validates :subject_type, presence: true 
+  validates :day_code_id, presence: true
+  validates :time_end, presence: true
+  validates :room_id,  presence: true
+  validates :section_id, presence: true
+
 
 end
