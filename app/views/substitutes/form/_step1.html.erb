@@ -2,41 +2,24 @@
 	<span class="icon-list"></span>
 	<h3 class="icon chart">Absent Teacher</h3>		
 </div>
-
+<%= text_field_tag :demo %>
 	
-<div id="tab-1" class="widget-content">
-		<%= select_tag :requester, 
-					options_from_collection_for_select(Teacher.all, :id, :fullname), prompt: 'Search for a teacher',
-					style: 'height: 200px; width: 90%' %>
-			
-
-	<div>
-		<ul class="tabs right">	
-			<li class="">
-				<a href="#tab-2">
-					<button class="btn btn-primary btn-blue">Next</button>
-				</a>
-			</li>	
-		</ul>	
-	</div>
-</div>
-
 <script type="text/javascript">
+		
+	var teacherSource = <%= raw Teacher.all.map { |p| { id: p.id, name:  p.fullname }}.to_json %>	
+		
+	 $(document).ready(function() {
+		
+        $("#demo").tokenInput(teacherSource, 
+						{ theme: 'facebook', 
+							tokenLimit: 1,
+							onAdd: function(item){
+								alert('hello' + item.name)
+							}
+						});
+						
+    });
 
-	$(document).ready(function(){
-		
-		 $('#requester').chosen();
-			
-		// $('#requester').on('change', function(){
-		// 		
-		// 		var teacherID = $(this).val();
-		// 		
-		// 		console.log(teacherID);
-		// 	
-		// })
-		
-		
-	})
 	
 	
 </script>

@@ -13,6 +13,7 @@
  *= require chosen
  *= require bootstrap.min
  *= require style
+ *= require token-input-facebook
  *= require_tree .
 */
 
