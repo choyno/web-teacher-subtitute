@@ -7,7 +7,7 @@
 
 	<div class="field">
 		<label for="subject">Subject: </label>
-		<%= f.collection_select :subject, Subject.all, :id,  :subjectinfo,  prompt: true %>
+		<%= f.collection_select :subject_id, Subject.all, :id,  :subjectinfo,  prompt: true %>
 	</div>
 
 	<div class="field">

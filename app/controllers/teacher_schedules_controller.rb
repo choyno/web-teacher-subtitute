@@ -12,7 +12,7 @@ class TeacherSchedulesController < ApplicationController
 	end
 
 	def create
-		@teachersubject = TeacherSubject.create(params[:teachersubject])
+		@teachersubject = TeacherSubject.create(params[:teacher_subject])
 		if @teachersubject.save
 			redirect_to teacher_schedules_path, notice: "Successfull Created!!"
 		else	
@@ -26,7 +26,7 @@ class TeacherSchedulesController < ApplicationController
 
 	def update 
 		@teachersubject = TeacherSubject.find(params[:id])
-		if @teachersubject.update_attributes(params[:teachersubject])
+		if @teachersubject.update_attributes(params[:teacher_subject])
 			redirect_to teacher_schedules_path, :notice => "Successfully Updated!!"
 		else
 			render :edit
