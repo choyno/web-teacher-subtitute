@@ -2,13 +2,10 @@
 	<td><%= reason.name %></td>
 	<td>
 		<%= link_to edit_reason_path(reason) do %>
-			<button class="btn btn-small btn-quaternary">
-				<span class="icon-pen"></span>
-				Edit
-			</button>
+			<button class="btn btn-primary btn-blue">Edit</button>
 		<% end %>
-		
-		<%= button_to "delete", reason_path(reason), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
-
+		<div class="delete">
+		<%= button_to "delete", reason_path(reason), :method=>:delete, :class=>"btn btn-primary btn-blue" %>
+		</div>
 	</td>	
 </tr>

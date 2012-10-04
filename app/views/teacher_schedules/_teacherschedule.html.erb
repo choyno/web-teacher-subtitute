@@ -11,11 +11,10 @@
 	<td><%= teacherschedule.day_code.name if teacherschedule.day_code %></td>
 	<td>
 		<%= link_to edit_teacher_schedule_path(teacherschedule) do %>
-			<button class="btn btn-small btn-quaternary">
-				<span class="icon-pen"></span>
+			<button class="btn btn-primary btn-blue">
 				Edit
 			</button>
 		<% end %>
-		<%= button_to "delete", teacher_schedule_path(teacherschedule), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
+		<%= button_to "delete", teacher_schedule_path(teacherschedule), :method=>:delete, :class=>"btn btn-primary btn-blue" %>
 	</td>	
 </tr>

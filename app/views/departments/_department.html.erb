@@ -2,12 +2,13 @@
 	<td><%= department.name %></td>
 	<td>
 		<%= link_to edit_department_path(department) do %>
-			<button class="btn btn-small btn-quaternary">
-				<span class="icon-pen"></span>
+			<button class="btn btn-primary btn-blue">
+				
 				Edit
 			</button>
 		<% end %>
-		
-		<%= button_to "delete", department_path(department), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
+		<div class="delete">
+		<%= button_to "delete", department_path(department), :method=>:delete, :class=>"btn btn-primary btn-blue" %>
+		</div>
 	</td>	
 </tr>

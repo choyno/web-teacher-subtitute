@@ -2,13 +2,12 @@
 	<td><%= subject_type.name %></td>
 	<td>
 		<%= link_to edit_subject_type_path(subject_type) do %>
-			<button class="btn btn-small btn-quaternary">
-				<span class="icon-pen"></span>
+			<button class="btn btn-primary btn-blue">
 				Edit
 			</button>
 		<% end %>
-		
-		<%= button_to "delete", subject_type_path(subject_type), :method=>:delete, :class=>"btn btn-small btn-quaternary" %>
-
+		<div class="delete">
+		<%= button_to "delete", subject_type_path(subject_type), :method=>:delete, :class=>"btn btn-primary btn-blue" %>
+		</div>
 	</td>	
 </tr>

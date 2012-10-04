@@ -318,21 +318,34 @@ section .row-fluid .sideBar
     background: none;
     color: #fff;
     opacity:1;
+    margin-left: -26px;
+    padding-left: 34px;
 }
 
 .sideBar ul.subSide{
     padding:5px 0px 5px 0px;
     display:none;
 }
-.sideBar ul.subSide li{
-    font-size:15px;
-    line-height:17px;
-    margin-bottom:5px;
-    padding:4px 10px 5px 14px;
-    margin-left:10px;
+.sideBar ul.subSide li
+{
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    font-size: 15px;
+    line-height: 17px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding: 4px 10px 5px 14px;
 }
 
+.sideBar ul.subSide li:hover
+{
+     background: -moz-linear-gradient(center top , #A8CCEC 0%, #4993D7 2%, #066ECD 100%) repeat scroll 0 0 transparent;
+}
+.sideBar ul.subSide li a:hover
+{
+    color:#fff;
 
+}
 .sideBar ul li i{
     margin-top:4px;
 }
@@ -672,7 +685,7 @@ button.sp{
 {
 	height: 124px;
     margin-left: 0;
-    margin-top: -7px;
+    margin-top: 2px;
     margin-bottom: 15px;
 }
 
@@ -708,7 +721,7 @@ button.sp{
 }
 
 li a i.icon-off:before, li figure i.icon-home:before ,
-li figure i.icon-circle-arrow-down:before,button i.icon-circle-arrow-down:before
+li figure i.icon-circle-arrow-down:before,button i.icon-circle-arrow-down:before, .widget-header span.icon-list:before
 {
 	content:"";
 }
@@ -909,4 +922,22 @@ section .row-fluid .span10
 .submenus a {
 
 
+}
+
+thead tr:first-child
+{
+    background: #273a96;
+    color: #fff;
+    text-align: center;
+    height: 40px;
+}
+
+.table-bordered th:hover, .table-bordered td:hover
+{
+       background: red;
+}
+
+.delete
+{
+    display:none;
 }
