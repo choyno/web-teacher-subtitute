@@ -1,25 +1,45 @@
-<div class="widget-header">
-	<span class="icon-list"></span>
-	<h3 class="icon chart">Absent Teacher</h3>		
-</div>
-<%= text_field_tag :demo %>
-	
+<!-- text input for teacher selection  -->
+<%= text_field_tag :teacher, class: 'large' %>
+<br />
+<h4 class="well">Selected Teacher Subjects</h4>
+<!-- load up selected teacher subject here -->
+<table id="teacher-sujects-table" class="table table-bordered table-striped data-table">
+	<thead>
+		<tr>
+			<th width="50%">Subject</th>
+			<th>Start - End Time</th>
+			<th>DayCode</th>
+			<th>Options</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>	
+
 <script type="text/javascript">
 		
 	var teacherSource = <%= raw Teacher.all.map { |p| { id: p.id, name:  p.fullname }}.to_json %>	
 		
 	 $(document).ready(function() {
 		
-        $("#demo").tokenInput(teacherSource, 
+        $("#teacher").tokenInput(teacherSource, 
 						{ theme: 'facebook', 
 							tokenLimit: 1,
 							onAdd: function(item){
-								alert('hello' + item.name)
+								// load up selected teacher
+								$.ajax({
+								  url: "<%= load_teacher_subject_substitutes_path %>",
+									data: { teacher_id: item.id },
+								  context: document.body
+								}).done(function() { 
+								  $(this).addClass("done");
+								});
+							},
+							onDelete: function(){
+								$('#teacher-sujects-table tbody').html(""); // set blank if techer was remove
 							}
 						});
 						
     });
-
-	
 	
 </script>

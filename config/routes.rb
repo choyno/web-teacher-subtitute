@@ -10,7 +10,9 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
 
   resources :teacher_schedules
   resources :substitution_records
-  resources :substitutes
+  resources :substitutes do
+    get :load_teacher_subject, on: :collection
+  end
   resources :generate_reports
   resources :remind_substitutes
   resources :vouch_requests

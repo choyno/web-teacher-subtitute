@@ -41,5 +41,7 @@ class RequestSubstitutionsController < ApplicationController
     @substitute.destroy
     redirect_to request_substitutions_path, :notice => "Request Successfully Deleted" 
   end
+  
+  
 
 end
