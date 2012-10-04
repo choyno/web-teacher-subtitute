@@ -337,8 +337,14 @@ section .row-fluid .sideBar
     padding: 4px 10px 5px 14px;
 }
 
+.sideBar ul.subSide li a
+{
+    color: #fff;
+}
+
 .sideBar ul.subSide li:hover
 {
+        color: #fff;
      background: -moz-linear-gradient(center top , #A8CCEC 0%, #4993D7 2%, #066ECD 100%) repeat scroll 0 0 transparent;
 }
 .sideBar ul.subSide li a:hover
@@ -746,8 +752,9 @@ section .row-fluid .span10
     border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
-    height: 328px;
+    min-height: 600px;
     margin-top: 5px;
+
 
 }
 	
@@ -788,6 +795,7 @@ section .row-fluid .span10
 .nav-list li,.nav-list li a ,.nav-list li.dropper figure
 {
     
+
     margin-left: -22px;
     width: 290px;
     padding-left: 25px;
@@ -804,6 +812,7 @@ section .row-fluid .span10
 .nav li:hover ,.nav-list li a:hover ,.nav-list li.dropper figure:hover
 {
     background: #A8CCEC ;
+    color: #000;
 }
 .sideBar ul.nav li a, .sideBar ul.nav li figure
 
@@ -923,7 +932,16 @@ section .row-fluid .span10
 
 
 }
+.table-bordered tbody tr td
+{
 
+}
+
+.table-bordered thead tr th, .table-bordered tbody tr td
+
+{
+    text-align: center;
+}
 thead tr:first-child
 {
     background: #273a96;
@@ -934,10 +952,56 @@ thead tr:first-child
 
 .table-bordered th:hover, .table-bordered td:hover
 {
-       background: red;
+     
 }
 
 .delete
 {
     display:none;
+}
+.btn-primary
+{
+    float:right;
+
+}
+
+.secondcolumn
+    {
+        width: 53%;
+        float:left;
+        
+    }
+.widget-content .field-group
+{
+    width:40%;
+}
+
+.form .field-group .field label ,.field label
+ { 
+
+    color: #000000;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 5px 0 0 5px;
+    padding-right: 10px;
+    text-align: right;
+    width: 150px;
+}
+
+.fmenu .btn
+{
+    float:right;
+    margin-right: 5px;
+}
+
+.widget-header h3
+{
+    margin-left: 76px;
+}
+
+.delete
+{
+    display: none;
 }

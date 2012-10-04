@@ -1,70 +1,50 @@
 <div class="field-group inlineField " style="float:left;">	
 	<div class="field">
-		<label for="teacher">Fulllname </label>:
-		<div class="field">
+		<label for="fullname">Fullname: </label>
 		<%= f.collection_select :teacher_id, Teacher.all, :id, :fullname, prompt: true %>	
-		</div>		
+			
 	</div>
-	<br/>
 
 	<div class="field">
-		<%= f.label :Subject %>:
-		<div class="field">
+		<label for="subject">Subject: </label>
 		<%= f.collection_select :subject, Subject.all, :id,  :subjectinfo,  prompt: true %>
-		</div>		
 	</div>
-	<br/>
 
 	<div class="field">
-		<%= f.label :Day_Schedule %>:
-		<div class="field">
-			<%= f.collection_select :day_code_id, DayCode.all, :id, :name, prompt: true %>
-		</div>
-	</div>
-	<br/>
-
-	<div class="field">
-		<%= f.label :Room %>:
-		<div class="field">
+		<label for="room">Room: </label>
 			<%= f.collection_select :room_id, Room.all, :id, :name, prompt: true %>	
-		</div>
 	</div>
-	<br/>
 
 	<div class="field">
-		<%= f.label :Section %>
-		<div class="field">
+		<label for="section">Section: </label>
 			<%= f.collection_select :section_id, Section.all, :id, :name, prompt: true %>
-		</div>
 	</div>	
-	<br/>
 
 	<div class="field">
-		<%= f.label :Subject_Type %>
-		<div class="field">
+		<label for="subject_type">Subject Type: </label>
 			<%= f.collection_select :subject_type_id, SubjectType.all, :id, :name, prompt: true %>
-		</div>
 	</div>	
-	<br/>
 
 </div>
+
+
 <div class="field-group inlineField secondcolumn" style="">	
+
 	<div class="field">
-		<label for="time_start">Time Start </label>:
-		<div class="field">
+		<label for="Dayschedule">Day Schedule: </label>
+			<%= f.collection_select :day_code_id, DayCode.all, :id, :name, prompt: true %>
+	</div>
+
+	<div class="field">
+		<label for="time_start">Time Start: </label>
 		<!-- 
 			<input type="text" name="timepicker" id="timepicker" />	
  		-->
 		<%= f.text_field :time_start, placeholder: 'Time Start', :id => "timepicker", :class => "hasTimepicker", size: 24 %>
-		</div> <!-- .field -->	
 	</div>
-	<br/>
 
 	<div class="field">
-			<label for="timepicker">Time End </label>:
-			<div class="field">
-				<%= f.text_field :time_end, placeholder: 'Time End', :id => "timepicker", :class => "hasTimepicker", size: 24 %>
-			</div> <!-- .field -->	
+		<label for="time_end">Time End: </label>
+		<%= f.text_field :time_end, placeholder: 'Time End', :id => "timepicker", :class => "hasTimepicker", size: 24 %>
 	</div>
-	<br/>
 </div>
