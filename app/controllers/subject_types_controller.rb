@@ -1,6 +1,7 @@
 class SubjectTypesController < ApplicationController
   def index
   	@subject_types = SubjectType.all
+    @subject_types = SubjectType.page(params[:page]).per(10)
   end
 
   def show

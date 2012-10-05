@@ -44,6 +44,7 @@
 							<%= render partial: 'teacherschedule', collection: @teacher_subjects, as: :teacherschedule %>
 				    	</tbody>
          			</table>
+         			<%= paginate @teacher_subjects %>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->

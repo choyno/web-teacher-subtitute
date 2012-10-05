@@ -1,6 +1,6 @@
 class VerifyRequestsController < ApplicationController
 
-	def indexx
+	def index
 		@verify_requests = Substitute.all
 	end
 

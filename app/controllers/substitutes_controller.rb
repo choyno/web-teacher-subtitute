@@ -2,6 +2,7 @@
   
   def index
   	@substitutes = Substitute.all
+    @substitutes = Substitute.page(params[:page]).per(10)
   end
   
   def show

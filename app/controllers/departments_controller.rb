@@ -1,7 +1,8 @@
-  class DepartmentsController < ApplicationController
+class DepartmentsController < ApplicationController
   
   def index
     @departments = Department.all
+    @departments = Department.page(params[:page]).per(10)
   end
   
   def show

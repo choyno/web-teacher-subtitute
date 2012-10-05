@@ -36,6 +36,7 @@
 							<%= render partial: 'subject', collection: @subjects, as: :subject %>
 				    	</tbody>
          			</table>
+         			<%= paginate @subjects %>
 				</div> <!-- .widget-content -->
 				<?php endif;?>
 			   </div> <!-- .widget -->

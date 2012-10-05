@@ -37,11 +37,10 @@
 				   		 <tbody>
 				   		 	<%= render partial: 'teacher', collection: @teachers, as: :teacher %>
 				   		 	
-				   		 	<%= paginate @teachers %>
+				   		 	
 				    	</tbody>
-
 				    </table>
-
+				    <%= paginate @teachers %>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->

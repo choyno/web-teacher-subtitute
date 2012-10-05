@@ -2,7 +2,7 @@ class TeachersController < ApplicationController
 	def index
 		#@teachers = Teacher.all
 
-		@teachers = Teacher.order('firstname').page(params[:id]).per(10)
+		#@teachers = Teacher.order('firstname').page(params[:id]).per(10)
 
 		# if @teacher.teacher_id = current_teacher_id
 
@@ -10,6 +10,8 @@ class TeachersController < ApplicationController
 		# else
 		# 	@teachers = current_teacher.teachers(teacher: @teacher, page: params[:page])
 		# end
+		 @teachers = Teacher.all
+		 @teachers = Teacher.page(params[:page]).per(10)
 	end
 
 	def show
