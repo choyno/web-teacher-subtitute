@@ -5,6 +5,7 @@ gem 'mysql2', '0.3.10'
 
 gem 'carrierwave'
 gem 'spreadsheet'
+gem 'kaminari'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -26,7 +26,7 @@ class TeacherSchedulesController < ApplicationController
 
 	def update 
 		@teachersubject = TeacherSubject.find(params[:id])
-		if @teachersubject.update_attributes(params[:teachersubject])
+		if @teachersubject.update_attributes(params[:teacher_subject])
 			redirect_to teacher_schedules_path, :notice => "Successfully Updated!!"
 		else
 			render :edit
