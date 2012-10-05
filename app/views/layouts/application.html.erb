@@ -41,7 +41,6 @@
       <% end %>
 
 
-
 <!-- 
 			<div class='sideBottom'>
 				<button class='btn btn-primary headblue' data-toggle="collapse" data-target="#tasksSideList">TaskList <i class='icon-white icon-circle-arrow-down'></i></button>
@@ -57,17 +56,8 @@
 		</div>
 
 		<section class='span10 content borBox'>
-		
-      <% if current_user.user_type == 'Admin'  %>
-            <%= yield %>
-      <% elsif current_user.user_type == 'Head' %>
-          <%= yield %>
-      <% elsif  current_user.user_type == 'Checker' %>
-          <%= yield %>
-      <% end %>
-
-
-	</section>
+			<%= yield %>
+		</section>
   
 </section>
 

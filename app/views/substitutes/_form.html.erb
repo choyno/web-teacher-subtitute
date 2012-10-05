@@ -1,15 +1,25 @@
 <br />
 <div class="tabbable">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Select Teacher and Subject</a></li>
-    <li><a href="#tab2" data-toggle="tab">Teacher to Subtitute</a></li>
+  <ul class="nav nav-tabs" id="request-substition-tabs">
+    <li class="active">
+			<a href="#tab1" data-toggle="tab">Select Teacher and Subject</a>
+		</li>
+    <li>
+			<a href="#tab2" data-toggle="tab">Available Teacher to Subtitute</a>
+		</li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
       <%= render 'substitutes/form/step1' %>
     </div>
     <div class="tab-pane" id="tab2">
-      <p>Howdy, I'm in Section 2.</p>
+      this is a test
     </div>
   </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$('#request-substition-tabs a:first').tab('show');
+	})
+</script>

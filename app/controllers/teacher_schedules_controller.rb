@@ -12,7 +12,7 @@ class TeacherSchedulesController < ApplicationController
 	end
 
 	def create
-		@teachersubject = TeacherSubject.create(params[:teachersubject])
+		@teachersubject = TeacherSubject.create(params[:teacher_subject])
 		if @teachersubject.save
 			redirect_to teacher_schedules_path, notice: "Successfull Created!!"
 		else	

@@ -41,5 +41,14 @@
     @substitute.destroy
     redirect_to substitutes_path, :notice => "Request Successfully Deleted" 
   end
+  
+  
+  def load_teacher_subject
+    teacher = Teacher.find(params[:teacher_id])
+    @subjects = teacher.teacher_subjects.includes(:subject, :day_code)
+    
+  end
+  
+  
 
 end
