@@ -14,12 +14,15 @@
         WEB BASED TEACHER SUBSTITUTIONS
       </div>
 			
-			<ul class='nav pull-right'>
-				<li><a href="#" rel='tooltip' title='8 Projects Remaining'><span class="badge badge-nav">8</span></a></li>
-				<li><a href="#" rel='tooltip' title='2 Tasks are Urgent'><span class="badge badge-nav">2 Urgent</span></a></li>
+			  <% if current_user.user_type == 'Admin'  %>
+		          <%= render 'shared/admin/headernav' %>
+		      <% elsif current_user.user_type == 'Head' %>
+		          <%= render 'shared/head/headernav' %>
+		      <% elsif  current_user.user_type == 'Checker' %>
+		          <%= render 'shared/checker/headernav' %>
+		      <% end %>
+
 			
-				<li><a href="/logout" rel='tooltip' title='Logout'><i class="icon-white icon-off"></i></span></i></a></li>
-			</ul>
 		</div>
 	</div>
 </header>
@@ -56,7 +59,9 @@
 		</div>
 
 		<section class='span10 content borBox'>
-			<%= yield %>
+			<div data-pjax-container>
+				<%= yield %>
+			</div>
 		</section>
   
 </section>

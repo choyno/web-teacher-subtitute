@@ -23,6 +23,7 @@ group :assets do
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
   gem 'uglifier', '>= 1.0.3'
   gem 'chosen-rails'  
+  gem 'pjax_rails'
 end
 
 gem 'jquery-rails'
