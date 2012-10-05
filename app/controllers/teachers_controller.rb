@@ -1,6 +1,15 @@
 class TeachersController < ApplicationController
 	def index
-		@teachers = Teacher.all
+		#@teachers = Teacher.all
+
+		@teachers = Teacher.order('firstname').page(params[:id]).per(10)
+
+		# if @teacher.teacher_id = current_teacher_id
+
+		# 	@teachers = @teacher.all ('create_at DESC').paginate(per_page: 1, params[:page])
+		# else
+		# 	@teachers = current_teacher.teachers(teacher: @teacher, page: params[:page])
+		# end
 	end
 
 	def show
@@ -30,8 +39,10 @@ class TeachersController < ApplicationController
 
 		if @teacher.update_attributes(params[:teacher])
 			redirect_to teachers_path, notice: "Teacher Successfully Updated"
+		
 		else
 			render :edit
+		
 		end
 	end
 

@@ -1,6 +1,6 @@
 class TeacherSchedulesController < ApplicationController
 	def index
-		@teachersubjects = TeacherSubject.all
+		@teachersubjects = TeacherSubject.all 
 	end
 
 	def show
