@@ -18,5 +18,6 @@
 //= require main
 //= require jquery.tokeninput
 //= require jquerysearch
+//= require bootstrap-timepicker
 //= require_tree .
 

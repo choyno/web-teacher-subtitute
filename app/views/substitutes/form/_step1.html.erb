@@ -4,6 +4,9 @@
 <br />
 <legend>Selected Teacher Subjects</legend>
 <!-- load up selected teacher subject here -->
+<div class="search">
+	Search: <input type="text" id="kwd_search" value=""/> 
+</div>
 <table id="teacher-sujects-table" class="table table-bordered table-striped data-table">
 	<thead>
 		<tr>
@@ -15,6 +18,7 @@
 	</thead>
 	<tbody></tbody>
 </table>	
+
 
 
 <!--  modal modal -->
@@ -38,6 +42,7 @@
 
 <%= link_to  'alert-assignment', '#continue-assignment-alert', id: 'alert-assigntment-btn',
 										data: { role: 'button', toggle: 'modal' }, class: 'btn', style: 'display:none' %>
+
 
 <script type="text/javascript">
 		
@@ -101,3 +106,38 @@
     });
 	
 </script>
+
+<!-- refresh plugin search -->
+
+<script type="text/javascript">
+// When document is ready: this gets fired before body onload :)
+$(document).ready(function(){
+	// Write on keyup event of keyword input element
+	$("#kwd_search").keyup(function(){
+		// When value of the input is not blank
+		if( $(this).val() != "")
+		{
+			// Show only matching TR, hide rest of them
+			$("#teacher-sujects-table tbody>tr").hide();
+			$("#teacher-sujects-table td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+		}
+		else
+		{
+			// When there is no input or clean again, show everything back
+			$("#teacher-sujects-table tbody>tr").show();
+		}
+	});
+});
+// jQuery expression for case-insensitive filter
+$.extend($.expr[":"], 
+{
+    "contains-ci": function(elem, i, match, array) 
+	{
+		return (elem.textContent || elem.innerText || $(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+	}
+});
+
+</script>
+
+
+
