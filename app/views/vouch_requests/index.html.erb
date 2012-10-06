@@ -13,8 +13,8 @@
 						<thead>
 							<tr>
 								<th>Date Request</th>
-								<th>Absent Teacher</th>
-								<th>Substitutute Teacher</th>
+								<th>Requested Teacher</th>
+								<th>Substitute Teacher</th>
 								<th>Subject Code</th>
 								<th>Subject Name</th>
 								<th>Room #</th>
@@ -26,10 +26,10 @@
 								<th>Options</th>
 							</tr>
 						</thead>
-				        <tbody>
-							<%= render partial: 'vouch_request',collection: @vouch_requests,  as: :vouch_request %>
-				        </tbody>
-			         </table>
+		        <tbody>
+							<%= render partial: 'vouch_request', collection: @vouch_requests,  as: :vouch_request %>
+		        </tbody>
+	        </table>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->
