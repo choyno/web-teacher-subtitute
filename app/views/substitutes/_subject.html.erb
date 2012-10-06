@@ -1,6 +1,8 @@
-<%= content_tag :tr, subject, data: { subject_id: subject.subject.id, 
+<%= content_tag :tr, subject, data: { teacher_subject_id: subject.id,
+																			subject_id: subject.subject.id, 
 																			subject_name: subject.subject.name,
 																			subject_time_daycode: subject.start_end_time_daycode } do %>
+																			
 	<td><%= subject.subject.name  %></td>
 	<td><%= subject.time_start.strftime('%l:%M %p') %> / <%= subject.time_end.strftime('%l:%M %p') %></td>
 	<td><%= subject.day_code.name %></td>
@@ -9,4 +11,5 @@
 			Select
 		</button>
 	</td>
+	
 <% end %>

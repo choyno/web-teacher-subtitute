@@ -32,25 +32,28 @@
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-    <button class="btn btn-primary">Continue</button>
+    <button id='continue-assignment-btn' class="btn btn-primary">Continue</button>
   </div>
 </div>
 
-<%= link_to  'alert-assignment', '#continue-assignment-alert', id: 'continue-assignment-btn',
-										data: { role: 'button', toggle: 'modal' }, class: 'btn' %>
+<%= link_to  'alert-assignment', '#continue-assignment-alert', id: 'alert-assigntment-btn',
+										data: { role: 'button', toggle: 'modal' }, class: 'btn', style: 'display:none' %>
 
 <script type="text/javascript">
 		
 	var teacherSource = <%= raw Teacher.all.map { |p| { id: p.id, name:  p.fullname }}.to_json %>	
 		
 	 $(document).ready(function() {
-		
+				
+				var teacher_id, subject_id;
+			
 	     $("#teacher").tokenInput(teacherSource, 
 				{ theme: 'facebook', 
 					tokenLimit: 1,
 					onAdd: function(item){
 						// put value to assign-teacher and assing-subject
 						$('#assign-teacher').html(item.name);
+						teacher_id = item.id;
 						
 						// load up selected teacher subject
 						$.ajax({
@@ -77,8 +80,26 @@
 					
 					subject_id = _parent.data('subject-id');
 					
-					$('#continue-assignment-btn').click();
+					$('#alert-assigntment-btn').click();
 				})
+				
+				// query server for available teacher
+				$('#continue-assignment-btn').on('click', function(){
+					$('#myModal').modal('hide');
+					
+					// do ajax to fetch available teacher
+					$.ajax({
+					  url: "<%= load_available_teachers_substitutes %>",
+						data: { teacher_id: item.id },
+					  context: document.body
+					}).done(function() { 
+					  $(this).addClass("done");
+					});
+					
+					
+					$('#step2-tab').click();
+				})
+				
 				
     });
 	
