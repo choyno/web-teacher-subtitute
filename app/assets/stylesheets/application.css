@@ -459,7 +459,6 @@ hr{
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.7);
     background-repeat: no-repeat;
     background-position:  right bottom;
-    min-height: 800px;
 }
 
 
@@ -753,8 +752,9 @@ section .row-fluid .span10
     border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
-    min-height: 750px;
+    min-height: 900px;
     margin-top: 5px;
+
 
 
 }
@@ -1021,7 +1021,7 @@ thead tr:first-child
 }
 .pagination a
 {
-    line-height: 40px;
+    line-height: 40px;``
 }
 .pagination span.first a
 {
@@ -1051,3 +1051,11 @@ span.current
     text-decoration: none;
 
 }
+
+.search
+{
+    text-align:right;
+    font-weight: bold;
+}
+
+
