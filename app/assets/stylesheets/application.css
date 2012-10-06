@@ -1003,10 +1003,14 @@ thead tr:first-child
     float:right;
     margin-right: 5px;
 }
-
+.widget-header
+{
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+}
 .widget-header h3
 {
-    margin-left: 76px;
+    margin-left: 10px;
 }
 
 .delete
@@ -1043,7 +1047,8 @@ span.current
     border-color: #DDDDDD;
     border-image: none;
     border-style: solid;
-    border-width: 1px 1px 1px 0;
+    border-width: 1px 1px 1px 1px;
+     height: 34px;
     float: left;
     line-height: 40px;
     padding: 0 14px;
@@ -1059,3 +1064,10 @@ span.current
 }
 
 
+.grid-24
+{
+    border: 2px solid #ddd;
+    padding: 10px;
+    padding-bottom: 20px;
+    clear: both;
+}
