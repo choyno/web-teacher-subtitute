@@ -5,8 +5,8 @@
 	<td><%= teacherschedule.room.name if teacherschedule.room %></td> 
 	<td><%= teacherschedule.section.name if teacherschedule.section %></td> 
 	<td><%= teacherschedule.subject_type.name if teacherschedule.subject_type %></td>
-	<td><%= teacherschedule.time_start %></td> 
-	<td><%= teacherschedule.time_end %></td> 
+	<td><%= teacherschedule.time_start.strftime('%l:%M %p') %></td> 
+	<td><%= teacherschedule.time_end.strftime('%l:%M %p') %></td> 
 	<td><%= teacherschedule.day_code.name if teacherschedule.day_code %></td>
 	<td>
 		<%= link_to edit_teacher_schedule_path(teacherschedule) do %>
