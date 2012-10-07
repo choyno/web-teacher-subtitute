@@ -28,9 +28,9 @@
     <h3 id="myModalLabel">Do you really want to continue the assignment?</h3>
   </div>
   <div class="modal-body">
-		<h1 id='assign-teacher' class="well"></h1>
-    <h2 id='assign-subject'></h2>
-		<h3 id='assign-subject-time-daycode'></h3>
+		<h1 class="assign-teacher well"></h1>
+    <h2 class='assign-subject'></h2>
+		<h3 class='assign-subject-time-daycode'></h3>
   </div>
   <div class="modal-footer">
     <button id='close-modal-btn' class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
@@ -44,18 +44,16 @@
 
 <script type="text/javascript">
 		
-	var teacherSource = <%= raw Teacher.all.map { |p| { id: p.id, name:  p.fullname }}.to_json %>	
-		
 	 $(document).ready(function() {
 				
-				var teacher_id, subject_id, teacher_subject_id;
+			 var teacher_id, subject_id, teacher_subject_id;
 			
 	     $("#teacher").tokenInput(teacherSource, 
 				{ theme: 'facebook', 
 					tokenLimit: 1,
 					onAdd: function(item){
 						// put value to assign-teacher and assing-subject
-						$('#assign-teacher').html(item.name);
+						$('.assign-teacher').html(item.name);
 						teacher_id = item.id;
 						
 						// load up selected teacher subject
@@ -68,7 +66,7 @@
 					},
 					onDelete: function(){
 						// remove subject if selected teacher was removed
-						$('#teacher-sujects-table tbody').html(""); // set blank if techer was remove
+						$('#teacher-subjects-table tbody').html(""); // set blank if techer was remove
 					}
 				});
 				
@@ -77,8 +75,8 @@
 
 					_parent = $(this).parent().parent();
 					
-					$('#assign-subject').html(_parent.data('subject-name'));
-					$('#assign-subject-time-daycode').html(_parent.data('subject-time-daycode'));
+					$('.assign-subject').html(_parent.data('subject-name'));
+					$('.assign-subject-time-daycode').html(_parent.data('subject-time-daycode'));
 					
 					teacher_subject_id = _parent.data('teacher-subject-id');
 					subject_id = _parent.data('subject-id');
@@ -90,14 +88,8 @@
 				$('#continue-assignment-btn').on('click', function(){
 					
 					$('#close-modal-btn').click();
+					$('#step2-tab').click();
 					
-					// do ajax to fetch available teacher
-					$.ajax({
-					  url: "<%= load_available_teachers_substitutes_path %>",
-						data: { teacher_subject_id: teacher_subject_id }
-					}).done(function() { 
-						$('#step2-tab').click();
-					});
 					
 				})
 				
