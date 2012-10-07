@@ -7,4 +7,10 @@ class Substitute < ActiveRecord::Base
   belongs_to :status
   belongs_to :reason
   
+  
+  class << self
+        
+  end
+  
+  
 end

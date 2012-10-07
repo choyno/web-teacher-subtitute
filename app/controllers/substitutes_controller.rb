@@ -36,7 +36,7 @@
       render :edit      
     end
   end
-
+    
   def destroy
     @substitute = Substitute.find(params[:id])
     @substitute.destroy
@@ -50,8 +50,18 @@
     
   end
   
-  def load_available_teacher
+  def load_available_teachers
+    # get info for time and daycode and subject
+    teacher_subject = TeacherSubject.find(params[:teacher_subject_id])
     
+    @available_teachers = TeacherSubject.where(subject_id: teacher_subject.subject_id)
+                                        .where("teacher_id != ?", teacher_subject.teacher_id)
+                                        # .where("teacher_id != ? AND (time_start > ? AND time_end < ?)", 
+                                        #          teacher_subject.teacher_id, teacher_subject.time_start, teacher_subject.time_end)
+    
+    
+    logger.info @available_teachers.inspect
+                                              
   end
   
   

@@ -7,7 +7,7 @@
 <div class="search">
 	Search: <input type="text" id="kwd_search" value=""/> 
 </div>
-<table id="teacher-sujects-table" class="table table-bordered table-striped data-table">
+<table id="teacher-subjects-table" class="table table-bordered table-striped data-table">
 	<thead>
 		<tr>
 			<th width="50%">Subject</th>
@@ -33,7 +33,7 @@
 		<h3 id='assign-subject-time-daycode'></h3>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <button id='close-modal-btn' class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
     <button id='continue-assignment-btn' class="btn btn-primary">Continue</button>
   </div>
 </div>
@@ -88,7 +88,8 @@
 				
 				// query server for available teacher
 				$('#continue-assignment-btn').on('click', function(){
-					$('#myModal').modal('hide');
+					
+					$('#close-modal-btn').click();
 					
 					// do ajax to fetch available teacher
 					$.ajax({
