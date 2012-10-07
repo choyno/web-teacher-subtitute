@@ -1,36 +1,50 @@
-<div class="field">
-	<label for="planned">Request Type :</label>
-	<%#= select_tag :planned, [['Unplanned', true], ['Planned', false]] %>
-</div>
+			<div class="field-group inlineField " style="float:left;">	
+				<div class="field">
+					<label for="full_name">Request Type:</label>
+					<select>
+						<option>Planned</option>
+						<option>Unplanned</option>
+					</select>
+				</div>
 
-<div class="field">
-	<label for="requested_at">Date:</label>
-	<div class="field">
-		<input type="text" name="datepicker" id="datepicker" />				
-	</div> <!-- .field -->								
-</div> <!-- .field-group -->
+				<div class="field">
+					<label for="status">Date Substitute :</label>
+					<!--THIS MUST BE AN AUTO STATUS == SUBSTITUTE -->
+					
+					<input value="Current Date"/>
+				</div>
+				<br/>
 
-<div class="field">
-	<label for="reason">Reasons :</label>
-	<%#= f.collection_select :reasons_id, Reason.all, :id, :name, prompt: true %>
-</div>
+				<div class="field">
+					<label for="usertype">Reason :</label>
+					<select>
+						<option>Reason</option>
+						<option>Reason</option>
+						<option>Reason</option>
+					</select>
+				</div>
 
-<div class="field">
-	<label for="notes">Note :</label>
-	<%= text_area :notes, size: 24, placehold: 'notes' %>	
-</div>
+				<div class="field">
+					<label for="Notes">Note</label>
+					<textarea  ></textarea>
+				</div>
 
-<div>
-	<ul class="tabs right">	
-		<li class="">
-			<a href="#tab-2">
-				<button class="btn btn-primary btn-blue">Back</button>
-			</a>
-		</li>	
-		<li class="">
-			<a href="#tab-4">
-				<button class="btn btn-primary btn-blue">Next</button>
-			</a>
-		</li>	
-	</ul>	
-</div>
+
+			</div>
+			<div class="field-group inlineField secondcolumn" style="">	
+				
+
+				<div class="field">
+					<label for="status">Status :</label>
+					<!--THIS MUST BE AN AUTO STATUS == SUBSTITUTE -->
+					<input value="Substitute">
+				</div>
+
+				<div class="field">
+					<label for="status">Assign By :</label>
+					<!--THIS MUST BE AN AUTO ASSIGN == USER LOGIn -->
+					<input value="Log IN user">
+				</div>
+
+
+			</div>
