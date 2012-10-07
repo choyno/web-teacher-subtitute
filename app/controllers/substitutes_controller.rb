@@ -56,11 +56,12 @@
     
     @available_teachers = TeacherSubject.where(subject_id: teacher_subject.subject_id)
                                         .where("teacher_id != ?", teacher_subject.teacher_id)
+                                        .where("NOT (time_start >= ? AND time_end <= ?)",
+                                                teacher_subject.time_start, teacher_subject.time_end)
+                                        .default_include
                                         # .where("teacher_id != ? AND (time_start > ? AND time_end < ?)", 
                                         #          teacher_subject.teacher_id, teacher_subject.time_start, teacher_subject.time_end)
     
-    
-    logger.info @available_teachers.inspect
                                               
   end
   
