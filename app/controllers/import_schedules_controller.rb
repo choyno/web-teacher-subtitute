@@ -45,8 +45,8 @@ class ImportSchedulesController < ApplicationController
       
       # need to breack time to get start and end
       time = row[6].to_s.split('-')
-      time_start = Time.parse(time[0]).localtime
-      time_end = Time.parse(time[1]).localtime
+      time_start = Time.parse(time[0])
+      time_end = Time.parse(time[1])
       
       teacher_subject = TeacherSubject.new({ teacher_id: teacher.id, subject_id: subject.id, 
                                              time_start: time_start, time_end: time_end,

@@ -19,4 +19,8 @@ class TeacherSubject < ActiveRecord::Base
   validates :section_id, presence: true
 
 
+  def start_end_time_daycode
+    "#{self.day_code.name} #{self.time_start.strftime('%l:%M %p')} - #{self.time_end.strftime('%l:%M %p')}"
+  end
+
 end
