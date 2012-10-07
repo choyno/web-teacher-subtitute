@@ -1,18 +1,24 @@
 <tr>
-	<th>8/12/12</th>
+	<th><%= vouch_request.teacher_subject.created_at.strftime('%D') %></th>
 	<th><%= vouch_request.teacher_subject.teacher.fullname %></th>
+	<th><%= vouch_request.reason_teacher.reason.name if vouch_request.reason %></th>
 	<th><%= vouch_request.substitute_teacher.fullname %></th>
-	<th><%= vouch_request.teacher_subject.subject.name %></th>
 	<th><%= vouch_request.teacher_subject.subject.code %></th>
-	<th><%#= vouch_request.teacher_subject_id %></th>
-	<th>CI601-C</th>
-	<th>LAB</th>
-	<th>8:00am</th>
-	<th>11:00am</th>
-	<th>MWF</th>
+	<th><%= vouch_request.teacher_subject.room.name %></th>
+	<th><%= vouch_request.teacher_subject.section.name %></th>
+	<th><%= vouch_request.teacher_subject.subject_type.name %></th>
+	<th><%= vouch_request.teacher_subject.time_start.strftime('%l: %m %p') %></th>
+	<th><%= vouch_request.teacher_subject.time_end.strftime('%l: %m %p') %></th>
+	<th><%= vouch_request.teacher_subject.day_code.name %></th>
 	<th>
-		<button class="btn btn-primary btn-blue">
-			Confirm
-		</button>
+		  <% if current_user.user_type == 'Admin'  %>
+		      <%= link_to 'Void', vouch_request, :class => "btn btn-primary btn-blue" %>
+		      <%= link_to 'Confirm', vouch_request, :class => "btn btn-primary btn-blue" %>
+		  <% elsif current_user.user_type == 'Head' %>
+		      <%= link_to 'Deny', vouch_request, :class => "btn btn-primary btn-blue" %>
+		      <%= link_to 'Confirm', vouch_request, :class => "btn btn-primary btn-blue" %>
+		  <% elsif  current_user.user_type == 'Checker' %>
+		 	  <%= link_to 'Cancel', vouch_request, :class => "btn btn-primary btn-blue" %>
+		  <% end %>
 	</th>
 </tr>	
