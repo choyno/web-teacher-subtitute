@@ -1,23 +1,83 @@
 <div >
+	
+	<button id="btn-step2-confirm" style="display: none" 
+				class="btn btn-large btn-block btn-success" type="button">Confirm And Continue</button>
+					
+	<h1>Requester</h1>
+	<div class="well">
+		<h1 class='assign-teacher'>No Data</h1>
+    <h2 class='assign-subject'></h2>
+		<h3 class='assign-subject-time-daycode'></h3>
+	</div>
+	
+	<hr />
+	
+	<h1>Substitute By:</h1>
+	
+	<br />
+	<div>
+		<%= text_field_tag :sub_teacher, class: 'large' %>
+	</div>
+	
+	<br />
+	<div class="well">
+		<h1 class='sub-teacher'>No Data</h1>
+	</div>
+	
 	<div class="widget widget-table">
 		<div class="widget-header">
 			<span class="icon-list"></span>
-			<h3 class="icon chart">Absent Subject</h3>		
+			<h3 class="icon chart">Substitute Teacher Schedule</h3>		
 		</div>
 	
-		<table id="available-teachers-table" class="table table-bordered table-striped data-table">
+		<table id="sub-teacher-subjects-table" class="table table-bordered table-striped data-table">
 			<thead>
 				<tr>
-					<th>Teacher</th>
 					<th>Subject</th>
 					<th>DayCode - Time</th>
-					<th>Options</th>
 				</tr>
 			</thead>
 			<tbody></tbody>
 	</table>
 		
-		
-		
 	</div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		
+		var sub_teacher_id;
+		
+		$("#sub_teacher").tokenInput(teacherSource, 
+			{ theme: 'facebook', 
+				tokenLimit: 1,
+				onAdd: function(item){
+					// put value to sub-teacher
+					sub_teacher_id = item.id;
+					$('.sub-teacher').html(item.name)
+					$('#btn-step2-confirm').show();
+					// load up selected teacher subject
+					$.ajax({
+					  url: "<%= load_sub_teacher_subjects_substitutes_path %>",
+						data: { sub_teacher_id: item.id }
+					}).done(function() { 
+					  $(this).addClass("done");
+					});
+				},
+				onDelete: function(){
+					// remove subject if selected teacher was removed
+					$('#btn-step2-confirm').hide();
+					$('.sub-teacher').html("");
+					$('#sub-teacher-subjects-table tbody').html(""); // set blank if techer was remove
+				}
+			});
+		
+		
+		$('#btn-step2-confirm').live('click', function(){
+			$('#step3-tab').click();
+		})
+		
+		
+	})
+</script>
+

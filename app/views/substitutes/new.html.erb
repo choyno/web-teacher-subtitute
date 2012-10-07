@@ -1,3 +1,7 @@
+<script type="text/javascript" charset="utf-8">
+	var teacherSource = <%= raw Teacher.all.map { |p| { id: p.id, name:  p.fullname }}.to_json %>	
+</script>
+
  <div id="content">			
 	<div id="contentHeader">
 		<h1>Request Substitutions</h1>
