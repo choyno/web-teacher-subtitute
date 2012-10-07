@@ -1,7 +1,6 @@
 class SubjectTypesController < ApplicationController
   def index
-  	@subject_types = SubjectType.all
-    @subject_types = SubjectType.page(params[:page]).per(10)
+    @subject_types = SubjectType.search(params[:search]).page(params[:page]).per(10)
   end
 
   def show
@@ -37,7 +36,7 @@ class SubjectTypesController < ApplicationController
   def destroy
   	@subject_type = SubjectType.find(params[:id])
   	@subject_type.destroy
-  		redirect_to subject_types_path, notice: "Successfully Deleted"
+  	redirect_to subject_types_path, notice: "Successfully Deleted"
   end
 
 

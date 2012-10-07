@@ -6,8 +6,8 @@
 		<div class="grid-24">
 			<% if notice %>
 				<div class="notify notify-error">
-							<a class="close" href="javascript:;">×</a>
-							<%= notice %>
+					<a class="close" href="javascript:;">×</a>
+					<%= notice %>
 				</div>
 			<% end %>
 
@@ -29,7 +29,6 @@
 						<%= form_for teachers_path, method: :get do %>
 							<div class="search">
 								<div class="field">
-									<label for="search">Search</label>
 									<%= text_field_tag :search, params[:search] , size: 24, :Placeholder => "Search" %>
 									<%= submit_tag "Search", :name => nil %>
 								</div> 

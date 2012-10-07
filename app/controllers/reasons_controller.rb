@@ -1,7 +1,7 @@
 class ReasonsController < ApplicationController
+  
   def index
-  	@reasons = Reason.all
-    @reasons = Reason.page(params[:page]).per(10)
+    @reasons = Reason.search(params[:search]).page(params[:page]).per(10)
   end
 
   def show

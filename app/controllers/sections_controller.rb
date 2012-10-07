@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
+
   def index
-  	@sections = Section.all
-    @sections = Section.page(params[:page]).per(10)
+    @sections = Section.search(params[:search]).page(params[:page]).per(10)
   end
 
   def show

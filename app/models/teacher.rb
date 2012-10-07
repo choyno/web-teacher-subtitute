@@ -1,5 +1,8 @@
 class Teacher < ActiveRecord::Base
-    
+  
+  scope :search_by_name, lambda { |value| where("CONCAT(firstname,' ', lastname) LIKE ?", "%#{value}%") }
+
+
   has_many :subtitutes
   has_many :teacher_subjects
   
@@ -19,11 +22,13 @@ class Teacher < ActiveRecord::Base
 
 
   def self.search(search)
-    if search
-      where('firstname LIKE ?', "%#{search}%") 
-    else
-      find(:all)
-    end
+
+    teacher_scope = self.scoped({})
+
+    teacher_scope = teacher_scope.search_by_name(search) if search.present?
+    
+    return teacher_scope
   end
+
 
 end

@@ -9,4 +9,15 @@ class Subject < ActiveRecord::Base
     "#{self.code}  #{self.name}"
   end
   
+  scope :search_by_name, lambda { | value| where("CONCAT(name, ' ' , code ) Like ?", "%#{value}%")}
+
+  def self.search(search)
+  	subject_scope = self.scoped({})
+
+  	subject_scope = subject_scope.search_by_name(search) if search.present?
+
+  	return subject_scope
+  end
+
+
 end

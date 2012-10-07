@@ -1,7 +1,8 @@
 class RoomsController < ApplicationController
+
+
   def index
-  	@rooms = Room.all
-    @rooms = Room.page(params[:page]).per(10)
+    @rooms = Room.search(params[:search]).page(params[:page]).per(10)
   end
 
   def show	

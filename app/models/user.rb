@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :password_confirmation, :full_name,
                   :department_id, :user_type, :status
 
+
+  scope :search_by_name, lambda { |value| where("CONCAT(full_name,' ', username) LIKE ?", "%#{value}%") }
+
+
   attr_accessor :password
   before_save :encrypt_password
   
@@ -30,6 +34,14 @@ class User < ActiveRecord::Base
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
+  end
+
+
+  def self.search(search)
+    user_scope = self.scoped({})
+    user_scope = user_scope.search_by_name(search) if search.present?
+
+    return user_scope
   end
   
 

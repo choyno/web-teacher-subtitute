@@ -8,9 +8,7 @@ class Substitute < ActiveRecord::Base
   belongs_to :reason
   
   
-  class << self
-        
-  end
+ 
   
   
 end

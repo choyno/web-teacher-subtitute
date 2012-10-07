@@ -1,7 +1,6 @@
 class DaycodesController < ApplicationController
   def index
-  	@daycodes = DayCode.all
-    @daycodes = DayCode.page(params[:page]).per(10)
+    @daycodes = DayCode.search(params[:search]).page(params[:page]).per(10)
   end
 
   def show
