@@ -15,5 +15,15 @@ class Teacher < ActiveRecord::Base
   def fullname
     " #{self.lastname} #{self.firstname}"
   end
-  
+
+
+
+  def self.search(search)
+    if search
+      where('firstname LIKE ?', "%#{search}%") 
+    else
+      find(:all)
+    end
+  end
+
 end

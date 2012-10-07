@@ -40,11 +40,23 @@
 		<!-- 
 			<input type="text" name="timepicker" id="timepicker" />	
  		-->
-		<%= f.text_field :time_start, placeholder: 'Time Start', :id => "timepicker", :class => "hasTimepicker", size: 24 %>
+ 		 <div class="input-append bootstrap-timepicker-component">
+			<%= f.text_field :time_start, placeholder: 'Time Start', :id => "timepicker", :class => "timepicker-default input-small", size: 24 %>
+			<span class="add-on"> <i class="icon-time"></i>
+		</div>
 	</div>
 
 	<div class="field">
 		<label for="time_end">Time End: </label>
-		<%= f.text_field :time_end, placeholder: 'Time End', :id => "timepicker", :class => "hasTimepicker", size: 24 %>
+		 <div class="input-append bootstrap-timepicker-component">
+			<%= f.text_field :time_end, placeholder: 'Time End', :id => "timepicker", :class => "timepicker-default input-small", size: 24 %>
+			<span class="add-on"> <i class="icon-time"></i>
+		</div>
 	</div>
 </div>
+
+
+
+<script>
+	$('.timepicker-default').timepicker();
+</script>
