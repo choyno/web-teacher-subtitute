@@ -1,6 +1,5 @@
 <tr>
-	<th><%= teacherschedule.teacher.firstname if teacherschedule.teacher %>
-	<%= teacherschedule.teacher.lastname if teacherschedule.teacher %></th> 
+	<th><%= teacherschedule.teacher.fullname if teacherschedule.teacher %></th> 
 	<td><%= teacherschedule.subject.code if teacherschedule.subject %></td> 
 	<td><%= teacherschedule.subject.name if teacherschedule.subject %></td> 
 	<td><%= teacherschedule.room.name if teacherschedule.room %></td> 

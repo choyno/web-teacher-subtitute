@@ -6,7 +6,7 @@ class TeacherSubject < ActiveRecord::Base
   belongs_to :room
   belongs_to :section
   belongs_to :subject_type
-
+  
   has_many :subtitutes, class_name: :Subtitute, foreign_key: :subtitute_teacher_id
 
   validates :teacher_id,  presence: true

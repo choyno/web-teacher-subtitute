@@ -27,24 +27,7 @@
 							</tr>
 						</thead>
 				        <tbody>
-							<tr>
-								<th>8/12/12</th>
-								<th>Abayon, Mark Jil C.</th>
-								<th>Edwin, Salanatin C.</th>
-								<th>IT302</th>
-								<th>Software Engineering II: Systems Development & Integration</th>
-								<th>AniLab</th>
-								<th>CI601-C</th>
-								<th>LAB</th>
-								<th>8:00am</th>
-								<th>11:00am</th>
-								<th>MWF</th>
-								<th>
-									<button class="btn btn-primary btn-blue">
-										Confirm
-									</button>
-								</th>
-							</tr>	
+							<%= render partial: 'vouch_request',collection: @vouch_requests,  as: :vouch_request %>
 				        </tbody>
 			         </table>
 				</div> <!-- .widget-content -->
@@ -55,4 +38,8 @@
 </div>
 			
 			
+<!-- refresh plugin search -->
+<script type="text/javascript" src="/assets/jquerysearch.js"></script>
+
+
 			
