@@ -1,5 +1,7 @@
 class TeacherSubject < ActiveRecord::Base
 
+  scope :search_by_name, lambda { | value | where("CONCAT(name) LIKE?","%#{value}%")}
+
   belongs_to :day_code
   belongs_to :teacher
   belongs_to :subject
@@ -22,5 +24,16 @@ class TeacherSubject < ActiveRecord::Base
   def start_end_time_daycode
     "#{self.day_code.name} #{self.time_start.strftime('%l:%M %p')} - #{self.time_end.strftime('%l:%M %p')}"
   end
+
+  def self.search(search)
+
+    teacher_subject_scope = self.scoped({})
+
+    teacher_subject_scope = teacher_subject_scope.search_by_name(search) if search.present?
+ 
+    return teacher_subject_scope
+
+  end
+
 
 end

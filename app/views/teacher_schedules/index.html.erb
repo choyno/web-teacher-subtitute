@@ -25,9 +25,15 @@
 				</div>
 				
 				<div class="widget-content">
-					<div class="search">
-						Search: <input type="text" id="kwd_search" value=""/> 
-					</div>
+					<%= form_for teacher_schedules_path, method: :get do %>
+							<div class="search">
+								<div class="field">
+									<%= text_field_tag :search, params[:search] , size: 24, :Placeholder => "Search" %>
+									<%= submit_tag "Search", :name => nil %>
+								</div> 
+							</div>
+						<% end %>
+					
 					<table  id="my-table" class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
