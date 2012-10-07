@@ -1,5 +1,8 @@
 class TeacherSubject < ActiveRecord::Base
-
+  
+  scope :default_include, includes(:day_code, :teacher, :subject, :room, :section)
+  
+  
   belongs_to :day_code
   belongs_to :teacher
   belongs_to :subject
