@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121002182428) do
+=======
+ActiveRecord::Schema.define(:version => 20121008224632) do
+>>>>>>> daecee7b95812c6402e49df41a69382e5cc98f54
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
@@ -66,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20121002182428) do
     t.text     "notes"
     t.integer  "teacher_subject_id"
     t.boolean  "planned",               :default => false
-    t.integer  "status_id"
+    t.string   "status"
     t.datetime "requested_at"
     t.integer  "assigned_by_user_id"
     t.datetime "approved_at"
@@ -99,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20121002182428) do
   create_table "users", :force => true do |t|
     t.string   "full_name",     :limit => 120
     t.string   "username",      :limit => 120
+    t.string   "user_types",    :limit => 120
     t.string   "password_hash"
     t.string   "password_salt"
     t.integer  "department_id"
