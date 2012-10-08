@@ -8,7 +8,7 @@
 			<%= form_for @room, url: rooms_path,  method: :post do |f| %>
 			
 				<% if @room.errors.present? %>
-					<div class="notify notify-error">
+					<div class="alert alert-error">
 						<a class="close" href="javascript:;">×</a>
 						
 						<% for msg in @room.errors.full_messages %>

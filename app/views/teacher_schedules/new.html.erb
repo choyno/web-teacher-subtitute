@@ -6,7 +6,7 @@
 		<div class="grid-24">
 			<%= form_for @teacher_subject, url: teacher_schedules_path,  method: :post do |f| %>
 				<% if @teacher_subject.errors.present? %>
-					<div class="notify notify-error">
+					<div class="alert alert-error">
 						<a class="close" href="javascript:;">×</a>
 						<% for msg in @teacher_subject.errors.full_messages %>
 		          <%= content_tag :div, msg %>

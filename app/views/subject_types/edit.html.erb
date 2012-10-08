@@ -8,7 +8,7 @@
 			<%= form_for @subject_type, url: subject_type_path(@subject_type),  :method => :put do |f| %>
 				
 				<% if @subject_type.errors.present? %>
-					<div class="notify notify-error">
+					<div class="alert alert-error">
 						<a class="close" href="javascript:;">×</a>
 						<% for msg in @subject_type.errors.full_messages %>
 		          <%= content_tag :div, msg %>

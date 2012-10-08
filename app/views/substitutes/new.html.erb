@@ -10,7 +10,7 @@
 		<div class="grid-24">
 						
 			<% if @substitute.errors.present? %>
-				<div class="notify notify-error">
+				<div class="alert alert-error">
 					<a class="close" href="javascript:;">×</a>
 					<% for msg in @substitute.errors.full_messages %>
 			          <%= content_tag :div, msg %>

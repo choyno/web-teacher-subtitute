@@ -8,7 +8,7 @@
 			<%= form_for @user do |f| %>
 			
 				<% if @user.errors.present? %>
-					<div class="notify notify-error">
+					<div class="alert alert-error">
 						<a class="close" href="javascript:;">×</a>
 						
 						<% for msg in @user.errors.full_messages %>

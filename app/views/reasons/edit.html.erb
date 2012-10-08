@@ -7,7 +7,7 @@
 			<%= form_for @reason, :method => :put do |f| %>
 
 				<% if @reason.errors.present? %>
-					<div class="notify notify-error">
+					<div class="alert alert-error">
 						<a class="close" href="javascript:;">×</a>
 						
 						<% for msg in @reason.errors.full_messages %>
