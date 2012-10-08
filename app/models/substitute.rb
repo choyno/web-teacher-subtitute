@@ -8,6 +8,8 @@ class Substitute < ActiveRecord::Base
   belongs_to :reason
   
   
-
+  validates :substitute_teacher_id, :teacher_subject_id, 
+            :reasons_id, :planned, :assigned_by_user_id,
+            presence: true
   
 end

@@ -1,44 +1,44 @@
-			<div class="field-group inlineField " style="float:left;">	
-				<div class="field">
-					<label for="full_name">Request Type:</label>
-					<%= select_tag :planned, options_for_select([["Plan", true], ["Unplan", false]]) %>
-				</div>
+<div class="field-group inlineField ">	
+	
+	<div class="field">
+		<label for="full_name">Request Type:</label>
+		<%= select_tag :planned, options_for_select([["Plan", true], ["Unplan", false]]) %>
+	</div>
 
-				<div class="field">
-					<label for="status">Date Substitute :</label>
-					<%= text_field_tag :date_substitute %>
-				</div>
-				<br/>
+	<div class="field">
+		<label for="status">Date Substitute :</label>
+		<%= text_field_tag :date_substitute %>
+	</div>
+	<br/>
 
-				<div class="field">
-					<label for="usertype">Reason :</label>
-					<%= select_tag :reason_id, options_from_collection_for_select(Reason.all, :id, :name) %>
-				</div>
+	<div class="field">
+		<label for="usertype">Reason :</label>
+		<%= select_tag :reason_id, options_from_collection_for_select(Reason.all, :id, :name) %>
+	</div>
 
-				<div class="field">
-					<label for="Notes">Note</label>
-					<%= text_area_tag :notes %>
-				</div>
+	<div class="field">
+		<label for="Notes">Note</label>
+		<%= text_area_tag :notes %>
+	</div>
 
+</div>
 
-			</div>
-			<div class="field-group inlineField secondcolumn" style="">	
-				
+<div class="field-group inlineField secondcolumn" style="">	
 
-				<div class="field">
-					<label for="status">Status :</label>
-					<%= text_field_tag :status, 'Substitue', class: 'uneditable-input' %>
-				</div>
+	<div class="field">
+		<label for="status">Status :</label>
+		<%= text_field_tag :status, 'Substitute', class: 'uneditable-input' %>
+	</div>
 
-				<div class="field">
-					<label for="status">Assign By :</label>
-					<%= text_field_tag :assign_by_user, current_user.full_name, class: 'uneditable-input' %>
-				</div>
+	<div class="field">
+		<label for="status">Assign By :</label>
+		<%= text_field_tag :assign_by_user, current_user.full_name, class: 'uneditable-input' %>
+	</div>
+	
+</div>
 
-
-			</div>
-<script type="text/javascript" charset="utf-8">
-	$(document).ready(function(){
-		$( "#date_substitute" ).datepicker();
-	})
-</script>
+<br /><br /><br /><br />
+<div class="form-actions" id="final-confirmation-btn">
+  <button id="create-request-btn" type="submit" class="btn btn-primary" style='display: none'>Create Request</button>
+  <button type="button" class="btn" onclick="window.location = '/substitutes'">Cancel</button>
+</div>

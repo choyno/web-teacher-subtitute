@@ -42,11 +42,19 @@
 										data: { role: 'button', toggle: 'modal' }, class: 'btn', style: 'display:none' %>
 
 
+
+<br /><br /><br /><br />
+<div class="form-actions" id="final-confirmation-btn">
+  <button type="button" class="btn" onclick="window.location = '/substitutes'">Cancel</button>
+</div>
+
+
 <script type="text/javascript">
 		
 	 $(document).ready(function() {
 				
 			 var teacher_id, subject_id, teacher_subject_id;
+			 var remove_teacher_in_listing;
 			
 	     $("#teacher").tokenInput(teacherSource, 
 				{ theme: 'facebook', 
@@ -55,6 +63,11 @@
 						// put value to assign-teacher and assing-subject
 						$('.assign-teacher').html(item.name);
 						teacher_id = item.id;
+						
+						$("#sub_teacher").tokenInput("remove", { id: item.id });
+						remove_teacher_in_listing  = { id: item.id, name: item.name };
+						
+						console.log(remove_teacher_in_listing);
 						
 						// load up selected teacher subject
 						$.ajax({
@@ -91,6 +104,77 @@
 					$('#step2-tab').click();
 					
 					
+				})
+				
+				
+				// step 2
+				
+				
+				var sub_teacher_id;
+
+				$("#sub_teacher").tokenInput(teacherSource, 
+					{ theme: 'facebook', 
+						tokenLimit: 1,
+						onAdd: function(item){
+							// put value to sub-teacher
+							sub_teacher_id = item.id;
+							
+							$('.sub-teacher').html(item.name)
+							$('#btn-step2-confirm').show();
+							// load up selected teacher subject
+							$.ajax({
+							  url: "<%= load_sub_teacher_subjects_substitutes_path %>",
+								data: { sub_teacher_id: item.id }
+							}).done(function() { 
+							  $(this).addClass("done");
+							});
+						},
+						onDelete: function(){
+							// remove subject if selected teacher was removed
+							$('#btn-step2-confirm').hide();
+							$('.sub-teacher').html("");
+							$('#sub-teacher-subjects-table tbody').html(""); // set blank if techer was remove
+							
+							$("#teacher").tokenInput('add', remove_teacher_in_listing);
+						}
+					});
+
+
+				$('#btn-step2-confirm').live('click', function(){
+					$('#step3-tab').click();
+					$('#create-request-btn').show();
+				})
+				
+				
+				
+				
+				// step 3
+				
+				
+				$( "#date_substitute" ).datepicker({
+							numberOfMonths: 2,
+							showButtonPanel: true,
+							changeMonth: true,
+							changeYear: true
+				});
+
+				$('#create-request-btn').live('click', function(){
+					// do the post do the post
+					$.ajax({
+						beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+						type: 'POST',
+					  url: "<%= substitutes_path %>",
+						data: { sub_teacher_id: sub_teacher_id,
+										teacher_subject_id: teacher_subject_id,
+										planned: $('#planned').val(),
+										date_substitute: $('#date_substitute').val(),
+										reason_id: $('#reason_id').val(),
+										notes: $('#notes').val()
+							 		}
+					}).done(function() { 
+					  $(this).addClass("done");
+					});
+
 				})
 				
 				

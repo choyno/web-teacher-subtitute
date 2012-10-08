@@ -43,41 +43,9 @@
 	</div>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-	$(document).ready(function(){
-		
-		var sub_teacher_id;
-		
-		$("#sub_teacher").tokenInput(teacherSource, 
-			{ theme: 'facebook', 
-				tokenLimit: 1,
-				onAdd: function(item){
-					// put value to sub-teacher
-					sub_teacher_id = item.id;
-					$('.sub-teacher').html(item.name)
-					$('#btn-step2-confirm').show();
-					// load up selected teacher subject
-					$.ajax({
-					  url: "<%= load_sub_teacher_subjects_substitutes_path %>",
-						data: { sub_teacher_id: item.id }
-					}).done(function() { 
-					  $(this).addClass("done");
-					});
-				},
-				onDelete: function(){
-					// remove subject if selected teacher was removed
-					$('#btn-step2-confirm').hide();
-					$('.sub-teacher').html("");
-					$('#sub-teacher-subjects-table tbody').html(""); // set blank if techer was remove
-				}
-			});
-		
-		
-		$('#btn-step2-confirm').live('click', function(){
-			$('#step3-tab').click();
-		})
-		
-		
-	})
-</script>
+<br /><br /><br /><br />
+<div class="form-actions" id="final-confirmation-btn">
+  <button type="button" class="btn" onclick="window.location = '/substitutes'">Cancel</button>
+</div>
+
 

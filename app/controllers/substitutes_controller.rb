@@ -15,13 +15,20 @@
 
 
   def create
-    @substitute = Substitute.create(params[:substitute])
+    # sub_teacher_id"=>"151", "teacher_subject_id"=>"18", "planned"=>"true", "date_substitute"=>"", "reason_id"=>"1", "notes"=>""
+    
+    @substitute = Substitute.new({ substitute_teacher_id: params[:sub_teacher_id],
+                                   teacher_subject_id: params[:teacher_subject_id],
+                                   planned: params[:planned],
+                                   
+                                })
     
     if @substitute.save
       redirect_to substitutes_path, :notice => "Request successfully created!"
     else
       render :new
     end
+    
   end
 
   def edit
