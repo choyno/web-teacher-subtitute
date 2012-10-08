@@ -988,6 +988,7 @@ thead tr:first-child
 .btn-primary
 {
     float:right;
+    margin-right: 5px;
 
 }
 

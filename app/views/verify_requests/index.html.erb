@@ -6,42 +6,29 @@
 		<div class="grid-24">
 			<div class="widget widget-table">
 				<div class="widget-header">
-					<h3 class="icon chart"><TABLE></TABLE>Request  Information</h3>		
+					<h3 class="icon chart">Substitute Information</h3>		
 				</div>
 				<div class="widget-content">
 					<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
 								<th>Date Request</th>
-								<th>Absent Teacher</th>
-								<th>Substitutute Teacher</th>
+								<th>Requested Teacher</th>
+								<th>Substitute Teacher</th>
 								<th>Subject Code</th>
-								<th>Subject Name</th>
+								<th>Room #</th>
+								<th>Section</th>
+								<th>Type</th>
 								<th>Start Time</th>
 								<th>End Time</th>
 								<th>Schedule</th>
-								<th class="vouchoptions">Options</th>
+								<th>Options</th>
 							</tr>
 						</thead>
-				        <tbody>
-							<tr>
-								<th>8/5/12</th>
-								<th>Abayon, Mark Jil C.</th>
-								<th>Edwin, Salanatin C.</th>
-								<th>IT302</th>
-								<th>Software Engineering II: Systems Development & Integration</th>
-								<th>8:00am</th>
-								<th>11:00am</th>
-								<th>TTH</th>
-								<th>
-									<button class="btn btn-primary btn-blue">
-										Show
-									</button>
-									
-								</th>
-							</tr> 
-				        </tbody>
-			         </table>
+		        <tbody>
+							<%= render partial: 'verify_request', collection: @verify_requests,  as: :verify_request %>
+		        </tbody>
+	        </table>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->
@@ -50,8 +37,8 @@
 </div>
 			
 			
-			
-			
 <!-- refresh plugin search -->
 <script type="text/javascript" src="/assets/jquerysearch.js"></script>
 
+
+			
