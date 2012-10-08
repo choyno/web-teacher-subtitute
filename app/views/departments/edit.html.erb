@@ -7,7 +7,7 @@
 			<%= form_for @department, :method => :put do |f| %>
 
 				<% if @department.errors.present? %>
-					<div class="notify notify-error">
+					<div class="alert alert-error">
 						<a class="close" href="javascript:;">×</a>
 						
 						<% for msg in @department.errors.full_messages %>
