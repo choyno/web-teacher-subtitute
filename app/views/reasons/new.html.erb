@@ -8,7 +8,7 @@
 			<%= form_for @reason, url: reasons_path,  method: :post do |f| %>
 			
 				<% if @reason.errors.present? %>
-					<div class="notify notify-error">
+					<div class="alert notify-error">
 						<a class="close" href="javascript:;">×</a>
 						
 						<% for msg in @reason.errors.full_messages %>
