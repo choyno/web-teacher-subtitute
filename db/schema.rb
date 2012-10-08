@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20121002015810) do
-=======
 ActiveRecord::Schema.define(:version => 20121002182428) do
->>>>>>> 2039e71cc19b2ebf44f9786b430ea688f9bb2ecc
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
