@@ -10,6 +10,7 @@
 	<th><%= verify_request.teacher_subject.time_end.strftime('%l: %m %p') %></th>
 	<th><%= verify_request.teacher_subject.day_code.name %></th>
 	<th>
-		<%= link_to 'Show', verify_request, :class => "btn btn-primary btn-blue" %></td>
+		<%= link_to 'Show', verify_request_path(verify_request), method: :get , :class => "btn btn-primary btn-blue" %>
+		 
 	</th>
 </tr>	

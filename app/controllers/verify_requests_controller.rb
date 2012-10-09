@@ -5,4 +5,26 @@ class VerifyRequestsController < ApplicationController
 		                            .includes(:substitute_teacher, :teacher_subject)
 	end
 
+
+	def show
+		@verify_request = Substitute.find(params[:id])
+	end
+	
+	def edit
+		@verify_request = Substitute.find(params[:id])
+	end
+
+	def update
+	  
+		@substitute = Substitute.find(params[:id])
+		
+		verifyer_status = if params[:commit] == 'Confirm'; 'Appoved'
+	                   else; 'Vouch'; end
+		
+		@substitute.update_column(:status, verifyer_status)
+		
+		redirect_to verify_requests_path, notice: "verify Request was successfully updated!"
+			
+	end
+
 end

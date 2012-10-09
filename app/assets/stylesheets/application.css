@@ -1190,3 +1190,12 @@ span.current
     height: 16px;
     width: 16px;
 }
+
+
+.btn-danger
+{
+
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+}

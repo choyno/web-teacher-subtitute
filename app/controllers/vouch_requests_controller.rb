@@ -18,11 +18,11 @@ class VouchRequestsController < ApplicationController
 		@substitute = Substitute.find(params[:id])
 		
 		voucher_status = if params[:commit] == 'Confirm'; 'Appoved'
-	                   else; 'Deny'; end
+	                   else; 'Substitute'; end
 		
 		@substitute.update_column(:status, voucher_status)
 		
 		redirect_to vouch_requests_path, notice: "Vouch Request was successfully updated!"
 			
-	end
+	end 
 end
