@@ -9,4 +9,16 @@ class VouchRequestsController < ApplicationController
 		@vouch_request = Substitute.find(params[:id])
 	end
 	
+	def edit
+		@vouch_request = Substitute.find(params[:id])
+	end
+
+	def update
+		@vouch_request = Substitute.find(params[:id])
+		if @vouch_request.update_attributes(params[:vouch_request])
+				redirect_to vouch_requests_path, notice: "Confirm Request"
+		else
+			render :edit
+		end
+	end
 end

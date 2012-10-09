@@ -1,3 +1,24 @@
-<div>
-	hello
+<div id="content">			
+	<div id="contentHeader">
+		<h1>Substitute Information</h1>
+	</div> <!-- #contentHeader -->	
+	<div class="container">
+		<div class="grid-24">
+			
+			<%= form_for @vouch_request, :method => :put do |f| %>
+
+				<%= render :partial => "show_vouch_request" %>
+				<%= f.hidden_field :status, :value => "vouch" %>
+				<div class="fmenu">
+					<br style="clear:both;">
+						<%= link_to 'Deny', vouch_requests_path, class: 'btn btn-primary btn-blue'  %>
+
+						<button class="btn btn-primary btn-blue">Confirm</button>
+				</div>
+				
+			<% end %>
+		</div>
+	</div> <!-- .grid -->			
 </div>
+			
+			

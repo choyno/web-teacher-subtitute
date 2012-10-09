@@ -1022,6 +1022,12 @@ thead tr:first-child
     float:right;
     margin-right: 5px;
 }
+.widget-sheader div h5
+{
+    width: 150px;
+    text-align: right;
+    margin-right: 5px
+}
 .widget-header
 {
     border-bottom: 2px solid #ddd;

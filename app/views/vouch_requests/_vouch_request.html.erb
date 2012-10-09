@@ -11,11 +11,11 @@
 	<th><%= vouch_request.teacher_subject.day_code.name %></th>
 	<th>
 		  <% if current_user.user_type == 'Admin'  %>
-		      <%= link_to 'Void', vouch_request, :class => "btn btn-primary btn-blue" %>
+		  <%= link_to 'Cancel', vouch_request_path(vouch_request), method: :get , :class => "btn btn-primary btn-blue" %>
 		      <%= link_to 'Show', vouch_request_path(vouch_request), method: :get , :class => "btn btn-primary btn-blue" %>
 		  <% elsif current_user.user_type == 'Head' %>
 		      <%= link_to 'Deny', show_vouch_request, :class => "btn btn-primary btn-blue" %>
-		      <%#= link_to 'Confirm', vouch_request, :class => "btn btn-primary btn-blue" %>
+		      <%= link_to 'Confirm', vouch_request, :class => "btn btn-primary btn-blue" %>
 		  <% elsif  current_user.user_type == 'Checker' %>
 		 	  <%= link_to 'Cancel', vouch_request, :class => "btn btn-primary btn-blue" %>
 		  <% end %>
