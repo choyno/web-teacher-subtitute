@@ -5,7 +5,6 @@ class VerifyRequestsController < ApplicationController
 		                            .includes(:substitute_teacher, :teacher_subject)
 	end
 
-
 	def show
 		@verify_request = Substitute.find(params[:id])
 	end

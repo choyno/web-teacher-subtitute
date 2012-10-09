@@ -14,7 +14,8 @@
 			<div class='title'>
         WEB BASED TEACHER SUBSTITUTIONS
       </div>
-			
+
+				
 			  <% if current_user.user_type == 'Admin'  %>
 		          <%= render 'shared/admin/headernav' %>
 		      <% elsif current_user.user_type == 'Head' %>
@@ -34,15 +35,13 @@
 		<div class="span2 sideBar">
 			<%= image_tag 'logo2.png', :class => 'logo' %>
 			<br/>
-
-	
-      <% if current_user.user_type == 'Admin'  %>
-          <%= render 'shared/admin/navigation' %>
-      <% elsif current_user.user_type == 'Head' %>
-          <%= render 'shared/head/navigation' %>
-      <% elsif  current_user.user_type == 'Checker' %>
-          <%= render 'shared/checker/navigation' %>
-      <% end %>
+		      <% if current_user.user_type == 'Admin'  %>
+		          <%= render 'shared/admin/navigation' %>
+		      <% elsif current_user.user_type == 'Head' %>
+		          <%= render 'shared/head/navigation' %>
+		      <% elsif  current_user.user_type == 'Checker' %>
+		          <%= render 'shared/checker/navigation' %>
+		      <% end %>
 
 
 <!-- 

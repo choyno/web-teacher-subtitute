@@ -1,48 +1,48 @@
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Substitution Records</h1>
+		<h1>Substitute Record</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
 			<div class="widget widget-table">
-				<div class="widget-header">
-					<h3 class="icon chart">Teacher's Request</h3>		
-				</div>
-			
+				<br />
 				<div class="widget-content">
+					<%= form_for substitution_records_path, method: :get do %>
+						<div class="search">
+								<div class="field">
+									<%= text_field_tag :search, params[:search] , size: 24, :Placeholder => "Search" %>
+									<%= submit_tag "Search", :name => nil %>
+								</div> 
+							</div>
+					<% end %>
+					
 					<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
 								<th>Date Request</th>
-								<th>Absent Teacher</th>
-								<th>Substitutute Teacher</th>
-								<th>Time</th>
-								<th>Subject</th>
-								<th>Reason</th>
-								<th>Assigned By</th>
+								<th>Requested Teacher</th>
+								<th>Substitute Teacher</th>
+								<th>Subject Code</th>
+								<th>Room #</th>
+								<th>Section</th>
+								<th>Type</th>
+								<th>Start Time</th>
+								<th>End Time</th>
+								<th>Schedule</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<th>8/12/12</th>
-								<th>Salanatin, Edwin C.</th>
-								<th>Abayon, Mark Jil C.</th>
-								<th>1:00 -2:00</th>
-								<th>Computer Programming I: Programming Fundamentals</th>
-								<th>Sick Absent</th>
-								<th>Smarivic</th>
-							</tr>										
-						</tbody>
-					</table>
-				</div> <!-- .widget-content -->	
-			</div> <!-- .widget -->
-		</div>
-		
+		       			 <tbody>
+								<%= render partial: 'substitution_records', collection: @substutition_records,  as: :substitution_record %>
+				        </tbody>
+			        </table>
+			        <%= paginate @substutition_records %>
+				</div> <!-- .widget-content -->
+			   </div> <!-- .widget -->
+			</div> <!-- .widget-content -->
+		</div> <!-- .widget -->	
 	</div> <!-- .grid -->			
 </div>
 			
 			
-			
 <!-- refresh plugin search -->
 <script type="text/javascript" src="/assets/jquerysearch.js"></script>
-
