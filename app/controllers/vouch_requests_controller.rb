@@ -2,7 +2,7 @@ class VouchRequestsController < ApplicationController
 
 	def index
 		@vouch_requests = Substitute.status_is_vouch
-		                            .includes(:substitute_teacher, :teacher_subject)
+		                            .includes(:substitute_teacher, :teacher_subject).search(params[:search]).page(params[:page]).per(10)
 		 @count_vouch_requests = Substitute.status_is_vouch.count                    
 	end
 

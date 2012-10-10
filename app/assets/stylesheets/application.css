@@ -56,20 +56,13 @@ body
 }
 #login_panel
 {
-	background: #FFF;
+	
 	width: 100%;
-	border: 1px solid #CCC;
+	border-radius: 8px;
 	overflow: hidden;
 	  margin-top: 37px;
     width: 317px;
-	
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
-	
-	-moz-box-shadow: 1px 1px 1px rgba(0,0,0,.6);
-	-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.6);
-	box-shadow: 1px 1px 1px rgba(0,0,0,.6);
+
 }
 
 #login_panel form
@@ -1198,4 +1191,16 @@ span.current
     float: right;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+
+
+.login_header_actions
+{
+    background:#2780D1; width: auto; padding: 12px 15px; border-top: 1px dotted #CCC;
+    color:#fff;
+}
+.login_header_actions h4
+{
+    text-align: center;
 }

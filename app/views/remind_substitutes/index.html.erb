@@ -1,6 +1,6 @@
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Remind Substitute Teachers</h1>
+		<h1>Remind Substitute</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
@@ -9,14 +9,21 @@
 					<h3 class="icon chart">Substitute Information</h3>		
 				</div>
 				<div class="widget-content">
+					<%= form_for remind_substitutes_path, method: :get do %>
+						<div class="search">
+							<div class="field">
+								<%= text_field_tag :search, params[:search], size: 24, :Placeholder => "Search" %>
+								<%= submit_tag "Search", :name => nil, :class => "btn btn-primary btn-blue" %>
+							</div>
+						</div>
+					<% end %>
 					<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
 								<th>Date Request</th>
-								<th>Absent Teacher</th>
-								<th>Substitutute Teacher</th>
+								<th>Requested Teacher</th>
+								<th>Substitute Teacher</th>
 								<th>Subject Code</th>
-								<th>Subject Name</th>
 								<th>Room #</th>
 								<th>Section</th>
 								<th>Type</th>
@@ -26,37 +33,21 @@
 								<th>Options</th>
 							</tr>
 						</thead>
-				        <tbody>
-							<tr>
-								<th>9/5/12</th>
-								<th>Abayon, Mark Jil C.</th>
-								<th>Edwin, Salanatin C.</th>
-								<th>IT302</th>
-								<th>Software Engineering II: Systems Development & Integration</th>
-								<th>AniLab</th>
-								<th>CI601-C</th>
-								<th>LAB</th>
-								<th>8:00am</th>
-								<th>11:00am</th>
-								<th>TTH</th>
-								<th>
-									<button class="btn btn-primary btn-blue">
-										Remind
-									</button>
-								</th>
-							</tr>
-			         </table>
+		        		<tbody>
+							<%= render partial: 'remind_substitute', collection: @remind_substitutes,  as: :verify_request %>
+		        		</tbody>
+	        </table>
+	        	<%#= paginate @remind_substitute %>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->
 		</div> <!-- .widget -->	
 	</div> <!-- .grid -->			
 </div>
-
+			
 			
 <!-- refresh plugin search -->
 <script type="text/javascript" src="/assets/jquerysearch.js"></script>
 
 
-			
 			

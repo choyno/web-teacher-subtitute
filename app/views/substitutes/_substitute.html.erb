@@ -1,9 +1,16 @@
 <tr>
-	<th><%= teacher.lastname %></th>
-	<th><%= teacher.firstname %></th>
+	<th><%= substitute.teacher_subject.created_at.strftime('%D') if substitute.teacher_subject %></th>
+	<th><%= substitute.teacher_subject.teacher.fullname %></th>
+	<th><%= substitute.substitute_teacher.fullname %></th>
+	<th><%= substitute.teacher_subject.subject.code %></th>
+	<th><%= substitute.teacher_subject.room.name %></th>
+	<th><%= substitute.teacher_subject.section.name %></th>
+	<th><%= substitute.teacher_subject.subject_type.name %></th>
+	<th><%= substitute.teacher_subject.time_start.strftime('%l: %m %p') %></th>
+	<th><%= substitute.teacher_subject.time_end.strftime('%l: %m %p') %></th>
+	<th><%= substitute.teacher_subject.day_code.name %></th>
 	<th>
-		<button class="btn btn-primary btn-blue">
-			Assign
-		</button>
+		<%= link_to 'Show', substitute_path(substitute), method: :get , :class => "btn btn-primary btn-blue" %>
+	 
 	</th>
-</tr>
+</tr>	

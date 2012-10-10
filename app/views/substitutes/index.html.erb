@@ -26,17 +26,23 @@
 					<h3 class="icon chart">Substitute Information</h3>		
 				</div>
 				<div class="widget-content">
-					<div class="search">
-						Search: <input type="text" id="kwd_search" value=""/> 
-					</div>
+					<%= form_for subjects_path, method: :get do %>
+							<div class="search">
+								<div class="field">
+									<%= text_field_tag :search, params[:search], size: 24 , :Placeholder => "Search" %>
+									<%= submit_tag "Search", :name => nil %>	
+								</div>
+							</div>
+					<% end %>
 					<table  id="my-table" class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
 								<th>Date Request</th>
-								<th>Absent Teacher</th>
-								<th>Substitutute Teacher</th>
+								<th>Requested Teacher</th>
+								<th>Substitute Teacher</th>
 								<th>Subject Code</th>
-								<th>Subject Name</th>
+								<th>Room #</th>
+								<th>Section</th>
 								<th>Type</th>
 								<th>Start Time</th>
 								<th>End Time</th>
@@ -45,26 +51,11 @@
 							</tr>
 						</thead>
 				        <tbody>
-							<tr>
-								<th>9/15/12</th>
-								<th>Edwin, Salanatin C.</th>
-								<th>Abayon, Mark Jil C.</th>
-								<th>IT302</th>
-								<th>Software Engineering II: Systems Development & Integration</th>
-								<th>LEC</th>
-								<th>7:00am</th>
-								<th>8:00am</th>
-								<th>MWF</th>
-								<th>
-											<button class="btn btn-primary btn-blue">
-												show
-											</button>
-									
-								</th>
-							</tr>	
+							<%= render partial: 'substitute', collection: @substitutes, as: :substitute %>
+
 				        </tbody>
 			         </table>
-			         
+			         <%= paginate @substitutes %>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->

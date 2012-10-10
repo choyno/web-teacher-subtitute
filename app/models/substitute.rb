@@ -3,7 +3,12 @@ class Substitute < ActiveRecord::Base
   scope :status_is_substitute, where('status = ?', 'Substitute')
   scope :status_is_vouch, where('status = ?', 'Vouch')
 
-  scope :search_by_name, lambda { | value | where("CONCAT(status) LIKE?","%#{value}%")}
+  scope :request_type_planned, where( planned: true)
+
+  scope :search_by_name, lambda { | value | teachers = Teacher.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
+                          self.where("teacher_subject_id IN (?)", teachers.pluck(:id))}
+
+
  
   belongs_to :substitute_teacher, class_name: :Teacher, foreign_key: :substitute_teacher_id
   belongs_to :teacher_subject

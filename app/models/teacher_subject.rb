@@ -1,7 +1,8 @@
 class TeacherSubject < ActiveRecord::Base
 
 
-  scope :search_by_name, lambda { | value | where("CONCAT(name) LIKE?","%#{value}%")}
+  scope :search_by_name, lambda { | value | teachers = Teacher.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
+                          self.where("teacher_id IN (?)", teachers.pluck(:id))}
 
   scope :default_include, includes(:day_code, :teacher, :subject, :room, :section)
   

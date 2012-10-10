@@ -10,6 +10,14 @@
 				</h3>		
 				</div>
 				<div class="widget-content">
+					<%= form_for vouch_requests_path, method: :get do %>
+						<div class="search">
+							<div class="field">
+								<%= text_field_tag :search, params[:search], size: 24, :Placeholder => "Search" %>
+								<%= submit_tag "Search", :name => nil, :class => "btn btn-primary btn-blue" %>
+							</div>
+						</div>
+					<% end %>
 					<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
@@ -30,6 +38,7 @@
 							<%= render partial: 'vouch_request', collection: @vouch_requests,  as: :vouch_request %>
 				        </tbody>
 			        </table>
+			        <%= paginate @vouch_requests %>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->
