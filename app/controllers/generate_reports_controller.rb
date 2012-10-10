@@ -1,20 +1,7 @@
 class GenerateReportsController < ApplicationController
 
 	def index
-		@generate_reports = Substitute.status_is_approved
-									  .includes(:substitute_teacher, :teacher_subject)
+		@generate_reports = Substitute.generate_absent_teacher_report
 	end
 
-	def new
-		@generate_report = Substitute.find(params[:id])
-	end
-
-	def create
-		@generate_report = Substitute.create(params[:generate_report])
-		if @generate_report.save
-			redirect_to generate_reports_path, notice: "Report Created"
-		else
-			render :new
-		end
-	end
 end

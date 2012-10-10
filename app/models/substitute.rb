@@ -32,12 +32,12 @@ class Substitute < ActiveRecord::Base
     
     results = []
 
-
     Teacher.find_each do |teacher|
       approved_substitutes = []
       
       self.where('teacher_subjects.teacher_id = ?', teacher.id )
-          .status_is_approved.includes(:teacher_subject).find_each do |substitute|
+          .status_is_approved
+          .includes(:teacher_subject).find_each do |substitute|
 
         approved_substitutes << { created_at: substitute.created_at,
                                  subject_time: substitute.teacher_subject.start_time_and_time_end,
