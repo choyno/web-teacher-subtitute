@@ -1,8 +1,19 @@
 <div class="form uniformForm">					
 	<div class="widget">
-		<div class="widget-content">
+
+		
+
+			<div class="widget-content">
+			
 
 			<div class="widget-sheader">
+				<div style="float:left">	
+				<h5>Date Request By :&nbsp&nbsp</h5>
+			</div>
+			<div style="float:left">
+				<h4><%= @vouch_request.teacher_subject.created_at.strftime('%D') %></h4>
+			</div>
+			<br style="clear:both;"/>
 				<div style="float:left">	
 					<h5>Substitute By :&nbsp&nbsp</h5>
 				</div>

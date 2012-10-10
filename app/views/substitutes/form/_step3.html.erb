@@ -9,7 +9,6 @@
 		<label for="status">Date Substitute :</label>
 		<%= text_field_tag :date_substitute %>
 	</div>
-	<br/>
 
 	<div class="field">
 		<label for="usertype">Reason :</label>
@@ -29,7 +28,6 @@
 		<label for="status">Status :</label>
 		<%= text_field_tag :status, 'Substitute', class: 'uneditable-input' %>
 	</div>
-
 	<div class="field">
 		<label for="status">Assign By :</label>
 		<%= text_field_tag :assign_by_user, current_user.full_name, class: 'uneditable-input' %>

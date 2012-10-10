@@ -1,8 +1,8 @@
   class SubstitutesController < ApplicationController
   
   def index
-  	@substitutes = Substitute.all
-    @substitutes = Substitute.page(params[:page]).per(10)
+
+    @substitutes = Substitute.search(params[:search]).page(params[:page]).per(10)
   end
   
   def show
@@ -12,7 +12,6 @@
   def new
     @substitute = Substitute.new
   end
-
 
   def create
     # sub_teacher_id"=>"151", "teacher_subject_id"=>"18", "planned"=>"true", "date_substitute"=>"", "reason_id"=>"1", "notes"=>""

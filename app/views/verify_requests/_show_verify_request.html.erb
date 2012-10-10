@@ -1,8 +1,15 @@
 <div class="form uniformForm">					
 	<div class="widget">
 		<div class="widget-content">
-
+			
 			<div class="widget-sheader">
+				<div style="float:left">	
+					<h5>Date Request By :&nbsp&nbsp</h5>
+				</div>
+				<div style="float:left">
+					<h4><%= @verify_request.teacher_subject.created_at.strftime('%D') %></h4>
+				</div>
+				<br style="clear:both;"/>
 				<div style="float:left">	
 					<h5>Substitute By :&nbsp&nbsp</h5>
 				</div>
@@ -10,7 +17,7 @@
 					<h4><%= @verify_request.substitute_teacher.fullname %></h4>
 				</div>
 
-			<br style="clear:both;"/>
+				<br style="clear:both;"/>
 			<div>
 				<div style="float:left">
 					<h5>Absent Teacher:&nbsp&nbsp</h5>

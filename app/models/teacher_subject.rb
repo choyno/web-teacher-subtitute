@@ -30,6 +30,14 @@ class TeacherSubject < ActiveRecord::Base
     "#{self.day_code.name} #{self.time_start.strftime('%l:%M %p')} - #{self.time_end.strftime('%l:%M %p')}"
   end
 
+  def start_time_and_time_end
+    "#{self.time_start}-#{self.time_end}"
+  end
+
+  def total_hours
+    self.time_end - self.time_start
+  end
+
   def self.search(search)
 
     teacher_subject_scope = self.scoped({})

@@ -3,9 +3,11 @@ class Teacher < ActiveRecord::Base
   scope :search_by_name, lambda { |value| where("CONCAT(firstname,' ', lastname) LIKE ?", "%#{value}%") }
 
 
-  has_many :subtitutes
-  has_many :teacher_subjects
   
+  has_many :teacher_subjects
+  has_many :substitutes, through: :teacher_subjects
+
+
   has_many :subjects, through: :teacher_subjects
   
   validates :lastname, :firstname, presence: true

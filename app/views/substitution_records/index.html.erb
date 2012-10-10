@@ -1,6 +1,6 @@
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Substitute Record</h1>
+		<h1>Substitute Records</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
@@ -11,7 +11,7 @@
 						<div class="search">
 								<div class="field">
 									<%= text_field_tag :search, params[:search] , size: 24, :Placeholder => "Search" %>
-									<%= submit_tag "Search", :name => nil %>
+									<%= submit_tag "Search", :name => nil, :class => "btn btn-primary btn-button" %>
 								</div> 
 							</div>
 					<% end %>
@@ -20,7 +20,7 @@
 						<thead>
 							<tr>
 								<th>Date Request</th>
-								<th>Requested Teacher</th>
+								<th>Absent Teacher</th>
 								<th>Substitute Teacher</th>
 								<th>Subject Code</th>
 								<th>Room #</th>
