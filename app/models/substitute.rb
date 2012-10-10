@@ -39,19 +39,19 @@ class Substitute < ActiveRecord::Base
           .status_is_approved
           .includes(:teacher_subject).find_each do |substitute|
 
-        approved_substitutes << { created_at: substitute.created_at,
+        approved_substitutes << { created_at:substitute.sample,
                                  subject_time: substitute.teacher_subject.start_time_and_time_end,
-                                 total_hours: substitute.teacher_subject.total_hours 
+                                 total_hours: substitute.teacher_subject.total_hours
                                 }
-
       end
-
       results << { name: teacher.fullname, approved_substitutes: approved_substitutes } if approved_substitutes.present?
     end
-
-
     return results
-
   end
 
+  def sample
+    "#{self.created_at.strftime('%Y')}"
+  end
+
+  
 end

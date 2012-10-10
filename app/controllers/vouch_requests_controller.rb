@@ -4,7 +4,6 @@ class VouchRequestsController < ApplicationController
 		@vouch_requests = Substitute.status_is_vouch
 		                            .includes(:substitute_teacher, :teacher_subject).search(params[:search]).page(params[:page]).per(10)
 		
-	
 	end
 
 	def show
