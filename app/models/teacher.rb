@@ -22,8 +22,6 @@ class Teacher < ActiveRecord::Base
     " #{self.lastname} #{self.firstname}"
   end
 
-
-
   def self.search(search_by, search)
 
     teacher_scope = self.scoped({})

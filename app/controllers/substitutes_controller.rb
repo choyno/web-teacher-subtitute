@@ -23,12 +23,6 @@
                                    assigned_by_user_id: current_user.id
                                 })    
     @substitute.status = 'Substitute'
-
-    if @substitute.save
-        redirect_to substitutes_path, :notice => "Request has been created"
-    else
-      render :new
-    end 
    
   end
 
