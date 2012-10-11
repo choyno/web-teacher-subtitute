@@ -526,6 +526,45 @@ body
 	width: 900px;
 
 }
+.act
+{
+    background-color: #b4d6ff;
+    width: 317px ;
+    height:100px;
+}
+.border_login
+{
+    height:325px ;
+    width: 317px ;
+    -moz-box-shadow: 10px 10px 5px #888888; /* Firefox 3.6 and earlier */
+    box-shadow: 10px 10px 5px #888888;
+    border-color: #BBBBBB;
+    
+    background-color: #b4d6ff;
+    
+
+}
+.border_login2
+{
+    height:50px ;
+    width: 316px ;
+    border-radius: 5px;
+    background-color: #F7CF95;
+}
+
+#log
+{
+    height: 70px;
+    width: 300px;
+    padding-left: 10px;
+}
+
+
+.write
+{
+    font-style: normal;
+    font-size:15px;
+}
 #login_panel
 {
 	
