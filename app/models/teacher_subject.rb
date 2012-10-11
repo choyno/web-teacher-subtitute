@@ -5,8 +5,8 @@ class TeacherSubject < ActiveRecord::Base
                           self.where("teacher_id IN (?)", teachers.pluck(:id))}
   
   scope :search_by_subject, lambda { |value|
-                                subjects = Subject.where('name LIKE :value OR code :value', value: "%#{value}%")
-                                self.where('subject_id IN (?)', subjects.pluck(:id) )
+                                subjects = Subject.where("name LIKE :value OR code LIKE :value", value: "%#{value}%")
+                                self.where("subject_id IN (?)", subjects.pluck(:id) )
                             }
 
   scope :default_include, includes(:day_code, :teacher, :subject, :room, :section)
@@ -50,7 +50,7 @@ class TeacherSubject < ActiveRecord::Base
     case search_by
     when 'Teacher Name'
       teacher_subject_scope = teacher_subject_scope.search_by_name(search)
-    when 'Teacher Subject'
+    when 'Subject Name / Code'
       teacher_subject_scope = teacher_subject_scope.search_by_subject(search)
     end
     
