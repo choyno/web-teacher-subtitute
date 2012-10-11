@@ -1,11 +1,11 @@
 	<!-- text input for teacher selection  -->
 <legend>Teacher Requesting Schedule Substitution</legend>
-<%= text_field_tag :teacher, class: 'large' %>
+<%= text_field_tag :teacher, nil, class: 'large' %>
 <br />
 <legend>Selected Teacher Subjects</legend>
 <!-- load up selected teacher subject here -->
 <div class="search">
-	Search: <input type="text" id="kwd_search" value=""/> 
+	Search: <input type="text" id="kwd_search" value="" /> 
 </div>
 <table id="teacher-subjects-table" class="table table-bordered table-striped data-table">
 	<thead>

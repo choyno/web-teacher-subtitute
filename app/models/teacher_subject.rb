@@ -31,7 +31,7 @@ class TeacherSubject < ActiveRecord::Base
   end
 
   def start_time_and_time_end
-    "#{self.time_start}-#{self.time_end}"
+    "#{self.time_start.strftime('%l:%M %p')}-#{self.time_end.strftime('%l:%M %p')}"
   end
 
   def total_hours
