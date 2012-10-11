@@ -1,14 +1,9 @@
 class Teacher < ActiveRecord::Base
   
  
-  scope :search_by_firstname, lambda { | value | where("firstname LIKE ?", "%#{value}%") }
-
-  scope :search_by_lastname, lambda { | value | where("lastname LIKE ?", "%#{value}%")}
-
-  scope :search_by_phone, lambda { | value | where ("phone_number LIKE ?" , "%#{value}%")}
-
-
- 
+  scope :search_by_firstname, lambda { |value| where("firstname LIKE ?", "%#{value}%") }
+  scope :search_by_lastname, lambda { |value| where("lastname LIKE ?", "%#{value}%") }
+  scope :search_by_phone, lambda { |value| where("phone_number LIKE ?", "%#{value}%") }
   
   has_many :teacher_subjects
   has_many :substitutes, through: :teacher_subjects
