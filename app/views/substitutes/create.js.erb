@@ -1,0 +1,5 @@
+<% if @substitute.save  %>
+  	window.location = "<%= substitutes_path %>";
+<% else %>
+  <% logger.debug @substitute.inspect %>
+<% end %>

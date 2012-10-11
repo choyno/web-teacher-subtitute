@@ -25,20 +25,58 @@
 						<% end %>
 					 -->
 
-					<table  id="my-table" class="table table-bordered table-striped data-table">
-						<thead>
-							<tr>
-								<th>Absent Teacher</th>
-								<th>Date</th>
-								<th>Rendered Hours</th>
-								<th>Total Hours</th> 
-						</thead>
-				   		 <tbody>
-				   		 	<%= render partial: 'generate_reports', collection: @generate_reports, as: :generate_report %>
-				    	</tbody>
-				    </table>
+					<ul class="nav nav-tabs" id="myTab">
+					  <li class="active"><%= link_to 'Absent Records', '#step1', id: 'step1-tab' %></il>
+					  <li><%= link_to 'Substitute Records', '#step2', id: 'step2-tab' %></li>
+					</ul>
+					 
+					<div class="tab-content">
+					  <div class="tab-pane active" id="step1">
+
+							<table  id="my-table" class="table table-bordered table-striped data-table">
+								<thead>
+									<tr>
+										<th>Absent Teacher</th>
+										<th>Date</th>
+										<th>Class Period</th>
+										<th>Total Hours</th> 
+								</thead>
+						   		 <tbody>
+						   		 	<%= render partial: 'absent_generate_reports', collection: @generate_reports, as: :generate_report %>
+						    	</tbody>
+						    </table>
+					  </div>
+					  <div class="tab-pane" id="step2"><table  id="my-table" class="table table-bordered table-striped data-table">
+								<thead>
+									<tr>
+										<th>Absent Teacher</th>
+										<th>Date</th>
+										<th>Class Period</th>
+										<th>Total Hours</th> 
+								</thead>
+						   		 <tbody>
+						   		 	<%= render partial: 'substitute_generate_reports', collection: @generate_reports, as: :generate_report %>
+						    	</tbody>
+						    </table>
+						</div>
+					</div>
+
 				</div> <!-- .widget-content -->
 		</div> <!-- .widget -->	
 	</div> <!-- .grid -->			
 </div>
 
+
+
+
+ 
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		
+		$('#myTab a').click(function (e) {
+		  e.preventDefault();
+		  $(this).tab('show');
+		})
+			
+	})
+</script>

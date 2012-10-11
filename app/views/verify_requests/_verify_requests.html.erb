@@ -1,5 +1,5 @@
 <tr>
-	<th><%= verify_request.teacher_subject.created_at.strftime('%D') if verify_request.teacher_subject %></th>
+	<th><%= verify_request.created_at.strftime('%m-%d-%Y') %></th>
 	<th><%= verify_request.teacher_subject.teacher.fullname %></th>
 	<th><%= verify_request.substitute_teacher.fullname %></th>
 	<th><%= verify_request.teacher_subject.subject.code %></th>

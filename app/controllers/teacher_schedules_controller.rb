@@ -1,7 +1,8 @@
 class TeacherSchedulesController < ApplicationController
 	
 	def index
-		@teacher_subjects = TeacherSubject.search(params[:search]).page(params[:page]).per(10)
+		@teacher_subjects = TeacherSubject.search(params[:search_by], params[:search])
+		                                  .page(params[:page]).per(10)
 	end
 
 	def show

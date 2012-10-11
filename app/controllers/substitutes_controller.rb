@@ -2,8 +2,8 @@
   
   def index
 
-    @substitutes = Substitute.search(params[:search]).page(params[:page]).per(10)
-  end
+    @substitutes = Substitute.request_type_planned.search(params[:search]).page(params[:page]).per(10)
+   end
   
   def show
     @substitute = Substitute.find(params[:id])
@@ -22,6 +22,8 @@
                                    reasons_id: params[:reason_id],
                                    assigned_by_user_id: current_user.id
                                 })    
+    @substitute.status = 'Substitute'
+   
   end
 
   def edit

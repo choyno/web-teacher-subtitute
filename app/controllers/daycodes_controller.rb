@@ -1,4 +1,5 @@
 class DaycodesController < ApplicationController
+
   def index
     @daycodes = DayCode.search(params[:search]).page(params[:page]).per(10)
   end

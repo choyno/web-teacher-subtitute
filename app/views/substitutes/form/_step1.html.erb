@@ -45,8 +45,16 @@
 
 <br /><br /><br /><br />
 <div class="form-actions" id="final-confirmation-btn">
-  <button type="button" class="btn" onclick="window.location = '/substitutes'">Cancel</button>
+<%= link_to 'Cancel', substitutes_path, class: 'btn btn-primary btn-blue'  %>
 </div>
+
+<!-- refresh plugin search -->
+
+
+
+
+
+
 
 
 <script type="text/javascript">
@@ -180,11 +188,7 @@
 				
     });
 	
-</script>
 
-<!-- refresh plugin search -->
-
-<script type="text/javascript">
 		// When document is ready: this gets fired before body onload :)
 		$(document).ready(function(){
 			// Write on keyup event of keyword input element
@@ -193,13 +197,13 @@
 				if( $(this).val() != "")
 				{
 					// Show only matching TR, hide rest of them
-					$("#teacher-sujects-table tbody>tr").hide();
-					$("#teacher-sujects-table td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+					$("#teacher-subjects-table tbody>tr").hide();
+					$("#teacher-subjects-table td:contains-ci('" + $(this).val() + "')").parent("tr").show();
 				}
 				else
 				{
 					// When there is no input or clean again, show everything back
-					$("#teacher-sujects-table tbody>tr").show();
+					$("#teacher-subjects-table tbody>tr").show();
 				}
 			});
 		});
@@ -212,7 +216,6 @@
 			}
 		});
 
+
 </script>
-
-
 
