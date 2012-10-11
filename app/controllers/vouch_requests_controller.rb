@@ -2,9 +2,9 @@ class VouchRequestsController < ApplicationController
 
 	def index
 		@vouch_requests = Substitute.status_is_vouch
-		                            .includes(:substitute_teacher, :teacher_subject).search(params[:search]).page(params[:page]).per(10)       
+		                            .includes(:substitute_teacher, :teacher_subject).search(params[:search]).page(params[:page]).per(10)
 		
-		@vouch_requests = Substitute.status_is_vouch.count  
+	
 	end
 
 	def show
@@ -18,7 +18,7 @@ class VouchRequestsController < ApplicationController
 	def update
 	  
 		@substitute = Substitute.find(params[:id])
-		voucher_status = if params[:commit] == 'Confirm'; 'Appoved'
+		voucher_status = if params[:commit] == 'Confirm'; 'Approved'
 	                   else; 'Substitute'; end
 		@substitute.update_column(:status, voucher_status)
 		redirect_to vouch_requests_path, notice: "Vouch Request was successfully updated!"

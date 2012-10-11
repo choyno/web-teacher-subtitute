@@ -19,7 +19,7 @@ class VerifyRequestsController < ApplicationController
 	  
 		@substitute = Substitute.find(params[:id])
 		
-		verifyer_status = if params[:commit] == 'Confirm'; 'Appoved'
+		verifyer_status = if params[:commit] == 'Confirm'; 'Approved'
 	                   else; 'Vouch'; end
 		
 		@substitute.update_column(:status, verifyer_status)

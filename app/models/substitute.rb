@@ -13,7 +13,7 @@ class Substitute < ActiveRecord::Base
  
   belongs_to :substitute_teacher, class_name: :Teacher, foreign_key: :substitute_teacher_id
   belongs_to :teacher_subject
-    belongs_to :reason_teacher, class_name: :Reason,foreign_key: :reasons_id
+  belongs_to :reason_teacher, class_name: :Reason,foreign_key: :reasons_id
 
   validates :substitute_teacher_id, :teacher_subject_id, 
             :reasons_id, :planned, :assigned_by_user_id,
