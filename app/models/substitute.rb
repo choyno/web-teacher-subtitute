@@ -55,8 +55,11 @@ class Substitute < ActiveRecord::Base
   def self.generate_substitute_teacher_report
     
     results = []
-
-    Teacher.find_each do |teacher|
+    
+    substitutes_teacher = Substitute.select('substitute_teacher_id')
+                                    .status_is_approved.group(:substitute_teacher_id)
+    
+    Teacher.where("id IN (?)", substitutes_teacher.pluck(:substitute_teacher_id) ).find_each do |teacher|
       approved_substitutes = []
       
       self.where('teacher_subjects.teacher_id = ?', teacher.id )
