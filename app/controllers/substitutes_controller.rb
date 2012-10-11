@@ -2,7 +2,7 @@
   
   def index
 
-    @substitutes = Substitute.search(params[:search]).page(params[:page]).per(10)
+    @substitutes = Substitute.request_type_planned.search(params[:search]).page(params[:page]).per(10)
   end
   
   def show
@@ -22,6 +22,11 @@
                                    reasons_id: params[:reason_id],
                                    assigned_by_user_id: current_user.id
                                 })    
+    if @substitute.save
+      redirect_to substitutes_path, :notice => "Request Successfully Added!"
+    else
+      render :new
+    end
   end
 
   def edit

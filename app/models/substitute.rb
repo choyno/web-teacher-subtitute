@@ -48,10 +48,5 @@ class Substitute < ActiveRecord::Base
     end
     return results
   end
-
-  def sample
-    "#{self.created_at.strftime('%Y')}"
-  end
-
   
 end
