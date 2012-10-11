@@ -1,0 +1,12 @@
+<tr>
+	<td><%= generate_report.teacher_subject.teacher.fullname %></td>
+	<td><%= generate_report.teacher_subject.created_at.strftime('%D') if generate_report.teacher_subject %></td>
+	<td><%= generate_report.status %></td>
+	<td><%= generate_report.status %></td>
+	<td>
+		
+		<div class="delete">
+		<%= button_to "delete", generate_report_path(generate_report), :method=>:delete, :class=>"btn btn-primary btn-blue" %>
+		</div>
+	</td>	
+</tr>

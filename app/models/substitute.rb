@@ -47,8 +47,6 @@ class Substitute < ActiveRecord::Base
       end
 
       results << { name: teacher.fullname, approved_substitutes: approved_substitutes } if approved_substitutes.present?
-
-
     end
 
 

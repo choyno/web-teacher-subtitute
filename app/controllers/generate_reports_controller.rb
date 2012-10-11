@@ -1,7 +1,8 @@
 class GenerateReportsController < ApplicationController
 
 	def index
-		@generate_reports = Substitute.all
+		@generate_reports = Substitute.status_is_approved
+									  .includes(:substitute_teacher, :teacher_subject)
 	end
 
 	def new
