@@ -1,4 +1,4 @@
- class Substitute < ActiveRecord::Base
+class Substitute < ActiveRecord::Base
 
   scope :status_is_substitute, where('status = ?', 'Substitute')
   scope :status_is_vouch, where('status = ?', 'Vouch')
@@ -6,8 +6,6 @@
 
   scope :request_type_planned, where( planned: true)
   scope :request_type_unplanned, where( planned: false)
-
-  scope :generate_by_date, lambda { |value| Substitute.where(:created_at => (params[:start_date].to_date)..(params[:end_date].to_date))}
 
 
   scope :search_by_requested, lambda { | value | teachers = TeacherSubject.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
@@ -18,7 +16,8 @@
 
   scope :search_by_code, lambda { | value | codes = DayCode.select('id').where("CONCAT(code) like ? ", "%#{value}%" )
                           self.where("subject_id IN (?)", codes.pluck(:id))}
- 
+
+ scope :search_by_created_at
 
   belongs_to :substitute_teacher, class_name: :Teacher, foreign_key: :substitute_teacher_id
   belongs_to :teacher_subject
@@ -30,24 +29,9 @@
 
   status = [ "Substitute", "Approved", "Vouch" ]
 
-  def self.start_date(start_end)
-
-    start_date_scope = self.scoped({})
-
-    start_date_scope = start_date_scope.generate_by_date(search)
-
-    return start_date_scope
-      
-  end
-
-  def self.end_date(end_date)
-
-    end_date_scope = self.scoped({})
-
-    end_date_scope = end_date_scope.generate_by_date(search)
-
-    return end_date_scope
-      
+  def self.generate_by(start_date)
+     generate_scope = self.scoped({})  
+     generate_scope = generate_scope.search_by_created_at(start_date)
   end
 
 
