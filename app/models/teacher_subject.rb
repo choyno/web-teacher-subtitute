@@ -5,15 +5,18 @@ class TeacherSubject < ActiveRecord::Base
                           self.where("teacher_id IN (?)", teachers.pluck(:id))}
   
   scope :search_by_subject, lambda { |value|
-                                subjects = Subject.where('name LIKE :value OR code :value', value: "%#{value}%")
-                                self.where('subject_id IN (?)', subjects.pluck(:id) )
+                                subjects = Subject.where("name LIKE :value OR code LIKE :value", value: "%#{value}%")
+                                self.where("subject_id IN (?)", subjects.pluck(:id) )
                             }
 
   scope :search_by_type, lambda { | value | 
-                                  types = SubjectType.where('name LIKE :value', value: "%#{'value'}%")
+                                  types = SubjectType.where("name LIKE :value", value: "%#{value}%")
                                   self.where('subject_type_id IN (?)', types.pluck(:id))
                                 }
-
+  scope :search_by_schedule, lambda { | value |
+                                       schedules = DayCode.where("name LIKE :value", value: "%#{value}%")
+                                       self.where('day_code_id IN (?)', schedules.pluck(:id))
+                                    }
   scope :default_include, includes(:day_code, :teacher, :subject, :room, :section)
   
   
@@ -55,7 +58,7 @@ class TeacherSubject < ActiveRecord::Base
     case search_by
       when 'Teacher Name'
         teacher_subject_scope = teacher_subject_scope.search_by_name(search)
-      when 'Teacher Subject'
+      when 'Subject Name / Code'
         teacher_subject_scope = teacher_subject_scope.search_by_subject(search)
       when 'Subject Code'
         teacher_subject_scope = teacher_subject_scope.search_by_subject_code(search)
@@ -63,6 +66,7 @@ class TeacherSubject < ActiveRecord::Base
         teacher_subject_scope = teacher_subject_scope.search_by_type(search)
       when 'Schedule'
          teacher_subject_scope = teacher_subject_scope.search_by_schedule(search)
+
     end
     
 
