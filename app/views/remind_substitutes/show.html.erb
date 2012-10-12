@@ -1,0 +1,29 @@
+<div id="content">			 
+	<div id="contentHeader">
+		<h1>Substitute Information</h1>
+	</div> <!-- #contentHeader -->	
+	<div class="container">
+		<div class="grid-24">
+			
+			<%= form_for @remind_substitute, url: remind_substitutes_path(@remind_substitute), :method => :put do |f| %>
+
+				<%= render :partial => "show_remind_substitute" %>
+				
+				<br /><br /><br />
+				<div class="form-actions" id="final-confirmation-btn">
+					<div class="pull-right">
+
+						<%= link_to 'Back', remind_substitutes_path, class: 'btn btn-primary btn-blue'  %>
+													&nbsp;&nbsp;&nbsp; 
+						<%= submit_tag 'Send Message', class: 'btn btn-primary btn-blue', 
+											data: { confirm: 'Remind Request!' } %>
+											&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
+				
+			<% end %>
+		</div>
+	</div> <!-- .grid -->			
+</div>
+			
+			

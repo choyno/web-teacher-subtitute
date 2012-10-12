@@ -1,0 +1,30 @@
+
+<div id="content">			
+	<div id="contentHeader">
+		<h1>Substitute Information</h1>
+	</div> <!-- #contentHeader -->	
+	<div class="container">
+		<div class="grid-24">
+			
+			<%= form_for @substitute, url: substitutes_path, :method => :put do |f| %>
+
+				<%= render :partial => "show_substitute" %>
+				
+				<br /><br /><br />
+				<div class="form-actions" id="final-confirmation-btn">
+					<div class="pull-right">
+				<%= link_to 'Cancel', substitutes_path, class: 'btn btn-primary btn-blue'  %>
+													&nbsp;&nbsp;&nbsp; 
+				<%= f.submit 'Void Request', class: 'btn btn-primary btn-blue', 
+													data: { confirm: 'Are you sure you want to Viod This Request?' } %>
+													&nbsp;&nbsp;&nbsp; 
+				
+					</div>
+				</div>
+				
+			<% end %>
+		</div>
+	</div> <!-- .grid -->			
+</div>
+			
+			

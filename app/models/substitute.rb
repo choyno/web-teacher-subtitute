@@ -17,7 +17,7 @@ class Substitute < ActiveRecord::Base
   scope :search_by_code, lambda { | value | codes = DayCode.select('id').where("CONCAT(code) like ? ", "%#{value}%" )
                           self.where("subject_id IN (?)", codes.pluck(:id))}
 
- scope :search_by_created_at
+
 
   belongs_to :substitute_teacher, class_name: :Teacher, foreign_key: :substitute_teacher_id
   belongs_to :teacher_subject
@@ -29,10 +29,10 @@ class Substitute < ActiveRecord::Base
 
   status = [ "Substitute", "Approved", "Vouch" ]
 
-  def self.generate_by(start_date)
-     generate_scope = self.scoped({})  
-     generate_scope = generate_scope.search_by_created_at(start_date)
-  end
+  # def self.generate_by(start_date)
+  #    generate_scope = self.scoped({})  
+  #    generate_scope = generate_scope.search_by_created_at(start_date)
+  # end
 
 
   def self.search(search_by, search)

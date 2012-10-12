@@ -2,7 +2,7 @@
   
   def index
 
-    @substitutes = Substitute.request_type_planned.search(params[:search]).page(params[:page]).per(10)
+    @substitutes = Substitute.request_type_planned.search(params[:search_by],params[:search]).page(params[:page]).per(10)
    end
   
   def show
@@ -32,12 +32,16 @@
   end
 
   def update
-    @substitute = Substitute.find(params[:id])
-    if @substitute.update_attributes(params[:substitute])
-      redirect_to substitutes_path, :notice => "Request Successfully Updated"
-    else
-      render :edit      
-    end
+    
+        @substitute = Substitute.find(params[:id])
+        
+        verifyer_status = if params[:commit] == 'Confirm'; 'Void'
+                         else; 'Substitute'; end
+        
+        @substitute.update_column(:status, verifyer_status)
+        
+        redirect_to verify_requests_path, notice: "verify Request was successfully updated!"
+      
   end
     
   def destroy
