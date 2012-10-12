@@ -24,11 +24,6 @@
                                 })    
     @substitute.status = 'Substitute'
 
-    if @substitute.save
-        redirect_to substitutes_path, :notice => "Request has been created"
-    else
-      render :new
-    end 
    
   end
 

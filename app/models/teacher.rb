@@ -1,11 +1,12 @@
 class Teacher < ActiveRecord::Base
   
- 
+  scope :search_by_name, lambda { |value| where("CONCAT(firstname,' ', lastname) LIKE ?", "%#{value}%") }
+
   scope :search_by_firstname, lambda { | value | where("firstname LIKE ?", "%#{value}%") }
 
   scope :search_by_lastname, lambda { | value | where("lastname LIKE ?", "%#{value}%")}
 
-  scope :search_by_phone, lambda { | value | where ("phone_number LIKE ?" , "%#{value}%")}
+  scope :search_by_phone, lambda { | value | where("phone_number LIKE ?" , "%#{value}%")}
 
 
  

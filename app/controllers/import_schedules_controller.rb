@@ -34,10 +34,10 @@ class ImportSchedulesController < ApplicationController
       day_code = DayCode.find_or_create_by_name(row[2])
       
       # room_number
-      room = Room.find_or_create_by_name( row[3])
+      room = Room.find_or_create_by_name(row[3])
       
       # section
-      section = Section.find_or_create_by_name( row[4])
+      section = Section.find_or_create_by_name(row[4])
       
       # type
       
@@ -59,7 +59,7 @@ class ImportSchedulesController < ApplicationController
       
     end
       
-    redirect_to import_schedules_path, notice: 'Schedules was sucessfully uploaded!'  
+    redirect_to import_schedules_path, notice: "Schedules was sucessfully uploaded!"
 
   end
 end
