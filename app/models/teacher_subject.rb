@@ -9,6 +9,11 @@ class TeacherSubject < ActiveRecord::Base
                                 self.where('subject_id IN (?)', subjects.pluck(:id) )
                             }
 
+  scope :search_by_type, lambda { | value | 
+                                  types = SubjectType.where('name LIKE :value', value: "%#{'value'}%")
+                                  self.where('subject_type_id IN (?)', types.pluck(:id))
+                                }
+
   scope :default_include, includes(:day_code, :teacher, :subject, :room, :section)
   
   
@@ -48,12 +53,20 @@ class TeacherSubject < ActiveRecord::Base
     teacher_subject_scope = self.scoped({})
 
     case search_by
-    when 'Teacher Name'
-      teacher_subject_scope = teacher_subject_scope.search_by_name(search)
-    when 'Teacher Subject'
-      teacher_subject_scope = teacher_subject_scope.search_by_subject(search)
+      when 'Teacher Name'
+        teacher_subject_scope = teacher_subject_scope.search_by_name(search)
+      when 'Teacher Subject'
+        teacher_subject_scope = teacher_subject_scope.search_by_subject(search)
+      when 'Subject Code'
+        teacher_subject_scope = teacher_subject_scope.search_by_subject_code(search)
+      when 'Subject Type'
+        teacher_subject_scope = teacher_subject_scope.search_by_type(search)
+      when 'Schedule'
+         teacher_subject_scope = teacher_subject_scope.search_by_schedule(search)
     end
     
+
+
     return teacher_subject_scope
 
   end
