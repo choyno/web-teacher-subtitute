@@ -1,5 +1,6 @@
 class Teacher < ActiveRecord::Base
   
+
   scope :search_by_name, lambda { |value| where("CONCAT(firstname,' ', lastname) LIKE ?", "%#{value}%") }
 
   scope :search_by_firstname, lambda { | value | where("firstname LIKE ?", "%#{value}%") }
@@ -10,6 +11,7 @@ class Teacher < ActiveRecord::Base
 
 
  
+
   
   has_many :teacher_subjects
   has_many :substitutes, through: :teacher_subjects
@@ -27,8 +29,6 @@ class Teacher < ActiveRecord::Base
   def fullname
     " #{self.lastname} #{self.firstname}"
   end
-
-
 
   def self.search(search_by, search)
 

@@ -23,7 +23,10 @@
                                    assigned_by_user_id: current_user.id
                                 })    
     @substitute.status = 'Substitute'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 296120e71dfe2a81833d2381d4c06dad472ea97d
    
   end
 
