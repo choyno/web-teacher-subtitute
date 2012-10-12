@@ -1,7 +1,0 @@
-<% if @substitute.save  %>
-  <script type="text/javascript" charset="utf-8">
-  	window.location = '<%= substitutes_path %>';
-  </script>
-<% else %>
-  <% logger.debug @substitute.inspect %>
-<% end %>
