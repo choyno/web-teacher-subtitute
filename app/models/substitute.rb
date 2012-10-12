@@ -1,4 +1,4 @@
-class Substitute < ActiveRecord::Base
+ class Substitute < ActiveRecord::Base
 
   scope :status_is_substitute, where('status = ?', 'Substitute')
   scope :status_is_vouch, where('status = ?', 'Vouch')
@@ -7,11 +7,19 @@ class Substitute < ActiveRecord::Base
   scope :request_type_planned, where( planned: true)
   scope :request_type_unplanned, where( planned: false)
 
-  scope :search_by_name, lambda { | value | teachers = Teacher.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
+  scope :generate_by_date, lambda { |value| Substitute.where(:created_at => (params[:start_date].to_date)..(params[:end_date].to_date))}
+
+
+  scope :search_by_requested, lambda { | value | teachers = TeacherSubject.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
                           self.where("teacher_subject_id IN (?)", teachers.pluck(:id))}
 
+  scope :search_by_substitute, lambda { | value | subs = Teacher.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
+                          self.where("substitute_teacher_id IN (?)", subs.pluck(:id))}
 
+  scope :search_by_code, lambda { | value | codes = DayCode.select('id').where("CONCAT(code) like ? ", "%#{value}%" )
+                          self.where("subject_id IN (?)", codes.pluck(:id))}
  
+
   belongs_to :substitute_teacher, class_name: :Teacher, foreign_key: :substitute_teacher_id
   belongs_to :teacher_subject
   belongs_to :reason_teacher, class_name: :Reason,foreign_key: :reasons_id
@@ -22,10 +30,37 @@ class Substitute < ActiveRecord::Base
 
   status = [ "Substitute", "Approved", "Vouch" ]
 
+  def self.start_date(start_end)
 
-  def self.search(search)
+    start_date_scope = self.scoped({})
+
+    start_date_scope = start_date_scope.generate_by_date(search)
+
+    return start_date_scope
+      
+  end
+
+  def self.end_date(end_date)
+
+    end_date_scope = self.scoped({})
+
+    end_date_scope = end_date_scope.generate_by_date(search)
+
+    return end_date_scope
+      
+  end
+
+
+  def self.search(search_by, search)
     substitution_records_scope = self.scoped({})
-    substitution_records_scope = substitution_records_scope.search_by_name(search) if search.present?
+    case search_by
+    when 'Requested Teacher'
+         substitution_records_scope = substitution_records_scope.search_by_requested(search)
+    when 'Substitute Teacher'
+           substitution_records_scope = substitution_records_scope.search_by_substitute(search)
+    when 'Subject Code'
+             substitution_records_scope = substitution_records_scope.search_by_code(search)
+    end
     return substitution_records_scope
   end
 

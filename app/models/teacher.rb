@@ -11,8 +11,6 @@ class Teacher < ActiveRecord::Base
 
 
  
-
-  
   has_many :teacher_subjects
   has_many :substitutes, through: :teacher_subjects
 
@@ -33,7 +31,6 @@ class Teacher < ActiveRecord::Base
   def self.search(search_by, search)
 
     teacher_scope = self.scoped({})
-
     case search_by
         when 'Firstname'
            teacher_scope = teacher_scope.search_by_firstname(search)
@@ -44,8 +41,6 @@ class Teacher < ActiveRecord::Base
         end
     return teacher_scope
 
-
   end
-
 
 end
