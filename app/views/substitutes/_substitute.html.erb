@@ -9,7 +9,9 @@
 	<th><%= substitute.teacher_subject.time_start.strftime('%l: %m %p') %></th>
 	<th><%= substitute.teacher_subject.time_end.strftime('%l: %m %p') %></th>
 	<th><%= substitute.teacher_subject.day_code.name %></th>
-	<th>
+	<th><!-- 
+			<%= link_to 'Void', substitute_path(substitute), method: :get , :class => "btn btn-primary btn-blue",data: { confirm: 'Are you sure you want to Vouch this Request?' } %> -->
+
 			<%= link_to 'Show', substitute_path(substitute), method: :get , :class => "btn btn-primary btn-blue" %>
 	 
 	</th>

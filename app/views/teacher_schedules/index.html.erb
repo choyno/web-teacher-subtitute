@@ -25,14 +25,19 @@
 				</div>
 				
 				<div class="widget-content">
+					
 					<%= form_for teacher_schedules_path, method: :get do %>
 							<div class="search">
 								<div class="field">
+									<%= select_tag :planned, options_for_select([["Teacher Name"],
+										["Subject Code"], ["Subject Name"], 
+										["Subject Type"], ["Schedule"]]) %>
 									<%= text_field_tag :search, params[:search] , size: 24, :Placeholder => "Search" %>
 									<%= submit_tag "Search", :name => nil, :class => "btn btn-primary btn-blue" %>
 								</div> 
 							</div>
 						<% end %>
+
 					<!-- <div class="search">
 						Search: <input type="text" id="kwd_search" value="" /> 
 					</div> -->

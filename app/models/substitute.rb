@@ -5,6 +5,7 @@ class Substitute < ActiveRecord::Base
   scope :status_is_approved, where('status = ?', 'Approved')
 
   scope :request_type_planned, where( planned: true)
+  scope :request_type_unplanned, where( planned: false)
 
   scope :search_by_name, lambda { | value | teachers = Teacher.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
                           self.where("teacher_subject_id IN (?)", teachers.pluck(:id))}
@@ -29,6 +30,29 @@ class Substitute < ActiveRecord::Base
   end
 
   def self.generate_absent_teacher_report
+    
+    results = []
+
+    Teacher.find_each do |teacher|
+      approved_substitutes = []
+      
+      self.where('teacher_subjects.teacher_id = ?', teacher.id )
+          .status_is_approved
+          .includes(:teacher_subject).find_each do |substitute|
+
+        approved_substitutes << { created_at:substitute.created_at.strftime('%m-%d-%Y'),
+                                  subject_time: substitute.teacher_subject.start_time_and_time_end,
+                                  total_hours: substitute.teacher_subject.total_hours / 60 / 60
+                                }
+      end
+      results << { name: teacher.fullname, approved_substitutes: approved_substitutes } if approved_substitutes.present?
+    end
+    return results
+  end
+
+
+
+  def self.generate_substitute_teacher_report
     
     results = []
 
