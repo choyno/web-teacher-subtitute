@@ -13,6 +13,7 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   resources :substitutes do
     get :load_teacher_subject, on: :collection
     get :load_sub_teacher_subjects, on: :collection
+    get :load_available_teachers, on: :collection
   end
   resources :generate_reports
   resources :remind_substitutes

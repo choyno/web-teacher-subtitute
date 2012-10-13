@@ -58,22 +58,22 @@
   end
   
   
-  
-  
-  
-  # def load_available_teachers
-  #     # get info for time and daycode and subject
-  #     teacher_subject = TeacherSubject.find(params[:teacher_subject_id])
-  #     
-  #     not_available_teachers = TeacherSubject.select('teacher_id')
-  #                                            .where("teacher_id != ?", teacher_subject.teacher_id)
-  #                                            .where("time_start = ?", teacher_subject.time_start)
-  #                                            .pluck(:teacher_id)
-  #                                            
-  #      @available_teachers = TeacherSubject.where("teacher_id NOT IN(?)", not_available_teachers )                                      
-  #                                         .default_include
-  #                                         .order('teachers.lastname')
-  #   end
+  def load_available_teachers
+    
+      # get info for time and daycode and subject
+      teacher_subject = TeacherSubject.find(params[:teacher_subject_id])
+      
+      @available_teachers = teacher_subject.fetch_available_teacher
+      
+      # not_available_teachers = TeacherSubject.select('teacher_id')
+      #                                        .where("teacher_id != ?", teacher_subject.teacher_id)
+      #                                        .where("time_start = ?", teacher_subject.time_start)
+      #                                        .pluck(:teacher_id)
+      #                                        
+      #  @available_teachers = TeacherSubject.where("teacher_id NOT IN(?)", not_available_teachers )                                      
+      #                                     .default_include
+      #                                     .order('teachers.lastname')
+    end
   
   
   
