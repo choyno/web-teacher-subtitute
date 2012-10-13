@@ -7,6 +7,7 @@
 	<td></td>
 	<td></td>
 	<td></td>
+	<td></td>
 </tr>
 <% generate_report[:approved_substitutes].each do |substitute| %>
 <tr style="border-top: 1px solid #DDDDDD;
@@ -18,5 +19,21 @@
 		<td><%= substitute[:created_at] %></td>
 		<td><%= substitute[:subject_time] %></td>
 		<td><%= substitute[:total_hours] %></td>
+		<td></td>
+
+	</tr>
+<% end %>
+
+<% if  generate_report[:total_hours].present? %>
+<tr style="border-top: 1px solid #DDDDDD;
+			    line-height: 18px;
+			    padding: 8px;
+			    text-align: center;
+			    vertical-align: top;">
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><%= generate_report[:total_hours] %></td>
 	</tr>
 <% end %>

@@ -20,17 +20,17 @@
 						<div class="search" style="left: 50%; width: 396px;">
 							<div class="field">
 								<label for="status">Generate For:</label>
-								<%= select_tag :generate_by, options_for_select(["Absent Teachers"," Substitute Teachers"])%>
+								<%= select_tag :generate_by, options_for_select(["Absent Teachers"," Substitute Teachers"], params[:generate_by])%>
 							</div>
 
 							<div class="field">
 								<label for="status"> Started Date:</label>
-								<%= text_field_tag :start_date %>
+								<%= text_field_tag :start_date, params[:start_date] %>
 							</div>
 
 							<div class="field">
 									<label for="status"> End Date:</label>
-									<%= text_field_tag :end_date %>
+									<%= text_field_tag :end_date, params[:end_date] %>
 							</div>
 							<%= submit_tag "Generate", :name => nil, :class => "btn btn-primary btn-blue" %>
 							<input type="button" value="print" onclick="PrintDiv();" class="btn btn-primary btn-blue"/>	
@@ -62,7 +62,13 @@
 								    line-height: 18px;
 								    padding: 8px;
 								    text-align: center;
-								    vertical-align: top;">Absent Teacher</th>
+								    vertical-align: top;">
+								    <% if params[:generate_by] == 'Absent Teachers'%>
+								    Absent Teacher
+								    <% else %>
+								    Substitute Teacher
+								    <% end %>
+									</th>
 							<th style=" border-top: 1px solid #DDDDDD;
 								    line-height: 18px;
 								    padding: 8px;
@@ -115,13 +121,15 @@
 							numberOfMonths: 1,
 							showButtonPanel: true,
 							changeMonth: true,
-							changeYear: true
+							changeYear: true,
+							dateFormat: 'yy-mm-dd'
 				});
 	$( "#end_date" ).datepicker({
 						numberOfMonths: 1,
 						showButtonPanel: true,
 						changeMonth: true,
-						changeYear: true
+						changeYear: true,
+						dateFormat: 'yy-mm-dd'
 			});
 </script>
 
@@ -129,7 +137,7 @@
 <script type="text/javascript">     
     function PrintDiv() {    
        var divToPrint = document.getElementById('divToPrint');
-       var popupWin = window.open('', '_blank', 'width=8px00,height=700');
+       var popupWin = window.open('', '_blank', 'width=800px,height=700');
        popupWin.document.open();
        popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
         popupWin.document.close();

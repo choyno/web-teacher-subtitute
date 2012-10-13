@@ -48,7 +48,7 @@ class Substitute < ActiveRecord::Base
     return substitution_records_scope
   end
 
-  def self.generate_absent_teacher_report
+  def self.generate_absent_teacher_report(start_date, end_date)
     
     results = []
 
@@ -56,6 +56,7 @@ class Substitute < ActiveRecord::Base
       approved_substitutes = []
       
       self.where('teacher_subjects.teacher_id = ?', teacher.id )
+          .where(created_at: start_date..end_date)
           .status_is_approved
           .includes(:teacher_subject).find_each do |substitute|
 
@@ -64,14 +65,20 @@ class Substitute < ActiveRecord::Base
                                   total_hours: substitute.teacher_subject.total_hours / 60 / 60
                                 }
       end
-      results << { name: teacher.fullname, approved_substitutes: approved_substitutes } if approved_substitutes.present?
+      if approved_substitutes.present?
+
+        results << { name: teacher.fullname, 
+                     approved_substitutes: approved_substitutes,
+                     total_hours: approved_substitutes.map{ |p| p[:total_hours] }.sum 
+                   } 
+
+      end
     end
     return results
   end
 
 
-
-  def self.generate_substitute_teacher_report
+  def self.generate_substitute_teacher_report(start_date, end_date)
     
     results = []
     
@@ -81,7 +88,7 @@ class Substitute < ActiveRecord::Base
     Teacher.where("id IN (?)", substitutes_teacher.pluck(:substitute_teacher_id) ).find_each do |teacher|
       approved_substitutes = []
       
-      self.where('teacher_subjects.teacher_id = ?', teacher.id )
+      self.where('substitute_teacher_id = ?', teacher.id )
           .status_is_approved
           .includes(:teacher_subject).find_each do |substitute|
 
@@ -90,8 +97,11 @@ class Substitute < ActiveRecord::Base
                                   total_hours: substitute.teacher_subject.total_hours / 60 / 60
                                 }
       end
-      results << { name: teacher.fullname, approved_substitutes: approved_substitutes } if approved_substitutes.present?
-    end
+        results << { name: teacher.fullname, 
+                     approved_substitutes: approved_substitutes,
+                     total_hours: approved_substitutes.map{ |p| p[:total_hours] }.sum
+                    }
+      end
     return results
   end
   

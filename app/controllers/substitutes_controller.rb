@@ -2,7 +2,7 @@
   
   def index
 
-    @substitutes = Substitute.request_type_planned.search(params[:search_by],params[:search]).page(params[:page]).per(10)
+    @substitutes = Substitute.request_type_planned.status_is_substitute.search(params[:search_by],params[:search]).page(params[:page]).per(10)
    end
   
   def show
@@ -36,11 +36,11 @@
         @substitute = Substitute.find(params[:id])
         
         verifyer_status = if params[:commit] == 'Confirm'; 'Void'
-                         else; 'Substitute'; end
+                         else; 'Void'; end
         
         @substitute.update_column(:status, verifyer_status)
         
-        redirect_to verify_requests_path, notice: "verify Request was successfully updated!"
+        redirect_to substitutes_path, notice: "Request is being Void!!"
       
   end
     

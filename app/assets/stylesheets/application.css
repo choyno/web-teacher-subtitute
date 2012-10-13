@@ -497,7 +497,8 @@ body .ui-tooltip { border-width:2px; }
 .holderfiller  { background: url('/assets/filler.png') repeat-x 0 0; 
 				font: 12px/1.7em arial, sans-serif;
 				padding-top: 50px; 
-				 min-height: 960px;
+				 min-height: 100px;
+                 
 				}
 
 body
@@ -509,7 +510,7 @@ body
     background:-moz-linear-gradient(center top , #A8CCEC 0%, #4993D7 2%, #066ECD 100%) repeat scroll 0 0 transparent
 }
 
-#login { width: 95.1%;    }
+#login { width: 95.1%;  float:right;  }
 
 #login h1
 {
@@ -523,7 +524,10 @@ body
 .holder
 {
 	margin:0 auto;
-	width: 900px;
+    height: 900px;
+    width: 1318px;
+    background: url("/assets/loginBG.png") repeat-x scroll 0 0 transparent;
+  
 
 }
 .act
@@ -536,12 +540,10 @@ body
 {
     height:325px ;
     width: 317px ;
-    -moz-box-shadow: 10px 10px 5px #888888; /* Firefox 3.6 and earlier */
-    box-shadow: 10px 10px 5px #888888;
-    border-color: #BBBBBB;
-    
-    background-color: #b4d6ff;
-    
+   float: right;
+    margin-right: 188px;
+    margin-top: 24px;
+     margin-top: 83px;
 
 }
 .border_login2
@@ -549,7 +551,7 @@ body
     height:50px ;
     width: 316px ;
     border-radius: 5px;
-    background-color: #b4d6ff;
+
 }
 
 #log
