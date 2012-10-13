@@ -14,8 +14,8 @@ class Teacher < ActiveRecord::Base
   has_many :teacher_subjects
   has_many :substitutes, through: :teacher_subjects
 
-  has_many :availabilities, class_name: :TeacherAvailability
-
+  #has_many :availabilities, class_name: :TeacherAvailability
+  
   has_many :subjects, through: :teacher_subjects
   
   validates :lastname, :firstname, presence: true
@@ -52,17 +52,36 @@ class Teacher < ActiveRecord::Base
                     DayCode.where("name IN(?)", ["SAT"])
                 end
       
-      TimeSchedule.find_each do |time_schedule|
-        tt = time_schedule.time_range.split("-")
-        time_start, time_end = tt[0], tt[1]
-        
-        if self.teacher_subjects.where({ time_start: (time_start)..(time_end) })
-                                .where("day_code_id IN(?)", daycodes.pluck(:id)).empty?
-                                        
-          self.availabilities.create({ day: day, time_schedule_id: time_schedule.id  })
+      self.teacher_subjects.where('day_code_id IN (?)', daycodes.pluck(:id))
+                           .find_each do |teacher_subject|
+                             
+        TimeSchedule.find_each do |time_schedule|
+          # 13:00 >= 13:30 && 14:30 <= 14:00
+          if ((time_schedule.time_start >= teacher_subject.time_start) && (time_schedule.time_end <= teacher_subject.time_end))
+            
+            TeacherSchedule.create({ day: day, 
+                                     teacher_subject_id: teacher_subject.id,
+                                     time_schedule_id: time_schedule.id  })
+                                     
+          end
           
         end
       end
+      
+      
+      # TimeSchedule.find_each do |time_schedule|
+      #         time_start, time_end = time_schedule.time_start, time_schedule.time_end
+      #         
+      #         if teacher_subject = self.teacher_subjects.where({ time_start: (time_start)..(time_end) })
+      #                                 .where("day_code_id IN(?)", daycodes.pluck(:id)).first
+      #                                         
+      #           #self.availabilities.create({ day: day, time_schedule_id: time_schedule.id  })          
+      #           TeacherSchedule.create({ day: day, 
+      #                                    teacher_subject_id: (teacher_subject.id if teacher_subject),
+      #                                    time_schedule_id: time_schedule.id  })
+      #           
+      #         end
+      #       end
     end
     
   end
