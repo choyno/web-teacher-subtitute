@@ -71,17 +71,16 @@ class TeacherSubject < ActiveRecord::Base
     teacher_subject_scope = self.scoped({})
 
     case search_by
-      when 'Teacher Name'
-        teacher_subject_scope = teacher_subject_scope.search_by_name(search)
-      when 'Subject Name / Code'
-        teacher_subject_scope = teacher_subject_scope.search_by_subject(search)
-      when 'Subject Code'
-        teacher_subject_scope = teacher_subject_scope.search_by_subject_code(search)
-      when 'Subject Type'
-        teacher_subject_scope = teacher_subject_scope.search_by_type(search)
-      when 'Schedule'
-         teacher_subject_scope = teacher_subject_scope.search_by_schedule(search)
-
+        when 'Teacher Name'
+          teacher_subject_scope = teacher_subject_scope.search_by_name(search)
+        when 'Subject Name / Code'
+          teacher_subject_scope = teacher_subject_scope.search_by_subject(search)
+        when 'Subject Code'
+          teacher_subject_scope = teacher_subject_scope.search_by_subject_code(search)
+        when 'Subject Type'
+          teacher_subject_scope = teacher_subject_scope.search_by_type(search)
+        when 'Schedule'
+           teacher_subject_scope = teacher_subject_scope.search_by_schedule(search)
     end
     
     return teacher_subject_scope

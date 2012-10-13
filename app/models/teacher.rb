@@ -1,10 +1,16 @@
 class Teacher < ActiveRecord::Base
   
+
+  scope :search_by_name, lambda { |value| where("CONCAT(firstname,' ', lastname) LIKE ?", "%#{value}%") }
+
+  scope :search_by_firstname, lambda { | value | where("firstname LIKE ?", "%#{value}%") }
+
+  scope :search_by_lastname, lambda { | value | where("lastname LIKE ?", "%#{value}%")}
+
+  scope :search_by_phone, lambda { | value | where("phone_number LIKE ?" , "%#{value}%")}
+
+
  
-  scope :search_by_firstname, lambda { |value| where("firstname LIKE ?", "%#{value}%") }
-  scope :search_by_lastname, lambda { |value| where("lastname LIKE ?", "%#{value}%") }
-  scope :search_by_phone, lambda { |value| where("phone_number LIKE ?", "%#{value}%") }
-  
   has_many :teacher_subjects
   has_many :substitutes, through: :teacher_subjects
 
@@ -64,7 +70,6 @@ class Teacher < ActiveRecord::Base
   def self.search(search_by, search)
 
     teacher_scope = self.scoped({})
-
     case search_by
         when 'Firstname'
            teacher_scope = teacher_scope.search_by_firstname(search)
@@ -74,8 +79,6 @@ class Teacher < ActiveRecord::Base
             teacher_scope = teacher_scope.search_by_phone(search)
         end
     return teacher_scope
-    
   end
-
 
 end

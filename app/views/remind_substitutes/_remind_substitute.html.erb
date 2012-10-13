@@ -1,15 +1,15 @@
 <tr>
-	<th><%= verify_request.teacher_subject.created_at.strftime('%D') if verify_request.teacher_subject %></th>
-	<th><%= verify_request.teacher_subject.teacher.fullname %></th>
-	<th><%= verify_request.substitute_teacher.fullname %></th>
-	<th><%= verify_request.teacher_subject.subject.code %></th>
-	<th><%= verify_request.teacher_subject.room.name %></th>
-	<th><%= verify_request.teacher_subject.section.name %></th>
-	<th><%= verify_request.teacher_subject.subject_type.name %></th>
-	<th><%= verify_request.teacher_subject.time_start.strftime('%l: %m %p') %></th>
-	<th><%= verify_request.teacher_subject.time_end.strftime('%l: %m %p') %></th>
-	<th><%= verify_request.teacher_subject.day_code.name %></th>
+	<th><%= remind_substitute.teacher_subject.created_at.strftime('%D') if remind_substitute.teacher_subject %></th>
+	<th><%= remind_substitute.teacher_subject.teacher.fullname %></th>
+	<th><%= remind_substitute.substitute_teacher.fullname %></th>
+	<th><%= remind_substitute.teacher_subject.subject.code %></th>
+	<th><%= remind_substitute.teacher_subject.room.name %></th>
+	<th><%= remind_substitute.teacher_subject.section.name %></th>
+	<th><%= remind_substitute.teacher_subject.subject_type.name %></th>
+	<th><%= remind_substitute.teacher_subject.time_start.strftime('%l: %m %p') %></th>
+	<th><%= remind_substitute.teacher_subject.time_end.strftime('%l: %m %p') %></th>
+	<th><%= remind_substitute.teacher_subject.day_code.name %></th>
 	<th>
-		<%= link_to 'Show', verify_request_path(verify_request), method: :get , :class => "btn btn-primary btn-blue" %>
+		<%= link_to 'Show', remind_substitute_path(remind_substitute), method: :get , :class => "btn btn-primary btn-blue" %>
 	</th>
 </tr>	

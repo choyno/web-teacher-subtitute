@@ -6,6 +6,15 @@ class User < ActiveRecord::Base
 
   scope :search_by_name, lambda { |value| where("CONCAT(full_name,' ', username) LIKE ?", "%#{value}%") }
 
+  scope :search_by_fullname, lambda { | value | where("full_name LIKE ?" , "%#{value}%")}
+
+  scope :search_by_username, lambda { | value | where("username LIKE ?", "%#{value}%")}
+  scope :search_by_department, lambda { | value |
+                                       departments = Department.where("n ame LIKE :value", value: "%#{value}%")
+                                       self.where('department_id IN (?)', departments.pluck(:id))
+                                    }
+
+
 
   attr_accessor :password
   before_save :encrypt_password
@@ -37,13 +46,18 @@ class User < ActiveRecord::Base
   end
 
 
-  def self.search(search)
+  def self.search(search_by, search)
     user_scope = self.scoped({})
-    user_scope = user_scope.search_by_name(search) if search.present?
 
+    case search_by
+      when 'Fullname'
+          user_scope = user_scope.search_by_fullname(search)
+      when 'Username'
+          user_scope = user_scope.search_by_username(search)
+      when 'Department'
+          user_scope = user_scope.search_by_department(search)
+      end
     return user_scope
   end
-  
-
   
 end
