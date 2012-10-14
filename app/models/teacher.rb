@@ -26,8 +26,9 @@ class Teacher < ActiveRecord::Base
 
 
   def fullname
-    " #{self.lastname} #{self.firstname}"
+    " #{self.lastname}, #{self.firstname}"
   end
+  
 
   def generate_availability
     # fetch all teacher schedules
@@ -67,21 +68,7 @@ class Teacher < ActiveRecord::Base
           
         end
       end
-      
-      
-      # TimeSchedule.find_each do |time_schedule|
-      #         time_start, time_end = time_schedule.time_start, time_schedule.time_end
-      #         
-      #         if teacher_subject = self.teacher_subjects.where({ time_start: (time_start)..(time_end) })
-      #                                 .where("day_code_id IN(?)", daycodes.pluck(:id)).first
-      #                                         
-      #           #self.availabilities.create({ day: day, time_schedule_id: time_schedule.id  })          
-      #           TeacherSchedule.create({ day: day, 
-      #                                    teacher_subject_id: (teacher_subject.id if teacher_subject),
-      #                                    time_schedule_id: time_schedule.id  })
-      #           
-      #         end
-      #       end
+    
     end
     
   end

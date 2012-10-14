@@ -14,17 +14,42 @@
   end
 
   def create
-    # sub_teacher_id"=>"151", "teacher_subject_id"=>"18", "planned"=>"true", "date_substitute"=>"", "reason_id"=>"1", "notes"=>""
+    # { "utf8"=>"✓", "authenticity_token"=>"4GpSZ/8OvQinBB45RyN8H0RJfecH/8vJLmLXOjMW5O4=", 
+    #   "planned"=>"false", "absent_teacher"=>"1", 
+    #   "teacher_schedule_id"=>["17", "966", "776", "1348", "1", "129", "193", "177", "201", "924", "948", "978", "105"], 
+    #   "available_teacher"=>["78", "", "", "", "", "", "", "", "", "", "", "", ""], "reason"=>"1", 
+    #   "notes"=>"", "request_at_from"=>"10/15/2012", "request_at_to"=>"10/19/2012" }
+    
+    
         
-    @substitute = Substitute.new({ substitute_teacher_id: params[:sub_teacher_id],
-                                   teacher_subject_id: params[:teacher_subject_id],
+    @substitute = Substitute.new({ request_at_from: params[:request_at_from],
+                                   request_at_to: params[:request_at_to],
                                    planned: params[:planned],
-                                   reasons_id: params[:reason_id],
+                                   reasons_id: params[:reason],
                                    assigned_by_user_id: current_user.id
-                                })    
+                                })
+                                    
     @substitute.status = 'Substitute'
-
-   
+    
+    if @substitute.save
+    
+      params[:teacher_schedule_id].each_with_index do |teacher_schedule, index|
+        # save those details
+        sub_teacher = params[:available_teacher][index]
+      
+        if sub_teacher.present?
+          @substitute.details.create!({ teacher_subject_id: teacher_schedule, substitute_teacher_id: sub_teacher  })
+        end
+      
+      end
+    else
+      logger.debug @substitute.errors.inspect
+    end
+    
+    
+    redirect_to substitutes_path
+    
+    
   end
 
   def edit
@@ -53,7 +78,8 @@
   
   def load_teacher_subject
     teacher = Teacher.find(params[:teacher_id])
-    @subjects = teacher.teacher_subjects.order(:day_code_id).includes(:subject, :day_code)    
+    @subjects = teacher.teacher_subjects
+                       .order("day_code_id, time_start").includes(:subject, :day_code)    
   end
   
   def load_sub_teacher_subjects
@@ -63,21 +89,11 @@
   
   
   def load_available_teachers
-    
-      # get info for time and daycode and subject
-      teacher_subject = TeacherSubject.find(params[:teacher_subject_id])
+    # get info for time and daycode and subject
+    teacher_subject = TeacherSubject.find(params[:teacher_subject_id])
       
-      @available_teachers = teacher_subject.fetch_available_teacher
-      
-      # not_available_teachers = TeacherSubject.select('teacher_id')
-      #                                        .where("teacher_id != ?", teacher_subject.teacher_id)
-      #                                        .where("time_start = ?", teacher_subject.time_start)
-      #                                        .pluck(:teacher_id)
-      #                                        
-      #  @available_teachers = TeacherSubject.where("teacher_id NOT IN(?)", not_available_teachers )                                      
-      #                                     .default_include
-      #                                     .order('teachers.lastname')
-    end
+    @available_teachers = teacher_subject.fetch_available_teacher
+  end
   
   
   

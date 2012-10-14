@@ -17,16 +17,11 @@ class Substitute < ActiveRecord::Base
   scope :search_by_code, lambda { | value | codes = DayCode.select('id').where("CONCAT(code) like ? ", "%#{value}%" )
                           self.where("subject_id IN (?)", codes.pluck(:id))}
 
-
-  has_many :Substitute_detail
   belongs_to :teacher_subject
 
+  has_many :details, class_name: :SubstituteDetail
  
-  belongs_to :substitute_detail, class_name: :SubstiteDetail, foreign_key: :substitute_details_id
- 
-  validates :substitute_teacher_id, :teacher_subject_id, 
-            :reasons_id, :planned, :assigned_by_user_id,
-            presence: true
+  validates :reasons_id, :assigned_by_user_id, presence: true
 
   status = [ "Substitute", "Approved", "Vouch" ]
 

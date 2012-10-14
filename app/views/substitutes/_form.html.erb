@@ -2,98 +2,106 @@
 	<div class="widget-header">
 	<h3 class="icon chart">Substitution Information</h3>
 	</div>
-	<div class="widget-content">
-		<div class="grid-24">
-
-			<div class="form" style="width:400px; float:left;">
-				<div class="field">
-					<label>Request Type :</label>
-					
-					<select>
-						<option>Unplan</option>
-						<option>Plan</option>
-					</select>
-					
+	
+	<%= form_tag substitutes_path, id: 'create-substitute-form', method: :post do %>
+	
+		<div class="widget-content">
+			<div class="grid-24">
+				
+				<div class="alert alert-error">
+				  ...
 				</div>
+				
+				
+				<div class="form" style="width:400px; float:left;">
+					<div class="field">
+						<label>Request Type :</label>
+						<%= select_tag :planned, options_for_select([["Unplan", false], ["Plan", true]]) %>					
+					</div>
 
+				</div>
+				<div class="form" style="width:400px; float:left;">
+
+					<div class="field">
+						<label>Request Teacher :</label>
+						<%= text_field_tag :absent_teacher %>
+					</div>
+
+				</div>
+				<br style="clear:both;"/>
 			</div>
-			<div class="form" style="width:400px; float:left;">
+		</div>
 
+		<br/>
+		<div class="grid-24">
+			<h3 class="icon chart">Selected Teacher Subjects</h3>
+			
+			<table id="select-teacher-subjects-table" class="table table-bordered table-striped data-table">
+					<thead>
+						<tr>
+							<th width="50%">Subject Information</th>
+							<th>Schedule</th>
+							<th>Available Teacher</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+			</table>
+		</div>
+
+		<div class="grid-24">
+			<div class="form" style="width:400px; float:left;">
 				<div class="field">
-					<label>Request Teacher :</label>
-					<%= text_field_tag :absent_teacher %>
+					<label>Reason :</label>
+					<%= select_tag :reason, options_for_select(Reason.all.collect { |u| [u.name, u.id] }) %>
+				</div>
+				<div class="field">
+					<label>Notes :</label>
+					<%= text_area_tag :notes %>
+				</div>
+			</div>
+
+			<div class="form" style="width:400px; float:left;">
+				<div class="field">
+					<label>Start Request Date:</label>
+					<%= text_field_tag :request_at_from, nil, class: 'datepicker' %>
 				</div>
 
+				<div class="field">
+					<label>End Request Date:</label>
+					<%= text_field_tag :request_at_to, nil, class: 'datepicker' %>
+				</div>
 			</div>
 			<br style="clear:both;"/>
 		</div>
-	</div>
-
-	<br/>
-	<div class="grid-24">
-		<h3 class="icon chart">Selected Teacher Subjects</h3>
+		<div class="fmenu">
+			<br style="clear:both;">
 			
-		<table id="select-teacher-subjects-table" class="table table-bordered table-striped data-table">
-				<thead>
-					<tr>
-						<th width="50%">Subject Information</th>
-						<th>Schedule</th>
-						<th>Available Teacher</th>
-					</tr>
-				</thead>
-				<tbody></tbody>
-		</table>
-	</div>
-
-	<div class="grid-24">
-		<div class="form" style="width:400px; float:left;">
-			<div class="field">
-				<label>Reason :</label>
-				<select>
-					<option>Leave</option>
-					<option>Sick</option>
-				</select>
-			</div>
-			<div class="field">
-				<label>Notes :</label>
-				<%= text_area_tag :notes %>
-			</div>
+				<%= link_to 'Cancel', teacher_schedules_path, class: 'btn btn-primary btn-blue'  %>
+				<button class="btn btn-primary btn-blue">Save</button>
 		</div>
-
-		<div class="form" style="width:400px; float:left;">
-			<div class="field">
-				<label>Start Request Date:</label>
-				<%= text_field_tag :daterequest %>
-			</div>
-
-			<div class="field">
-				<label>End Request Date:</label>
-				<%= text_field_tag :daterequest %>
-			</div>
-		</div>
-		<br style="clear:both;"/>
-	</div>
-	<div class="fmenu">
-		<br style="clear:both;">
-			
-			<%= link_to 'Cancel', teacher_schedules_path, class: 'btn btn-primary btn-blue'  %>
-			<button class="btn btn-primary btn-blue">Save</button>
-	</div>
+		
+	<% end %>
+	
 	<br style="clear:both;"/>
 	<br style="clear:both;"/>
 </div>
 
 <script type="text/javascript">
-$( "#daterequest" ).datepicker({
-							numberOfMonths: 2,
-							showButtonPanel: true,
-							changeMonth: true,
-							changeYear: true
-				});
-$( "#datesubstitute" ).datepicker({
-							numberOfMonths: 2,
-							showButtonPanel: true,
-							changeMonth: true,
-							changeYear: true
-				});
+	$(document).ready(function(){
+		
+		$("form").submit(function() {
+			 // check if form has all the required field
+	     alert('hello');
+			 return true;
+		});
+		
+		$( ".datepicker" ).datepicker({
+														numberOfMonths: 2,
+														showButtonPanel: true,
+														changeMonth: true,
+														changeYear: true
+													});
+		
+	})
+
 </script>
