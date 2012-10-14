@@ -14,7 +14,8 @@ class Teacher < ActiveRecord::Base
   has_many :teacher_subjects
   has_many :substitutes, through: :teacher_subjects
 
-
+  #has_many :availabilities, class_name: :TeacherAvailability
+  
   has_many :subjects, through: :teacher_subjects
   
   validates :lastname, :firstname, presence: true
@@ -26,6 +27,63 @@ class Teacher < ActiveRecord::Base
 
   def fullname
     " #{self.lastname} #{self.firstname}"
+  end
+
+  def generate_availability
+    # fetch all teacher schedules
+    # loop each time schedules and plot if its available or not
+    # loop for each M T W TH F S
+    ["M", "T", "W", "TH", "F", "SA"].each do |day|
+      
+      # look for list of daycode
+      
+      daycodes = case day
+                  when "M"
+                    DayCode.where("name IN(?)", ["MWF", "MW", "MF", "MTW", "MTWTHF"])
+                  when "T"
+                    DayCode.where("name IN(?)", ["TTH", "T", "THF", "MTWTHF", "TF"])
+                  when "W"
+                    DayCode.where("name IN(?)", ["MWF", "MW", "W", "MTW", "MTWTHF"])
+                  when "TH"
+                    DayCode.where("name IN(?)", ["TTH", "TH", "THF", "MTWTHF"])
+                  when "F"
+                    DayCode.where("name IN(?)", ["MWF", "F", "MF", "WF", "THF", "TF", "MTWTHF"])
+                  when "SA"
+                    DayCode.where("name IN(?)", ["SAT"])
+                end
+      
+      self.teacher_subjects.where('day_code_id IN (?)', daycodes.pluck(:id))
+                           .find_each do |teacher_subject|
+                             
+        TimeSchedule.find_each do |time_schedule|
+          # 13:00 >= 13:30 && 14:30 <= 14:00
+          if ((time_schedule.time_start >= teacher_subject.time_start) && (time_schedule.time_end <= teacher_subject.time_end))
+            
+            TeacherSchedule.create({ day: day, 
+                                     teacher_subject_id: teacher_subject.id,
+                                     time_schedule_id: time_schedule.id  })
+                                     
+          end
+          
+        end
+      end
+      
+      
+      # TimeSchedule.find_each do |time_schedule|
+      #         time_start, time_end = time_schedule.time_start, time_schedule.time_end
+      #         
+      #         if teacher_subject = self.teacher_subjects.where({ time_start: (time_start)..(time_end) })
+      #                                 .where("day_code_id IN(?)", daycodes.pluck(:id)).first
+      #                                         
+      #           #self.availabilities.create({ day: day, time_schedule_id: time_schedule.id  })          
+      #           TeacherSchedule.create({ day: day, 
+      #                                    teacher_subject_id: (teacher_subject.id if teacher_subject),
+      #                                    time_schedule_id: time_schedule.id  })
+      #           
+      #         end
+      #       end
+    end
+    
   end
 
   def self.search(search_by, search)
@@ -40,7 +98,6 @@ class Teacher < ActiveRecord::Base
             teacher_scope = teacher_scope.search_by_phone(search)
         end
     return teacher_scope
-
   end
 
 end

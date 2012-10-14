@@ -50,7 +50,22 @@ class TeacherSubject < ActiveRecord::Base
   def total_hours
     self.time_end - self.time_start
   end
+  
+  def fetch_available_teacher
+    
+    # get teacher with the same sched
+    in_sched_teachers = self.class.where("teacher_id != ?", self.teacher_id)
+                                  .where("!(time_start >= time(?) AND time_end <= time(?))", 
+                                  self.time_start.strftime('%H:%M'), time_end.to_time.strftime('%H:%M'))
+                                  .includes(:teacher)
+                                  .uniq
 
+    
+    return in_sched_teachers
+    
+  end
+  
+  
   def self.search(search_by, search)
     
     teacher_subject_scope = self.scoped({})
@@ -68,18 +83,8 @@ class TeacherSubject < ActiveRecord::Base
            teacher_subject_scope = teacher_subject_scope.search_by_schedule(search)
     end
     
-
-
     return teacher_subject_scope
 
   end
-  
-  def self.fetch_available_teacher(time_start, time_end)
-    # get teacher with the same sched
-    in_sched_teachers = self.where("time_start >= time(?) AND time_end <= time(?)", time_start, time_end)
-    
-  end
-  
-
 
 end
