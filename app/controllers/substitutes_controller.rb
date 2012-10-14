@@ -26,6 +26,7 @@
                                    request_at_to: params[:request_at_to],
                                    planned: params[:planned],
                                    reasons_id: params[:reason],
+                                   teacher_id: params[:absent_teacher],
                                    assigned_by_user_id: current_user.id
                                 })
                                     

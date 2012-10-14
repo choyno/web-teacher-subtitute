@@ -13,6 +13,8 @@ class Teacher < ActiveRecord::Base
  
   has_many :teacher_subjects
   has_many :substitutes, through: :teacher_subjects
+  
+  has_many :absents, class_name: :Substitute, foreign_key: :teacher_id
 
   #has_many :availabilities, class_name: :TeacherAvailability
   

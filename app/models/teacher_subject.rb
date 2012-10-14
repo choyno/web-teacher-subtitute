@@ -27,7 +27,7 @@ class TeacherSubject < ActiveRecord::Base
   belongs_to :section
   belongs_to :subject_type
   
-  has_many :subtitutes, class_name: :Subtitute, foreign_key: :subtitute_teacher_id
+  has_many :subtitutes, class_name: :Substitute, foreign_key: :subtitute_teacher_id
   has_many :schedules, class_name: :TeacherSchedule
   
   validates :teacher_id,  presence: true
@@ -53,6 +53,9 @@ class TeacherSubject < ActiveRecord::Base
   end
   
   def fetch_available_teacher
+    
+    available_teachers = []
+    
     teacher_schedule_scope = TeacherSchedule.scoped({})
     # parse daycode
     teacher_schedule_scope = case self.day_code.name
@@ -103,15 +106,7 @@ class TeacherSubject < ActiveRecord::Base
     available_teachers = Teacher.where("id NOT IN (?) AND id != ?", 
                                         teacher_subjects.pluck(:teacher_id), self.teacher_id)
                                 .order(:lastname)
-    
-    # teacher_schedules = teacher_schedule_scope
-    #                               .where("time_schedule_id NOT IN (?)", time_schedules.pluck(:id))
-    # 
-    # teachers = self.class.where("id IN ?", teacher_schedules.pluck(:teacher_subject_id))
-    # 
-    # available_teachers = Teacher.where("ID IN (?)", teachers.pluck(:teacher_id)).uniq!
-    
-    
+        
     return available_teachers
     
   end

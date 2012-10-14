@@ -18,7 +18,8 @@ class Substitute < ActiveRecord::Base
                           self.where("subject_id IN (?)", codes.pluck(:id))}
 
   belongs_to :teacher_subject
-
+  belongs_to :teacher
+  
   has_many :details, class_name: :SubstituteDetail
  
   validates :reasons_id, :assigned_by_user_id, presence: true
@@ -29,6 +30,10 @@ class Substitute < ActiveRecord::Base
   #    generate_scope = self.scoped({})  
   #    generate_scope = generate_scope.search_by_created_at(start_date)
   # end
+
+  def request_full_date
+    "#{self.request_at_from.strftime('%m-%d-%Y')} - #{self.request_at_to.strftime('%m-%d-%Y')}"
+  end
 
 
   def self.search(search_by, search)
@@ -44,23 +49,32 @@ class Substitute < ActiveRecord::Base
     return substitution_records_scope
   end
 
+  
+
   def self.generate_absent_teacher_report(start_date, end_date)
     
     results = []
 
-    Teacher.find_each do |teacher|
+    teachers = self.select('DISTINCT teacher_id').status_is_approved
+
+    Teacher.where("id IN (?)", teachers.pluck(:teacher_id)).find_each do |teacher|
       approved_substitutes = []
       
-      self.where('teacher_subjects.teacher_id = ?', teacher.id )
-          .where(created_at: start_date..end_date)
-          .status_is_approved
-          .includes(:teacher_subject).find_each do |substitute|
-
-        approved_substitutes << { created_at:substitute.created_at.strftime('%m-%d-%Y'),
-                                  subject_time: substitute.teacher_subject.start_time_and_time_end,
-                                  total_hours: substitute.teacher_subject.total_hours / 60 / 60
-                                }
+      teacher.absents.status_is_approved.find_each do |absent|
+        
+        absent.details.each do |detail|
+        
+          approved_substitutes << { created_at: absent.created_at.strftime('%m-%d-%Y'),
+                                    request_at: absent.request_full_date,
+                                    substituted_by: detail.substitute_teacher.fullname,
+                                    subject_time: detail.teacher_subject.start_end_time_daycode,
+                                    total_hours: detail.teacher_subject.total_hours / 60 / 60
+                                  }
+                                  
+        end
+        
       end
+      
       if approved_substitutes.present?
 
         results << { name: teacher.fullname, 
@@ -69,7 +83,9 @@ class Substitute < ActiveRecord::Base
                    } 
 
       end
+      
     end
+    
     return results
   end
 

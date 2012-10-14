@@ -3,15 +3,14 @@
 	<h3 class="icon chart">Substitution Information</h3>
 	</div>
 	
+	<div class="alert alert-error">
+	  ...
+	</div>
+	
 	<%= form_tag substitutes_path, id: 'create-substitute-form', method: :post do %>
 	
 		<div class="widget-content">
 			<div class="grid-24">
-				
-				<div class="alert alert-error">
-				  ...
-				</div>
-				
 				
 				<div class="form" style="width:400px; float:left;">
 					<div class="field">
@@ -99,7 +98,8 @@
 														numberOfMonths: 2,
 														showButtonPanel: true,
 														changeMonth: true,
-														changeYear: true
+														changeYear: true,
+														dateFormat: 'yy/mm/dd'
 													});
 		
 	})
