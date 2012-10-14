@@ -89,8 +89,9 @@ class TeacherSubject < ActiveRecord::Base
     end
     
     # all available time schedule
-    time_schedules = TimeSchedule.where("NOT (time_start >= ? AND time_end <= ?)", self.time_start, self.time_end)
+    time_schedules = TimeSchedule.where("time_start >= ? AND time_end <= ?", self.time_start, self.time_end)
     
+    # get all teacher subject schedules with the same times
     teacher_schedules = teacher_schedule_scope.select('DISTINCT teacher_subject_id')
                             .where("time_schedule_id IN (?)", time_schedules.pluck(:id))
     
@@ -99,7 +100,8 @@ class TeacherSubject < ActiveRecord::Base
                                  .where("id IN (?) AND teacher_id != ?", 
                                          teacher_schedules.pluck(:teacher_subject_id), self.teacher_id)
                                  
-    available_teachers = Teacher.where("id IN (?)", teacher_subjects.pluck(:teacher_id))
+    available_teachers = Teacher.where("id NOT IN (?) AND id != ?", 
+                                        teacher_subjects.pluck(:teacher_id), self.teacher_id)
     
     # teacher_schedules = teacher_schedule_scope
     #                               .where("time_schedule_id NOT IN (?)", time_schedules.pluck(:id))
