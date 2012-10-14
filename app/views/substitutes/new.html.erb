@@ -28,3 +28,31 @@
 	</div> <!-- .grid -->			
 
 </div>
+
+<script type="text/javascript" charset="utf-8">
+	
+	$("#absent_teacher").tokenInput(teacherSource, 
+		{ theme: 'facebook', 
+			tokenLimit: 1,
+			onAdd: function(item){
+				// put value to assign-teacher and assing-subject
+				$('.assign-teacher').html(item.name);
+				teacher_id = item.id;
+				
+				// load up selected teacher subject
+				$.ajax({
+				  url: "<%= load_teacher_subject_substitutes_path %>",
+					data: { teacher_id: item.id }
+				}).done(function() { 
+				  $(this).addClass("done");
+				});
+				
+			},
+			onDelete: function(){
+				// remove subject if selected teacher was removed
+				$('#teacher-subjects-table tbody').html(""); // set blank if techer was remove
+			}
+		});
+	
+	
+</script>

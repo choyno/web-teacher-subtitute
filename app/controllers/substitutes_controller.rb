@@ -53,8 +53,7 @@
   
   def load_teacher_subject
     teacher = Teacher.find(params[:teacher_id])
-    @subjects = teacher.teacher_subjects.includes(:subject, :day_code)
-    
+    @subjects = teacher.teacher_subjects.order(:day_code_id).includes(:subject, :day_code)    
   end
   
   def load_sub_teacher_subjects

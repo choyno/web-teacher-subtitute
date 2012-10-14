@@ -37,7 +37,7 @@ class Teacher < ActiveRecord::Base
       
       # look for list of daycode
       
-      daycodes = case day
+      daycodes = case day 
                   when "M"
                     DayCode.where("name IN(?)", ["MWF", "MW", "MF", "MTW", "MTWTHF"])
                   when "T"

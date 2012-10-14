@@ -28,7 +28,8 @@ class TeacherSubject < ActiveRecord::Base
   belongs_to :subject_type
   
   has_many :subtitutes, class_name: :Subtitute, foreign_key: :subtitute_teacher_id
-
+  has_many :schedules, class_name: :TeacherSchedule
+  
   validates :teacher_id,  presence: true
   validates :subject_id,  presence: true 
   validates :time_start,  presence: true 
@@ -52,16 +53,60 @@ class TeacherSubject < ActiveRecord::Base
   end
   
   def fetch_available_teacher
+    teacher_schedule_scope = TeacherSchedule.scoped({})
+    # parse daycode
+    teacher_schedule_scope = case self.day_code.name
+        when 'MWF'
+          teacher_schedule_scope.where("day IN (?)", ["M", "W", "F"])
+        when 'TTH'
+          teacher_schedule_scope.where("day IN (?)", ["T", "TH"])
+        when 'SAT'
+          teacher_schedule_scope.where("day IN (?)", ["SA"])
+        when 'F'
+          teacher_schedule_scope.where("day IN (?)", ["F"])
+        when 'MW'
+          teacher_schedule_scope.where("day IN (?)", ["M", "W"])
+        when 'TH'
+          teacher_schedule_scope.where("day IN (?)", ["TH"])
+        when 'MW'
+          teacher_schedule_scope.where("day IN (?)", ["M", "W"])
+        when 'T'
+          teacher_schedule_scope.where("day IN (?)", ["T"])
+        when 'M'
+          teacher_schedule_scope.where("day IN (?)", ["M"])
+        when 'WF'
+          teacher_schedule_scope.where("day IN (?)", ["W", "F"])
+        when 'MF'
+          teacher_schedule_scope.where("day IN (?)", ["M", "F"])
+        when 'THF'
+          teacher_schedule_scope.where("day IN (?)", ["TH", "F"])
+        when 'MTW'
+          teacher_schedule_scope.where("day IN (?)", ["M", "T", "W"])
+        when 'MTWTHF'
+          teacher_schedule_scope.where("day IN (?)", ["M", "T", "W", "TH", "F"])
+        when 'TF'
+          teacher_schedule_scope.where("day IN (?)", ["T", "F"])
+    end
     
-    # get teacher with the same sched
-    in_sched_teachers = self.class.where("teacher_id != ?", self.teacher_id)
-                                  .where("!(time_start >= time(?) AND time_end <= time(?))", 
-                                  self.time_start.strftime('%H:%M'), time_end.to_time.strftime('%H:%M'))
-                                  .includes(:teacher)
-                                  .uniq
-
+    time_schedules = TimeSchedule.where("time_start >= ? AND time_end <= ?", self.time_start, self.time_end)
     
-    return in_sched_teachers
+    # teacher subject with the same schedule
+    teacher_subjects = self.class.where("time_schedules.time_start >= ? AND time_schedules.time_end <= ?", self.time_start, self.time_end)
+                                 .join(:schedules => [:time_schedule ])
+    
+    available_teachers = Teacher.where("ID NOT IN (?)", teacher_subjects.pluck(:teacher_id)).uniq!
+    
+    # teacher_schedules = teacher_schedule_scope
+    #                               .where("time_schedule_id NOT IN (?)", time_schedules.pluck(:id))
+    # 
+    # teachers = self.class.where("id IN ?", teacher_schedules.pluck(:teacher_subject_id))
+    # 
+    # available_teachers = Teacher.where("ID IN (?)", teachers.pluck(:teacher_id)).uniq!
+    
+    
+    
+    
+    logger.debug available_teachers.inspect
     
   end
   

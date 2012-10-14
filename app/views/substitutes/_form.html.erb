@@ -20,7 +20,7 @@
 			<div class="form" style="width:400px; float:left;">
 
 				<div class="field">
-					<label>Absent Teacher :</label>
+					<label>Request Teacher :</label>
 					<%= text_field_tag :absent_teacher %>
 				</div>
 
@@ -31,101 +31,20 @@
 
 	<br/>
 	<div class="grid-24">
-		<h3 class="icon chart">Absent Subject</h3>
-	<table id="sub-teacher-subjects-table" class="table table-bordered table-striped data-table">
-			<thead>
-				<tr>
-					<th>Subject Code</th>
-					<th>Room #</th>
-					<th>Section</th>
-					<th>Type</th>
-					<th>Start Time</th>
-					<th>End Time</th>
-					<th>Schedule</th>
-					<th>Options</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>Subject Code</th>
-					<th>Room #</th>
-					<th>Section</th>
-					<th>Type</th>
-					<th>Start Time</th>
-					<th>End Time</th>
-					<th>Schedule</th>
-					<th><button class="btn btn-primary btn-blue">Select</button></th>
-				</tr>
-			</tbody>
-	</table>
-	</div>
-
-	<br/>
-	<div class="grid-24">
-		<h3 class="icon chart">Available Teacher</h3>
-		<%= form_for vouch_requests_path, method: :get do %>
-			<div class="search">
-				<div class="field">
-					<%= select_tag :search_by, options_for_select(
-													["Please Select", "Subject"], params[:search_by]) %>
-					<%= select_tag :search_by, options_for_select(
-													["Please Select", "Schedule" ],
-													 params[:search_by]) %>								 	
-					<%= submit_tag "Filter", :name => nil, :class => "btn btn-primary btn-blue" %>
-				</div>
-			</div>
-		<% end %>
-		<table id="sub-teacher-subjects-table" class="table table-bordered table-striped data-table">
-			<thead>
-				<tr>
-					<th>Fullname</th>
-					<th>Options</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>First load  the teacher with the same subject and schedule</th>
-					<th><button class="btn btn-primary btn-blue">Substitute</button></th>
-				</tr>
-			</tbody>
-	</table>
-	</div>
-
-	<br/>
-	<div class="grid-24">
-
-		<h3 class="icon chart">Substitution</h3>
-		<table id="sub-teacher-subjects-table" class="table table-bordered table-striped data-table">
-			<thead>
-				<tr>
-
-					<th>Asent Teacher</th>
-				
-					<th>Substitute Teacher</th>
-					
-					<th>Room #</th>
-					<th>Start Time</th>
-					<th>End Time</th>
-					<th>Schedule</th>
-					<th>Options</th>
-				
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>Combine sa Two ka table sa taas, ari tah mag loop nga table para save?</th>
-					
-					<th>Substitute Teacher</th>
-					
-					<th>Room #</th>
-					<th>Start Time</th>
-					<th>End Time</th>
-					<th>Schedule</th>
-					<th><button class="btn btn-primary btn-blue">Cancel</button></th>
-				</tr>
-			</tbody>
+		<h3 class="icon chart">Selected Teacher Subjects</h3>
+			
+		<table id="select-teacher-subjects-table" class="table table-bordered table-striped data-table">
+				<thead>
+					<tr>
+						<th width="50%">Subject Information</th>
+						<th>Schedule</th>
+						<th>Available Teacher</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
 		</table>
-	</div><br style="clear:both;"/>
+	</div>
+
 	<div class="grid-24">
 		<div class="form" style="width:400px; float:left;">
 			<div class="field">
@@ -163,11 +82,6 @@
 	<br style="clear:both;"/>
 	<br style="clear:both;"/>
 </div>
-
-
-
-
-
 
 <script type="text/javascript">
 $( "#daterequest" ).datepicker({

@@ -1,15 +1,14 @@
-<%= content_tag :tr, subject, data: { teacher_subject_id: subject.id,
-																			subject_id: subject.subject.id, 
-																			subject_name: subject.subject.name,
-																			subject_time_daycode: subject.start_end_time_daycode } do %>
+<tr>
 																			
-	<td><%= subject.subject.name  %></td>
-	<td><%= subject.time_start.strftime('%l:%M %p') %> / <%= subject.time_end.strftime('%l:%M %p') %></td>
-	<td><%= subject.day_code.name %></td>
 	<td>
-		<button class="assign-subject-btn btn btn-primary btn-blue">
-			Select
-		</button>
+		<h3><%= subject.subject.name %></h3>
+		<div><%= subject.subject.code %></div>
 	</td>
-	
-<% end %>
+	<td><%=  subject.start_end_time_daycode %></td>
+	<td>
+		<%= hidden_field_tag 'teacher_schedule_id[]', subject.id %>
+		<%= select_tag "available_teacher[]", 
+						options_from_collection_for_select(Teacher.all, :id , :fullname) %>
+
+	</td>
+</tr>

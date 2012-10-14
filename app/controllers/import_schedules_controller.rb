@@ -56,7 +56,11 @@ class ImportSchedulesController < ApplicationController
                                         
       teacher_subject.save
       
-      
+    end
+    
+    
+    Teacher.find_each do |teacher|
+      teacher.generate_availability
     end
       
     redirect_to import_schedules_path, notice: "Schedules was sucessfully uploaded!"
