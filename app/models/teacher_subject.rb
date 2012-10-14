@@ -102,6 +102,7 @@ class TeacherSubject < ActiveRecord::Base
                                  
     available_teachers = Teacher.where("id NOT IN (?) AND id != ?", 
                                         teacher_subjects.pluck(:teacher_id), self.teacher_id)
+                                .order(:lastname)
     
     # teacher_schedules = teacher_schedule_scope
     #                               .where("time_schedule_id NOT IN (?)", time_schedules.pluck(:id))
