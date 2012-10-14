@@ -88,13 +88,18 @@ class TeacherSubject < ActiveRecord::Base
           teacher_schedule_scope.where("day IN (?)", ["T", "F"])
     end
     
-    time_schedules = TimeSchedule.where("time_start >= ? AND time_end <= ?", self.time_start, self.time_end)
+    # all available time schedule
+    time_schedules = TimeSchedule.where("NOT (time_start >= ? AND time_end <= ?)", self.time_start, self.time_end)
+    
+    teacher_schedules = teacher_schedule_scope.select('DISTINCT teacher_subject_id')
+                            .where("time_schedule_id IN (?)", time_schedules.pluck(:id))
     
     # teacher subject with the same schedule
-    teacher_subjects = self.class.where("time_schedules.time_start >= ? AND time_schedules.time_end <= ?", self.time_start, self.time_end)
-                                 .join(:schedules => [:time_schedule ])
-    
-    available_teachers = Teacher.where("ID NOT IN (?)", teacher_subjects.pluck(:teacher_id)).uniq!
+    teacher_subjects = self.class.select('DISTINCT teacher_id')
+                                 .where("id IN (?) AND teacher_id != ?", 
+                                         teacher_schedules.pluck(:teacher_subject_id), self.teacher_id)
+                                 
+    available_teachers = Teacher.where("id IN (?)", teacher_subjects.pluck(:teacher_id))
     
     # teacher_schedules = teacher_schedule_scope
     #                               .where("time_schedule_id NOT IN (?)", time_schedules.pluck(:id))
@@ -104,9 +109,7 @@ class TeacherSubject < ActiveRecord::Base
     # available_teachers = Teacher.where("ID IN (?)", teachers.pluck(:teacher_id)).uniq!
     
     
-    
-    
-    logger.debug available_teachers.inspect
+    return available_teachers
     
   end
   
