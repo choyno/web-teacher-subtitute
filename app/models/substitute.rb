@@ -18,11 +18,12 @@ class Substitute < ActiveRecord::Base
                           self.where("subject_id IN (?)", codes.pluck(:id))}
 
 
-
-  belongs_to :substitute_teacher, class_name: :Teacher, foreign_key: :substitute_teacher_id
+  has_many :Substitute_detail
   belongs_to :teacher_subject
-  belongs_to :reason_teacher, class_name: :Reason,foreign_key: :reasons_id
 
+ 
+  belongs_to :substitute_detail, class_name: :SubstiteDetail, foreign_key: :substitute_details_id
+ 
   validates :substitute_teacher_id, :teacher_subject_id, 
             :reasons_id, :planned, :assigned_by_user_id,
             presence: true
