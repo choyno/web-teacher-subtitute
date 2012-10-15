@@ -494,12 +494,29 @@ body .ui-tooltip { border-width:2px; }
   margin-top: 0;
 }
 
-.holderfiller  { background: url('/assets/filler.png') repeat-x 0 0; 
-				font: 12px/1.7em arial, sans-serif;
-				padding-top: 50px; 
-				 min-height: 100px;
-                 
-				}
+
+.holderfiller  
+{ 
+
+    background: url('bg.jpg') repeat-x 0 0; 
+    font: 12px/1.7em arial, sans-serif;
+    padding-top: 50px; 
+    background-size:cover;
+    background-repeat: no-repeat;
+     
+}
+
+.holder2
+{
+  
+    background: url('hbg.png');
+    background-repeat: no-repeat;
+    width:1024px;
+       margin:0 auto; background-size:cover;
+    min-height:500px;
+
+}
+
 
 body
 {
@@ -540,10 +557,12 @@ body
 {
     height:325px ;
     width: 317px ;
-   float: right;
-    margin-right: 188px;
-    margin-top: 24px;
+   
      margin-top: 83px;
+
+     float: right;
+    margin-right: 105px;
+    margin-top: 113px;
 
 }
 .border_login2
@@ -1543,7 +1562,11 @@ thead tr:first-child
 {
     margin-left: 10px;
 }
-
+td h3
+{
+    font-size: 16px;
+    margin-top: 0;
+}
 .delete
 {
     display: none;
@@ -1722,4 +1745,12 @@ span.current
 .well h1,.well h2
 {
     font-size: 25px;
+}
+
+.subject_det
+{
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 20px;
 }
