@@ -8,6 +8,7 @@
 	<td></td>
 	<td></td>
 	<td></td>
+	<td></td>
 </tr>
 <% generate_report[:approved_substitutes].each do |substitute| %>
 <tr style="border-top: 1px solid #DDDDDD;
@@ -21,7 +22,6 @@
 		<td><%= substitute[:subject_time] %></td>
 		<td><%= substitute[:total_hours] %></td>
 		<td></td>
-
 	</tr>
 <% end %>
 
@@ -35,6 +35,7 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		<td><%= generate_report[:total_hours] %></td>
+		<td></td>
+		<td style="color:red"><%= generate_report[:total_hours] %></td>
 	</tr>
 <% end %>
