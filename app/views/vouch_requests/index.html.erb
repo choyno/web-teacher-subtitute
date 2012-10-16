@@ -25,19 +25,13 @@
 							<tr>
 								<th>Date Request</th>
 								<th>Requested Teacher</th>
-								<th>Substitute Teacher</th>
-								<th>Subject Code</th>
-								<th>Room #</th>
-								<th>Section</th>
-								<th>Type</th>
-								<th>Start Time</th>
-								<th>End Time</th>
-								<th>Schedule</th>
+								<th>Reason</th>
+								<th>Plan</th>
 								<th>Options</th>
 							</tr>
 						</thead>
 				        <tbody>
-							<%= render partial: 'vouch_requests', collection: @vouch_requests,  as: :vouch_request %>
+							<%= render partial: 'vouch_request', collection: @vouch_requests,  as: :vouch_request %>
 				        </tbody>
 			        </table>
 			        <%= paginate @vouch_requests %>

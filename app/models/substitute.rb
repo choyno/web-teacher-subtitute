@@ -19,6 +19,7 @@ class Substitute < ActiveRecord::Base
 
   belongs_to :teacher_subject
   belongs_to :teacher
+  belongs_to :reason
   
   has_many :details, class_name: :SubstituteDetail
  
@@ -34,7 +35,6 @@ class Substitute < ActiveRecord::Base
   def request_full_date
     "#{self.request_at_from.strftime('%m-%d-%Y')} - #{self.request_at_to.strftime('%m-%d-%Y')}"
   end
-
 
   def self.search(search_by, search)
     substitution_records_scope = self.scoped({})
