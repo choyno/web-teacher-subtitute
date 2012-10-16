@@ -13,5 +13,20 @@ class DayCode < ActiveRecord::Base
 
 		return day_code_scope  	
   end
-
+  
+  
+  def self.day_name_shortcut(dayname)
+    
+    return case dayname
+      when 'Mon'; 'M'
+      when 'Tue'; 'T'
+      when 'Wed'; 'W'
+      when 'Thu'; 'TH'
+      when 'Fri'; 'F'
+      when 'Sat'; 'SA'
+      when 'Sun'; 'S'
+    end
+    
+  end
+  
 end

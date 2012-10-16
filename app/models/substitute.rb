@@ -48,6 +48,35 @@ class Substitute < ActiveRecord::Base
     return substitution_records_scope
   end
 
+
+  def updated_and_generate_for_report
+    # loop to date from and date to
+    
+    array_date = (self.request_at_from..self.request_at_to).to_a
+    
+    array_date.each do |request_date|
+      
+      day = DayCode.day_name_shortcut(request_date.strftime('%a'))
+      
+      # get all teacher subject base on daycode
+      teacher_scheds = TeacherSchedule.select('DISTINCT teacher_subject_id')
+                                      .where( 'day = ? AND teacher_subject_id IN (?)', day, self.details.pluck(:teacher_subject_id) )
+      
+      self.details.where("teacher_subject_id IN (?)", teacher_scheds.pluck(:teacher_subject_id)).each do |detail|
+        
+        SubstituteReport.create({ substitute_id: self.id,
+                                  teacher_id: self.teacher_id,
+                                  teacher_substitute_id: detail.substitute_teacher_id,
+                                  teacher_subject_id: detail.teacher_subject_id,
+                                  total_hours: detail.teacher_subject.total_hours / 60 / 60,
+                                  date_applied: request_date
+                              })
+        
+      end
+      
+    end
+    
+  end
   
 
   def self.generate_absent_teacher_report(start_date, end_date)
