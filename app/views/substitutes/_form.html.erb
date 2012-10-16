@@ -3,9 +3,7 @@
 	<h3 class="icon chart">Substitution Information</h3>
 	</div>
 	
-	<div class="alert alert-error">
-	  ...
-	</div>
+	<div class="alert alert-error" style="display: none"></div>
 	
 	<%= form_tag substitutes_path, id: 'create-substitute-form', method: :post do %>
 	
@@ -90,8 +88,44 @@
 		
 		$("form").submit(function() {
 			 // check if form has all the required field
-	     alert('hello');
-			 return true;
+			var proceed = true;
+			var select_box_proceed = false;
+	
+			$('.alert').html("");
+	
+			 // check if has selected teacher
+			if($('#absent_teacher').val() == ''){
+				$('.alert').append("Please select a requester teacher <br />");
+				proceed = false;
+			}
+			
+			if($('#request_at_from').val() == '' || $('#request_at_to').val() == ''){
+				$('.alert').append("Please fill up request date from and to <br />");
+				proceed = false;
+			}
+			
+			// check each select box if not empty
+			if($('.available-teacher-options')){
+				
+				$('.available-teacher-options').each(function(){
+				
+					if(!select_box_proceed && $(this).val() != "" ){
+						select_box_proceed = true;
+					}
+				})
+						
+				if(!select_box_proceed){
+					$('.alert').append("Please select one or more subject!");
+					proceed = false;
+				}
+			
+			}
+			
+			
+			if(!proceed){ $('.alert').show() }
+		  
+
+			return proceed;
 		});
 		
 		$( ".datepicker" ).datepicker({

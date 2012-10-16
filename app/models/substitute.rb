@@ -7,7 +7,6 @@ class Substitute < ActiveRecord::Base
   scope :request_type_planned, where( planned: true)
   scope :request_type_unplanned, where( planned: false)
 
-
   scope :search_by_requested, lambda { | value | teachers = TeacherSubject.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
                           self.where("teacher_subject_id IN (?)", teachers.pluck(:id))}
 
@@ -23,7 +22,7 @@ class Substitute < ActiveRecord::Base
   
   has_many :details, class_name: :SubstituteDetail
  
-  validates :reasons_id, :assigned_by_user_id, presence: true
+  validates :reason_id, :assigned_by_user_id, presence: true
 
   status = [ "Substitute", "Approved", "Vouch" ]
 
