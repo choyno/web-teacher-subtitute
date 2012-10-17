@@ -1,0 +1,15 @@
+<tr>
+	<th><%= confirm_substitute.request_full_date %></th>
+	<th><%= confirm_substitute.teacher.fullname %></th>
+	<th><%= confirm_substitute.reason.name %></th>
+	<th><% if confirm_substitute.planned == false%>
+		Plan
+		<% elsif%>
+		Unplanned
+		<% end %>
+	</th>
+	<th>
+		<%= link_to 'Show', confirm_substitution_path(confirm_substitute), method: :get , :class => "btn btn-primary btn-blue" %>
+	 
+	</th>
+</tr>	

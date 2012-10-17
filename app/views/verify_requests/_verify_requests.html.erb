@@ -1,16 +1,16 @@
 <tr>
-	<th><%= verify_request.created_at.strftime('%m-%d-%Y') %></th>
-	<th><%= verify_request.teacher_subject.teacher.fullname %></th>
-	<th><%= verify_request.substitute_teacher.fullname %></th>
-	<th><%= verify_request.teacher_subject.subject.code %></th>
-	<th><%= verify_request.teacher_subject.room.name %></th>
-	<th><%= verify_request.teacher_subject.section.name %></th>
-	<th><%= verify_request.teacher_subject.subject_type.name %></th>
-	<th><%= verify_request.teacher_subject.time_start.strftime('%l: %m %p') %></th>
-	<th><%= verify_request.teacher_subject.time_end.strftime('%l: %m %p') %></th>
-	<th><%= verify_request.teacher_subject.day_code.name %></th>
+	<th><%= verify_request.request_full_date %></th>
+	<th><%= verify_request.teacher.fullname %></th>
+	<th><%= verify_request.reason.name %></th>
+	<th><% if verify_request.planned == false%>
+		Plan
+		<% elsif%>
+		Unplanned
+		<% end %>
+	</th>
 	<th>
-		<%= link_to 'Show', verify_request_path(verify_request), method: :get , :class => "btn btn-primary btn-blue" %>
+		<%= link_to 'Show', verify_request_path(verify_request), method: :get , 
+												:class => "btn btn-primary btn-blue" %>
 	 
 	</th>
 </tr>	

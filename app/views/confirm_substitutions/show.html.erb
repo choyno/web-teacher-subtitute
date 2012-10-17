@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="grid-24">
 			
-			<%= form_for @verify_request, url: verify_request_path(@verify_request), :method => :put do |f| %>
+			<%= form_for @show_confirm_substitute, url: confirm_substitution_path(@confirm_substitute ), :method => :put do |f| %>
 				<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
@@ -24,7 +24,7 @@
 						</thead>
 				        <tbody>
 						
-							<%= render partial: 'show_verify_request', collection: @show_verify_requests, as: :verify_request %>
+							<%= render partial: 'show_confirm_substitute', collection: @show_confirm_substitute, as: :confirm_substitution %>
 							
 				        </tbody>
 				</table>
@@ -32,12 +32,12 @@
 				
 				<br /><br /><br />
 				<div class="form-actions" id="final-confirmation-btn">
-					<%= link_to verify_request_path do %>
+					<%= link_to confirm_substitutions_path do %>
 							<button class="btn btn-primary btn-blue">Back
 							</button>
 						<% end %>
 					<div class="pull-right">
-						<%= f.submit 'Vouch', class: 'btn btn-primary btn-blue', 
+						<%= f.submit 'Void', class: 'btn btn-primary btn-blue', 
 											data: { confirm: 'Are you sure you want to Vouch this Request?' } %>
 												&nbsp;&nbsp;&nbsp;
 						

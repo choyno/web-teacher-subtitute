@@ -3,7 +3,7 @@ class Substitute < ActiveRecord::Base
   scope :status_is_substitute, where('status = ?', 'Substitute')
   scope :status_is_vouch, where('status = ?', 'Vouch')
   scope :status_is_approved, where('status = ?', 'Approved')
-
+   scope :status_is_pendingsub, where('status = ?', 'Pending Substitute')
   scope :request_type_planned, where( planned: true)
   scope :request_type_unplanned, where( planned: false)
 

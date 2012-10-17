@@ -10,7 +10,8 @@
 				Department Head &nbsp ›
 			</figure>
 			<ul class='subSide'>
-				<li class="submenu"> <%= link_to 'Request Substitution', substitutes_path , :class => "asudbmenu" %></li>
+				<li class="submenu"> <%= link_to 'Request Substitution', new_substitute_path , :class => "asudbmenu" %></li>
+				<li class="submenu"> <%= link_to 'Confirm Request', confirm_substitutions_path %></li>
 				<li class="submenu"><%= link_to 'Vouch Request',  vouch_requests_path %></li>
 				<li class="submenu"><%= link_to 'Remind Request',  remind_substitutes_path %></li>
 			</ul>

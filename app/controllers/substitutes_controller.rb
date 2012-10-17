@@ -30,7 +30,7 @@
                                    assigned_by_user_id: current_user.id
                                 })
                                     
-    @substitute.status = 'Substitute'
+    @substitute.status = 'Pending Substitute'
     
     if @substitute.save
     
@@ -48,7 +48,7 @@
     end
     
     
-    redirect_to substitutes_path
+    redirect_to confirm_substitutions_path, :notice => "Successfully Requested"
     
     
   end
