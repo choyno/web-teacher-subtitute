@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20121002182428) do
-=======
-ActiveRecord::Schema.define(:version => 20121008224632) do
->>>>>>> daecee7b95812c6402e49df41a69382e5cc98f54
+ActiveRecord::Schema.define(:version => 20121016184446) do
 
   create_table "day_codes", :force => true do |t|
     t.string "name", :limit => 20
@@ -64,9 +60,27 @@ ActiveRecord::Schema.define(:version => 20121008224632) do
     t.datetime "updated_at",               :null => false
   end
 
-  create_table "substitutes", :force => true do |t|
+  create_table "substitute_details", :force => true do |t|
     t.integer  "substitute_teacher_id"
     t.integer  "reasons_id"
+    t.integer  "teacher_subject_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.integer  "substitute_id"
+  end
+
+  create_table "substitute_reports", :force => true do |t|
+    t.integer "substitute_id"
+    t.integer "teacher_id"
+    t.integer "teacher_substitute_id"
+    t.integer "teacher_subject_id"
+    t.float   "total_hours"
+    t.date    "date_applied"
+  end
+
+  create_table "substitutes", :force => true do |t|
+    t.integer  "substitute_teacher_id"
+    t.integer  "reason_id"
     t.text     "notes"
     t.integer  "teacher_subject_id"
     t.boolean  "planned",               :default => false
@@ -77,6 +91,21 @@ ActiveRecord::Schema.define(:version => 20121008224632) do
     t.integer  "approved_by_user_id"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
+    t.date     "request_at_from"
+    t.date     "request_at_to"
+    t.integer  "teacher_id"
+  end
+
+  create_table "teacher_availabilities", :force => true do |t|
+    t.integer "teacher_id"
+    t.string  "day",              :limit => 2
+    t.integer "time_schedule_id"
+  end
+
+  create_table "teacher_schedules", :force => true do |t|
+    t.string  "day",                :limit => 5
+    t.integer "teacher_subject_id"
+    t.integer "time_schedule_id"
   end
 
   create_table "teacher_subjects", :force => true do |t|
@@ -100,10 +129,15 @@ ActiveRecord::Schema.define(:version => 20121008224632) do
     t.datetime "updated_at",                 :null => false
   end
 
+  create_table "time_schedules", :force => true do |t|
+    t.string "time_range"
+    t.time   "time_start"
+    t.time   "time_end"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "full_name",     :limit => 120
     t.string   "username",      :limit => 120
-    t.string   "user_types",    :limit => 120
     t.string   "password_hash"
     t.string   "password_salt"
     t.integer  "department_id"
