@@ -48,7 +48,7 @@
     end
     
     
-    redirect_to substitutes_path
+    redirect_to confirm_substitutions_path, :notice => "Successfully Requested"
     
     
   end

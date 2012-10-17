@@ -1,0 +1,16 @@
+<tr>
+	<th><%= vouch_request.request_full_date %></th>
+	<th><%= vouch_request.teacher.fullname %></th>
+	<th><%= vouch_request.reason.name %></th>
+	<th><% if vouch_request.planned == false%>
+		Plan
+		<% elsif%>
+		Unplanned
+		<% end %>
+	</th>
+	<th>
+		<%= link_to 'Show', vouch_request_path(vouch_request), method: :get , 
+												:class => "btn btn-primary btn-blue" %>
+	 
+	</th>
+</tr>	
