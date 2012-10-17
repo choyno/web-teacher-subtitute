@@ -9,7 +9,7 @@
 					<h3 class="icon chart">Substitute Information</h3>		
 				</div>
 				<div class="widget-content">
-					<%= form_for verify_requests_path, method: :get do %>
+					<%= form_for confirm_substitutions_path, method: :get do %>
 						<div class="search">
 							<div class="field">
 								<%= select_tag :search_by, options_for_select(
@@ -31,10 +31,10 @@
 							</tr>
 						</thead>
 				        <tbody>
-							<%= render partial: 'verify_requests', collection: @verify_requests,  as: :verify_request %>
+							<%= render partial: 'confirm_substitute', collection: @confirm_substitutes,  as: :confirm_substitute %>
 				        </tbody>
 			        </table>
-			        <%= paginate @verify_requests %>
+			        <%= paginate @confirm_substitutes %>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->

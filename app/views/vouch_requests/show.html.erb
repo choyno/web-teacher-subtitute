@@ -6,37 +6,48 @@
 		<div class="grid-24">
 			
 			<%= form_for @vouch_request, url: vouch_request_path(@vouch_request), :method => :put do |f| %>
-
-				<%= render :partial => "show_vouch_request" %>
-				
-				<br /><br /><br />
+				<table class="table table-bordered table-striped data-table">
+						<thead>
+							<tr>
+								<th>Requested Teacher</th>
+								<th>Substitute Teacher</th>
+								<th>Date Requested</th>
+								<th>Subject Code</th>
+								<th>Room #</th>
+								<th>Section</th>
+								<th>Type</th>
+								<th>Start Time</th>
+								<th>End Time</th>
+								<th>Schedule</th>
+								<!-- <th>Options</th> -->
+							</tr>
+						</thead>
+				        <tbody>
+							<%= render partial: 'show_vouch_request', collection: @show_vouch_requests,  as: :vouch_request %>
+				        </tbody>
+				</table>
 				<div class="form-actions" id="final-confirmation-btn">
 					<div class="pull-right">
-					 
-						 <% if current_user.user_type == 'Admin'  %> 
-
+						<!--  <% if current_user.user_type == 'Admin'  %> 
 						 		<%= f.submit 'Vouch', class: 'btn btn-danger', 
 													data: { confirm: 'Are you sure you want to Cancel Vouch Request?' } %>
-						 		
 					 			<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
 													data: { confirm: 'Are you sure you want to Approved?' } %>
 													&nbsp;&nbsp;&nbsp;
-								
-													
 					      <% elsif current_user.user_type == 'Head' %>
 					         	 <%= f.submit 'Confirm', class: 'btn btn-danger', 
 													data: { confirm: 'Did you check this request already?' } %>
-					      <% elsif  current_user.user_type == 'Checker' %>
-					      		<%= f.submit 'Cancel', class: 'btn btn-danger', 
+					      <% elsif  current_user.user_type == 'Checker' %> -->
+					      			
+					   <!--    <% end %> -->
+					   <%= link_to verify_request_path do %>
+							<button class="btn btn-primary btn-blue">Back
+							</button>
+						<% end %>
+					   	<%= f.submit 'Cancel', class: 'btn btn-danger', 
 													data: { confirm: 'Are you sure you want to Cancel Vouch Request?' } %>
-													
-					      <% end %>
-
-
-
 					</div>
 				</div>
-				
 			<% end %>
 		</div>
 	</div> <!-- .grid -->			

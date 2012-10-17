@@ -30,7 +30,7 @@
                                    assigned_by_user_id: current_user.id
                                 })
                                     
-    @substitute.status = 'Substitute'
+    @substitute.status = 'Pending Substitute'
     
     if @substitute.save
     
