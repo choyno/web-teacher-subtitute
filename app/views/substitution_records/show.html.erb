@@ -1,0 +1,47 @@
+<div id="content">			
+	<div id="contentHeader">
+		<h1>Substitute Information</h1>
+	</div> <!-- #contentHeader -->	
+	<div class="container">
+		<div class="grid-24">
+			
+			<div class="well">
+				<h1><%= @substitution_record.teacher.fullname %></h1>
+				<h1><%= @substitution_record.request_full_date %></h1>
+			</div>
+
+			<%= form_for @substitution_record, url: substitution_record_path(@substitution_record), :method => :put do |f| %>
+				<table class="table table-bordered table-striped data-table">
+						<thead>
+							<tr>
+								<th>Substitute Teacher</th>
+								<th>Date Requested</th>
+								<th>Subject Code</th>
+								<th>Room #</th>
+								<th>Section</th>
+								<th>Type</th>
+								<th>Start Time</th>
+								<th>End Time</th>
+								<th>Schedule</th>
+								<!-- <th>Options</th> -->
+							</tr>
+						</thead>
+		        <tbody>
+							<%= render partial: 'show_substitution_record', collection: @substitution_record_details,  as: :detail %>
+		        </tbody>
+				</table>
+				
+				<div class="form-actions" id="final-confirmation-btn">
+					<div class="pull-right">
+						<%= link_to substitution_records_path do %>
+										<button class="btn btn-primary btn-blue">Back
+										</button>
+									<% end %> 
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div> <!-- .grid -->			
+</div>
+			
+			

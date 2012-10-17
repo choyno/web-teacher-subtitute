@@ -1,12 +1,17 @@
 <tr>
 	<th><%= substitution_record.created_at.strftime('%D') %></th>
-	<th><%= substitution_record.teacher_subject.teacher.fullname %></th>
-	<th><%= substitution_record.substitute_teacher.fullname %></th>
-	<th><%= substitution_record.teacher_subject.subject.code %></th>
-	<th><%= substitution_record.teacher_subject.room.name %></th>
-	<th><%= substitution_record.teacher_subject.section.name %></th>
-	<th><%= substitution_record.teacher_subject.subject_type.name %></th>
-	<th><%= substitution_record.teacher_subject.time_start.strftime('%l: %m %p') %></th>
-	<th><%= substitution_record.teacher_subject.time_end.strftime('%l: %m %p') %></th>
-	<th><%= substitution_record.teacher_subject.day_code.name %></th>
+	<th><%= substitution_record.teacher.fullname %></th>
+	<th><%= substitution_record.reason.name %></th>
+	<th>
+		<% if  substitution_record.planned == false %>
+			Plan
+		<% elsif %>
+			Unplan
+		<% end %>
+	</th>
+	<th>
+		<%= link_to 'Show', substitution_record_path(substitution_record), method: :get , 
+												:class => "btn btn-primary btn-blue" %>
+	 
+	</th>
 </tr>	

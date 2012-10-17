@@ -50,7 +50,7 @@ class Substitute < ActiveRecord::Base
 
 
   def updated_and_generate_for_report
-    # loop to date from and date to
+    # loop to date from and date to_a
     
       array_date = (self.request_at_from..self.request_at_to).to_a
       array_date.each do |request_date|

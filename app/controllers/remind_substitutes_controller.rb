@@ -7,5 +7,6 @@ class RemindSubstitutesController < ApplicationController
 
 	def show
 		@remind_substitute = Substitute.find(params[:id])	
+		
 	end
 end
