@@ -12,10 +12,8 @@
  *= require token-input-facebook
  *= require chosen
  *= require bootstrap.min
- *= require style
  *= require token-input-facebook
  *= require print-preview.css
- *= require_tree .
 */
 
 
@@ -775,20 +773,20 @@ body#landingBody{
 
 .container-fluid .navbar-search .search-query:focus, .container-fluid .navbar-search .search-query.focused {
    padding-left: 0;
-    background-color:#FFFFFF;
-    text-shadow:none;
-    color:#333;
+    background-color: #FFFFFF;
+    text-shadow: none;
+    color: #333;
 }
 
-.search-query:focus + .icon-search {
-    background-image: url("../images/glyphicons-halflings.png");
+.search-query:focus +.icon-search{
+    background-image: url('../images/glyphicons-halflings.png');
 }
 
 .container-fluid .navbar .nav i{
-	margin-top:1px;
+	margin-top: 1px;
 }
 .container-fluid .navbar .nav:last-child i{
-	margin-top:2px;
+	margin-top: 2px;
 }
 
 .badge-nav{
@@ -1107,10 +1105,9 @@ ul.horizontal li{
     height:14px;
     width:14px;
 }
+
+
 .mask{
-    -webkit-mask-image:url('../images/glyphicons-halflings.png');
-    -webkit-mask-position:0 0;
-    -webkit-mask-repeat:no-repeat;
 }
 
 
