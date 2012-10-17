@@ -5,11 +5,16 @@
 	<div class="container">
 		<div class="grid-24">
 			
+			<div class="well">
+				<h1><%= @vouch_request.teacher.fullname %></h1>
+				<h1><%= @vouch_request.request_full_date %></h1>
+			</div>
+			
+			
 			<%= form_for @vouch_request, url: vouch_request_path(@vouch_request), :method => :put do |f| %>
 				<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
-								<th>Requested Teacher</th>
 								<th>Substitute Teacher</th>
 								<th>Date Requested</th>
 								<th>Subject Code</th>
@@ -22,10 +27,11 @@
 								<!-- <th>Options</th> -->
 							</tr>
 						</thead>
-				        <tbody>
-							<%= render partial: 'show_vouch_request', collection: @show_vouch_requests,  as: :vouch_request %>
-				        </tbody>
+		        <tbody>
+							<%= render partial: 'request_detail', collection: @vouch_request_details,  as: :detail %>
+		        </tbody>
 				</table>
+				
 				<div class="form-actions" id="final-confirmation-btn">
 					<div class="pull-right">
 						<% if current_user.user_type == 'Admin'  %> 
