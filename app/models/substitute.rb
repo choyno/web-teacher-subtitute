@@ -48,72 +48,34 @@ class Substitute < ActiveRecord::Base
     return substitution_records_scope
   end
 
-  
 
-  def self.generate_absent_teacher_report(start_date, end_date)
+  def updated_and_generate_for_report
+    # loop to date from and date to
     
-    results = []
-
-    teachers = self.select('DISTINCT teacher_id').status_is_approved
-
-    Teacher.where("id IN (?)", teachers.pluck(:teacher_id)).find_each do |teacher|
-      approved_substitutes = []
+    array_date = (self.request_at_from..self.request_at_to).to_a
+    
+    array_date.each do |request_date|
       
-      teacher.absents.status_is_approved.find_each do |absent|
-        
-        absent.details.each do |detail|
-        
-          approved_substitutes << { created_at: absent.created_at.strftime('%m-%d-%Y'),
-                                    request_at: absent.request_full_date,
-                                    substituted_by: detail.substitute_teacher.fullname,
-                                    subject_time: detail.teacher_subject.start_end_time_daycode,
-                                    total_hours: detail.teacher_subject.total_hours / 60 / 60
-                                  }
-                                  
-        end
-        
-      end
+      day = DayCode.day_name_shortcut(request_date.strftime('%a'))
       
-      if approved_substitutes.present?
-
-        results << { name: teacher.fullname, 
-                     approved_substitutes: approved_substitutes,
-                     total_hours: approved_substitutes.map{ |p| p[:total_hours] }.sum 
-                   } 
-
+      # get all teacher subject base on daycode
+      teacher_scheds = TeacherSchedule.select('DISTINCT teacher_subject_id')
+                                      .where( 'day = ? AND teacher_subject_id IN (?)', day, self.details.pluck(:teacher_subject_id) )
+      
+      self.details.where("teacher_subject_id IN (?)", teacher_scheds.pluck(:teacher_subject_id)).each do |detail|
+        
+        SubstituteReport.create({ substitute_id: self.id,
+                                  teacher_id: self.teacher_id,
+                                  teacher_substitute_id: detail.substitute_teacher_id,
+                                  teacher_subject_id: detail.teacher_subject_id,
+                                  total_hours: detail.teacher_subject.total_hours / 60 / 60,
+                                  date_applied: request_date
+                              })
+        
       end
       
     end
     
-    return results
-  end
-
-
-  def self.generate_substitute_teacher_report(start_date, end_date)
-    
-    results = []
-    
-    substitutes_teacher = Substitute.select('substitute_teacher_id')
-                                    .status_is_approved.group(:substitute_teacher_id)
-    
-    Teacher.where("id IN (?)", substitutes_teacher.pluck(:substitute_teacher_id) ).find_each do |teacher|
-      approved_substitutes = []
-      
-      self.where('substitute_teacher_id = ?', teacher.id )
-          .status_is_approved
-          .includes(:teacher_subject).find_each do |substitute|
-
-        approved_substitutes << { created_at:substitute.created_at.strftime('%m-%d-%Y'),
-                                  subject_time: substitute.teacher_subject.start_time_and_time_end,
-                                  total_hours: substitute.teacher_subject.total_hours / 60 / 60
-                                }
-      end
-        results << { name: teacher.fullname, 
-                     approved_substitutes: approved_substitutes,
-                     total_hours: approved_substitutes.map{ |p| p[:total_hours] }.sum
-                    }
-      end
-    return results
   end
   
 end

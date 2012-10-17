@@ -15,6 +15,8 @@ class Teacher < ActiveRecord::Base
   has_many :substitutes, through: :teacher_subjects
   
   has_many :absents, class_name: :Substitute, foreign_key: :teacher_id
+  has_many :absent_reports, class_name: :SubstituteReport, foreign_key: :teacher_id
+  has_many :substitute_reports, class_name: :SubstituteReport, foreign_key: :teacher_substitute_id
 
   #has_many :availabilities, class_name: :TeacherAvailability
   
