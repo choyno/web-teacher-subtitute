@@ -6,6 +6,12 @@
 		<div class="grid-24">
 			<div class="widget widget-table">
 				<div class="widget-header">
+					<% if notice %>
+						<div class="alert alert-success">
+									<a class="close" href="javascript:;">×</a>
+									<%= notice %>
+						</div>
+					<% end %>
 					<h3 class="icon chart">Substitute Information</h3>		
 				</div>
 				<div class="widget-content">

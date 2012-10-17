@@ -2,6 +2,8 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
 
 
 
+  get "confirm_substitutions/index"
+
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   
@@ -15,6 +17,7 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
     get :load_sub_teacher_subjects, on: :collection
     get :load_available_teachers, on: :collection
   end
+  resources :confirm_substitutions
   resources :generate_reports
   resources :remind_substitutes
   resources :vouch_requests

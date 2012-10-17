@@ -28,24 +28,32 @@
 				</table>
 				<div class="form-actions" id="final-confirmation-btn">
 					<div class="pull-right">
-						<!--  <% if current_user.user_type == 'Admin'  %> 
+						<% if current_user.user_type == 'Admin'  %> 
+					 			<%= link_to vouch_requests_path do %>
+									<button class="btn btn-primary btn-blue">Back
+									</button>
+								<% end %>
 						 		<%= f.submit 'Vouch', class: 'btn btn-danger', 
 													data: { confirm: 'Are you sure you want to Cancel Vouch Request?' } %>
 					 			<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
 													data: { confirm: 'Are you sure you want to Approved?' } %>
 													&nbsp;&nbsp;&nbsp;
 					      <% elsif current_user.user_type == 'Head' %>
+				         	 	<%= link_to vouch_requests_path do %>
+									<button class="btn btn-primary btn-blue">Back
+									</button>
+								<% end %>
 					         	 <%= f.submit 'Confirm', class: 'btn btn-danger', 
 													data: { confirm: 'Did you check this request already?' } %>
-					      <% elsif  current_user.user_type == 'Checker' %> -->
-					      			
-					   <!--    <% end %> -->
-					   <%= link_to verify_request_path do %>
-							<button class="btn btn-primary btn-blue">Back
-							</button>
-						<% end %>
-					   	<%= f.submit 'Cancel', class: 'btn btn-danger', 
-													data: { confirm: 'Are you sure you want to Cancel Vouch Request?' } %>
+					      <% elsif  current_user.user_type == 'Checker' %> 
+					      			<%= link_to vouch_requests_path do %>
+										<button class="btn btn-primary btn-blue">Back
+										</button>
+									<% end %>
+								   	<%= f.submit 'Cancel', class: 'btn btn-danger', 
+																data: { confirm: 'Are you sure you want to Cancel Vouch Request?' } %>
+					    <% end %> 
+					   
 					</div>
 				</div>
 			<% end %>

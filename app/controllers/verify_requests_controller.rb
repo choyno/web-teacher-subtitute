@@ -25,7 +25,9 @@ class VerifyRequestsController < ApplicationController
 		
 		@substitute.update_column(:status, verifyer_status)
 		
-		redirect_to verify_requests_path, notice: "verify Request was successfully updated!"
+		@substitute.updated_and_generate_for_report if verifyer_status == 'Approved'
+
+		redirect_to verify_requests_path, notice: " Request was successfully updated!"
 			
 	end
 
