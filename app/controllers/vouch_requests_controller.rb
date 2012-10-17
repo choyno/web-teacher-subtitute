@@ -22,6 +22,6 @@ class VouchRequestsController < ApplicationController
 		voucher_status = if params[:commit] == 'Confirm'; 'Approved'
 	                   else; 'Substitute'; end
 		@substitute.update_column(:status, voucher_status)
-		redirect_to vouch_requests_path, notice: "Vouch Request was successfully updated!"
+		redirect_to vouch_requests_path, notice: "Request was successfully updated!"
 	end 
 end

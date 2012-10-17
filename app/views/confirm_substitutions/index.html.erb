@@ -5,6 +5,12 @@
 	<div class="container">
 		<div class="grid-24">
 			<div class="widget widget-table">
+				<% if notice %>
+				<div class="alert alert-success">
+							<a class="close" href="javascript:;">×</a>
+							<%= notice %>
+				</div>
+				<% end %>
 				<div class="widget-header">
 					<h3 class="icon chart">Substitute Information</h3>		
 				</div>
