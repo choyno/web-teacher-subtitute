@@ -2,7 +2,7 @@
 	<div class="widget-header">
 	<h3 class="icon chart">Substitution Information</h3>
 	</div>
-	
+
 	<div class="alert alert-error" style="display: none"></div>
 	
 	<%= form_tag substitutes_path, id: 'create-substitute-form', method: :post do %>
@@ -10,7 +10,7 @@
 		<div class="widget-content">
 			<div class="grid-24">
 				
-				<div class="form" style="width:400px; float:left;">
+				<div class="form" style="width:400px; ">
 					<div class="field">
 						<label>Request Type :</label>
 						<%= select_tag :planned, options_for_select([["Unplan", false], ["Plan", true]]) %>					
@@ -21,7 +21,7 @@
 
 					<div class="field">
 						<label>Request Teacher :</label>
-						<%= text_field_tag :absent_teacher %>
+						<%= text_field_tag :absent_teacher, :style => "width:100px;" %>
 					</div>
 
 				</div>

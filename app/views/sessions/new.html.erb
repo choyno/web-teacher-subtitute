@@ -1,15 +1,6 @@
 <div id="login_panel">
 	<%= form_tag sessions_path do %>
 		
-		<% if flash[:alert] %>
-			<div class="notify notify-error">
-				<a class="close" href="javascript:;">×</a>
-					<% flash.each do |name, msg| %>
-					  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-					<% end %>
-			</div>
-		<% end %>
-		
 		<div class="login_fields field-group">
 			<div class="field">
 				<%= text_field_tag :username, params[:username], placeholder: 'username'  %>		
@@ -22,8 +13,23 @@
 		</div> <!-- .login_fields -->
 	
 		<div class="login_actions">
+
 			<%= submit_tag 'Login', class: 'btn btn-primary' %>
 			<br style="clear:both"/>	
 		</div>
 	<% end %>
+	<% if flash[:alert] %>
+				<div class="alert alert-error" style="
+											position:absolute;
+											left: 798px;
+										    top: 378px;
+										    width: 218px;">
+					<a class="close" href="javascript:;"></a>
+						<% flash.each do |name, msg| %>
+						  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+						<% end %>
+				</div>
+	<% end %>
+
+	
 </div> <!-- #login_panel -->

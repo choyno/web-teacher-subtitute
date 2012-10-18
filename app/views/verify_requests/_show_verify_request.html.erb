@@ -1,25 +1,12 @@
-<tr >
-	<td><%= verify_request[:name] %></td>
-	<td><%= @verify_request.inspect %></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr >
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 
+<tr >
+	<td><%= verify_request.substitute_teacher.fullname %></td>
+	<td><%= verify_request.substitute.request_full_date %></td>
+	<td><%= verify_request.teacher_subject.subject.code %></td>
+	<td><%= verify_request.teacher_subject.room.name %></td>
+	<td><%= verify_request.teacher_subject.section.name %></td>
+	<td><%= verify_request.teacher_subject.subject_type.name %></td>
+	<td><%= verify_request.teacher_subject.time_start.strftime('%l: %m %p') %></td>
+	<td><%= verify_request.teacher_subject.time_end.strftime('%l: %m %p') %></td>
+	<td><%= verify_request.teacher_subject.day_code.name%></td>
+</tr>

@@ -1,25 +1,12 @@
+	
 <tr >
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td><%= confirm_substitution.substitute_teacher.fullname %></td>
+	<td><%= confirm_substitution.substitute.request_full_date %></td>
+	<td><%= confirm_substitution.teacher_subject.subject.code %></td>
+	<td><%= confirm_substitution.teacher_subject.room.name %></td>
+	<td><%= confirm_substitution.teacher_subject.section.name %></td>
+	<td><%= confirm_substitution.teacher_subject.subject_type.name %></td>
+	<td><%= confirm_substitution.teacher_subject.time_start.strftime('%l: %m %p') %></td>
+	<td><%= confirm_substitution.teacher_subject.time_end.strftime('%l: %m %p') %></td>
+	<td><%= confirm_substitution.teacher_subject.day_code.name%></td>
 </tr>
-<tr >
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-

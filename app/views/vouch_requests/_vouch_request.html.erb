@@ -1,11 +1,16 @@
 <tr>
-	<th><%= vouch_request.request_full_date %></th>
+	<th><% if vouch_request.request_at_from <=  Date.current.yesterday and
+					vouch_request.request_at_to <=  Date.current.yesterday %>
+					<%= vouch_request.request_at_from.strftime('%m-%d-%Y') %>
+				<% elsif %>
+						<%= vouch_request.request_full_date %>
+				<% end %></th>
 	<th><%= vouch_request.teacher.fullname %></th>
 	<th><%= vouch_request.reason.name %></th>
 	<th><% if vouch_request.planned == false%>
-		Plan
+		Unplan
 		<% elsif%>
-		Unplanned
+		Plan
 		<% end %>
 	</th>
 	<th>

@@ -4,12 +4,20 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-			
+				<div class="well">
+				<h1><%= @confirm_substitute.teacher.fullname %></h1>
+				
+				<% if @confirm_substitute.request_at_from <=  Date.current.yesterday and
+					@confirm_substitute.request_at_to <=  Date.current.yesterday %>
+					<h1><%= @confirm_substitute.request_at_from.strftime('%m-%d-%Y') %></h1>
+				<% elsif %>
+						<h1><%= @confirm_substitute.request_full_date %></h1>
+				<% end %>
+			</div>
 			<%= form_for @show_confirm_substitute, url: confirm_substitution_path(@confirm_substitute ), :method => :put do |f| %>
 				<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
-								<th>Requested Teacher</th>
 								<th>Substitute Teacher</th>
 								<th>Date Requested</th>
 								<th>Subject Code</th>
@@ -37,15 +45,18 @@
 							</button>
 						<% end %>
 					<div class="pull-right">
-						<%= f.submit 'Void', class: 'btn btn-primary btn-blue', 
-											data: { confirm: 'Are you sure you want to Vouch this Request?' } %>
+						<% if @confirm_substitute.request_at_from <=  Date.current %>
+							<%= f.submit 'Void', class: 'btn btn-primary btn-blue', 
+												data: { confirm: 'Are you sure you want to Vouch this Request?' } %>
+													&nbsp;&nbsp;&nbsp;
+							
+							<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
+												data: { confirm: 'Are you sure you want to Approved?' } %>
 												&nbsp;&nbsp;&nbsp;
-						
-						<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
-											data: { confirm: 'Are you sure you want to Approved?' } %>
-											&nbsp;&nbsp;&nbsp;
-						
+						<% end %>
 					</div>
+					
+
 				</div>
 				
 			<% end %>

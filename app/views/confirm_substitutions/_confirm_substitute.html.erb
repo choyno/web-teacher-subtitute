@@ -1,11 +1,16 @@
 <tr>
-	<th><%= confirm_substitute.request_full_date %></th>
+	<th><% if confirm_substitute.request_at_from <=  Date.current.yesterday and
+			 confirm_substitute.request_at_to <=  Date.current.yesterday %>
+			<%= confirm_substitute.request_at_from.strftime('%m-%d-%Y') %>
+		<% elsif %>
+				<%= confirm_substitute.request_full_date %>
+		<% end %></th>
 	<th><%= confirm_substitute.teacher.fullname %></th>
 	<th><%= confirm_substitute.reason.name %></th>
 	<th><% if confirm_substitute.planned == false%>
-		Plan
+		Unplan
 		<% elsif%>
-		Unplanned
+		plan
 		<% end %>
 	</th>
 	<th>
