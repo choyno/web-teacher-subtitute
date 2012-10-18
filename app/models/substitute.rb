@@ -41,10 +41,7 @@ class Substitute < ActiveRecord::Base
   def request_full_date
     "#{self.request_at_from.strftime('%m-%d-%Y')} - #{self.request_at_to.strftime('%m-%d-%Y')}"
   end
-<<<<<<< HEAD
   
-=======
->>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
   def self.search(search_by, search)
     substitution_records_scope = self.scoped({})
     case search_by
