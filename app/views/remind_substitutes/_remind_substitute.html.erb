@@ -1,15 +1,18 @@
 <tr>
-	<th><%= remind_substitute.teacher_subject.created_at.strftime('%D') if remind_substitute.teacher_subject %></th>
-	<th><%= remind_substitute.teacher_subject.teacher.fullname %></th>
-	<th><%= remind_substitute.substitute_teacher.fullname %></th>
-	<th><%= remind_substitute.teacher_subject.subject.code %></th>
-	<th><%= remind_substitute.teacher_subject.room.name %></th>
-	<th><%= remind_substitute.teacher_subject.section.name %></th>
-	<th><%= remind_substitute.teacher_subject.subject_type.name %></th>
-	<th><%= remind_substitute.teacher_subject.time_start.strftime('%l: %m %p') %></th>
-	<th><%= remind_substitute.teacher_subject.time_end.strftime('%l: %m %p') %></th>
-	<th><%= remind_substitute.teacher_subject.day_code.name %></th>
+	<th><%= remind_substitute.request_full_date %></th>
+	<th><%= remind_substitute.teacher.fullname %></th>
+	<th><%= remind_substitute.reason.name %></th>
+	<th><% if remind_substitute.planned == false%>
+		Unplan
+		<% elsif%>
+		Plan
+		<% end %>
+	</th>
 	<th>
+		<% if remind_substitute.request_at_to <= Date.current %>
+			Ready to Confirm
+		<% end %>
 		<%= link_to 'Show', remind_substitute_path(remind_substitute), method: :get , :class => "btn btn-primary btn-blue" %>
+	 
 	</th>
 </tr>	

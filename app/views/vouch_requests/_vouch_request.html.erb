@@ -3,9 +3,9 @@
 	<th><%= vouch_request.teacher.fullname %></th>
 	<th><%= vouch_request.reason.name %></th>
 	<th><% if vouch_request.planned == false%>
-		Plan
+		Unplan
 		<% elsif%>
-		Unplanned
+		Plan
 		<% end %>
 	</th>
 	<th>

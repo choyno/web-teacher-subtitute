@@ -9,8 +9,7 @@
 				<h1><%= @vouch_request.teacher.fullname %></h1>
 				<h1><%= @vouch_request.request_full_date %></h1>
 			</div>
-			
-			
+
 			<%= form_for @vouch_request, url: vouch_request_path(@vouch_request), :method => :put do |f| %>
 				<table class="table table-bordered table-striped data-table">
 						<thead>
@@ -39,8 +38,10 @@
 									<button class="btn btn-primary btn-blue">Back
 									</button>
 								<% end %>
-						 		<%= f.submit 'Vouch', class: 'btn btn-danger', 
+						 		<%= f.submit 'Vouch', class: 'btn btn-primary btn-blue', 
 													data: { confirm: 'Are you sure you want to Cancel Vouch Request?' } %>
+								<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
+									data: { confirm: 'Did you check this request already?' } %>
 					 			<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
 													data: { confirm: 'Are you sure you want to Approved?' } %>
 													&nbsp;&nbsp;&nbsp;

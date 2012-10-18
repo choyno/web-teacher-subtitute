@@ -5,7 +5,7 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-			
+			<% @subject.inspect %>
 			<%= form_for @substitute, :method => :put do |f| %>
 
 				<%= render :partial => "show_substitute" %>

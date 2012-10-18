@@ -1,91 +1,12 @@
-<div class="form uniformForm">					
-	<div class="widget">
-		<div class="widget-content">
-			
-			<div class="widget-sheader">
-				<div style="float:left">	
-					<h5>Date Request By :&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.teacher_subject.created_at.strftime('%D') %></h4>
-				</div>
-				<br style="clear:both;"/>
-				<div style="float:left">	
-					<h5>Substitute By :&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.substitute_teacher.fullname %></h4>
-				</div>
 
-				<br style="clear:both;"/>
-			<div>
-				<div style="float:left">
-					<h5>Absent Teacher:&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.teacher_subject.teacher.fullname %><h4>
-				</div>
-			</div>
-			<br style="clear:both;"/>
-			<div>
-				<div style="float:left">
-					<h5>Subject Code:&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.teacher_subject.subject.code %><h4>
-				</div>
-			</div>
-			<br style="clear:both;"/>
-			<div>
-				<div style="float:left">
-					<h5>Room Number:&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.teacher_subject.room.name %><h4>
-				</div>
-			</div>
-
-			<br style="clear:both;"/>
-			<div>
-				<div style="float:left">
-					<h5>Section:&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.teacher_subject.section.name %><h4>
-				</div>
-			</div>
-
-			<br style="clear:both;"/>
-			<div>
-				<div style="float:left">
-					<h5>Time Start :&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.teacher_subject.time_start.strftime('%l: %m %p') %><h4>
-				</div>
-			</div>
-
-			<br style="clear:both;"/>
-			<div>
-				<div style="float:left">
-					<h5>Time End:&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.teacher_subject.time_end.strftime('%l: %m %p') %><h4>
-
-				</div>
-			</div>
-
-			<br style="clear:both;"/>
-			<div>
-				<div style="float:left">
-					<h5>Schdule:&nbsp&nbsp</h5>
-				</div>
-				<div style="float:left">
-					<h4><%= @remind_substitute.teacher_subject.day_code.name %><h4>
-						
-				</div>
-			</div>
-		</div> <!-- .widget-content -->
-	</div> <!-- .widget -->
-</div>
+<tr >
+	<td><%= detail.substitute_teacher.fullname %></td>
+	<td><%= detail.substitute.request_full_date %></td>
+	<td><%= detail.teacher_subject.subject.code %></td>
+	<td><%= detail.teacher_subject.room.name %></td>
+	<td><%= detail.teacher_subject.section.name %></td>
+	<td><%= detail.teacher_subject.subject_type.name %></td>
+	<td><%= detail.teacher_subject.time_start.strftime('%l: %m %p') %></td>
+	<td><%= detail.teacher_subject.time_end.strftime('%l: %m %p') %></td>
+	<td><%= detail.teacher_subject.day_code.name%></td>
+</tr>

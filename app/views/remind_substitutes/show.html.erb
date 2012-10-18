@@ -1,26 +1,56 @@
-<div id="content">			 
+
+<div id="content">			
 	<div id="contentHeader">
-		<h1>Substitute Information</h1>
+		<h1>Remind Substitutes</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
 			
-			<%= form_for @remind_substitute, url: remind_substitutes_path(@remind_substitute), :method => :put do |f| %>
+			<div class="well">
+				<h1><%= @remind_substitute.teacher.fullname %></h1>
+				<h1><%= @remind_substitute.request_full_date %></h1>
+			</div>
 
-				<%= render :partial => "show_remind_substitute" %>
+			<%= form_for @remind_substitute, url: remind_substitute_path(@remind_substitute), :method => :put do |f| %>
+				<table class="table table-bordered table-striped data-table">
+						<thead>
+							<tr>
+								<th>Substitute Teacher</th>
+								<th>Date Requested</th>
+								<th>Subject Code</th>
+								<th>Room #</th>
+								<th>Section</th>
+								<th>Type</th>
+								<th>Start Time</th>
+								<th>End Time</th>
+								<th>Schedule</th>
+								<!-- <th>Options</th> -->
+							</tr>
+						</thead>
+		        <tbody>
+							<%= render partial: 'show_remind_substitute', collection: @remind_substitute_details,  as: :detail %>
+		        </tbody>
+				</table>
 				
-				<br /><br /><br />
 				<div class="form-actions" id="final-confirmation-btn">
 					<div class="pull-right">
-
-						<%= link_to 'Back', remind_substitutes_path, class: 'btn btn-primary btn-blue'  %>
-													&nbsp;&nbsp;&nbsp; 
-						<%= submit_tag 'Send Message', class: 'btn btn-primary btn-blue', 
-											data: { confirm: 'Remind Request!' } %>
+					<%= link_to remind_substitutes_path do %>
+							<button class="btn btn-primary btn-blue">Back
+							</button>
+						<% end %>
+					<div class="pull-right">
+						
+						<%= f.submit 'Void', class: 'btn btn-primary btn-blue', 
+											data: { confirm: 'Are you sure you want to Vouch this Request?' } %>
+												&nbsp;&nbsp;&nbsp;
+						<% if @remind_substitute.request_at_to == Date.current %>
+						
+						<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
+											data: { confirm: 'Are you sure you want to Approved?' } %>
 											&nbsp;&nbsp;&nbsp;
+					  <% end %>
 					</div>
 				</div>
-				
 			<% end %>
 		</div>
 	</div> <!-- .grid -->			

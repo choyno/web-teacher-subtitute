@@ -3,13 +3,16 @@
 		<h1>Substitute Information</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
-		<div class="grid-24">
-			
+
+		<div class="grid-24">	
+			<div class="well">
+				<h1><%= @verify_request.teacher.fullname %></h1>
+				<h1><%= @verify_request.request_full_date %></h1>
+			</div>
 			<%= form_for @verify_request, url: verify_request_path(@verify_request), :method => :put do |f| %>
 				<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
-								<th>Requested Teacher</th>
 								<th>Substitute Teacher</th>
 								<th>Date Requested</th>
 								<th>Subject Code</th>
@@ -24,7 +27,7 @@
 						</thead>
 				        <tbody>
 						
-							<%= render partial: 'show_verify_request', collection: @show_verify_requests, as: :verify_request %>
+							<%= render partial: 'show_verify_request', collection: @show_verify_request, as: :verify_request %>
 							
 				        </tbody>
 				</table>
