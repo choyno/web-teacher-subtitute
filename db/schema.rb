@@ -62,6 +62,32 @@ ActiveRecord::Schema.define(:version => 20121016184446) do
 
   create_table "substitute_details", :force => true do |t|
     t.integer  "substitute_teacher_id"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    t.integer  "reasons_id"
+    t.integer  "teacher_subject_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.integer  "substitute_id"
+  end
+
+  create_table "substitute_reports", :force => true do |t|
+    t.integer "substitute_id"
+    t.integer "teacher_id"
+    t.integer "teacher_substitute_id"
+    t.integer "teacher_subject_id"
+    t.float   "total_hours"
+    t.date    "date_applied"
+  end
+
+  create_table "substitutes", :force => true do |t|
+    t.integer  "substitute_teacher_id"
+    t.integer  "reason_id"
+    t.text     "notes"
+>>>>>>> 99dc44fbd6b68298274b62edfc8661cabc96399d
+>>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
     t.integer  "teacher_subject_id"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
@@ -85,6 +111,10 @@ ActiveRecord::Schema.define(:version => 20121016184446) do
     t.datetime "approved_at"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
     t.date     "start_requested_at"
     t.date     "end_requested_at"
     t.integer  "substitute_details_id"
@@ -93,6 +123,14 @@ ActiveRecord::Schema.define(:version => 20121016184446) do
     t.integer  "teacher_id"
     t.integer  "reason_id"
     t.integer  "assigned_by_user_id"
+<<<<<<< HEAD
+=======
+=======
+    t.date     "request_at_from"
+    t.date     "request_at_to"
+    t.integer  "teacher_id"
+>>>>>>> 99dc44fbd6b68298274b62edfc8661cabc96399d
+>>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
   end
 
   create_table "teacher_availabilities", :force => true do |t|
@@ -137,7 +175,6 @@ ActiveRecord::Schema.define(:version => 20121016184446) do
   create_table "users", :force => true do |t|
     t.string   "full_name",     :limit => 120
     t.string   "username",      :limit => 120
-    t.string   "user_types",    :limit => 120
     t.string   "password_hash"
     t.string   "password_salt"
     t.integer  "department_id"

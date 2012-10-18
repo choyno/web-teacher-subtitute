@@ -41,7 +41,10 @@ class Substitute < ActiveRecord::Base
   def request_full_date
     "#{self.request_at_from.strftime('%m-%d-%Y')} - #{self.request_at_to.strftime('%m-%d-%Y')}"
   end
+<<<<<<< HEAD
   
+=======
+>>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
   def self.search(search_by, search)
     substitution_records_scope = self.scoped({})
     case search_by
@@ -51,6 +54,8 @@ class Substitute < ActiveRecord::Base
            substitution_records_scope = substitution_records_scope.search_by_substitute(search)
     when 'Subject Code'
              substitution_records_scope = substitution_records_scope.search_by_code(search)
+    when 'Request Teacher'
+            substitution_records_scope = substitution_records_scope.request_type_unplanned(search)
     end
 
     return substitution_records_scope

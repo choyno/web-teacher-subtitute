@@ -5,6 +5,7 @@
 	<div class="container">
 		<div class="grid-24">
 			<% if current_user.user_type == 'Head'%>
+<<<<<<< HEAD
 				
 					<% if @remind_counts != 0 %>
 						<div class="alert alert-error" style="font-size:30px;padding:24px;text-align:center;">	
@@ -26,6 +27,15 @@
 						 </div>
 				 	<% end %>
 				
+=======
+				<div class="alert alert-error" style="font-size:30px;padding:24px;text-align:center;">	
+				 	You have <%= @remind_counts %>  Plan Substitution Request for Tomorrow!!
+				 	<br style="clear:both;"/>
+				 	<br style="clear:both;"/>	
+				 	<%= link_to 'Click to View', remind_substitutes_path,:class => "btn btn-primary btn-blue", :style => "float:none;" %>
+				 	<br style="clear:both;"/>
+				</div>
+>>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
 			<% else %>
 			<h3>Asian Computer Institute (ACI)</h3>
 			<div>
