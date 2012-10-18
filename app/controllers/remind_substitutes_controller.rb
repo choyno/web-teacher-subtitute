@@ -8,7 +8,7 @@ class RemindSubstitutesController < ApplicationController
 
 	def show
 		@remind_substitute = Substitute.find(params[:id])	
-<<<<<<< HEAD
+
 		@remind_substitute_details = @remind_substitute.details
 		
 	end
@@ -24,8 +24,6 @@ class RemindSubstitutesController < ApplicationController
 		@remind_substitute.update_column(:status,need_to_verify)
 
 		redirect_to remind_substitutes_path, notice: "Request was successfully Updated"
-=======
-		
->>>>>>> 92eeaf10f415d061679b46b6a954a908505fdeb4
+
 	end
 end
