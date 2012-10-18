@@ -3,9 +3,9 @@
 	<th><%= confirm_substitute.teacher.fullname %></th>
 	<th><%= confirm_substitute.reason.name %></th>
 	<th><% if confirm_substitute.planned == false%>
-		Plan
+		Unplan
 		<% elsif%>
-		Unplanned
+		plan
 		<% end %>
 	</th>
 	<th>

@@ -3,9 +3,9 @@
 	<th><%= verify_request.teacher.fullname %></th>
 	<th><%= verify_request.reason.name %></th>
 	<th><% if verify_request.planned == false%>
-		Plan
+		Unplan
 		<% elsif%>
-		Unplanned
+		Plan
 		<% end %>
 	</th>
 	<th>

@@ -1754,3 +1754,196 @@ span.current
     margin-right: 10px;
     font-size: 20px;
 }
+
+/* Example tokeninput style #2: Facebook style */
+ul.token-input-list-facebook {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    width: 400px;
+    border: 1px solid #8496ba;
+    cursor: text;
+    font-size: 12px;
+    font-family: Verdana;
+    min-height: 1px;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    list-style-type: none;
+}
+
+ul.token-input-list-facebook li input {
+    border: 0;
+    width: 100px;
+    padding: 3px 8px;
+    background-color: white;
+    margin: 2px 0;
+    -webkit-appearance: caret;
+}
+
+li.token-input-token-facebook {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 15px;
+    margin: 3px;
+    padding: 1px 3px;
+    background-color: #eff2f7;
+    color: #000;
+    cursor: default;
+    border: 1px solid #ccd5e4;
+    font-size: 11px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float: left;
+    white-space: nowrap;
+}
+
+li.token-input-token-facebook p {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+li.token-input-token-facebook span {
+    color: #a6b3cf;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+li.token-input-selected-token-facebook {
+    background-color: #5670a6;
+    border: 1px solid #3b5998;
+    color: #fff;
+}
+
+li.token-input-input-token-facebook {
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+div.token-input-dropdown-facebook {
+    position: absolute;
+    width: 400px;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 11px;
+    font-family: Verdana;
+    z-index: 1;
+}
+
+div.token-input-dropdown-facebook p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #777;
+}
+
+div.token-input-dropdown-facebook ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.token-input-dropdown-facebook ul li {
+    background-color: #fff;
+    padding: 3px;
+    margin: 0;
+    list-style-type: none;
+}
+
+div.token-input-dropdown-facebook ul li.token-input-dropdown-item-facebook {
+    background-color: #fff;
+}
+
+div.token-input-dropdown-facebook ul li.token-input-dropdown-item2-facebook {
+    background-color: #fff;
+}
+
+div.token-input-dropdown-facebook ul li em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-facebook {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+
+
+#demos-list {padding: 0;}
+
+#flairs {text-align: center;}
+#flairs ul {list-style: none; padding: 0;}
+#flairs li {display: inline;}
+
+.demo {
+    vertical-align: top;
+    display: inline-block;
+    margin: 1em 1%;
+    width: 44%;
+    background-color: rgba(0, 0, 0, .1);
+    padding: 0 2%;
+    border-radius: 10px;
+}
+
+.demo.full-row {
+    width: 95%;
+}
+
+.demo ul, .demo ol {list-style-position: inside;}
+.demo .box {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
+.example {
+    color: #006400;
+}
+
+.important-note {
+    font-weight: bold;
+    color: #B22222;
+}
+
+.reference-to {
+    font-size: large;
+    font-weight: bold;
+}
+
+.code-box {clear:both;}
+.code {
+    padding: 5px;
+    color: #333;
+    background-color: white;
+    font: small monospace;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    background: #F8F7F6 url('images/ui-bg_fine-grain_10_f8f7f6_60x60.png') 50% 50% repeat;
+}
+
+/* begin: jQuery UI Datepicker moving pixels fix */
+table.ui-datepicker-calendar {border-collapse: separate;}
+.ui-datepicker-calendar td {border: 1px solid transparent;}
+/* end: jQuery UI Datepicker moving pixels fix */
+
+/* begin: jQuery UI Datepicker emphasis on selected dates */
+.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a {
+    background: #743620 none;
+    color: white;
+}
+/* end: jQuery UI Datepicker emphasis on selected dates */
+
+
+/* begin: jQuery UI Datepicker hide datepicker helper */
+#ui-datepicker-div {display:none;}
+/* end: jQuery UI Datepicker hide datepicker helper */

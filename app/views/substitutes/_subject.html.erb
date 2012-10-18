@@ -2,7 +2,20 @@
 																			
 	<td>
 		<h3><%= subject.subject.name %></h3>
-		<div><%= subject.subject.code %></div>
+		<div style="clear:both;text-align:center;">
+			<div  style="float:left;margin-left:8px; margin-left:30px;">
+				SUBJECT CODE: <b><%= subject.subject.code %></b> /
+			</div>
+			<div style="float:left;margin-left:8px;">
+				ROOM #: <b><%= subject.room.name %></b> /
+			</div>
+			<div style="float:left;margin-left:8px;">
+				SECTION:<b><%= subject.section.name %></b> /
+			</div>
+			<div style="float:left;margin-left:8px;">
+				TYPE:<b><%= subject.subject_type.name %></b>	
+			</div>
+		</div>
 	</td>
 	<td><%=  subject.start_end_time_daycode %></td>
 	<td>

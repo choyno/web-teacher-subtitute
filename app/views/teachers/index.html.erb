@@ -31,7 +31,7 @@
 								<div class="field">
 									<%= select_tag :search_by, options_for_select(["Firstname","Lastname", "Phone Number"], params[:search_by]) %>
 									<%= text_field_tag :search, params[:search] , size: 24, :Placeholder => "Search" %>
-									<%= submit_tag "Search", :name => nil %>
+									<%= submit_tag "Search", :name => nil, :class => "btn btn-primary btn-blue" %>
 								</div> 
 							</div>
 						<% end %>
