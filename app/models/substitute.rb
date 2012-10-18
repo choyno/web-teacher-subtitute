@@ -51,8 +51,6 @@ class Substitute < ActiveRecord::Base
            substitution_records_scope = substitution_records_scope.search_by_substitute(search)
     when 'Subject Code'
              substitution_records_scope = substitution_records_scope.search_by_code(search)
-    when 'Request Teacher'
-            substitution_records_scope = substitution_records_scope.request_type_unplanned(search)
     end
 
     return substitution_records_scope

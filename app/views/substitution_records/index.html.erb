@@ -6,7 +6,6 @@
 		<div class="grid-24">
 			<div class="widget widget-table">
 				<div class="widget-header">
-
 					<% if notice %>
 						<div class="alert alert-success">
 									<a class="close" href="javascript:;">×</a>
@@ -19,10 +18,10 @@
 					<%= form_for substitution_records_path, method: :get do %>
 						<div class="search">
 							<div class="field">
-								<%= select_tag :search_by, options_for_select(
-																["Requested Teacher", "Substitute Teacher", 
-																 "Subject Code"], params[:search_by]) %>
-								<%= text_field_tag :search, params[:search], size: 24, :Placeholder => "Search" %>
+								
+								<%= select_tag :request_type_by, options_for_select(
+																["Unplan","Plan"], params[:request_type_by]) %>
+								
 								<%= submit_tag "Search", :name => nil, :class => "btn btn-primary btn-blue" %>
 							</div>
 						</div>

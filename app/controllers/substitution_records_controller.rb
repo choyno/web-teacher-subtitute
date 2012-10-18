@@ -1,8 +1,13 @@
 class SubstitutionRecordsController < ApplicationController
 	
 	def index
-		@substitution_records =  Substitute.status_is_approved
-		                          .search(params[:search_by]).page(params[:page]).per(10)
+		
+
+		if params[:request_type_by] == 'Plan'
+			@substitution_records =  Substitute.status_is_approved.request_type_planned.page(params[:page]).per(10)
+		else
+			@substitution_records =  Substitute.status_is_approved.request_type_unplanned.page(params[:page]).per(10)
+		end      
 	end
 
 	def show
