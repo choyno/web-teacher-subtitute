@@ -1,4 +1,4 @@
-  class SubstitutesController < ApplicationController
+class SubstitutesController < ApplicationController
   
   def index
 
@@ -30,7 +30,11 @@
                                    assigned_by_user_id: current_user.id
                                 })
                                     
-    @substitute.status = 'Pending Substitute'
+    if params[:planned] == "false"
+            @substitute.status = 'Pending Substitute'
+    else
+            @substitute.status = 'Need to Confirm Substitute'
+    end
     
     if @substitute.save
     

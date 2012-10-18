@@ -1,12 +1,12 @@
+	
 <tr >
 	<td><%= detail.substitute_teacher.fullname %></td>
-	<td></td>
+	<td><%= detail.substitute.request_full_date %></td>
 	<td><%= detail.teacher_subject.subject.code %></td>
 	<td><%= detail.teacher_subject.room.name %></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td><%= detail.teacher_subject.section.name %></td>
+	<td><%= detail.teacher_subject.subject_type.name %></td>
+	<td><%= detail.teacher_subject.time_start.strftime('%l: %m %p') %></td>
+	<td><%= detail.teacher_subject.time_end.strftime('%l: %m %p') %></td>
+	<td><%= detail.teacher_subject.day_code.name%></td>
 </tr>

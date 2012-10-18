@@ -1,10 +1,17 @@
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Remind Substitute</h1>
+		<h1>Remind Substitutes</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
+				
 			<div class="widget widget-table">
+				<% if notice %>
+				<div class="alert alert-success">
+							<a class="close" href="javascript:;">×</a>
+							<%= notice %>
+				</div>
+				<% end %>
 				<div class="widget-header">
 					<h3 class="icon chart">Substitute Information</h3>		
 				</div>
@@ -12,32 +19,34 @@
 					<%= form_for remind_substitutes_path, method: :get do %>
 						<div class="search">
 							<div class="field">
+								<%= select_tag :search_by, options_for_select(
+<<<<<<< HEAD
+																["Requested Teacher", "Request Type"], params[:search_by]) %>
+=======
+																["Requested Teacher", "Substitute Teacher", 
+																 "Subject Code"], params[:search_by]) %>
+>>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
 								<%= text_field_tag :search, params[:search], size: 24, :Placeholder => "Search" %>
 								<%= submit_tag "Search", :name => nil, :class => "btn btn-primary btn-blue" %>
 							</div>
 						</div>
 					<% end %>
+				
 					<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
 								<th>Date Request</th>
 								<th>Requested Teacher</th>
-								<th>Substitute Teacher</th>
-								<th>Subject Code</th>
-								<th>Room #</th>
-								<th>Section</th>
-								<th>Type</th>
-								<th>Start Time</th>
-								<th>End Time</th>
-								<th>Schedule</th>
+								<th>Reason</th>
+								<th>Request Type</th>
 								<th>Options</th>
 							</tr>
 						</thead>
-		        		<tbody>
+				        <tbody>
 							<%= render partial: 'remind_substitute', collection: @remind_substitutes,  as: :remind_substitute %>
-		        		</tbody>
-	        </table>
-	        	<%#= paginate @remind_substitute %>
+				        </tbody>
+			        </table>
+			        <%= paginate @remind_substitutes %>
 				</div> <!-- .widget-content -->
 			   </div> <!-- .widget -->
 			</div> <!-- .widget-content -->

@@ -4,6 +4,12 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
+			<% if notice %>
+				<div class="alert alert-success">
+							<a class="close" href="javascript:;">×</a>
+							<%= notice %>
+				</div>
+			<% end %>
 			<%= form_for @schedule_file, url: import_schedules_path, 
 							method: :post, :html => {:multipart => true} do |f| %>
 				<div class="widget">

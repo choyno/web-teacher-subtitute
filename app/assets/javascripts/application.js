@@ -9,15 +9,14 @@
 //
 
 
-
+//= require main
+//= require jquery.tokeninput
+//= require jquerysearch
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
 //= require pjax
 //= require bootstrap.min
-//= require main
-//= require jquery.tokeninput
-//= require jquerysearch
 //= require_tree .
 
 $(function(){

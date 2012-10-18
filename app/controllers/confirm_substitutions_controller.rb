@@ -24,7 +24,7 @@ class ConfirmSubstitutionsController < ApplicationController
 		
 		@substitute.update_column(:status, verifyer_status)
 		
-		redirect_to confirm_substitutions_path, notice: "verify Request was successfully updated!"
+		redirect_to confirm_substitutions_path, notice: " Request was successfully updated!"
 			
 	end
 end
