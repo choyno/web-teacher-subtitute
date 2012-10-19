@@ -8,13 +8,13 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
-
-//= require main
-//= require jquery.tokeninput
-//= require jquerysearch
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require main
+//= require jquery.tokeninput
+//= require jquerysearch
+
 //= require pjax
 //= require bootstrap.min
 //= require_tree .
