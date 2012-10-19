@@ -20,12 +20,7 @@
 						<div class="search">
 							<div class="field">
 								<%= select_tag :search_by, options_for_select(
-<<<<<<< HEAD
 																["Requested Teacher", "Request Type"], params[:search_by]) %>
-=======
-																["Requested Teacher", "Substitute Teacher", 
-																 "Subject Code"], params[:search_by]) %>
->>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
 								<%= text_field_tag :search, params[:search], size: 24, :Placeholder => "Search" %>
 								<%= submit_tag "Search", :name => nil, :class => "btn btn-primary btn-blue" %>
 							</div>
