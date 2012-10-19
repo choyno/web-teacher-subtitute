@@ -689,16 +689,7 @@ body
 
 }
 
-li a .icon-white {
-     background-image: url("glyphicons-halflings.png");
-    background-position: 14px 14px;
-    background-repeat: no-repeat;
-    display: inline-block;
-    height: 14px;
-    line-height: 14px;
-    vertical-align: text-top;
-    width: 14px;
-}
+
 
 body{
     background-color:rgb(255,255,255);
@@ -1762,7 +1753,6 @@ span.current
     margin-right: 10px;
     font-size: 20px;
 }
-<<<<<<< HEAD
 
 /* Example tokeninput style #2: Facebook style */
 ul.token-input-list-facebook {
@@ -1780,21 +1770,11 @@ ul.token-input-list-facebook {
     padding: 0;
     background-color: #fff;
     list-style-type: none;
-=======
-ul.token-input-list-facebook
-{
-    background-color: none;
-    background: none;
-    border: 0 none;
->>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
 }
 
 ul.token-input-list-facebook li input {
     border: 0;
-<<<<<<< HEAD
     width: 100px;
-=======
->>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
     padding: 3px 8px;
     background-color: white;
     margin: 2px 0;
@@ -1847,11 +1827,7 @@ li.token-input-input-token-facebook {
 
 div.token-input-dropdown-facebook {
     position: absolute;
-<<<<<<< HEAD
     width: 400px;
-=======
-    
->>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
     background-color: #fff;
     overflow: hidden;
     border-left: 1px solid #ccc;
@@ -1970,9 +1946,6 @@ table.ui-datepicker-calendar {border-collapse: separate;}
 /* begin: jQuery UI Datepicker hide datepicker helper */
 #ui-datepicker-div {display:none;}
 /* end: jQuery UI Datepicker hide datepicker helper */
-<<<<<<< HEAD
-=======
-
 
 
 /*------------- FONTS --------------------------------------------------------------------------------- */
@@ -2522,4 +2495,3 @@ button.sp{
     margin-left:0 !important;
     padding-left:0;
 }
->>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
