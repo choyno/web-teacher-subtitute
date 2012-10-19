@@ -4,7 +4,30 @@
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
-		 	You have <%= @remind_counts %>  Plan Substitution Request for tomorrow!!
+			<% if current_user.user_type == 'Head'%>
+				<div class="alert alert-error" style="font-size:30px;padding:24px;text-align:center;">	
+				 	You have <%= @remind_counts %>  Plan Substitution Request for Tomorrow!!
+				 	<br style="clear:both;"/>
+				 	<br style="clear:both;"/>	
+				 	<%= link_to 'Click to View', remind_substitutes_path,:class => "btn btn-primary btn-blue", :style => "float:none;" %>
+				 	<br style="clear:both;"/>
+				</div>
+			<% else %>
+			<h3>Asian Computer Institute (ACI)</h3>
+			<div>
+				Asian Computer Institute (ACI), the precursor of Asian College of Technology (ACT), was established on September 19, 1988 in the busy street of historic Colon at the heart of the booming City of Cebu. Under the unrelenting leadership of its hands-on founder Rodrigo A. Abellanosa, the Institute blazed its way to become the primary provider of computer literacy of the corporate workforce in Cebu and nearby provinces which at the time were only starting to embrace the use of computer technology in the offices.
+				<br/><br/>
+				The school was incorporated on May 14, 1992 as Asian College of Technology, Inc., paving the way for the offering of post-secondary and collegiate courses that pioneered on hands-on oriented computer science formula.
+				<br/><br/>
+				Asian College of Technology expanded its educational programs to the south of Cebu and Cebu City with the establishment of ACT-Bulacao Campus in 1992. At present, the Campus hosts the Integrated School Division, along with the Computer Science program.
+				<br/><br/>
+				The ACT Integrated School Division (ACT-ISD) was established in 1994 to seamlessly integrate the pre-school (playgroup, nursery, and kindergarten), grade school and high school curricula in order to promote a progressive, advanced and holistic development of the child.
+				<br/><br/>
+				ACT's mission of developing highly competent and globally competitive individuals has been validated by being awarded as the Best Computer School in Metro Cebu for five years in a row: 2005, 2006, 2007, 2008 and 2009 by the National Council for Product and Service Quality.
+				<br/><br/>
+				Today, Asian College of Technology has created a beautiful addition to the panorama of the City of Cebu with the completion of its multi-million 15-storey ACT Cyber Tower at the corner of Leon Kilat and P. del Rosario Streets. It is not just a building---it is a proud monument of the status that Asian College of Technology has earned as a leading educational institution in Cebu.
+			</div>
+			<% end %>
 		</div> <!-- .widget -->	
 	</div> <!-- .grid -->			
 </div>

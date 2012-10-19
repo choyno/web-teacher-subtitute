@@ -6,9 +6,14 @@
 		<div class="grid-24">
 				<div class="well">
 				<h1><%= @confirm_substitute.teacher.fullname %></h1>
-				<h1><%= @confirm_substitute.request_full_date %></h1>
+				
+				<% if @confirm_substitute.request_at_from <=  Date.current.yesterday and
+					@confirm_substitute.request_at_to <=  Date.current.yesterday %>
+					<h1><%= @confirm_substitute.request_at_from.strftime('%m-%d-%Y') %></h1>
+				<% elsif %>
+						<h1><%= @confirm_substitute.request_full_date %></h1>
+				<% end %>
 			</div>
-			
 			<%= form_for @show_confirm_substitute, url: confirm_substitution_path(@confirm_substitute ), :method => :put do |f| %>
 				<table class="table table-bordered table-striped data-table">
 						<thead>

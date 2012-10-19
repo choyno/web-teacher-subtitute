@@ -689,7 +689,16 @@ body
 
 }
 
-
+li a .icon-white {
+     background-image: url("glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    vertical-align: text-top;
+    width: 14px;
+}
 
 body{
     background-color:rgb(255,255,255);
@@ -1753,28 +1762,15 @@ span.current
     margin-right: 10px;
     font-size: 20px;
 }
-
-/* Example tokeninput style #2: Facebook style */
-ul.token-input-list-facebook {
-    overflow: hidden; 
-    height: auto !important; 
-    height: 1%;
-    width: 400px;
-    border: 1px solid #8496ba;
-    cursor: text;
-    font-size: 12px;
-    font-family: Verdana;
-    min-height: 1px;
-    z-index: 999;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    list-style-type: none;
+ul.token-input-list-facebook
+{
+    background-color: none;
+    background: none;
+    border: 0 none;
 }
 
 ul.token-input-list-facebook li input {
     border: 0;
-    width: 100px;
     padding: 3px 8px;
     background-color: white;
     margin: 2px 0;
@@ -1827,7 +1823,7 @@ li.token-input-input-token-facebook {
 
 div.token-input-dropdown-facebook {
     position: absolute;
-    width: 400px;
+    
     background-color: #fff;
     overflow: hidden;
     border-left: 1px solid #ccc;

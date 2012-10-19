@@ -1,5 +1,12 @@
 <tr>
-	<th><%= substitution_record.created_at.strftime('%D') %></th>
+	<th>
+		<% if substitution_record.request_at_from <=  Date.current.yesterday and
+			substitution_record.request_at_to <=  Date.current.yesterday %>
+			<%= substitution_record.request_at_from.strftime('%m-%d-%Y') %>
+		<% elsif %>
+				<%= substitution_record.request_full_date %>
+		<% end %>
+	</th>
 	<th><%= substitution_record.teacher.fullname %></th>
 	<th><%= substitution_record.reason.name %></th>
 	<th>

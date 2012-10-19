@@ -7,7 +7,13 @@
 			
 			<div class="well">
 				<h1><%= @vouch_request.teacher.fullname %></h1>
-				<h1><%= @vouch_request.request_full_date %></h1>
+				
+				<% if @vouch_request.request_at_from <=  Date.current.yesterday and
+					@vouch_request.request_at_to <=  Date.current.yesterday %>
+					<h1><%= @vouch_request.request_at_from.strftime('%m-%d-%Y') %></h1>
+				<% elsif %>
+						<h1><%= @vouch_request.request_full_date %></h1>
+				<% end %>
 			</div>
 
 			<%= form_for @vouch_request, url: vouch_request_path(@vouch_request), :method => :put do |f| %>

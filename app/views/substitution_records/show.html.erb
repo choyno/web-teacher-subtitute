@@ -7,7 +7,13 @@
 			
 			<div class="well">
 				<h1><%= @substitution_record.teacher.fullname %></h1>
-				<h1><%= @substitution_record.request_full_date %></h1>
+				<% if @substitution_record.request_at_from <=  Date.current.yesterday and
+					@substitution_record.request_at_to <=  Date.current.yesterday %>
+					<h1><%= @substitution_record.request_at_from.strftime('%m-%d-%Y') %></h1>
+				<% elsif %>
+						<h1><%= @substitution_record.request_full_date %></h1>
+				<% end %>
+
 			</div>
 
 			<%= form_for @substitution_record, url: substitution_record_path(@substitution_record), :method => :put do |f| %>

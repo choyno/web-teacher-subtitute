@@ -7,7 +7,12 @@
 		<div class="grid-24">	
 			<div class="well">
 				<h1><%= @verify_request.teacher.fullname %></h1>
-				<h1><%= @verify_request.request_full_date %></h1>
+				<% if @verify_request.request_at_from <=  Date.current.yesterday and
+					@verify_request.request_at_to <=  Date.current.yesterday %>
+					<h1><%= @verify_request.request_at_from.strftime('%m-%d-%Y') %></h1>
+				<% elsif %>
+						<h1><%= @verify_request.request_full_date %></h1>
+				<% end %>
 			</div>
 			<%= form_for @verify_request, url: verify_request_path(@verify_request), :method => :put do |f| %>
 				<table class="table table-bordered table-striped data-table">
