@@ -9,7 +9,7 @@ class RequestDetailsController < ApplicationController
 		@remind_substitute = Substitute.find(params[:remind_substitute_id])
 		@detail = @remind_substitute.details.find(params[:id])
 		
-		@detail.update_column(:status, 'Void') if params[:commit] == 'Void'
+		@detail.update_column(:deleted, true) if params[:commit] == 'Void'
 		
 		@detail.update_column(:substitute_teacher_id, params[:available_teacher])
 
