@@ -19,7 +19,11 @@ WebBasedTeachersSubstitutionSystem::Application.routes.draw do
   end
   resources :confirm_substitutions
   resources :generate_reports
-  resources :remind_substitutes
+  
+  resources :remind_substitutes do
+    resources :request_details
+  end
+  
   resources :vouch_requests
   resources :verify_requests
   
