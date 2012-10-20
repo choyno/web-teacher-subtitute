@@ -11,9 +11,7 @@
 					<%= notice %>
 				</div>
 			<% end%>
-			<div class="well">
-				<h1><%= @remind_substitute.teacher.fullname %></h1>
-			
+		
 			<div class="well">
 				<h1><%= @remind_substitute.teacher.fullname %></h1>
 			
@@ -59,14 +57,15 @@
 												&nbsp;&nbsp;&nbsp;
 						<% if 
 								@remind_substitute.request_at_to <= Date.today %>
-											data: { confirm: 'Are you sure you want to Vouch this Request?' } %>
+						<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue',data: { confirm: 'Are you sure you want to Confirm this Request?' } %>
 												&nbsp;&nbsp;&nbsp;
 						<% if @remind_substitute.request_at_to == Date.current %>
->>>>>>> 7c1de44b1dfa41650c49eea9ae68c5d70be1c983
+
 						
 						<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
 											data: { confirm: 'Are you sure you want to Approved?' } %>
 											&nbsp;&nbsp;&nbsp;
+					  <% end %>
 					  <% end %>
 					</div>
 				</div>
