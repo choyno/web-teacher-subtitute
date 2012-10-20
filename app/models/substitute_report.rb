@@ -10,7 +10,7 @@ class SubstituteReport < ActiveRecord::Base
     
     results = []
 
-    teachers = self.select('DISTINCT teacher_id').where(date_applied: start_date..end_date)
+    teachers = SubstituteDetail.select('DISTINCT teacher_id').where(date_applied: start_date..end_date)
 
     Teacher.where("id IN (?)", teachers.pluck(:teacher_id)).find_each do |teacher|
       
@@ -22,7 +22,7 @@ class SubstituteReport < ActiveRecord::Base
                                     request_at: report.date_applied.strftime('%m-%d-%Y'),
                                     substituted_by: report.substitute_teacher.fullname,
                                     subject_time: report.teacher_subject.start_end_time_daycode,
-                                    total_hours: report.total_hours
+                                    total_hours: report.teacher_subject.total_hours
                                   }
         
       end
@@ -46,9 +46,9 @@ class SubstituteReport < ActiveRecord::Base
     
     results = []
 
-    teachers = self.select('DISTINCT teacher_substitute_id').where(date_applied: start_date..end_date)
+    teachers = SubstituteDetail.select('DISTINCT substitute_teacher_id').where(date_applied: start_date..end_date)
 
-    Teacher.where("id IN (?)", teachers.pluck(:teacher_substitute_id)).find_each do |teacher|
+    Teacher.where("id IN (?)", teachers.pluck(:substitute_teacher_id)).find_each do |teacher|
       
       approved_substitutes = []
       
@@ -58,7 +58,7 @@ class SubstituteReport < ActiveRecord::Base
                                     request_at: report.date_applied.strftime('%m-%d-%Y'),
                                     substituted_by: report.teacher.fullname,
                                     subject_time: report.teacher_subject.start_end_time_daycode,
-                                    total_hours: report.total_hours
+                                    total_hours: report.teacher_subject.total_hours
                                   }
         
       end

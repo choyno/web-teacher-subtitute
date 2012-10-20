@@ -49,7 +49,7 @@ class TeacherSubject < ActiveRecord::Base
   end
 
   def total_hours
-    self.time_end - self.time_start
+    (self.time_end - self.time_start) / 60 / 60
   end
   
   def fetch_available_teacher
