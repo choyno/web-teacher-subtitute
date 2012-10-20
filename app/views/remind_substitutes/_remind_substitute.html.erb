@@ -16,7 +16,7 @@
 		<% end %>
 	</th>
 	<th>
-		<% if remind_substitute.request_at_to <= Date.current %>
+		<% if remind_substitute.request_at_to < Date.today %>
 			<d style="color:green">Substitute</d>
 		<% else %>
 			<d style="color:red">On Going..</d>

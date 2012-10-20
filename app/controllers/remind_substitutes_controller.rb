@@ -2,7 +2,7 @@ class RemindSubstitutesController < ApplicationController
 
 	def index
 		#@remind_substitutes = Substitute.request_type_planned.status_is_substitute.search(params[:search_by], params[:search]).page(params[:page]).per(10)
-		@remind_substitutes = Substitute.remind_by_date.request_type_planned.status_is_needtoconfirm.search(params[:search_by], params[:search]).page(params[:page]).per(10)
+		@remind_substitutes = Substitute.remind_by_date.request_type_planned.status_is_needtoconfirm.page(params[:page]).per(10)
 		
 		@remind_counts =  Substitute.remind_by_date.request_type_planned.status_is_needtoconfirm.count
 	end

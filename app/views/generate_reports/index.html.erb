@@ -63,17 +63,27 @@
 								    padding: 8px;
 								    text-align: center;
 								    vertical-align: top;">
-								    <% if params[:generate_by] == 'Absent Teachers'%>
-								    Absent Teacher
+								    <% if params[:generate_by] != 'Absent Teachers'%>
+								    	Substitute Teacher
 								    <% else %>
-								    Substitute Teacher
+								    
+								    	Absent Teacher
 								    <% end %>
 									</th>
 							<th style=" border-top: 1px solid #DDDDDD;
 										    line-height: 18px;
 										    padding: 8px;
 										    text-align: center;
-										    vertical-align: top;">Substituted By</th>
+										    vertical-align: top;">
+
+									<% if params[:generate_by] != 'Absent Teachers'%>
+								    	Absent Teacher
+								    	
+								    <% else %>
+								   		Substituted By
+								    <% end %>
+
+								</th>
 							<th style=" border-top: 1px solid #DDDDDD;
 								    line-height: 18px;
 								    padding: 8px;
