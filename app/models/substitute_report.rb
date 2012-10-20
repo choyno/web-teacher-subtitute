@@ -10,9 +10,15 @@ class SubstituteReport < ActiveRecord::Base
     
     results = []
 
-    teachers = SubstituteDetail.select('DISTINCT teacher_id').where(date_applied: start_date..end_date)
-
-    Teacher.where("id IN (?)", teachers.pluck(:teacher_id)).find_each do |teacher|
+    teachers = SubstituteDetail.select('DISTINCT substitute_details.teacher_id')
+                               .where(date_applied: start_date..end_date)
+                               .where('substitutes.status = ?', 'Approved')
+                               .where(deleted: false)
+                               .joins(:substitute)
+                               
+    logger.debug teachers.inspect                           
+                               
+    Teacher.where("id IN (?)", teachers.collect(&:teacher_id)).find_each do |teacher|
       
       approved_substitutes = []
       
@@ -46,9 +52,13 @@ class SubstituteReport < ActiveRecord::Base
     
     results = []
 
-    teachers = SubstituteDetail.select('DISTINCT substitute_teacher_id').where(date_applied: start_date..end_date)
+    teachers = SubstituteDetail.select('DISTINCT substitute_details.substitute_teacher_id')
+                               .where(date_applied: start_date..end_date)
+                               .where('substitutes.status = ?', 'Approved')
+                               .where(deleted: false)
+                               .joins(:substitute)
 
-    Teacher.where("id IN (?)", teachers.pluck(:substitute_teacher_id)).find_each do |teacher|
+    Teacher.where("id IN (?)", teachers.collect(&:substitute_teacher_id)).find_each do |teacher|
       
       approved_substitutes = []
       
