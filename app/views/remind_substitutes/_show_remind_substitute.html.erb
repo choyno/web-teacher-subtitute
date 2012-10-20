@@ -9,16 +9,5 @@
 	<td><%= detail.teacher_subject.time_start.strftime('%l: %m %p') %></td>
 	<td><%= detail.teacher_subject.time_end.strftime('%l: %m %p') %></td>
 	<td><%= detail.teacher_subject.day_code.name%></td>
-	<td>
-		<%= link_to remind_substitutes_path do %>
-			<button class="btn btn-primary btn-blue">Void
-			</button>
-		<% end %>
-		
-		<%= link_to remind_substitutes_path do %>
-			<button class="btn btn-primary btn-blue">Edit
-			</button>
-		<% end %>
-		
-	</td>
+	
 </tr>

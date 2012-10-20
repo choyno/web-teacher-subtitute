@@ -1,7 +1,7 @@
 
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Plan Substitutes</h1>
+		<h1>Edit Plan Substitutes</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
@@ -39,28 +39,21 @@
 							</tr>
 						</thead>
 		        <tbody>
-							<%= render partial: 'show_remind_substitute', collection: @remind_substitute_details,  as: :detail %>
+							<%= render partial: 'edit_remind_substitute', collection: @edit_remind_substitute_details,  as: :detail %>
 		        </tbody>
 				</table>
 				
 				<div class="form-actions" id="final-confirmation-btn">
 					<div class="pull-right">
 					<%= link_to remind_substitutes_path do %>
-							<button class="btn btn-primary btn-blue">Back
+							<button class="btn btn-primary btn-blue">Cancel
 							</button>
 						<% end %>
 					<div class="pull-right">
 						
-						<%= f.submit 'Void All', class: 'btn btn-primary btn-blue', 
+					<%= f.submit 'Update', class: 'btn btn-primary btn-blue', 
 											data: { confirm: 'Are you sure you want to Void this Request?' } %>
 												&nbsp;&nbsp;&nbsp;
-						<% if 
-								@remind_substitute.request_at_to <= Date.today %>
-						
-						<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
-											data: { confirm: 'Are you sure you want to Approved?' } %>
-											&nbsp;&nbsp;&nbsp;
-					  <% end %>
 					</div>
 				</div>
 			<% end %>

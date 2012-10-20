@@ -84,5 +84,35 @@ class Substitute < ActiveRecord::Base
 
 
 
+  def self.plan_substitute()
+    
+     results = []
+
+     teachers = self.select('DISTINCT teacher_substitute_id').status_is_needtoconfirm
+
+     Teacher.where("id IN (?)", teachers.pluck(:teacher_substitute_id)).find_each do |teacher|
+      approved_substitutes = []
+      teacher.substitute_reports.status_is_needtoconfirm.find_each do |report|     
+      plan_substitutes << {     created_at: report.date_applied.strftime('%m-%d-%Y'),
+                                request_at: report.date_applied.strftime('%m-%d-%Y'),
+                                substituted_by: report.teacher.fullname,
+                                subject_time: report.teacher_subject.start_end_time_daycode,
+                                total_hours: report.total_hours
+                              }
+      end
+
+      if plan_substitutes.present?
+
+        results << { name: teacher.fullname, 
+                     approved_substitutes: plan_substitutes,
+                     total_hours: approved_substitutes.map{ |p| p[:total_hours] }.sum 
+                   } 
+      end
+    end
+    
+    return results
+  end
+
+
   
 end

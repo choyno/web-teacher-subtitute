@@ -14,6 +14,10 @@ class RemindSubstitutesController < ApplicationController
 	end
 
 
+	def edit
+		@remind_substitute = Substitute.find(params[:id])
+		@edit_remind_substitute_details = @remind_substitute.details
+	end
 
 	def update
 		@remind_substitute = Substitute.find(params[:id])

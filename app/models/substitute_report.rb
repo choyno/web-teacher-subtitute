@@ -69,15 +69,8 @@ class SubstituteReport < ActiveRecord::Base
                      approved_substitutes: approved_substitutes,
                      total_hours: approved_substitutes.map{ |p| p[:total_hours] }.sum 
                    } 
-
       end
-      
     end
-    
     return results
   end
-
-  
-  
-  
 end
