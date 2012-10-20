@@ -1,7 +1,7 @@
 
 <div id="content">			
 	<div id="contentHeader">
-		<h1>Edit Plan Substitutes</h1>
+		<h1>Edit Plan Substitute</h1>
 	</div> <!-- #contentHeader -->	
 	<div class="container">
 		<div class="grid-24">
@@ -35,7 +35,7 @@
 								<th>Start Time</th>
 								<th>End Time</th>
 								<th>Schedule</th>
-								<!-- <th>Options</th> -->
+								<th>Option</th>
 							</tr>
 						</thead>
 		        <tbody>
@@ -50,10 +50,11 @@
 							</button>
 						<% end %>
 					<div class="pull-right">
-						
+					
 					<%= f.submit 'Update', class: 'btn btn-primary btn-blue', 
 											data: { confirm: 'Are you sure you want to Void this Request?' } %>
 												&nbsp;&nbsp;&nbsp;
+
 					</div>
 				</div>
 			<% end %>
