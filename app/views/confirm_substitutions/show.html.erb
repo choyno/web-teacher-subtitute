@@ -14,7 +14,7 @@
 						<h1><%= @confirm_substitute.request_full_date %></h1>
 				<% end %>
 			</div>
-			<%= form_for @show_confirm_substitute, url: confirm_substitution_path(@confirm_substitute ), :method => :put do |f| %>
+			<%= form_tag confirm_substitution_path(@confirm_substitute ), :method => :put do |f| %>
 				<table class="table table-bordered table-striped data-table">
 						<thead>
 							<tr>
@@ -46,11 +46,11 @@
 						<% end %>
 					<div class="pull-right">
 						<% if @confirm_substitute.request_at_from <=  Date.current %>
-							<%= f.submit 'Void', class: 'btn btn-primary btn-blue', 
+							<%= submit_tag 'Void', class: 'btn btn-primary btn-blue', 
 												data: { confirm: 'Are you sure you want to Vouch this Request?' } %>
 													&nbsp;&nbsp;&nbsp;
 							
-							<%= f.submit 'Confirm', class: 'btn btn-primary btn-blue', 
+							<%= submit_tag 'Confirm', class: 'btn btn-primary btn-blue', 
 												data: { confirm: 'Are you sure you want to Approved?' } %>
 												&nbsp;&nbsp;&nbsp;
 						<% end %>

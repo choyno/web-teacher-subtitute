@@ -9,7 +9,7 @@ class Substitute < ActiveRecord::Base
   scope :request_type_unplanned, where( planned: false)
 
   scope :remind_by_date, where( 'request_at_to <= ?', Date.current + 1.day )
-  scope :count_remind_by_date, where( 'request_at_to <= ?', Date.current + 1.day )
+  scope :count_remind_by_date, where( 'request_at_to >= ?', Date.current + 1.day )
 
   scope :search_by_requested, lambda { | value | teachers = TeacherSubject.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
                           self.where("teacher_subject_id IN (?)", teachers.pluck(:id))}
