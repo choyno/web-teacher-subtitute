@@ -34,15 +34,15 @@
 			<h3 class="icon chart">Selected Teacher Subjects</h3>
 			
 			<table id="select-teacher-subjects-table" class="table table-bordered table-striped data-table">
-					<thead>
-						<tr>
-							<th width="50%">Subject Information</th>
-							<th>Schedule</th>
-							<th>Available Teacher</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-			</table>
+				<thead>
+					<tr>
+						<th width="50%">Subject Information</th>
+						<th>Schedule</th>
+						<th>Available Teacher</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+		</table>
 		</div>
 
 		<div class="grid-24">
@@ -73,7 +73,7 @@
 		<div class="fmenu">
 			<br style="clear:both;">
 			
-				<%= link_to 'Cancel', substitutes_path, class: 'btn btn-primary btn-blue'  %>
+				<%= link_to 'Cancel', new_substitute_path, class: 'btn btn-primary btn-blue'  %>
 				<button class="btn btn-primary btn-blue">Save</button>
 		</div>
 		
@@ -129,12 +129,12 @@
 		});
 		
 		$( ".datepicker" ).datepicker({
-														numberOfMonths: 2,
-														showButtonPanel: true,
-														changeMonth: true,
-														changeYear: true,
-														dateFormat: 'yy/mm/dd'
-													});
+											numberOfMonths: 2,
+											showButtonPanel: true,
+											changeMonth: true,
+											changeYear: true,
+											dateFormat: 'yy/mm/dd'
+										});
 		
 	})
 

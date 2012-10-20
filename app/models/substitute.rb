@@ -45,12 +45,14 @@ class Substitute < ActiveRecord::Base
   def self.search(search_by, search)
     substitution_records_scope = self.scoped({})
     case search_by
-    when 'Requested Teacher'
-         substitution_records_scope = substitution_records_scope.search_by_requested(search)
-    when 'Substitute Teacher'
-           substitution_records_scope = substitution_records_scope.search_by_substitute(search)
-    when 'Subject Code'
+
+        when 'Requested Teacher'
+             substitution_records_scope = substitution_records_scope.search_by_requested(search)
+        when 'Substitute Teacher'
+             substitution_records_scope = substitution_records_scope.search_by_substitute(search)
+        when 'Subject Code'
              substitution_records_scope = substitution_records_scope.search_by_code(search)
+
     end
 
     return substitution_records_scope
@@ -100,7 +102,7 @@ class Substitute < ActiveRecord::Base
                                 total_hours: report.total_hours
                               }
       end
-
+      
       if plan_substitutes.present?
 
         results << { name: teacher.fullname, 
