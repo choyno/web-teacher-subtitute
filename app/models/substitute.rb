@@ -71,18 +71,70 @@ class Substitute < ActiveRecord::Base
       
       self.details.where("teacher_subject_id IN (?)", teacher_scheds.pluck(:teacher_subject_id)).each do |detail|
         
-      SubstituteReport.create({ substitute_id: self.id,
-                                teacher_id: self.teacher_id,
-                                teacher_substitute_id: detail.substitute_teacher_id,
-                                teacher_subject_id: detail.teacher_subject_id,
-                                total_hours: detail.teacher_subject.total_hours / 60 / 60,
-                                date_applied: request_date
-                              })
+        SubstituteReport.create({ substitute_id: self.id,
+                                  teacher_id: self.teacher_id,
+                                  teacher_substitute_id: detail.substitute_teacher_id,
+                                  teacher_subject_id: detail.teacher_subject_id,
+                                  total_hours: detail.teacher_subject.total_hours / 60 / 60,
+                                  date_applied: request_date
+                                })
         
       end
     end
   end
-
+  
+  
+  def save_details_breakdown(teacher_schedule, subteacher)
+      # "teacher_schedule_id"=>["290", "885", "889"], 
+      # "available_teacher"=>["78", "78", "78"]
+      
+      # loop to date from and date to_a
+      array_date = (self.request_at_from..self.request_at_to).to_a
+      
+      array_date.each do |request_date|
+        
+        day = DayCode.day_name_shortcut(request_date.strftime('%a'))
+      
+        # get all teacher subject base on daycode
+        teacher_scheds = TeacherSchedule.select('DISTINCT teacher_subject_id')
+                                        .where( 'day = ? AND teacher_subject_id IN (?)', day, teacher_schedule)
+                                        .includes(:teacher_subject)
+        
+        teacher_scheds.each do |teacher_sched|
+          
+          logger.debug teacher_sched.inspect
+          
+          teacher_subject_index = teacher_schedule.index(teacher_sched.teacher_subject_id.to_s)
+          subtitute_teacher_id = subteacher[teacher_subject_index]
+          
+          if subtitute_teacher_id.present?
+          
+            self.details.create!({ date_applied: request_date,
+                                   teacher_id: teacher_sched.teacher_subject.teacher_id,
+                                   substitute_teacher_id: subtitute_teacher_id,
+                                   teacher_subject_id: teacher_sched.teacher_subject_id
+                                 })
+                                 
+          end
+          
+        end
+        
+        
+        # self.details.where("teacher_subject_id IN (?)", teacher_scheds.pluck(:teacher_subject_id)).each do |detail|
+        # 
+        #   SubstituteReport.create({ substitute_id: self.id,
+        #                             teacher_id: self.teacher_id,
+        #                             teacher_substitute_id: detail.substitute_teacher_id,
+        #                             teacher_subject_id: detail.teacher_subject_id,
+        #                             total_hours: detail.teacher_subject.total_hours / 60 / 60,
+        #                             date_applied: request_date
+        #                           })
+        # 
+        # end
+        
+      end
+  end
+  
 
 
 

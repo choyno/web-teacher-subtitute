@@ -9,8 +9,7 @@ class RemindSubstitutesController < ApplicationController
 
 	def show
 		@remind_substitute = Substitute.find(params[:id])	
-		@remind_substitute_details = @remind_substitute.details
-		
+		@remind_substitute_details = @remind_substitute.details.order('date_applied ASC')
 	end
 
 

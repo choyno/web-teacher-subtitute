@@ -37,24 +37,13 @@ class SubstitutesController < ApplicationController
     end
     
     if @substitute.save
-    
-      params[:teacher_schedule_id].each_with_index do |teacher_schedule, index|
-        # save those details
-        sub_teacher = params[:available_teacher][index]
-      
-        if sub_teacher.present?
-          @substitute.details.create!({ teacher_subject_id: teacher_schedule, substitute_teacher_id: sub_teacher  })
-        end
-      
-      end
+      @substitute.save_details_breakdown(params[:teacher_schedule_id], params[:available_teacher])
     else
       logger.debug @substitute.errors.inspect
     end
     
-    
     redirect_to confirm_substitutions_path, :notice => "Successfully Requested"
-    
-    
+  
   end
 
   def edit
