@@ -6,16 +6,14 @@ class RequestDetailsController < ApplicationController
   end
   
   def update
-		@remind_substitute = Substitute.find(params[:remin_substitute_id])
-		@update_details = @remind_substitute.details.find(params[:id])
+		@remind_substitute = Substitute.find(params[:remind_substitute_id])
+		@detail = @remind_substitute.details.find(params[:id])
+		
+		@detail.update_column(:status, 'Void') if params[:commit] == 'Void'
+		
+		@detail.update_column(:substitute_teacher_id, params[:available_teacher])
 
-
-		need_to_verify = if params[:commit] == 'Confirm'; 'Pending Substitute'
-						 else; 'Void'; end
-
-		@update_details.update_column(:status,need_to_verify)
-
-		redirect_to remind_substitutes_path, notice: "Request was successfully Updated"
+		redirect_to remind_substitute_path(@remind_substitute), notice: "Request was successfully Updated"
 	end
 
 end

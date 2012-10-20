@@ -42,11 +42,9 @@
 			
 						<tr >
 							<td>		
-								<%= hidden_field_tag 'teacher_schedule_id[]', @detail.teacher_subject.id %>
-								<%= select_tag "available_teacher[]", 
+								<%= hidden_field_tag 'teacher_schedule_id', @detail.teacher_subject.id %>
+								<%= select_tag "available_teacher", 
 												options_from_collection_for_select(@detail.teacher_subject.fetch_available_teacher, :id , :fullname, @detail.substitute_teacher_id.to_s)%>
-
-
 							</td>
 							<td><%= @detail.substitute.request_full_date %></td>
 							<td><%= @detail.teacher_subject.subject.code %></td>
@@ -73,8 +71,7 @@
 						<% end %>
 					<div class="pull-right">
 
-					<%= submit_tag 'Update', class: 'btn btn-primary btn-blue', 
-											data: { confirm: 'Are you sure you want to Void this Request?' } %>
+					<%= submit_tag 'Update', class: 'btn btn-primary btn-blue' %>
 												&nbsp;&nbsp;&nbsp;
 
 					</div>
