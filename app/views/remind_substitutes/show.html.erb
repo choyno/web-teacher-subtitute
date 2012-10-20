@@ -35,6 +35,7 @@
 								<th>Start Time</th>
 								<th>End Time</th>
 								<th>Schedule</th>
+								<th>Option</th>
 								<!-- <th>Options</th> -->
 							</tr>
 						</thead>
@@ -51,7 +52,7 @@
 						<% end %>
 					<div class="pull-right">
 						
-						<%= f.submit 'Void', class: 'btn btn-primary btn-blue', 
+						<%= f.submit 'Void All', class: 'btn btn-primary btn-blue', 
 											data: { confirm: 'Are you sure you want to Void this Request?' } %>
 												&nbsp;&nbsp;&nbsp;
 						<% if 
