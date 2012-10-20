@@ -1,10 +1,7 @@
 
 <tr >
 	<td>
-		<%= hidden_field_tag 'teacher_schedule_id[]', subject.id %>
-		<%= select_tag "available_teacher[]", 
-						options_from_collection_for_select(subject.fetch_available_teacher, :id , :fullname),
-						prompt: 'Select a Teacher', class: 'available-teacher-options' %>
+	
 	</td>
 	<td><%= detail.substitute.request_full_date %></td>
 	<td><%= detail.teacher_subject.subject.code %></td>
