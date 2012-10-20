@@ -15,7 +15,7 @@ class RemindSubstitutesController < ApplicationController
 
 	def edit
 		@remind_substitute = Substitute.find(params[:id])
-		@edit_remind_substitute_details = @remind_substitute.details
+		@edit_remind_substitute_details = @remind_substitute.details.order('date_applied ASC')
 	end
 
 	def update
