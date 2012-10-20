@@ -16,11 +16,20 @@
 		<% end %>
 	</th>
 	<th>
-		<% if remind_substitute.request_at_to <= Date.current %>
+		<% if remind_substitute.request_at_to <= Date.today %>
+			<d style="color:green">Substitute</d>
+		<% elsif remind_substitute.request_at_from <= Date.today + 1.day   %>
+			<d style="color:red">On Going..</d>
+		<% elsif remind_substitute.request_at_from <= Date.today + 1.day and remind_substitute.request_at_to <= Date.today   %>
+			<d style="color:red">On Going..</d>
 			<d style="color:green">Substitute</d>
 		<% else %>
-			<d style="color:red">On Going..</d>
+				waiting
 		<% end %>
+		<%= link_to edit_remind_substitute_path(remind_substitute) do %>
+			<button class="btn btn-primary btn-blue">Edit</button>
+		<% end %>
+		
 		<%= link_to 'Show', remind_substitute_path(remind_substitute), method: :get , :class => "btn btn-primary btn-blue" %>
 	 
 	</th>

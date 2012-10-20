@@ -9,7 +9,7 @@ class Substitute < ActiveRecord::Base
   scope :request_type_unplanned, where( planned: false)
 
   scope :remind_by_date, where( 'request_at_to <= ?', Date.current + 1.day )
-  scope :count_remind_by_date, where( 'request_at_to = ?', Date.current + 1.day )
+  scope :count_remind_by_date, where( 'request_at_from <= ?', Date.current + 1.day )
 
   scope :search_by_requested, lambda { | value | teachers = TeacherSubject.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
                           self.where("teacher_subject_id IN (?)", teachers.pluck(:id))}
@@ -51,8 +51,6 @@ class Substitute < ActiveRecord::Base
            substitution_records_scope = substitution_records_scope.search_by_substitute(search)
     when 'Subject Code'
              substitution_records_scope = substitution_records_scope.search_by_code(search)
-    when 'Request Teacher'
-            substitution_records_scope = substitution_records_scope.request_type_unplanned(search)
     end
 
     return substitution_records_scope
@@ -84,6 +82,36 @@ class Substitute < ActiveRecord::Base
   end
 
 
+
+
+  def self.plan_substitute()
+    
+     results = []
+
+     teachers = self.select('DISTINCT teacher_substitute_id').status_is_needtoconfirm
+
+     Teacher.where("id IN (?)", teachers.pluck(:teacher_substitute_id)).find_each do |teacher|
+      approved_substitutes = []
+      teacher.substitute_reports.status_is_needtoconfirm.find_each do |report|     
+      plan_substitutes << {     created_at: report.date_applied.strftime('%m-%d-%Y'),
+                                request_at: report.date_applied.strftime('%m-%d-%Y'),
+                                substituted_by: report.teacher.fullname,
+                                subject_time: report.teacher_subject.start_end_time_daycode,
+                                total_hours: report.total_hours
+                              }
+      end
+
+      if plan_substitutes.present?
+
+        results << { name: teacher.fullname, 
+                     approved_substitutes: plan_substitutes,
+                     total_hours: approved_substitutes.map{ |p| p[:total_hours] }.sum 
+                   } 
+      end
+    end
+    
+    return results
+  end
 
 
   
