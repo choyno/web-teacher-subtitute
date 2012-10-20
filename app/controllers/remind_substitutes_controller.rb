@@ -21,7 +21,7 @@ class RemindSubstitutesController < ApplicationController
 	def update
 		@remind_substitute = Substitute.find(params[:id])
 
-		need_to_verify = if params[:commit] == 'Confirm'; 'Pending Substitute'
+		need_to_verify = if params[:commit] == 'Confirm All'; 'Pending Substitute'
 						 else; 'Void'; end
 
 		@remind_substitute.update_column(:status,need_to_verify)
