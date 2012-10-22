@@ -2495,3 +2495,10 @@ button.sp{
     margin-left:0 !important;
     padding-left:0;
 }
+
+.hiddenDiv {
+    display: none;
+    }
+.visibleDiv {
+    display: block;
+    }

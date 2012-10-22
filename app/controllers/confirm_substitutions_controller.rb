@@ -1,9 +1,18 @@
 class ConfirmSubstitutionsController < ApplicationController
  def index
-		@confirm_substitutes = Substitute.status_is_pendingsub
+		
+		if params[:request_type_by] == 'Plan'
+			
+			@confirm_substitutes = Substitute.status_is_pendingsub.request_type_planned
+		                           .search(params[:search_by],params[:search]).page(params[:page]).per(10)
+		elsif params[:request_type_by] == 'Unplan'
+			@confirm_substitutes = Substitute.status_is_pendingsub.request_type_unplanned
+		                           .search(params[:search_by],params[:search]).page(params[:page]).per(10)
+		else
+			@confirm_substitutes = Substitute.status_is_pendingsub 
 		                           .search(params[:search_by],params[:search]).page(params[:page]).per(10)
 		
-		
+		end    
 	end
 
 	def show

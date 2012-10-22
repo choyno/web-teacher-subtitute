@@ -3,6 +3,8 @@ class SubstitutesController < ApplicationController
   def index
 
     @substitutes = Substitute.request_type_planned.status_is_substitute.search(params[:search_by],params[:search]).page(params[:page]).per(10)
+  
+
    end
   
   def show
@@ -37,7 +39,7 @@ class SubstitutesController < ApplicationController
     end
     
     if @substitute.save
-      @substitute.save_details_breakdown(params[:teacher_schedule_id], params[:available_teacher])
+        @substitute.save_details_breakdown(params[:teacher_schedule_id], params[:available_teacher])
     else
       logger.debug @substitute.errors.inspect
     end

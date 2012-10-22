@@ -1,8 +1,18 @@
 class VouchRequestsController < ApplicationController
 
 	def index
-		@vouch_requests = Substitute.status_is_vouch
+			if params[:request_by_type] == 'Plan'
+				@vouch_requests = Substitute.status_is_vouch.request_type_planned
 		                            .search(params[:search_by], params[:search]).page(params[:page]).per(10)
+			
+			elsif params[:generate_by_type] == 'Unplan'
+				@vouch_requests = Substitute.status_is_vouch.request_type_unplanned
+		                            .search(params[:search_by], params[:search]).page(params[:page]).per(10)
+			
+			else
+				@vouch_requests = Substitute.status_is_vouch
+		                            .search(params[:search_by], params[:search]).page(params[:page]).per(10)
+			end	
 	end
 
 	def show

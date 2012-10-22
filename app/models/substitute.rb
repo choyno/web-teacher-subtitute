@@ -11,8 +11,8 @@ class Substitute < ActiveRecord::Base
   scope :remind_by_date, where( 'request_at_to <= ?', Date.current + 1.day )
   scope :count_remind_by_date, where( 'request_at_to >= ?', Date.current + 1.day )
 
-  scope :search_by_requested, lambda { | value | teachers = TeacherSubject.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
-                          self.where("teacher_subject_id IN (?)", teachers.pluck(:id))}
+  scope :search_by_requested, lambda { | value | teachers = Teacher.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
+                          self.where("teacher_id IN (?)", teachers.pluck(:id))}
 
   scope :search_by_substitute, lambda { | value | subs = Teacher.select('id').where("CONCAT(firstname, lastname) like ? ", "%#{value}%" )
                           self.where("substitute_teacher_id IN (?)", subs.pluck(:id))}
@@ -48,11 +48,7 @@ class Substitute < ActiveRecord::Base
 
         when 'Requested Teacher'
              substitution_records_scope = substitution_records_scope.search_by_requested(search)
-        when 'Substitute Teacher'
-             substitution_records_scope = substitution_records_scope.search_by_substitute(search)
-        when 'Subject Code'
-             substitution_records_scope = substitution_records_scope.search_by_code(search)
-
+       
     end
 
     return substitution_records_scope
