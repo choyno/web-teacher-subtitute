@@ -22,10 +22,11 @@ class SubstitutesController < ApplicationController
     #   "available_teacher"=>["78", "", "", "", "", "", "", "", "", "", "", "", ""], "reason"=>"1", 
     #   "notes"=>"", "request_at_from"=>"10/15/2012", "request_at_to"=>"10/19/2012" }
     
+    request_at_from = params[:request_at_from]
+    request_at_to = params[:request_at_to].present? ? params[:request_at_to] : request_at_from
     
-        
-    @substitute = Substitute.new({ request_at_from: params[:request_at_from],
-                                   request_at_to: params[:request_at_to],
+    @substitute = Substitute.new({ request_at_from: request_at_from,
+                                   request_at_to: request_at_to,
                                    planned: params[:planned],
                                    reason_id: params[:reason],
                                    teacher_id: params[:absent_teacher],

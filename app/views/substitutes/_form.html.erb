@@ -63,8 +63,8 @@
 					<%= text_field_tag :request_at_from, nil, class: 'datepicker' %>
 				</div>
 
-				<div class="field">
-					<label>End Request Date:</label>
+				<div class="field request_at_to" style="display:none">
+					<label class="request_at_to">End Request Date:</label>
 					<%= text_field_tag :request_at_to, nil, class: 'datepicker' %>
 				</div>
 			</div>
@@ -86,6 +86,18 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		
+		var request_type = 'unplan';
+		
+		$('#planned').change(function(){
+			if($(this).val() == 'false'){
+				request_type = 'unplan';
+				$('.request_at_to').hide();
+			}else{
+				request_type = 'plan';
+				$('.request_at_to').show();
+			}
+		})
+		
 		$("form").submit(function() {
 			 // check if form has all the required field
 			var proceed = true;
@@ -99,10 +111,22 @@
 				proceed = false;
 			}
 			
-			if($('#request_at_from').val() == '' || $('#request_at_to').val() == ''){
-				$('.alert').append("Please fill up request date from and to <br />");
-				proceed = false;
+			if(request_type == 'plan'){
+				
+				if($('#request_at_from').val() == '' || $('#request_at_to').val() == ''){
+					$('.alert').append("Please fill up request date from and to <br />");
+					proceed = false;
+				}
+				
+			}else{
+				
+				if($('#request_at_from').val() == ''){
+					$('.alert').append("Please fill up request date from<br />");
+					proceed = false;
+				}
+				
 			}
+			
 			
 			// check each select box if not empty
 			if($('.available-teacher-options')){
